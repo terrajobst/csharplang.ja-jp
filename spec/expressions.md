@@ -125,12 +125,12 @@ Console.WriteLine(d);  // dynamic binding to Console.WriteLine(int)
 | [関係演算子と型検査演算子](expressions.md#relational-and-type-testing-operators) | 等価比較                    | `==`  `!=`    | 
 | [論理演算子](expressions.md#logical-operators)                                         | 論理 AND                 | `&`           | 
 | [論理演算子](expressions.md#logical-operators)                                         | 論理 XOR                 | `^`           | 
-| [論理演算子](expressions.md#logical-operators)                                         | 論理 OR                  | `|`           |
+| [論理演算子](expressions.md#logical-operators)                                         | 論理 OR                  | <code>&#124;</code>           |
 | [条件論理演算子](expressions.md#conditional-logical-operators)                 | 条件 AND             | `&&`          | 
-| [条件論理演算子](expressions.md#conditional-logical-operators)                 | 条件 OR              | `||`          | 
+| [条件論理演算子](expressions.md#conditional-logical-operators)                 | 条件 OR              | <code>&#124;&#124;</code>          | 
 | [null 合体演算子](expressions.md#the-null-coalescing-operator)                   | Null 合体演算子             | `??`          | 
 | [条件演算子](expressions.md#conditional-operator)                                   | 条件                 | `?:`          | 
-| [代入演算子](expressions.md#assignment-operators)、[匿名関数式](expressions.md#anonymous-function-expressions)  | 代入式とラムダ式 | `=`  `*=`  `/=`  `%=`  `+=`  `-=`  `<<=`  `>>=`  `&=`  `^=`  `|=`  `=>` | 
+| [代入演算子](expressions.md#assignment-operators)、[匿名関数式](expressions.md#anonymous-function-expressions)  | 代入式とラムダ式 | `=`  `*=`  `/=`  `%=`  `+=`  `-=`  `<<=`  `>>=`  `&=`  `^=`  <code>&#124;=</code>  `=>` | 
 
 優先順位が同じ 2 つの演算子のオペランドが発生したときに、演算子の結合規則操作が実行される順序を制御します。
 
@@ -3503,7 +3503,7 @@ bool? operator |(bool? x, bool? y);
 
 次の表に、これらの演算子、値のすべての組み合わせによって生成される結果`true`、 `false`、および`null`します。
 
-| `x`     | `y`     | `x & y` | ' x | y' |
+| `x`     | `y`     | `x & y` | <code>x &#124; y</code> |
 |:-------:|:-------:|:-------:|:-------:|
 | `true`  | `true`  | `true`  | `true`  | 
 | `true`  | `false` | `false` | `true`  | 
