@@ -276,7 +276,7 @@ Unsafe コンテキストでは、いくつかの構成要素はポインター�
 
 ## <a name="fixed-and-moveable-variables"></a>固定と移動可能変数
 
-Address-of 演算子 ([address-of 演算子](unsafe-code.md#the-address-of-operator)) および`fixed`ステートメント ([fixed ステートメント](unsafe-code.md#the-fixed-statement)) 2 つのカテゴリ変数に分割: ***の変数を固定***と***移動可能変数***します。
+Address-of 演算子 ([address-of 演算子](unsafe-code.md#the-address-of-operator)) および`fixed`ステートメント ([fixed ステートメント](unsafe-code.md#the-fixed-statement)) 変数を 2 つのカテゴリに分割します。***変数を固定***と***移動可能変数***します。
 
 固定変数は、ガベージ コレクターの操作によって影響を受けません記憶域の場所に存在します。 (固定変数の例は、ローカル変数、パラメーターの値、およびポインターの逆参照によって作成された変数含まれます)。その一方で、移動可能な変数は、再配置やガベージ コレクターによって破棄対象である記憶域の場所に存在します。 (移動可能な変数の例に、オブジェクトと配列の要素にあるフィールドが含める)。
 

@@ -821,7 +821,7 @@ public void Log(
 
 ## <a name="attributes-for-interoperation"></a>相互運用の属性
 
-注: このセクションでは、c# の Microsoft .NET の実装にのみ適用されます。
+メモ:このセクションでは、c# の Microsoft .NET の実装にのみ適用されます。
 
 ### <a name="interoperation-with-com-and-win32-components"></a>COM および Win32 コンポーネントとの相互運用
 

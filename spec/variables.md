@@ -14,13 +14,13 @@ C# 7 つのカテゴリの変数を定義します。 静的変数、インス�
 ```csharp
 class A
 {
-public static int x;
-int y;
+    public static int x;
+    int y;
 
-void F(int[] v, int a, ref int b, out int c) {
-int i = 1;
-c = a + b++;
-}
+    void F(int[] v, int a, ref int b, out int c) {
+        int i = 1;
+        c = a + b++;
+    }
 }
 ```
 `x` 静的変数、`y`インスタンス変数は、`v[0]`配列要素である`a`値パラメーターでは、`b`参照パラメーターは、`c`は出力パラメーターと`i`はローカル変数です。
@@ -272,11 +272,11 @@ for ( for_initializer ; for_condition ; for_iterator ) embedded_statement
 ステートメントが記述された場合とが行われます。
 ```csharp
 {
-for_initializer ;
-while ( for_condition ) {
-embedded_statement ;
-for_iterator ;
-}
+    for_initializer ;
+    while ( for_condition ) {
+        embedded_statement ;
+        for_iterator ;
+    }
 }
 ```
 
@@ -358,10 +358,10 @@ finally *finally_block*
 場合、ステートメントが同じように行われますが、 `try` - `finally`ステートメントを囲む、 `try` - `catch`ステートメント。
 ```csharp
 try {
-try try_block
-catch(...) catch_block_1
-...
-catch(...) catch_block_n
+    try try_block
+    catch(...) catch_block_1
+    ...
+    catch(...) catch_block_n
 }
 finally finally_block
 ```
@@ -370,31 +370,31 @@ finally finally_block
 ```csharp
 class A
 {
-static void F() {
-int i, j;
-try {
-goto LABEL;
-// neither i nor j definitely assigned
-i = 1;
-// i definitely assigned
-}
+    static void F() {
+        int i, j;
+        try {
+            goto LABEL;
+            // neither i nor j definitely assigned
+            i = 1;
+            // i definitely assigned
+        }
 
-catch {
-// neither i nor j definitely assigned
-i = 3;
-// i definitely assigned
-}
+        catch {
+            // neither i nor j definitely assigned
+            i = 3;
+            // i definitely assigned
+        }
 
-finally {
-// neither i nor j definitely assigned
-j = 5;
-// j definitely assigned
-}
-// i and j definitely assigned
-LABEL:;
-// j definitely assigned
+        finally {
+            // neither i nor j definitely assigned
+            j = 5;
+            // j definitely assigned
+            }
+        // i and j definitely assigned
+        LABEL:;
+        // j definitely assigned
 
-}
+    }
 }
 ```
 

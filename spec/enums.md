@@ -194,6 +194,6 @@ enum Circular
 
 列挙型のメンバー、列挙型の型である (その他の列挙型メンバーの初期化子内を除く: を参照してください[列挙型メンバー](enums.md#enum-members))。 列挙型のメンバーの値が列挙型で宣言された`E`関連付けられている値を持つ`v`は`(E)v`します。
 
-列挙型の値では、次の演算子を使用できます: `==`、 `!=`、 `<`、 `>`、 `<=`、 `>=` ([列挙型の比較演算子](expressions.md#enumeration-comparison-operators))、バイナリ`+`([加算演算子](expressions.md#addition-operator))、バイナリ`-`([減算演算子](expressions.md#subtraction-operator))、 `^`、 `&`、 `|` ([論理列挙型演算子](expressions.md#enumeration-logical-operators))、 `~` ([ビットごとの補数演算子](expressions.md#bitwise-complement-operator))、`++`と`--`([置インクリメント演算子と前置デクリメント演算子](expressions.md#postfix-increment-and-decrement-operators)と[前置インクリメントとデクリメント演算子](expressions.md#prefix-increment-and-decrement-operators))。
+列挙型の値では、次の演算子を使用できます: `==`、 `!=`、 `<`、 `>`、 `<=`、 `>=`  ([列挙型の比較演算子](expressions.md#enumeration-comparison-operators))、バイナリ`+`  ([加算演算子](expressions.md#addition-operator))、バイナリ`-`  ([減算演算子](expressions.md#subtraction-operator))、 `^`、 `&`、 `|`  ([列挙体の論理演算子](expressions.md#enumeration-logical-operators))、 `~`  ([ビットごとの補数演算子](expressions.md#bitwise-complement-operator))、`++`と`--` ([置インクリメント演算子と前置デクリメント演算子](expressions.md#postfix-increment-and-decrement-operators)と[前置インクリメントとデクリメント演算子](expressions.md#prefix-increment-and-decrement-operators))。
 
 すべての列挙型が自動的にクラスから派生`System.Enum`(さらから派生するには、`System.ValueType`と`object`)。 したがって、このクラスの継承されたメソッドとプロパティは、列挙型の値で使用できます。
