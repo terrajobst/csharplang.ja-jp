@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 9c3863c9a139f5b8309fca6e0c099d0fae7677c3
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "47229881"
+---
 # <a name="namespaces"></a>名前空間
 
 C# プログラムの名前空間を使用して構成します。 名前空間は、"external"組織のシステムおよびプログラムは、「内部」組織システムとして使用されます-その他のプログラムに公開されているプログラム要素を表すため。
@@ -20,7 +28,7 @@ C# プログラムは 1 つまたは複数のコンパイル単位で、別の�
 
 *Global_attributes* ([属性](attributes.md)) コンパイル単位のターゲット アセンブリとモジュール属性の指定を許可します。 アセンブリとモジュールは、型の物理的なコンテナーとして機能します。 いくつかの物理的に独立したモジュールのアセンブリがあります。
 
-*Namespace_member_declaration*プログラムのコンパイル単位ごとの s がグローバル名前空間と呼ばれる 1 つの宣言領域にメンバーを投稿します。 例えば:
+*Namespace_member_declaration*プログラムのコンパイル単位ごとの s がグローバル名前空間と呼ばれる 1 つの宣言領域にメンバーを投稿します。 例:
 
 ファイル`A.cs`:
 ```csharp
@@ -157,7 +165,7 @@ using_alias_directive
     ;
 ```
 
-メンバー宣言が含まれるコンパイル単位または名前空間本文内で、 *using_alias_directive*で導入された識別子、 *using_alias_directive*使用できる参照を特定名前空間または型。 例えば:
+メンバー宣言が含まれるコンパイル単位または名前空間本文内で、 *using_alias_directive*で導入された識別子、 *using_alias_directive*使用できる参照を特定名前空間または型。 例:
 ```csharp
 namespace N1.N2
 {
@@ -182,7 +190,7 @@ namespace N3
 }
 ```
 
-*識別子*の*using_alias_directive*コンパイル単位またはすぐに含む名前空間の宣言領域内で一意である必要があります、 *using_alias_directive*. 例えば:
+*識別子*の*using_alias_directive*コンパイル単位またはすぐに含む名前空間の宣言領域内で一意である必要があります、 *using_alias_directive*. 例:
 ```csharp
 namespace N3
 {
@@ -280,7 +288,7 @@ namespace N3
 ```
 名前`N1.N2.A`、 `R1.N2.A`、および`R2.A`の完全修飾名がクラスを同等とすべて参照`N1.N2.A`します。
 
-別名を使用して構築されたクローズ型の名前をことができますが、型引数を指定せずに、バインドされていないジェネリック型の宣言の名前をことはできません。 例えば:
+別名を使用して構築されたクローズ型の名前をことができますが、型引数を指定せずに、バインドされていないジェネリック型の宣言の名前をことはできません。 例:
 ```csharp
 namespace N1
 {
@@ -312,7 +320,7 @@ using_namespace_directive
     ;
 ```
 
-メンバー宣言が含まれるコンパイル単位または名前空間本文内で、 *using_namespace_directive*、指定した名前空間に含まれる型を直接参照できます。 例えば:
+メンバー宣言が含まれるコンパイル単位または名前空間本文内で、 *using_namespace_directive*、指定した名前空間に含まれる型を直接参照できます。 例:
 ```csharp
 namespace N1.N2
 {
@@ -345,7 +353,7 @@ namespace N3
 ```
 *using_namespace_directive*に含まれている型をインポート`N1`で入れ子になった名前空間ではありませんが、`N1`します。 参照をそのため、`N2.A`の宣言で`B`メンバーが指定されていないため、コンパイル時エラー結果`N2`スコープ内にあります。
 
-異なり、 *using_alias_directive*、 *using_namespace_directive*の識別子が外側のコンパイル単位または名前空間の本文内で既に定義されている型をインポートすることがあります。 によって名前が実際には、インポート、 *using_namespace_directive*外側のコンパイル単位または名前空間の本体で似た名前のメンバーでは表示されません。 例えば:
+異なり、 *using_alias_directive*、 *using_namespace_directive*の識別子が外側のコンパイル単位または名前空間の本文内で既に定義されている型をインポートすることがあります。 によって名前が実際には、インポート、 *using_namespace_directive*外側のコンパイル単位または名前空間の本体で似た名前のメンバーでは表示されません。 例:
 ```csharp
 namespace N1.N2
 {
@@ -385,7 +393,7 @@ namespace N3
     class B: A {}                // Error, A is ambiguous
 }
 ```
-両方`N1`と`N2`、メンバーを含んで`A`、ため`N3`を参照する、両方をインポート`A`で`N3`はコンパイル時エラーです。 このような状況で、競合はへの参照の修飾を使用するか解決できる`A`、または導入することで、 *using_alias_directive*特定を取得する`A`します。 例えば:
+両方`N1`と`N2`、メンバーを含んで`A`、ため`N3`を参照する、両方をインポート`A`で`N3`はコンパイル時エラーです。 このような状況で、競合はへの参照の修飾を使用するか解決できる`A`、または導入することで、 *using_alias_directive*特定を取得する`A`します。 例:
 ```csharp
 namespace N3
 {
@@ -442,7 +450,7 @@ using_static_directive
     ;
 ```
 
-メンバー宣言が含まれるコンパイル単位または名前空間本文内で、 *using_static_directive*型と静的メンバー (拡張メソッド) を除くの宣言に直接含まれている、アクセス可能な入れ子にします指定した型を直接参照できます。 例えば:
+メンバー宣言が含まれるコンパイル単位または名前空間本文内で、 *using_static_directive*型と静的メンバー (拡張メソッド) を除くの宣言に直接含まれている、アクセス可能な入れ子にします指定した型を直接参照できます。 例:
 
 ```csharp
 namespace N1

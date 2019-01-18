@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 75fcd5b00ea5cac218a9f7809c53b179df97825c
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "47229798"
+---
 # <a name="exceptions"></a>例外
 
 C# での例外システム レベルとアプリケーション レベルの両方を処理する構造化、統一された、およびタイプ セーフな方法を使用するエラー条件。 C# の例外処理機構は、いくつかの重要な相違点、C に非常に似ています。

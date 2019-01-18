@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: b7bb7dd575d9e2e6d5dd85bdd3e535411e29fcf4
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "47229745"
+---
 # <a name="variables"></a>変数
 
 変数は、記憶域の場所を表します。 すべての変数ができる値を指定する型の変数に格納します。 C# は、タイプ セーフな言語と c# コンパイラでは、変数に格納されている値は常に適切な型のことが保証されます。 割り当てまたはを使用して変数の値を変更できる、`++`と`--`演算子。

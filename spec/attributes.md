@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: a8ad8a8b3eda1d00fa745bd92e4371eacc36b79f
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "47229737"
+---
 # <a name="attributes"></a>属性
 
 C# 言語の多くは、プログラマは、プログラムで定義されたエンティティの宣言型の情報を指定できます。 修飾して、クラスのメソッドのアクセシビリティを指定するなど、 *method_modifier*s `public`、 `protected`、 `internal`、および`private`します。
@@ -361,7 +369,7 @@ public class Class1 {}
    * `System.Type` オブジェクト。
    * 1 次元配列*attribute_argument_expression*秒。
 
-例えば:
+例:
 
 ```csharp
 using System;
@@ -750,7 +758,7 @@ class Test
 
 オプションのパラメーターは、呼び出し元情報属性のいずれかで注釈が付け、呼び出しに対応する引数を省略することは必ずしも代わりに使用する既定のパラメーター値。 代わりに、指定した呼び出し元のコンテキストに関する情報を使用できる場合、その情報は、引数の値として渡されます。
 
-例えば:
+例:
 
 ```csharp
 using System.Runtime.CompilerServices

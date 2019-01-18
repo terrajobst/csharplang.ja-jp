@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 1c3d05674f8f7b69e70e0d9e06021537fc45f7ed
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "47229806"
+---
 # <a name="basic-concepts"></a>基本的な概念
 
 ## <a name="application-startup"></a>アプリケーションの起動

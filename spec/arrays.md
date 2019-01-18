@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 155c1beecddfdfcce2e7948bcb8d6b80428fbd7a
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "47229785"
+---
 # <a name="arrays"></a>配列
 
 配列は、さまざまな算出されたインデックスを介してアクセスする変数を含むデータ構造です。 配列の要素とも呼ばれます。 配列に含まれる変数はすべて、同じ型と、この型には、配列の要素の型が呼び出されます。
@@ -51,7 +59,7 @@ A *non_array_type*は any*型*いない自体は、 *array_type*します。
 
 ### <a name="arrays-and-the-generic-ilist-interface"></a>配列とジェネリックの IList インターフェイス
 
-1 次元配列`T[]`インターフェイスを実装する`System.Collections.Generic.IList<T>`(`IList<T>`略して) とその基本インターフェイスです。 したがってからの暗黙的な変換がある`T[]`に`IList<T>`とその基本インターフェイスです。 さらからの暗黙的な参照変換がある場合`S`に`T`し`S[]`実装`IList<T>`から暗黙の参照変換があると`S[]`に`IList<T>`およびその基本インターフェイス ([暗黙の参照変換](conversions.md#implicit-reference-conversions))。 明示的な参照変換がある場合`S`に`T`からの明示的な参照変換は`S[]`に`IList<T>`とその基本インターフェイス ([明示的な参照変換](conversions.md#explicit-reference-conversions)). 例えば:
+1 次元配列`T[]`インターフェイスを実装する`System.Collections.Generic.IList<T>`(`IList<T>`略して) とその基本インターフェイスです。 したがってからの暗黙的な変換がある`T[]`に`IList<T>`とその基本インターフェイスです。 さらからの暗黙的な参照変換がある場合`S`に`T`し`S[]`実装`IList<T>`から暗黙の参照変換があると`S[]`に`IList<T>`およびその基本インターフェイス ([暗黙の参照変換](conversions.md#implicit-reference-conversions))。 明示的な参照変換がある場合`S`に`T`からの明示的な参照変換は`S[]`に`IList<T>`とその基本インターフェイス ([明示的な参照変換](conversions.md#explicit-reference-conversions)). 例:
 ```csharp
 using System.Collections.Generic;
 
@@ -103,7 +111,7 @@ class Test
 
 任意の 2 つの*reference_type*s`A`と`B`暗黙の参照変換の場合は、([暗黙の参照変換](conversions.md#implicit-reference-conversions)) または明示的な参照変換 ([明示的な参照変換](conversions.md#explicit-reference-conversions)) から存在する`A`に`B`、配列型から、同じ変換が存在し、`A[R]`配列型に`B[R]`ここで、`R`は any指定された*rank_specifier* (ただし、配列の両方で同じ型)。 このリレーションシップと呼ばれる***配列の共変性***します。 配列の共変性であることを意味、配列型の値を`A[R]`実際には、配列型のインスタンスへの参照があります`B[R]`から暗黙の参照変換が存在する限り、`B`に`A`します。
 
-参照型の配列の要素への代入には、配列の共変性によりにより許可されている型の配列の要素に割り当てられている値が実際には、実行時チェックが含まれます ([単純な代入](expressions.md#simple-assignment))。 例えば:
+参照型の配列の要素への代入には、配列の共変性によりにより許可されている型の配列の要素に割り当てられている値が実際には、実行時チェックが含まれます ([単純な代入](expressions.md#simple-assignment))。 例:
 ```csharp
 class Test
 {

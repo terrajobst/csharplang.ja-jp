@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: c3b716e6eb331be2ee33fffeb42c1e2406cd3a5c
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "47229814"
+---
 # <a name="enums"></a>列挙体
 
 ***列挙型***は個別の値の型です ([値の型](types.md#value-types)) 一連の名前付き定数を宣言します。

@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 61eeae6173eaa19f9cf6d6e985f3dc107d4c3ac9
+ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.translationtype: MT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "50245527"
+---
 # <a name="conversions"></a>変換
 
 A***変換***式を特定の型として扱うことができます。 変換を別の種類を持つものとして扱う特定の型の式が発生する可能性があります。 または型を取得する型のない式があります。 変換***暗黙的な***または***明示的な***、および明示的なキャストが必要かどうかを指定します。 型からの変換、`int`入力`long`が暗黙的な型の式をその`int`型として暗黙的に処理できる`long`。 型からの逆の変換`long`入力`int`は明示的なため、明示的なキャストが必要です。
