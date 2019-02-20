@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 9c3863c9a139f5b8309fca6e0c099d0fae7677c3
-ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
-ms.translationtype: MT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "47229881"
----
 # <a name="namespaces"></a>名前空間
 
 C# プログラムの名前空間を使用して構成します。 名前空間は、"external"組織のシステムおよびプログラムは、「内部」組織システムとして使用されます-その他のプログラムに公開されているプログラム要素を表すため。
@@ -434,7 +426,7 @@ namespace N2
     }
 }
 ```
-`N1` 型のメンバーが含まれています`A`と`C`静的メソッドを含む`A`、ためと`N2`を参照する、両方をインポート`A`として、 *simple_name*あいまいな、コンパイル時にエラーがあります。 
+`N1` 型のメンバーが含まれています`A`、および`C`静的フィールドが含まれています`A`、ため`N2`を参照する、両方をインポート`A`として、 *simple_name*あいまいな、コンパイル時にエラーがあります。 
 
 ように、 *using_alias_directive*、 *using_namespace_directive*コンパイル単位または名前空間の基になる宣言領域に新しいメンバーは含まれませんが、代わりにのみ影響しますコンパイル単位または名前空間の本体が表示されます。
 
