@@ -292,7 +292,7 @@ class Program
 1
 ```
 
-ボックス化とボックス化解除の詳細については、次を参照してください。[ボックス化とボックス化解除](types.md#boxing-and-unboxing)します。
+ボックス化とボックス化解除の詳細については、[ボックス化とボックス化解除](types.md#boxing-and-unboxing)を参照してください。
 
 ### <a name="meaning-of-this"></a>この意味
 
