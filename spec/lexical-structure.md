@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 7f7abb120d0b3a6abf12beb9daa0d79a975ccce2
+ms.sourcegitcommit: 4e3f2e4ea5a50b186b08d1e93d3ffcdb3754596e
+ms.translationtype: MT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56411313"
+---
 # <a name="lexical-structure"></a>字句構造
 
 ## <a name="programs"></a>Programs
