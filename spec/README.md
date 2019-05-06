@@ -1,7 +1,7 @@
 ---
 ms.openlocfilehash: 4e1534fc5523223042df468c4443a6722910543b
 ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 01/18/2019
 ms.locfileid: "47229605"
@@ -11,7 +11,7 @@ ms.locfileid: "47229605"
 
 __バージョン 6__
 
-これは、便宜上投稿されて、非公式のドラフトです。 (ユーザーが現在の最終処理中、c# 5.0 標準) ECMA の c# 6.0 仕様提案を送信すると、ここで共有されます。
+これは、便宜上投稿されて、非公式のドラフトです。 (ユーザーが現在の最終処理中、C# 5.0 標準) ECMA の C# 6.0 仕様提案を送信すると、ここで共有されます。
 
 <!--
 (This document is also available for download: [csharp.pdf](CSharp%20Language%20Specification.pdf?raw=true) and [csharp.docx](CSharp%20Language%20Specification.docx?raw=true))
