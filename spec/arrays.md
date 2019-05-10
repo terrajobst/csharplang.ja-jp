@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 155c1beecddfdfcce2e7948bcb8d6b80428fbd7a
-ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "47229785"
+ms.lasthandoff: 04/25/2019
+ms.locfileid: "64488841"
 ---
 # <a name="arrays"></a>配列
 
@@ -59,7 +59,7 @@ A *non_array_type*は any*型*いない自体は、 *array_type*します。
 
 ### <a name="arrays-and-the-generic-ilist-interface"></a>配列とジェネリックの IList インターフェイス
 
-1 次元配列`T[]`インターフェイスを実装する`System.Collections.Generic.IList<T>`(`IList<T>`略して) とその基本インターフェイスです。 したがってからの暗黙的な変換がある`T[]`に`IList<T>`とその基本インターフェイスです。 さらからの暗黙的な参照変換がある場合`S`に`T`し`S[]`実装`IList<T>`から暗黙の参照変換があると`S[]`に`IList<T>`およびその基本インターフェイス ([暗黙の参照変換](conversions.md#implicit-reference-conversions))。 明示的な参照変換がある場合`S`に`T`からの明示的な参照変換は`S[]`に`IList<T>`とその基本インターフェイス ([明示的な参照変換](conversions.md#explicit-reference-conversions)). 例:
+1 次元配列`T[]`インターフェイスを実装する`System.Collections.Generic.IList<T>`(`IList<T>`略して) とその基本インターフェイスです。 したがってからの暗黙的な変換がある`T[]`に`IList<T>`とその基本インターフェイスです。 さらからの暗黙的な参照変換がある場合`S`に`T`し`S[]`実装`IList<T>`から暗黙の参照変換があると`S[]`に`IList<T>`およびその基本インターフェイス ([暗黙の参照変換](conversions.md#implicit-reference-conversions))。 明示的な参照変換がある場合`S`に`T`からの明示的な参照変換は`S[]`に`IList<T>`とその基本インターフェイス ([明示的な参照変換](conversions.md#explicit-reference-conversions)). 例えば:
 ```csharp
 using System.Collections.Generic;
 

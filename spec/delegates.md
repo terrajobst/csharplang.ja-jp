@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 08c14d9ef2afe30580f456995066c141653ede92
-ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
+ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "47229790"
+ms.lasthandoff: 04/25/2019
+ms.locfileid: "64488981"
 ---
 # <a name="delegates"></a>デリゲート
 
@@ -122,7 +122,7 @@ class Test
 }
 ```
 
-ときに`cd1`と`cd2`はそれぞれ 1 つのメソッドをカプセル化をインスタンス化します。 ときに`cd3`は 2 つのメソッドの呼び出しリストをインスタンス化が`M1`と`M2`点で、注文します。 `cd4`呼び出しリストが含まれています`M1`、 `M2`、および`M1`点で、注文します。 最後に、`cd5`の呼び出しリストが含まれています`M1`、 `M2`、 `M1`、 `M1`、および`M2`点で、注文します。 (場合によっては、削除も) のデリゲートを組み合わせることの例については、[デリゲート呼び出し](delegates.md#delegate-invocation)を参照してください。
+ときに`cd1`と`cd2`はそれぞれ 1 つのメソッドをカプセル化をインスタンス化します。 ときに`cd3`は 2 つのメソッドの呼び出しリストをインスタンス化が`M1`と`M2`点で、注文します。 `cd4`呼び出しリストが含まれています`M1`、 `M2`、および`M1`点で、注文します。 最後に、`cd5`の呼び出しリストが含まれています`M1`、 `M2`、 `M1`、 `M1`、および`M2`点で、注文します。 (場合によっては、削除も) のデリゲートを組み合わせることの例については、次を参照してください。[デリゲート呼び出し](delegates.md#delegate-invocation)します。
 
 ## <a name="delegate-compatibility"></a>デリゲートの互換性
 

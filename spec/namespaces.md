@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 3232163ed91d9d8bb6b0babf94c4282bfd60976c
+ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.translationtype: MT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 04/25/2019
+ms.locfileid: "64488936"
+---
 # <a name="namespaces"></a>名前空間
 
 C# プログラムの名前空間を使用して構成します。 名前空間は、"external"組織のシステムおよびプログラムは、「内部」組織システムとして使用されます-その他のプログラムに公開されているプログラム要素を表すため。
@@ -157,7 +165,7 @@ using_alias_directive
     ;
 ```
 
-メンバー宣言が含まれるコンパイル単位または名前空間本文内で、 *using_alias_directive*で導入された識別子、 *using_alias_directive*使用できる参照を特定名前空間または型。 例:
+メンバー宣言が含まれるコンパイル単位または名前空間本文内で、 *using_alias_directive*で導入された識別子、 *using_alias_directive*使用できる参照を特定名前空間または型。 例えば:
 ```csharp
 namespace N1.N2
 {
@@ -280,7 +288,7 @@ namespace N3
 ```
 名前`N1.N2.A`、 `R1.N2.A`、および`R2.A`の完全修飾名がクラスを同等とすべて参照`N1.N2.A`します。
 
-別名を使用して構築されたクローズ型の名前をことができますが、型引数を指定せずに、バインドされていないジェネリック型の宣言の名前をことはできません。 例:
+別名を使用して構築されたクローズ型の名前をことができますが、型引数を指定せずに、バインドされていないジェネリック型の宣言の名前をことはできません。 例えば:
 ```csharp
 namespace N1
 {

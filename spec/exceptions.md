@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 75fcd5b00ea5cac218a9f7809c53b179df97825c
-ms.sourcegitcommit: 3fc033b6e98ed7ecdf46a85c79b00a3a3ddcf963
-ms.translationtype: HT
+ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "47229798"
+ms.lasthandoff: 04/25/2019
+ms.locfileid: "64488946"
 ---
 # <a name="exceptions"></a>例外
 
@@ -28,7 +28,7 @@ C# での例外システム レベルとアプリケーション レベルの両
 *  `Message` 型の読み取り専用プロパティは、`string`例外の原因の人間が判読できる説明を格納しています。
 *  `InnerException` 型の読み取り専用プロパティは、`Exception`します。 現在の例外の原因となった例外をその値が null 以外の場合は、参照: catch ブロックで現在の例外が発生したは、処理、`InnerException`します。 それ以外の場合、その値が null の場合、この例外が別の例外によって原因がないことを示します。 この方法で連結例外オブジェクトの数は任意にできます。
 
-これらのプロパティの値は、インスタンス コンストラクターの呼び出しで指定できます`System.Exception`します。
+これらのプロパティの値は、インスタンス コンス トラクターの呼び出しで指定できます`System.Exception`します。
 
 ## <a name="how-exceptions-are-handled"></a>例外の処理方法
 
@@ -40,14 +40,14 @@ C# での例外システム レベルとアプリケーション レベルの両
 
 一致する catch 句が見つからない場合は、次の 2 つのいずれかに発生します。
 
-*  一致する catch 句の検索には、静的コンストラクターに達すると ([静的コンストラクター](classes.md#static-constructors)) または静的フィールド初期化子、`System.TypeInitializationException`が静的コンストラクターの呼び出しをトリガーした時点でスローされます。 内部例外、`System.TypeInitializationException`最初にスローされた例外が含まれています。
+*  一致する catch 句の検索には、静的コンス トラクターに達すると ([静的コンス トラクター](classes.md#static-constructors)) または静的フィールド初期化子、`System.TypeInitializationException`が静的コンス トラクターの呼び出しをトリガーした時点でスローされます。 内部例外、`System.TypeInitializationException`最初にスローされた例外が含まれています。
 *  一致する catch 句の検索では、最初のスレッドを開始するコードに達すると、スレッドの実行が終了します。 このような終了の影響は、実装定義です。
 
 デストラクターの実行中に発生する例外は、特に注意する必要があります。 デストラクターの実行中に例外が発生して、その例外はキャッチされず場合、は、そのデストラクターの実行を終了し、(ある場合) は、基底クラスのデストラクターが呼び出されます。 基底クラスが存在しない場合 (の場合と同様、`object`型) または基底クラスのデストラクターがないかどうかは、例外は破棄されます。
 
 ## <a name="common-exception-classes"></a>一般的な例外クラス
 
-特定の C# 操作によっては、次の例外がスローされます。
+特定の c# 操作によっては、次の例外がスローされます。
 
 |                                      |                |
 |--------------------------------------|----------------|
@@ -60,4 +60,4 @@ C# での例外システム レベルとアプリケーション レベルの両
 | `System.OutOfMemoryException`        | メモリを割り当てようとした場合にスローされます (を使用して`new`) が失敗します。 | 
 | `System.OverflowException`           | `checked` コンテキストで算術演算がオーバーフローしたときにスローされます。 | 
 | `System.StackOverflowException`      | 保留中のメソッドの呼び出しが多すぎる; することで実行スタックが空になった場合にスローされます。非常に深いか、無限再帰の通常気付く。 | 
-| `System.TypeInitializationException` | 静的コンストラクターが存在し、例外をスローする場合にスロー`catch`キャッチする句が存在します。 | 
+| `System.TypeInitializationException` | 静的コンス トラクターが存在し、例外をスローする場合にスロー`catch`キャッチする句が存在します。 | 
