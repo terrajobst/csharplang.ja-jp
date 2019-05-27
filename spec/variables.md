@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: b7bb7dd575d9e2e6d5dd85bdd3e535411e29fcf4
-ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.openlocfilehash: ff285fc202d14c2060c5f005c319c7886458a168
+ms.sourcegitcommit: 8152182f0a477cb3082e625b607262cc459a17f3
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64488865"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66174238"
 ---
 # <a name="variables"></a>変数
 
@@ -574,7 +574,7 @@ class A
 *  確実な代入状態*v*する前に*expr_first*の確実な割り当ての状態と同じ*v*する前に*expr*します。
 *  確実な代入状態*v*する前に*expr_second*の確実な割り当ての状態と同じ*v*後*expr_first*します。
 *  確実な代入ステートメントの*v*後*expr*によって決定されます。
-    * 場合*expr_first*定数式です ([定数式](expressions.md#constant-expressions))、null 値を持つ、状態の*v*後*expr*は同じ状態と*v*後*expr_second*します。
+    * 場合*expr_first*定数式です ([定数式](expressions.md#constant-expressions)) null の値の状態と*v*後*expr*と同じです状態*v*後*expr_second*します。
 *  それ以外の場合、状態の*v*後*expr*の確実な代入状態と同じでは、 *v*後*expr_first*。
 
 #### <a name="-conditional-expressions"></a>?: (条件) 式

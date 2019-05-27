@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: af7af574814dc04ee3ece0396b7ae5f86b3ec8eb
-ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.openlocfilehash: 917e2f1e196013f85eefbda21fb3d717cc681084
+ms.sourcegitcommit: 09e0ddec3bb6aa99b7340158bbac86a5a8243b43
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64488900"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66193907"
 ---
 # <a name="classes"></a>クラス
 
@@ -1500,7 +1500,7 @@ namespace Program2
 これらの制限により、すべてのスレッドが、他のスレッドによって実行された volatile の書き込みを、実行された順序で観察することが保証されます。 準拠した実装は、実行のすべてのスレッドから参照できる volatile 書き込みの順序付け単一合計を提供する必要はありません。 Volatile フィールドの種類は、次のいずれかである必要があります。
 
 *  A *reference_type*します。
-*  型`byte`、 `sbyte`、 `short`、 `ushort`、 `int`、 `uint`、 `char`、 `float`、 `bool`、 `System.IntPtr`、または` System.UIntPtr`します。
+*  型`byte`、 `sbyte`、 `short`、 `ushort`、 `int`、 `uint`、 `char`、 `float`、 `bool`、 `System.IntPtr`、または`System.UIntPtr`します。
 *  *Enum_type*の基本型を列挙型を持つ`byte`、 `sbyte`、 `short`、 `ushort`、 `int`、または`uint`します。
 
 例では、

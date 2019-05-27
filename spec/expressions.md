@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 066c300d4c2baa8749e132730ecd48275e2957f7
-ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.openlocfilehash: 130898a8b5a7b8eb986b314cb4cf78038e840b02
+ms.sourcegitcommit: 09e0ddec3bb6aa99b7340158bbac86a5a8243b43
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64489013"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66193937"
 ---
 # <a name="expressions"></a>式
 
@@ -2489,7 +2489,7 @@ decimal operator +(decimal x);
    long operator -(long x);
    ```
 
-   結果を差し引いて計算`x`ゼロから。 場合の値の`x`オペランドの型の表現可能な最小の値は、(-2 ^31`int`または-2 ^63 `long`) の算術否定し`x`オペランドの型で表すことはできません。 内でこのような場合、`checked`コンテキスト、`System.OverflowException`スロー; 内に発生する場合は、`unchecked`コンテキスト、結果はオペランドの値と、オーバーフローが報告されません。
+   結果を差し引いて計算`x`ゼロから。 場合の値`x`オペランドの型の表現可能な最小の値は、(-2 ^31`int`または-2 ^63 `long`) の算術否定し`x`オペランドの型で表すことはできません。 内でこのような場合、`checked`コンテキスト、`System.OverflowException`スロー; 内に発生する場合は、`unchecked`コンテキスト、結果はオペランドの値と、オーバーフローが報告されません。
 
    あるかどうか、否定演算子のオペランドも型`uint`、型に変換されます`long`、および結果の型は`long`します。 例外は、許可するルール、 `int` -2147483648 の値 (-2 ^31)、10 進数の整数リテラルとして記述すること ([整数リテラル](lexical-structure.md#integer-literals))。
 
@@ -3473,7 +3473,7 @@ ulong operator ^(ulong x, ulong y);
 
 `&`演算子はビットごとの計算論理`AND`の 2 つのオペランド、`|`演算子はビット演算を計算論理`OR`の 2 つのオペランドと`^`演算子はビットごとの排他的論理を計算`OR`の 2 つのオペランド。 オーバーフローは、これらの操作からではありません。
 
-### <a name="enumeration-logical-operators"></a>列挙体の論理演算子
+### <a name="enumeration-logical-operators"></a>列挙論理演算子
 
 すべての列挙型`E`暗黙的に、次の定義済みの論理演算子を提供します。
 
