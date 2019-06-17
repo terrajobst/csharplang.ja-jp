@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 61eeae6173eaa19f9cf6d6e985f3dc107d4c3ac9
-ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.openlocfilehash: d082393a00496b948ad4e3ff9e135d94e89d2448
+ms.sourcegitcommit: 1a46441156b13db6c845f4bbb886284387d73023
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64488959"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67047035"
 ---
 # <a name="conversions"></a>変換
 
@@ -47,7 +47,7 @@ int c = (int) b;    // explicit conversion from long to int
 
 Id 変換は、任意の型から同じ型に変換します。 この変換には、その型に変換可能であるエンティティを既に必要な型を持つことが言えますようにが存在します。
 
-*  Id の間で変換があるオブジェクトと動的同等と見なされるため、`object`と`dynamic`、間のすべての出現を置換するときに、同じ構築された型および`dynamic`で`object`。
+*  `object`と`dynamic`と同等の間の id 変換があると見なされます`object`と`dynamic`、間のすべての出現を置換するときに、同じ構築された型および`dynamic`で`object`.
 
 ### <a name="implicit-numeric-conversions"></a>暗黙的な数値変換
 
