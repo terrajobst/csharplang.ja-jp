@@ -35,7 +35,7 @@ class Hello
 }
 ```
 
-通常、C# のソース ファイルのファイル拡張子は `.cs` です。 「こんにちは, World」プログラムがファイルに格納されていると仮定`hello.cs`プログラムは、コマンドラインを使用して、Microsoft c# コンパイラでコンパイルすることができます
+通常、C# のソース ファイルのファイル拡張子は `.cs` です。 "Hello, World"プログラムがファイルに格納されていると仮定`hello.cs`プログラムは、コマンドラインを使用して、Microsoft c# コンパイラでコンパイルすることができます
 ```
 csc hello.cs
 ```
@@ -885,7 +885,7 @@ class Test
 
 ***抽象***メソッドは実装のない仮想メソッドです。 抽象メソッドが宣言された、`abstract`修飾子も宣言されているクラスだけでは使用`abstract`します。 抽象メソッドは、すべての非抽象派生クラスでオーバーライドする必要があります。
 
-次の例では、式ツリー ノードを表す抽象クラス `Expression`、および定数、変数参照、算術演算の式ツリー ノードを実装する 3 つの派生クラス `Constant`、`VariableReference`、`Operation` を宣言します  (これに似ていますと混同しないように式ツリーの型がで導入された[式ツリー型](types.md#expression-tree-types))。
+次の例では、式ツリー ノードを表す抽象クラス `Expression`、および定数、変数参照、算術演算の式ツリー ノードを実装する 3 つの派生クラス `Constant`、`VariableReference`、`Operation` を宣言します (これに似ていますと混同しないように式ツリーの型がで導入された[式ツリー型](types.md#expression-tree-types))。
 
 ```csharp
 using System;
