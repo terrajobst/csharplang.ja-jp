@@ -1,22 +1,22 @@
 ---
-ms.openlocfilehash: c9f8417dc68153f02ceb72bb1d51f3615f3c4961
-ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.openlocfilehash: adf81842e3c763c7bbdd3f10bb884dc1207b9099
+ms.sourcegitcommit: 0489cb64b7dfb328813d757f4d447a15b85a5851
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64488917"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70912430"
 ---
-# <a name="documentation-comments"></a><span data-ttu-id="49ff4-101">ドキュメント コメント</span><span class="sxs-lookup"><span data-stu-id="49ff4-101">Documentation comments</span></span>
+# <a name="documentation-comments"></a><span data-ttu-id="980e1-101">ドキュメント コメント</span><span class="sxs-lookup"><span data-stu-id="980e1-101">Documentation comments</span></span>
 
-<span data-ttu-id="49ff4-102">C# プログラマを XML テキストを含む特殊なコメント構文を使用してコードを文書化するためのメカニズムを提供します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-102">C# provides a mechanism for programmers to document their code using a special comment syntax that contains XML text.</span></span> <span data-ttu-id="49ff4-103">ソース コード ファイルでこのようなコメントとその直後にあるソース コード要素から XML を生成するツールに指示する特定の形式のコメントを使用できます。</span><span class="sxs-lookup"><span data-stu-id="49ff4-103">In source code files, comments having a certain form can be used to direct a tool to produce XML from those comments and the source code elements, which they precede.</span></span> <span data-ttu-id="49ff4-104">コメントを使用してこのような構文が呼び出される***ドキュメントのコメント***します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-104">Comments using such syntax are called ***documentation comments***.</span></span> <span data-ttu-id="49ff4-105">(クラス、デリゲート、またはインターフェイス) などのユーザー定義型またはメンバー (フィールド、イベント、プロパティ、メソッドなど) の直前する必要がありますに。</span><span class="sxs-lookup"><span data-stu-id="49ff4-105">They must immediately precede a user-defined type (such as a class, delegate, or interface) or a member (such as a field, event, property, or method).</span></span> <span data-ttu-id="49ff4-106">XML の生成ツールと呼ばれる、***ドキュメント ジェネレーター***します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-106">The XML generation tool is called the ***documentation generator***.</span></span> <span data-ttu-id="49ff4-107">(このジェネレーターが必要はありません、C# コンパイラ自体)。ドキュメント ジェネレーターによって生成される出力と呼ばれる、***ドキュメント ファイル***します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-107">(This generator could be, but need not be, the C# compiler itself.) The output produced by the documentation generator is called the ***documentation file***.</span></span> <span data-ttu-id="49ff4-108">ドキュメント ファイルが入力として使用、***ドキュメント ビューアー***です。 ツールがなんらかの種類の情報とその関連するドキュメントのビジュアル表示を生成するためのものです。</span><span class="sxs-lookup"><span data-stu-id="49ff4-108">A documentation file is used as input to a ***documentation viewer***; a tool intended to produce some sort of visual display of type information and its associated documentation.</span></span>
+<span data-ttu-id="980e1-102">C# プログラマを XML テキストを含む特殊なコメント構文を使用してコードを文書化するためのメカニズムを提供します。</span><span class="sxs-lookup"><span data-stu-id="980e1-102">C# provides a mechanism for programmers to document their code using a special comment syntax that contains XML text.</span></span> <span data-ttu-id="980e1-103">ソース コード ファイルでこのようなコメントとその直後にあるソース コード要素から XML を生成するツールに指示する特定の形式のコメントを使用できます。</span><span class="sxs-lookup"><span data-stu-id="980e1-103">In source code files, comments having a certain form can be used to direct a tool to produce XML from those comments and the source code elements, which they precede.</span></span> <span data-ttu-id="980e1-104">コメントを使用してこのような構文が呼び出される***ドキュメントのコメント***します。</span><span class="sxs-lookup"><span data-stu-id="980e1-104">Comments using such syntax are called ***documentation comments***.</span></span> <span data-ttu-id="980e1-105">(クラス、デリゲート、またはインターフェイス) などのユーザー定義型またはメンバー (フィールド、イベント、プロパティ、メソッドなど) の直前する必要がありますに。</span><span class="sxs-lookup"><span data-stu-id="980e1-105">They must immediately precede a user-defined type (such as a class, delegate, or interface) or a member (such as a field, event, property, or method).</span></span> <span data-ttu-id="980e1-106">XML の生成ツールと呼ばれる、***ドキュメント ジェネレーター***します。</span><span class="sxs-lookup"><span data-stu-id="980e1-106">The XML generation tool is called the ***documentation generator***.</span></span> <span data-ttu-id="980e1-107">(このジェネレーターが必要はありません、C# コンパイラ自体)。ドキュメント ジェネレーターによって生成される出力と呼ばれる、***ドキュメント ファイル***します。</span><span class="sxs-lookup"><span data-stu-id="980e1-107">(This generator could be, but need not be, the C# compiler itself.) The output produced by the documentation generator is called the ***documentation file***.</span></span> <span data-ttu-id="980e1-108">ドキュメント ファイルが入力として使用、***ドキュメント ビューアー***です。 ツールがなんらかの種類の情報とその関連するドキュメントのビジュアル表示を生成するためのものです。</span><span class="sxs-lookup"><span data-stu-id="980e1-108">A documentation file is used as input to a ***documentation viewer***; a tool intended to produce some sort of visual display of type information and its associated documentation.</span></span>
 
-<span data-ttu-id="49ff4-109">この仕様には一連のドキュメントのコメントで使用されるタグがこれらのタグの使用は必須ではありませんし、その他のタグとして使用できる場合は、必要に応じて、整形式 XML の長時間の規則が適用されます。</span><span class="sxs-lookup"><span data-stu-id="49ff4-109">This specification suggests a set of tags to be used in documentation comments, but use of these tags is not required, and other tags may be used if desired, as long the rules of well-formed XML are followed.</span></span>
+<span data-ttu-id="980e1-109">この仕様では、ドキュメントコメントで使用されるタグのセットを提示しますが、これらのタグの使用は必須ではなく、適切な形式の XML の規則に従う限り、必要に応じて他のタグを使用することもできます。</span><span class="sxs-lookup"><span data-stu-id="980e1-109">This specification suggests a set of tags to be used in documentation comments, but use of these tags is not required, and other tags may be used if desired, as long the rules of well-formed XML are followed.</span></span>
 
-## <a name="introduction"></a><span data-ttu-id="49ff4-110">はじめに</span><span class="sxs-lookup"><span data-stu-id="49ff4-110">Introduction</span></span>
+## <a name="introduction"></a><span data-ttu-id="980e1-110">はじめに</span><span class="sxs-lookup"><span data-stu-id="980e1-110">Introduction</span></span>
 
-<span data-ttu-id="49ff4-111">このようなコメントとその直後にあるソース コード要素から XML を生成するツールに指示する特殊な形式のコメントを使用できます。</span><span class="sxs-lookup"><span data-stu-id="49ff4-111">Comments having a special form can be used to direct a tool to produce XML from those comments and the source code elements, which they precede.</span></span> <span data-ttu-id="49ff4-112">このようなコメントは、3 つのスラッシュで始まる単一行コメント (`///`)、またはスラッシュを 2 つの星で始まるコメントの区切り (`/**`)。</span><span class="sxs-lookup"><span data-stu-id="49ff4-112">Such comments are single-line comments that start with three slashes (`///`), or delimited comments that start with a slash and two stars (`/**`).</span></span> <span data-ttu-id="49ff4-113">ユーザー定義型 (クラス、デリゲート、またはインターフェイス) など、またはこれらの注釈を設定するメンバー (フィールド、イベント、プロパティ、メソッドなど) の直前する必要がありますに。</span><span class="sxs-lookup"><span data-stu-id="49ff4-113">They must immediately precede a user-defined type (such as a class, delegate, or interface) or a member (such as a field, event, property, or method) that they annotate.</span></span> <span data-ttu-id="49ff4-114">セクションの属性 ([属性の指定](attributes.md#attribute-specification)) ドキュメントのコメントは、型またはメンバーに適用される属性を付ける必要がありますので、宣言の一部と見なされます。</span><span class="sxs-lookup"><span data-stu-id="49ff4-114">Attribute sections ([Attribute specification](attributes.md#attribute-specification)) are considered part of declarations, so documentation comments must precede attributes applied to a type or member.</span></span>
+<span data-ttu-id="980e1-111">特別な形式のコメントを使用すると、そのコメントとソースコード要素の前にあるソースコード要素から XML を生成するようにツールに指示できます。</span><span class="sxs-lookup"><span data-stu-id="980e1-111">Comments having a special form can be used to direct a tool to produce XML from those comments and the source code elements, which they precede.</span></span> <span data-ttu-id="980e1-112">このようなコメントは、3つのスラッシュ (`///`) で始まる単一行のコメントか、スラッシュと2つの星 (`/**`) で始まる区切られたコメントです。</span><span class="sxs-lookup"><span data-stu-id="980e1-112">Such comments are single-line comments that start with three slashes (`///`), or delimited comments that start with a slash and two stars (`/**`).</span></span> <span data-ttu-id="980e1-113">これらは、ユーザー定義型 (クラス、デリゲート、インターフェイスなど)、または注釈を付けるメンバー (フィールド、イベント、プロパティ、メソッドなど) の直前に配置する必要があります。</span><span class="sxs-lookup"><span data-stu-id="980e1-113">They must immediately precede a user-defined type (such as a class, delegate, or interface) or a member (such as a field, event, property, or method) that they annotate.</span></span> <span data-ttu-id="980e1-114">属性セクション ([属性の指定](attributes.md#attribute-specification)) は宣言の一部と見なされるため、ドキュメントコメントは、型またはメンバーに適用される属性の前に記述する必要があります。</span><span class="sxs-lookup"><span data-stu-id="980e1-114">Attribute sections ([Attribute specification](attributes.md#attribute-specification)) are considered part of declarations, so documentation comments must precede attributes applied to a type or member.</span></span>
 
-<span data-ttu-id="49ff4-115">__構文:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-115">__Syntax:__</span></span>
+<span data-ttu-id="980e1-115">__文__</span><span class="sxs-lookup"><span data-stu-id="980e1-115">__Syntax:__</span></span>
 
 ```antlr
 single_line_doc_comment
@@ -28,11 +28,11 @@ delimited_doc_comment
     ;
 ```
 
-<span data-ttu-id="49ff4-116">*Single_line_doc_comment*がある場合を*空白*文字以下、`///`の各文字、 *single_line_doc_comment*隣接する s現在*single_line_doc_comment*、しを*空白*文字は XML 出力に含まれていません。</span><span class="sxs-lookup"><span data-stu-id="49ff4-116">In a *single_line_doc_comment*, if there is a *whitespace* character following the `///` characters on each of the *single_line_doc_comment*s adjacent to the current *single_line_doc_comment*, then that *whitespace* character is not included in the XML output.</span></span>
+<span data-ttu-id="980e1-116">*Single_line_doc_comment*で、現在の*single_line_doc_comment*に隣接する各*single_line_doc_comment*の`///`文字の後に*空白*文字がある場合は、XML 出力には空白文字は含まれません。</span><span class="sxs-lookup"><span data-stu-id="980e1-116">In a *single_line_doc_comment*, if there is a *whitespace* character following the `///` characters on each of the *single_line_doc_comment*s adjacent to the current *single_line_doc_comment*, then that *whitespace* character is not included in the XML output.</span></span>
 
-<span data-ttu-id="49ff4-117">区切られた-ドキュメントのコメントに場合 2 つ目の行の最初の空白以外の文字はアスタリスクと同じパターンの省略可能な空白文字とアスタリスク文字が繰り返されます各区切り-ドキュメントのコメント内の行の先頭に繰り返しパターンの文字は、XML 出力には含まれません。</span><span class="sxs-lookup"><span data-stu-id="49ff4-117">In a delimited-doc-comment, if the first non-whitespace character on the second line is an asterisk and the same pattern of optional whitespace characters and an asterisk character is repeated at the beginning of each of the line within the delimited-doc-comment, then the characters of the repeated pattern are not included in the XML output.</span></span> <span data-ttu-id="49ff4-118">パターンは、後に、および、アスタリスク文字の前に、空白文字を含めることができます。</span><span class="sxs-lookup"><span data-stu-id="49ff4-118">The pattern may include whitespace characters after, as well as before, the asterisk character.</span></span>
+<span data-ttu-id="980e1-117">区切られた doc コメントでは、2行目の空白以外の最初の文字がアスタリスクで、省略可能な空白文字のパターンが同じで、区切り文字の先頭にアスタリスク文字が繰り返されている場合は、その後、繰り返されるパターンの文字は XML 出力に含まれません。</span><span class="sxs-lookup"><span data-stu-id="980e1-117">In a delimited-doc-comment, if the first non-whitespace character on the second line is an asterisk and the same pattern of optional whitespace characters and an asterisk character is repeated at the beginning of each of the line within the delimited-doc-comment, then the characters of the repeated pattern are not included in the XML output.</span></span> <span data-ttu-id="980e1-118">パターンには、アスタリスク文字の前と同様に、空白文字を含めることができます。</span><span class="sxs-lookup"><span data-stu-id="980e1-118">The pattern may include whitespace characters after, as well as before, the asterisk character.</span></span>
 
-<span data-ttu-id="49ff4-119">__例:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-119">__Example:__</span></span>
+<span data-ttu-id="980e1-119">__例:__</span><span class="sxs-lookup"><span data-stu-id="980e1-119">__Example:__</span></span>
 
 ```csharp
 /// <summary>Class <c>Point</c> models a point in a two-dimensional
@@ -45,54 +45,54 @@ public class Point
 }
 ```
 
-<span data-ttu-id="49ff4-120">XML の規則に従って、ドキュメントのコメント内のテキストを正しい形式である必要があります (https://www.w3.org/TR/REC-xml)します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-120">The text within documentation comments must be well formed according to the rules of XML (https://www.w3.org/TR/REC-xml).</span></span> <span data-ttu-id="49ff4-121">XML の形式申し上げますが場合、は、警告が生成され、ドキュメント ファイルは、エラーが発生したことを示すコメントが含まれます。</span><span class="sxs-lookup"><span data-stu-id="49ff4-121">If the XML is ill formed, a warning is generated and the documentation file will contain a comment saying that an error was encountered.</span></span>
+<span data-ttu-id="980e1-120">ドキュメントコメント内のテキストは、XML の規則に従って適切な形式 https://www.w3.org/TR/REC-xml) である必要があります (「」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="980e1-120">The text within documentation comments must be well formed according to the rules of XML (https://www.w3.org/TR/REC-xml).</span></span> <span data-ttu-id="980e1-121">XML の形式が正しくない場合は、警告が生成され、ドキュメントファイルにはエラーが発生したことを示すコメントが含まれます。</span><span class="sxs-lookup"><span data-stu-id="980e1-121">If the XML is ill formed, a warning is generated and the documentation file will contain a comment saying that an error was encountered.</span></span>
 
-<span data-ttu-id="49ff4-122">推奨される設定が定義されている開発者は、独自のタグのセットを作成できますが、[推奨されるタグ](documentation-comments.md#recommended-tags)します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-122">Although developers are free to create their own set of tags, a recommended set is defined in [Recommended tags](documentation-comments.md#recommended-tags).</span></span> <span data-ttu-id="49ff4-123">推奨されるタグの一部には特別な意味があります。</span><span class="sxs-lookup"><span data-stu-id="49ff4-123">Some of the recommended tags have special meanings:</span></span>
+<span data-ttu-id="980e1-122">開発者は独自のタグセットを自由に作成できますが、推奨されるセットは推奨される[タグ](documentation-comments.md#recommended-tags)で定義されています。</span><span class="sxs-lookup"><span data-stu-id="980e1-122">Although developers are free to create their own set of tags, a recommended set is defined in [Recommended tags](documentation-comments.md#recommended-tags).</span></span> <span data-ttu-id="980e1-123">推奨されるタグの一部には特別な意味があります。</span><span class="sxs-lookup"><span data-stu-id="980e1-123">Some of the recommended tags have special meanings:</span></span>
 
-*  <span data-ttu-id="49ff4-124">`<param>`タグを使用して、パラメーターを説明します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-124">The `<param>` tag is used to describe parameters.</span></span> <span data-ttu-id="49ff4-125">このようなタグを使用する場合、指定されたパラメーターが存在して、すべてのパラメーターがドキュメントのコメントに記述されているドキュメント ジェネレーターを確認します必要があります。</span><span class="sxs-lookup"><span data-stu-id="49ff4-125">If such a tag is used, the documentation generator must verify that the specified parameter exists and that all parameters are described in documentation comments.</span></span> <span data-ttu-id="49ff4-126">このような検証に失敗した場合、ドキュメントの生成は警告を発行します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-126">If such verification fails, the documentation generator issues a warning.</span></span>
-*  <span data-ttu-id="49ff4-127">`cref` 属性は任意のタグにアタッチでき、コード要素への参照を提供します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-127">The `cref` attribute can be attached to any tag to provide a reference to a code element.</span></span> <span data-ttu-id="49ff4-128">ドキュメント ジェネレーターは、このコード要素が存在することを確認する必要があります。</span><span class="sxs-lookup"><span data-stu-id="49ff4-128">The documentation generator must verify that this code element exists.</span></span> <span data-ttu-id="49ff4-129">検証に失敗した場合、ドキュメント ジェネレーターは、警告を発行します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-129">If the verification fails, the documentation generator issues a warning.</span></span> <span data-ttu-id="49ff4-130">説明されている名前を検索するときに、`cref`属性、ドキュメント ジェネレーターには、に従って名前空間の可視性が考慮する必要があります`using`ソース コード内に出現するステートメント。</span><span class="sxs-lookup"><span data-stu-id="49ff4-130">When looking for a name described in a `cref` attribute, the documentation generator must respect namespace visibility according to `using` statements appearing within the source code.</span></span> <span data-ttu-id="49ff4-131">コード要素の一般的な通常の一般的な構文 (つまり、"`List<T>`") 無効な XML を生成するために使用することはできません。</span><span class="sxs-lookup"><span data-stu-id="49ff4-131">For code elements that are generic, the normal generic syntax (that is, "`List<T>`") cannot be used because it produces invalid XML.</span></span> <span data-ttu-id="49ff4-132">中かっこを角かっこではなく使用できます (つまり、"`List{T}`")、または XML エスケープ構文を使用することができます (つまり、"`List&lt;T&gt;`")。</span><span class="sxs-lookup"><span data-stu-id="49ff4-132">Braces can be used instead of brackets (that is, "`List{T}`"), or the XML escape syntax can be used (that is, "`List&lt;T&gt;`").</span></span>
-*  <span data-ttu-id="49ff4-133">`<summary>`タグは、型またはメンバーに関する情報を表示する、ドキュメント ビューアーで使用されます。</span><span class="sxs-lookup"><span data-stu-id="49ff4-133">The `<summary>` tag is intended to be used by a documentation viewer to display additional information about a type or member.</span></span>
-*  <span data-ttu-id="49ff4-134">`<include>`タグには、外部の XML ファイルからの情報が含まれています。</span><span class="sxs-lookup"><span data-stu-id="49ff4-134">The `<include>` tag includes information from an external XML file.</span></span>
+*  <span data-ttu-id="980e1-124">タグ`<param>`は、パラメーターを記述するために使用されます。</span><span class="sxs-lookup"><span data-stu-id="980e1-124">The `<param>` tag is used to describe parameters.</span></span> <span data-ttu-id="980e1-125">このようなタグが使用されている場合、ドキュメントジェネレーターは、指定されたパラメーターが存在すること、およびすべてのパラメーターがドキュメントコメントに記述されていることを確認する必要があります。</span><span class="sxs-lookup"><span data-stu-id="980e1-125">If such a tag is used, the documentation generator must verify that the specified parameter exists and that all parameters are described in documentation comments.</span></span> <span data-ttu-id="980e1-126">このような検証が失敗した場合は、ドキュメントジェネレーターによって警告が発行されます。</span><span class="sxs-lookup"><span data-stu-id="980e1-126">If such verification fails, the documentation generator issues a warning.</span></span>
+*  <span data-ttu-id="980e1-127">`cref` 属性は任意のタグにアタッチでき、コード要素への参照を提供します。</span><span class="sxs-lookup"><span data-stu-id="980e1-127">The `cref` attribute can be attached to any tag to provide a reference to a code element.</span></span> <span data-ttu-id="980e1-128">ドキュメントジェネレーターは、このコード要素が存在することを確認する必要があります。</span><span class="sxs-lookup"><span data-stu-id="980e1-128">The documentation generator must verify that this code element exists.</span></span> <span data-ttu-id="980e1-129">検証が失敗した場合は、ドキュメントジェネレーターによって警告が発行されます。</span><span class="sxs-lookup"><span data-stu-id="980e1-129">If the verification fails, the documentation generator issues a warning.</span></span> <span data-ttu-id="980e1-130">`cref`属性で記述されている名前を検索する場合、ドキュメントジェネレーターは、ソースコード`using`内に出現するステートメントに従って、名前空間の可視性を考慮する必要があります。</span><span class="sxs-lookup"><span data-stu-id="980e1-130">When looking for a name described in a `cref` attribute, the documentation generator must respect namespace visibility according to `using` statements appearing within the source code.</span></span> <span data-ttu-id="980e1-131">ジェネリックであるコード要素の場合、通常のジェネリック構文 (つまり "`List<T>`") を使用することはできません。これは、無効な XML が生成されるためです。</span><span class="sxs-lookup"><span data-stu-id="980e1-131">For code elements that are generic, the normal generic syntax (that is, "`List<T>`") cannot be used because it produces invalid XML.</span></span> <span data-ttu-id="980e1-132">かっこ (`List{T}`"") の代わりに中かっこを使用することも、XML エスケープ構文を使用することもできます (つまり`List&lt;T&gt;`、"")。</span><span class="sxs-lookup"><span data-stu-id="980e1-132">Braces can be used instead of brackets (that is, "`List{T}`"), or the XML escape syntax can be used (that is, "`List&lt;T&gt;`").</span></span>
+*  <span data-ttu-id="980e1-133">タグ`<summary>`は、ドキュメントビューアーが型またはメンバーに関する追加情報を表示するために使用することを目的としています。</span><span class="sxs-lookup"><span data-stu-id="980e1-133">The `<summary>` tag is intended to be used by a documentation viewer to display additional information about a type or member.</span></span>
+*  <span data-ttu-id="980e1-134">タグ`<include>`には、外部 XML ファイルからの情報が含まれます。</span><span class="sxs-lookup"><span data-stu-id="980e1-134">The `<include>` tag includes information from an external XML file.</span></span>
 
-<span data-ttu-id="49ff4-135">ドキュメント ファイルが、型とメンバーの完全な情報を提供しないことに慎重に注意してください (たとえば、任意の種類の情報を含まれません)。</span><span class="sxs-lookup"><span data-stu-id="49ff4-135">Note carefully that the documentation file does not provide full information about the type and members (for example, it does not contain any type information).</span></span> <span data-ttu-id="49ff4-136">型またはメンバーに関するこのような情報を取得するには、実際の型またはメンバーのリフレクションと組み合わせてドキュメント ファイルを使用する必要があります。</span><span class="sxs-lookup"><span data-stu-id="49ff4-136">To get such information about a type or member, the documentation file must be used in conjunction with reflection on the actual type or member.</span></span>
+<span data-ttu-id="980e1-135">ドキュメントファイルでは、型とメンバーに関する完全な情報が提供されていないことに注意してください (たとえば、型情報が含まれていない場合)。</span><span class="sxs-lookup"><span data-stu-id="980e1-135">Note carefully that the documentation file does not provide full information about the type and members (for example, it does not contain any type information).</span></span> <span data-ttu-id="980e1-136">型またはメンバーに関する情報を取得するには、ドキュメントファイルを実際の型またはメンバーのリフレクションと組み合わせて使用する必要があります。</span><span class="sxs-lookup"><span data-stu-id="980e1-136">To get such information about a type or member, the documentation file must be used in conjunction with reflection on the actual type or member.</span></span>
 
-## <a name="recommended-tags"></a><span data-ttu-id="49ff4-137">推奨されるタグ</span><span class="sxs-lookup"><span data-stu-id="49ff4-137">Recommended tags</span></span>
+## <a name="recommended-tags"></a><span data-ttu-id="980e1-137">推奨されるタグ</span><span class="sxs-lookup"><span data-stu-id="980e1-137">Recommended tags</span></span>
 
-<span data-ttu-id="49ff4-138">ドキュメント ジェネレーターは、そのまま使用し、XML の規則に従って有効な任意のタグを処理する必要があります。</span><span class="sxs-lookup"><span data-stu-id="49ff4-138">The documentation generator must accept and process any tag that is valid according to the rules of XML.</span></span> <span data-ttu-id="49ff4-139">次のタグは、ユーザー ドキュメントでよく使用される機能を提供します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-139">The following tags provide commonly used functionality in user documentation.</span></span> <span data-ttu-id="49ff4-140">(もちろん、その他のタグは可能) です。</span><span class="sxs-lookup"><span data-stu-id="49ff4-140">(Of course, other tags are possible.)</span></span>
+<span data-ttu-id="980e1-138">ドキュメントジェネレーターは、XML の規則に従って有効なすべてのタグを受け入れて処理する必要があります。</span><span class="sxs-lookup"><span data-stu-id="980e1-138">The documentation generator must accept and process any tag that is valid according to the rules of XML.</span></span> <span data-ttu-id="980e1-139">次のタグは、ユーザードキュメントで一般的に使用される機能を提供します。</span><span class="sxs-lookup"><span data-stu-id="980e1-139">The following tags provide commonly used functionality in user documentation.</span></span> <span data-ttu-id="980e1-140">(もちろん、他のタグも使用できます)。</span><span class="sxs-lookup"><span data-stu-id="980e1-140">(Of course, other tags are possible.)</span></span>
 
 
-| <span data-ttu-id="49ff4-141">__タグ__</span><span class="sxs-lookup"><span data-stu-id="49ff4-141">__Tag__</span></span>          | <span data-ttu-id="49ff4-142">__セクション__</span><span class="sxs-lookup"><span data-stu-id="49ff4-142">__Section__</span></span>                                            | <span data-ttu-id="49ff4-143">__目的__</span><span class="sxs-lookup"><span data-stu-id="49ff4-143">__Purpose__</span></span>                                            |
+| <span data-ttu-id="980e1-141">__番号__</span><span class="sxs-lookup"><span data-stu-id="980e1-141">__Tag__</span></span>          | <span data-ttu-id="980e1-142">__セクション__</span><span class="sxs-lookup"><span data-stu-id="980e1-142">__Section__</span></span>                                            | <span data-ttu-id="980e1-143">__目的__</span><span class="sxs-lookup"><span data-stu-id="980e1-143">__Purpose__</span></span>                                            |
 |------------------|--------------------------------------------------------|--------------------------------------------------------|
-| `<c>`            | [`<c>`](documentation-comments.md#c)                   | <span data-ttu-id="49ff4-144">コードのようなフォントでテキストを設定します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-144">Set text in a code-like font</span></span>                           | 
-| `<code>`         | [`<code>`](documentation-comments.md#code)             | <span data-ttu-id="49ff4-145">1 つまたは複数の行のソース コードまたはプログラムの出力の設定します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-145">Set one or more lines of source code or program output</span></span> |
-| `<example>`      | [`<example>`](documentation-comments.md#example)       | <span data-ttu-id="49ff4-146">例を示します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-146">Indicate an example</span></span>                                    |
-| `<exception>`    | [`<exception>`](documentation-comments.md#exception)   | <span data-ttu-id="49ff4-147">メソッドがスローできる例外を識別します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-147">Identifies the exceptions a method can throw</span></span>           |
-| `<include>`      | [`<include>`](documentation-comments.md#include)       | <span data-ttu-id="49ff4-148">外部ファイルから XML が含まれています</span><span class="sxs-lookup"><span data-stu-id="49ff4-148">Includes XML from an external file</span></span>                     |
-| `<list>`         | [`<list>`](documentation-comments.md#list)             | <span data-ttu-id="49ff4-149">リストまたはテーブルを作成します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-149">Create a list or table</span></span>                                 |
-| `<para>`         | [`<para>`](documentation-comments.md#para)             | <span data-ttu-id="49ff4-150">テキストに追加される構造体を許可します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-150">Permit structure to be added to text</span></span>                   |
-| `<param>`        | [`<param>`](documentation-comments.md#param)           | <span data-ttu-id="49ff4-151">メソッドまたはコンス トラクターのパラメーターについて説明します</span><span class="sxs-lookup"><span data-stu-id="49ff4-151">Describe a parameter for a method or constructor</span></span>       |
-| `<paramref>`     | [`<paramref>`](documentation-comments.md#paramref)     | <span data-ttu-id="49ff4-152">単語がパラメーター名であることを示します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-152">Identify that a word is a parameter name</span></span>               |
-| `<permission>`   | [`<permission>`](documentation-comments.md#permission) | <span data-ttu-id="49ff4-153">メンバーのセキュリティのユーザー補助ドキュメント</span><span class="sxs-lookup"><span data-stu-id="49ff4-153">Document the security accessibility of a member</span></span>        |
-| `<remark>`       | [`<remark>`](documentation-comments.md#remark)         | <span data-ttu-id="49ff4-154">型に関する追加情報について説明します</span><span class="sxs-lookup"><span data-stu-id="49ff4-154">Describe additional information about a type</span></span>           |
-| `<returns>`      | [`<returns>`](documentation-comments.md#returns)       | <span data-ttu-id="49ff4-155">メソッドの戻り値について説明します</span><span class="sxs-lookup"><span data-stu-id="49ff4-155">Describe the return value of a method</span></span>                  |
-| `<see>`          | [`<see>`](documentation-comments.md#see)               | <span data-ttu-id="49ff4-156">リンクを指定します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-156">Specify a link</span></span>                                         |
-| `<seealso>`      | [`<seealso>`](documentation-comments.md#seealso)       | <span data-ttu-id="49ff4-157">「参照」エントリを生成します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-157">Generate a See Also entry</span></span>                              |
-| `<summary>`      | [`<summary>`](documentation-comments.md#summary)       | <span data-ttu-id="49ff4-158">型または型のメンバーについて説明します</span><span class="sxs-lookup"><span data-stu-id="49ff4-158">Describe a type or a member of a type</span></span>                  |
-| `<value>`        | [`<value>`](documentation-comments.md#value)           | <span data-ttu-id="49ff4-159">プロパティを説明します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-159">Describe a property</span></span>                                    |
-| `<typeparam>`    |                                                        | <span data-ttu-id="49ff4-160">ジェネリック型パラメーターについて説明します</span><span class="sxs-lookup"><span data-stu-id="49ff4-160">Describe a generic type parameter</span></span>                      |
-| `<typeparamref>` |                                                        | <span data-ttu-id="49ff4-161">単語が型パラメーター名であることを示します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-161">Identify that a word is a type parameter name</span></span>          |
+| `<c>`            | [`<c>`](documentation-comments.md#c)                   | <span data-ttu-id="980e1-144">コードに似たフォントでテキストを設定する</span><span class="sxs-lookup"><span data-stu-id="980e1-144">Set text in a code-like font</span></span>                           | 
+| `<code>`         | [`<code>`](documentation-comments.md#code)             | <span data-ttu-id="980e1-145">ソースコードまたはプログラム出力の1行以上の行を設定する</span><span class="sxs-lookup"><span data-stu-id="980e1-145">Set one or more lines of source code or program output</span></span> |
+| `<example>`      | [`<example>`](documentation-comments.md#example)       | <span data-ttu-id="980e1-146">例を示します。</span><span class="sxs-lookup"><span data-stu-id="980e1-146">Indicate an example</span></span>                                    |
+| `<exception>`    | [`<exception>`](documentation-comments.md#exception)   | <span data-ttu-id="980e1-147">メソッドがスローできる例外を識別します。</span><span class="sxs-lookup"><span data-stu-id="980e1-147">Identifies the exceptions a method can throw</span></span>           |
+| `<include>`      | [`<include>`](documentation-comments.md#include)       | <span data-ttu-id="980e1-148">外部ファイルから XML をインクルードします。</span><span class="sxs-lookup"><span data-stu-id="980e1-148">Includes XML from an external file</span></span>                     |
+| `<list>`         | [`<list>`](documentation-comments.md#list)             | <span data-ttu-id="980e1-149">リストまたはテーブルを作成する</span><span class="sxs-lookup"><span data-stu-id="980e1-149">Create a list or table</span></span>                                 |
+| `<para>`         | [`<para>`](documentation-comments.md#para)             | <span data-ttu-id="980e1-150">テキストへの構造の追加を許可する</span><span class="sxs-lookup"><span data-stu-id="980e1-150">Permit structure to be added to text</span></span>                   |
+| `<param>`        | [`<param>`](documentation-comments.md#param)           | <span data-ttu-id="980e1-151">メソッドまたはコンストラクターのパラメーターの記述</span><span class="sxs-lookup"><span data-stu-id="980e1-151">Describe a parameter for a method or constructor</span></span>       |
+| `<paramref>`     | [`<paramref>`](documentation-comments.md#paramref)     | <span data-ttu-id="980e1-152">単語がパラメーター名であることを識別する</span><span class="sxs-lookup"><span data-stu-id="980e1-152">Identify that a word is a parameter name</span></span>               |
+| `<permission>`   | [`<permission>`](documentation-comments.md#permission) | <span data-ttu-id="980e1-153">メンバーのセキュリティアクセシビリティを文書化する</span><span class="sxs-lookup"><span data-stu-id="980e1-153">Document the security accessibility of a member</span></span>        |
+| `<remarks>`      | [`<remarks>`](documentation-comments.md#remarks)       | <span data-ttu-id="980e1-154">型に関する追加情報の記述</span><span class="sxs-lookup"><span data-stu-id="980e1-154">Describe additional information about a type</span></span>           |
+| `<returns>`      | [`<returns>`](documentation-comments.md#returns)       | <span data-ttu-id="980e1-155">メソッドの戻り値の説明</span><span class="sxs-lookup"><span data-stu-id="980e1-155">Describe the return value of a method</span></span>                  |
+| `<see>`          | [`<see>`](documentation-comments.md#see)               | <span data-ttu-id="980e1-156">リンクの指定</span><span class="sxs-lookup"><span data-stu-id="980e1-156">Specify a link</span></span>                                         |
+| `<seealso>`      | [`<seealso>`](documentation-comments.md#seealso)       | <span data-ttu-id="980e1-157">関連項目を生成する</span><span class="sxs-lookup"><span data-stu-id="980e1-157">Generate a See Also entry</span></span>                              |
+| `<summary>`      | [`<summary>`](documentation-comments.md#summary)       | <span data-ttu-id="980e1-158">型または型のメンバーの記述</span><span class="sxs-lookup"><span data-stu-id="980e1-158">Describe a type or a member of a type</span></span>                  |
+| `<value>`        | [`<value>`](documentation-comments.md#value)           | <span data-ttu-id="980e1-159">プロパティの説明</span><span class="sxs-lookup"><span data-stu-id="980e1-159">Describe a property</span></span>                                    |
+| `<typeparam>`    |                                                        | <span data-ttu-id="980e1-160">ジェネリック型パラメーターの記述</span><span class="sxs-lookup"><span data-stu-id="980e1-160">Describe a generic type parameter</span></span>                      |
+| `<typeparamref>` |                                                        | <span data-ttu-id="980e1-161">単語が型パラメーター名であることを識別する</span><span class="sxs-lookup"><span data-stu-id="980e1-161">Identify that a word is a type parameter name</span></span>          |
 
 ### `<c>`
 
-<span data-ttu-id="49ff4-162">このタグは、コードのブロックを使用するなどの特殊なフォントの説明内のテキストの一部を設定することを示すメカニズムを提供します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-162">This tag provides a mechanism to indicate that a fragment of text within a description should be set in a special font such as that used for a block of code.</span></span> <span data-ttu-id="49ff4-163">行の実際のコードで使用`<code>`([`<code>`](documentation-comments.md#code))。</span><span class="sxs-lookup"><span data-stu-id="49ff4-163">For lines of actual code, use `<code>` ([`<code>`](documentation-comments.md#code)).</span></span>
+<span data-ttu-id="980e1-162">このタグは、記述に含まれるテキストのフラグメントを、コードブロックに使用される特殊なフォントで設定する必要があることを示す機構を提供します。</span><span class="sxs-lookup"><span data-stu-id="980e1-162">This tag provides a mechanism to indicate that a fragment of text within a description should be set in a special font such as that used for a block of code.</span></span> <span data-ttu-id="980e1-163">実際のコード行の場合は`<code>` 、[`<code>`](documentation-comments.md#code)() を使用します。</span><span class="sxs-lookup"><span data-stu-id="980e1-163">For lines of actual code, use `<code>` ([`<code>`](documentation-comments.md#code)).</span></span>
 
-<span data-ttu-id="49ff4-164">__構文:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-164">__Syntax:__</span></span>
+<span data-ttu-id="980e1-164">__文__</span><span class="sxs-lookup"><span data-stu-id="980e1-164">__Syntax:__</span></span>
 
 ```xml
 <c>text</c>
 ```
 
-<span data-ttu-id="49ff4-165">__例:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-165">__Example:__</span></span>
+<span data-ttu-id="980e1-165">__例:__</span><span class="sxs-lookup"><span data-stu-id="980e1-165">__Example:__</span></span>
 
 ```csharp
 /// <summary>Class <c>Point</c> models a point in a two-dimensional
@@ -106,15 +106,15 @@ public class Point
 
 ### `<code>`
 
-<span data-ttu-id="49ff4-166">このタグを使用して、いくつかの特別なフォントで 1 つまたは複数の行のソース コードまたはプログラムの出力を設定します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-166">This tag is used to set one or more lines of source code or program output in some special font.</span></span> <span data-ttu-id="49ff4-167">物語で小さなコード フラグメントを使用して`<c>`([`<c>`](documentation-comments.md#c))。</span><span class="sxs-lookup"><span data-stu-id="49ff4-167">For small code fragments in narrative, use `<c>` ([`<c>`](documentation-comments.md#c)).</span></span>
+<span data-ttu-id="980e1-166">このタグは、ソースコードまたはプログラム出力の1つ以上の行を特殊なフォントで設定するために使用されます。</span><span class="sxs-lookup"><span data-stu-id="980e1-166">This tag is used to set one or more lines of source code or program output in some special font.</span></span> <span data-ttu-id="980e1-167">ナレーションの小さなコードフラグメントの場合は`<c>` 、[`<c>`](documentation-comments.md#c)() を使用します。</span><span class="sxs-lookup"><span data-stu-id="980e1-167">For small code fragments in narrative, use `<c>` ([`<c>`](documentation-comments.md#c)).</span></span>
 
-<span data-ttu-id="49ff4-168">__構文:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-168">__Syntax:__</span></span>
+<span data-ttu-id="980e1-168">__文__</span><span class="sxs-lookup"><span data-stu-id="980e1-168">__Syntax:__</span></span>
 
 ```xml
 <code>source code or program output</code>
 ```
 
-<span data-ttu-id="49ff4-169">__例:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-169">__Example:__</span></span>
+<span data-ttu-id="980e1-169">__例:__</span><span class="sxs-lookup"><span data-stu-id="980e1-169">__Example:__</span></span>
 
 ```csharp
 /// <summary>This method changes the point's location by
@@ -136,34 +136,34 @@ public void Translate(int xor, int yor) {
 
 ### `<example>`
 
-<span data-ttu-id="49ff4-170">このタグは、メソッド、またはその他のライブラリ メンバーを使用することがある方法を指定する、コメント内のコード例を使用します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-170">This tag allows example code within a comment, to specify how a method or other library member may be used.</span></span> <span data-ttu-id="49ff4-171">通常、これも含まれるタグの使用`<code>`([`<code>`](documentation-comments.md#code)) もします。</span><span class="sxs-lookup"><span data-stu-id="49ff4-171">Ordinarily, this would also involve use of the tag `<code>` ([`<code>`](documentation-comments.md#code)) as well.</span></span>
+<span data-ttu-id="980e1-170">このタグでは、コメント内のコード例を使用して、メソッドまたはその他のライブラリメンバーの使用方法を指定できます。</span><span class="sxs-lookup"><span data-stu-id="980e1-170">This tag allows example code within a comment, to specify how a method or other library member may be used.</span></span> <span data-ttu-id="980e1-171">通常は、タグ`<code>` ([`<code>`](documentation-comments.md#code)) も使用します。</span><span class="sxs-lookup"><span data-stu-id="980e1-171">Ordinarily, this would also involve use of the tag `<code>` ([`<code>`](documentation-comments.md#code)) as well.</span></span>
 
-<span data-ttu-id="49ff4-172">__構文:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-172">__Syntax:__</span></span>
+<span data-ttu-id="980e1-172">__文__</span><span class="sxs-lookup"><span data-stu-id="980e1-172">__Syntax:__</span></span>
 
 ```xml
 <example>description</example>
 ```
 
-<span data-ttu-id="49ff4-173">__例:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-173">__Example:__</span></span>
+<span data-ttu-id="980e1-173">__例:__</span><span class="sxs-lookup"><span data-stu-id="980e1-173">__Example:__</span></span>
 
-<span data-ttu-id="49ff4-174">参照してください`<code>`([`<code>`](documentation-comments.md#code)) 例についてはします。</span><span class="sxs-lookup"><span data-stu-id="49ff4-174">See `<code>` ([`<code>`](documentation-comments.md#code)) for an example.</span></span>
+<span data-ttu-id="980e1-174">例`<code>`に[`<code>`](documentation-comments.md#code)ついては、() を参照してください。</span><span class="sxs-lookup"><span data-stu-id="980e1-174">See `<code>` ([`<code>`](documentation-comments.md#code)) for an example.</span></span>
 
 ### `<exception>`
 
-<span data-ttu-id="49ff4-175">このタグは、メソッドがスローできる例外を文書化する方法を提供します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-175">This tag provides a way to document the exceptions a method can throw.</span></span>
+<span data-ttu-id="980e1-175">このタグは、メソッドがスローできる例外を文書化する方法を提供します。</span><span class="sxs-lookup"><span data-stu-id="980e1-175">This tag provides a way to document the exceptions a method can throw.</span></span>
 
-<span data-ttu-id="49ff4-176">__構文:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-176">__Syntax:__</span></span>
+<span data-ttu-id="980e1-176">__文__</span><span class="sxs-lookup"><span data-stu-id="980e1-176">__Syntax:__</span></span>
 
 ```xml
 <exception cref="member">description</exception>
 ```
 
-<span data-ttu-id="49ff4-177">where</span><span class="sxs-lookup"><span data-stu-id="49ff4-177">where</span></span>
+<span data-ttu-id="980e1-177">where</span><span class="sxs-lookup"><span data-stu-id="980e1-177">where</span></span>
 
-* <span data-ttu-id="49ff4-178">`member` メンバーの名前です。</span><span class="sxs-lookup"><span data-stu-id="49ff4-178">`member` is the name of a member.</span></span> <span data-ttu-id="49ff4-179">ドキュメント ジェネレーターは、指定したメンバーが存在し、変換を確認します。`member`ドキュメント ファイルで正規要素名にします。</span><span class="sxs-lookup"><span data-stu-id="49ff4-179">The documentation generator checks that the given member exists and translates `member` to the canonical element name in the documentation file.</span></span>
-* <span data-ttu-id="49ff4-180">`description` 例外がスローされた状況の説明。</span><span class="sxs-lookup"><span data-stu-id="49ff4-180">`description` is a description of the circumstances in which the exception is thrown.</span></span>
+* <span data-ttu-id="980e1-178">`member`メンバーの名前を指定します。</span><span class="sxs-lookup"><span data-stu-id="980e1-178">`member` is the name of a member.</span></span> <span data-ttu-id="980e1-179">ドキュメントジェネレーターは、指定されたメンバーが存在`member`することを確認し、ドキュメントファイル内の正規要素名に変換します。</span><span class="sxs-lookup"><span data-stu-id="980e1-179">The documentation generator checks that the given member exists and translates `member` to the canonical element name in the documentation file.</span></span>
+* <span data-ttu-id="980e1-180">`description`例外がスローされる状況の説明です。</span><span class="sxs-lookup"><span data-stu-id="980e1-180">`description` is a description of the circumstances in which the exception is thrown.</span></span>
 
-<span data-ttu-id="49ff4-181">__例:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-181">__Example:__</span></span>
+<span data-ttu-id="980e1-181">__例:__</span><span class="sxs-lookup"><span data-stu-id="980e1-181">__Example:__</span></span>
 
 ```csharp
 public class DataBaseOperations
@@ -182,29 +182,29 @@ public class DataBaseOperations
 
 ### `<include>`
 
-<span data-ttu-id="49ff4-182">このタグは、ソース コード ファイルの外部にある XML ドキュメントからの情報などを使用します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-182">This tag allows including information from an XML document that is external to the source code file.</span></span> <span data-ttu-id="49ff4-183">外部のファイルは、整形式 XML ドキュメントである必要があり、XPath 式に含めるそのドキュメントでは、どのような XML を指定するには、そのドキュメントに適用されます。</span><span class="sxs-lookup"><span data-stu-id="49ff4-183">The external file must be a well-formed XML document, and an XPath expression is applied to that document to specify what XML from that document to include.</span></span> <span data-ttu-id="49ff4-184">`<include>`タグは、選択した外部のドキュメントから XML に置き換えられます。</span><span class="sxs-lookup"><span data-stu-id="49ff4-184">The `<include>` tag is then replaced with the selected XML from the external document.</span></span>
+<span data-ttu-id="980e1-182">このタグを使用すると、ソースコードファイルの外部にある XML ドキュメントの情報を含めることができます。</span><span class="sxs-lookup"><span data-stu-id="980e1-182">This tag allows including information from an XML document that is external to the source code file.</span></span> <span data-ttu-id="980e1-183">外部ファイルは整形式の XML ドキュメントである必要があり、そのドキュメントに含まれる XML を指定するために XPath 式がそのドキュメントに適用されます。</span><span class="sxs-lookup"><span data-stu-id="980e1-183">The external file must be a well-formed XML document, and an XPath expression is applied to that document to specify what XML from that document to include.</span></span> <span data-ttu-id="980e1-184">`<include>`タグは、外部ドキュメントから選択された XML に置き換えられます。</span><span class="sxs-lookup"><span data-stu-id="980e1-184">The `<include>` tag is then replaced with the selected XML from the external document.</span></span>
 
-<span data-ttu-id="49ff4-185">__構文:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-185">__Syntax:__</span></span>
+<span data-ttu-id="980e1-185">__文__</span><span class="sxs-lookup"><span data-stu-id="980e1-185">__Syntax:__</span></span>
 
 ```
 <include file="filename" path="xpath" />
 ```
 
-<span data-ttu-id="49ff4-186">where</span><span class="sxs-lookup"><span data-stu-id="49ff4-186">where</span></span>
+<span data-ttu-id="980e1-186">where</span><span class="sxs-lookup"><span data-stu-id="980e1-186">where</span></span>
 
-* <span data-ttu-id="49ff4-187">`filename` 外部 XML ファイルのファイル名です。</span><span class="sxs-lookup"><span data-stu-id="49ff4-187">`filename` is the file name of an external XML file.</span></span> <span data-ttu-id="49ff4-188">ファイル名は、インクルード タグを含むファイルを基準に解釈されます。</span><span class="sxs-lookup"><span data-stu-id="49ff4-188">The file name is interpreted relative to the file that contains the include tag.</span></span>
-* <span data-ttu-id="49ff4-189">`xpath` 外部 XML ファイルで、XML の一部を選択する XPath 式です。</span><span class="sxs-lookup"><span data-stu-id="49ff4-189">`xpath` is an XPath expression that selects some of the XML in the external XML file.</span></span>
+* <span data-ttu-id="980e1-187">`filename`外部 XML ファイルのファイル名を指定します。</span><span class="sxs-lookup"><span data-stu-id="980e1-187">`filename` is the file name of an external XML file.</span></span> <span data-ttu-id="980e1-188">ファイル名は、include タグを含むファイルに対して相対的に解釈されます。</span><span class="sxs-lookup"><span data-stu-id="980e1-188">The file name is interpreted relative to the file that contains the include tag.</span></span>
+* <span data-ttu-id="980e1-189">`xpath`外部 XML ファイル内の XML の一部を選択する XPath 式です。</span><span class="sxs-lookup"><span data-stu-id="980e1-189">`xpath` is an XPath expression that selects some of the XML in the external XML file.</span></span>
 
-<span data-ttu-id="49ff4-190">__例:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-190">__Example:__</span></span>
+<span data-ttu-id="980e1-190">__例:__</span><span class="sxs-lookup"><span data-stu-id="980e1-190">__Example:__</span></span>
 
-<span data-ttu-id="49ff4-191">場合は、ソース コードには、ような宣言が含まれています。</span><span class="sxs-lookup"><span data-stu-id="49ff4-191">If the source code contained a declaration like:</span></span>
+<span data-ttu-id="980e1-191">ソースコードに次のような宣言が含まれている場合:</span><span class="sxs-lookup"><span data-stu-id="980e1-191">If the source code contained a declaration like:</span></span>
 
 ```csharp
 /// <include file="docs.xml" path='extradoc/class[@name="IntList"]/*' />
 public class IntList { ... }
 ```
 
-<span data-ttu-id="49ff4-192">外部のファイル"docs.xml"が、次の内容。</span><span class="sxs-lookup"><span data-stu-id="49ff4-192">and the external file "docs.xml" had the following contents:</span></span>
+<span data-ttu-id="980e1-192">外部ファイル "docs .xml" には次の内容が含まれていました。</span><span class="sxs-lookup"><span data-stu-id="980e1-192">and the external file "docs.xml" had the following contents:</span></span>
 
 ```xml
 <?xml version="1.0"?>
@@ -222,7 +222,7 @@ public class IntList { ... }
 </extradoc>
 ```
 
-<span data-ttu-id="49ff4-193">同じドキュメントは、ソース コードが含まれている場合、出力を示します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-193">then the same documentation is output as if the source code contained:</span></span>
+<span data-ttu-id="980e1-193">次に、同じドキュメントが、ソースコードに含まれているものとして出力されます。</span><span class="sxs-lookup"><span data-stu-id="980e1-193">then the same documentation is output as if the source code contained:</span></span>
 
 ```csharp
 /// <summary>
@@ -233,11 +233,11 @@ public class IntList { ... }
 
 ### `<list>`
 
-<span data-ttu-id="49ff4-194">このタグは、リストまたは項目のテーブルの作成に使用されます。</span><span class="sxs-lookup"><span data-stu-id="49ff4-194">This tag is used to create a list or table of items.</span></span> <span data-ttu-id="49ff4-195">`<listheader>`のテーブルまたは定義の一覧の見出し行を定義するブロック。</span><span class="sxs-lookup"><span data-stu-id="49ff4-195">It may contain a `<listheader>` block to define the heading row of either a table or definition list.</span></span> <span data-ttu-id="49ff4-196">(テーブルのエントリのみを定義するときに`term`の見出しを指定する必要があります)。</span><span class="sxs-lookup"><span data-stu-id="49ff4-196">(When defining a table, only an entry for `term` in the heading need be supplied.)</span></span>
+<span data-ttu-id="980e1-194">このタグは、項目のリストまたはテーブルを作成するために使用されます。</span><span class="sxs-lookup"><span data-stu-id="980e1-194">This tag is used to create a list or table of items.</span></span> <span data-ttu-id="980e1-195">テーブルまたは定義`<listheader>`リストの見出し行を定義するブロックが含まれている場合があります。</span><span class="sxs-lookup"><span data-stu-id="980e1-195">It may contain a `<listheader>` block to define the heading row of either a table or definition list.</span></span> <span data-ttu-id="980e1-196">(テーブルを定義する場合は、見出し内`term`ののエントリだけを指定する必要があります)。</span><span class="sxs-lookup"><span data-stu-id="980e1-196">(When defining a table, only an entry for `term` in the heading need be supplied.)</span></span>
 
-<span data-ttu-id="49ff4-197">リスト内の各項目を指定した、`<item>`ブロックします。</span><span class="sxs-lookup"><span data-stu-id="49ff4-197">Each item in the list is specified with an `<item>` block.</span></span> <span data-ttu-id="49ff4-198">定義の一覧を作成するときに両方`term`と`description`指定する必要があります。</span><span class="sxs-lookup"><span data-stu-id="49ff4-198">When creating a definition list, both `term` and `description` must be specified.</span></span> <span data-ttu-id="49ff4-199">ただしのテーブル、箇条書きリスト、または番号付きリスト、のみ`description`指定する必要があります。</span><span class="sxs-lookup"><span data-stu-id="49ff4-199">However, for a table, bulleted list, or numbered list, only `description` need be specified.</span></span>
+<span data-ttu-id="980e1-197">リスト内の各項目には、 `<item>`ブロックが指定されています。</span><span class="sxs-lookup"><span data-stu-id="980e1-197">Each item in the list is specified with an `<item>` block.</span></span> <span data-ttu-id="980e1-198">定義リストを作成する場合は`term` 、 `description`との両方を指定する必要があります。</span><span class="sxs-lookup"><span data-stu-id="980e1-198">When creating a definition list, both `term` and `description` must be specified.</span></span> <span data-ttu-id="980e1-199">ただし、テーブル、箇条書きリスト、番号付きリストの場合は、 `description`のみ指定する必要があります。</span><span class="sxs-lookup"><span data-stu-id="980e1-199">However, for a table, bulleted list, or numbered list, only `description` need be specified.</span></span>
 
-<span data-ttu-id="49ff4-200">__構文:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-200">__Syntax:__</span></span>
+<span data-ttu-id="980e1-200">__文__</span><span class="sxs-lookup"><span data-stu-id="980e1-200">__Syntax:__</span></span>
 
 ```xml
 <list type="bullet" | "number" | "table">
@@ -257,12 +257,12 @@ public class IntList { ... }
 </list>
 ```
 
-<span data-ttu-id="49ff4-201">where</span><span class="sxs-lookup"><span data-stu-id="49ff4-201">where</span></span>
+<span data-ttu-id="980e1-201">where</span><span class="sxs-lookup"><span data-stu-id="980e1-201">where</span></span>
 
-* <span data-ttu-id="49ff4-202">`term` この用語を定義するのですが`description`します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-202">`term` is the term to define, whose definition is in `description`.</span></span>
-* <span data-ttu-id="49ff4-203">`description` 箇条書きまたは番号付きリスト内の項目またはの定義、`term`します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-203">`description` is either an item in a bullet or numbered list, or the definition of a `term`.</span></span>
+* <span data-ttu-id="980e1-202">`term`定義を定義する用語を指定します。 `description`定義はにあります。</span><span class="sxs-lookup"><span data-stu-id="980e1-202">`term` is the term to define, whose definition is in `description`.</span></span>
+* <span data-ttu-id="980e1-203">`description`は、箇条書きまたは番号付きリストの項目、またはの`term`定義のいずれかです。</span><span class="sxs-lookup"><span data-stu-id="980e1-203">`description` is either an item in a bullet or numbered list, or the definition of a `term`.</span></span>
 
-<span data-ttu-id="49ff4-204">__例:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-204">__Example:__</span></span>
+<span data-ttu-id="980e1-204">__例:__</span><span class="sxs-lookup"><span data-stu-id="980e1-204">__Example:__</span></span>
 
 ```csharp
 public class MyClass
@@ -285,17 +285,17 @@ public class MyClass
 
 ### `<para>`
 
-<span data-ttu-id="49ff4-205">このタグは、その他のタグ内で使用できるよう`<summary>`([`<remark>`](documentation-comments.md#remark)) または`<returns>`([`<returns>`](documentation-comments.md#returns))、構造体をテキストに追加することができます。</span><span class="sxs-lookup"><span data-stu-id="49ff4-205">This tag is for use inside other tags, such as `<summary>` ([`<remark>`](documentation-comments.md#remark)) or `<returns>` ([`<returns>`](documentation-comments.md#returns)), and permits structure to be added to text.</span></span>
+<span data-ttu-id="980e1-205">このタグは`<summary>` 、([`<remarks>`](documentation-comments.md#remarks)) や`<returns>` ([`<returns>`](documentation-comments.md#returns)) などの他のタグ内で使用するためのもので、テキストに構造を追加することを許可します。</span><span class="sxs-lookup"><span data-stu-id="980e1-205">This tag is for use inside other tags, such as `<summary>` ([`<remarks>`](documentation-comments.md#remarks)) or `<returns>` ([`<returns>`](documentation-comments.md#returns)), and permits structure to be added to text.</span></span>
 
-<span data-ttu-id="49ff4-206">__構文:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-206">__Syntax:__</span></span>
+<span data-ttu-id="980e1-206">__文__</span><span class="sxs-lookup"><span data-stu-id="980e1-206">__Syntax:__</span></span>
 
 ```xml
 <para>content</para>
 ```
 
-<span data-ttu-id="49ff4-207">場所`content`段落のテキストです。</span><span class="sxs-lookup"><span data-stu-id="49ff4-207">where `content` is the text of the paragraph.</span></span>
+<span data-ttu-id="980e1-207">ここ`content`で、は段落のテキストです。</span><span class="sxs-lookup"><span data-stu-id="980e1-207">where `content` is the text of the paragraph.</span></span>
 
-<span data-ttu-id="49ff4-208">__例:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-208">__Example:__</span></span>
+<span data-ttu-id="980e1-208">__例:__</span><span class="sxs-lookup"><span data-stu-id="980e1-208">__Example:__</span></span>
 
 ```csharp
 /// <summary>This is the entry point of the Point class testing program.
@@ -309,20 +309,20 @@ public static void Main() {
 
 ### `<param>`
 
-<span data-ttu-id="49ff4-209">このタグを使用して、メソッド、コンス トラクター、またはインデクサーのパラメーターを説明します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-209">This tag is used to describe a parameter for a method, constructor, or indexer.</span></span>
+<span data-ttu-id="980e1-209">このタグは、メソッド、コンストラクター、またはインデクサーのパラメーターを記述するために使用されます。</span><span class="sxs-lookup"><span data-stu-id="980e1-209">This tag is used to describe a parameter for a method, constructor, or indexer.</span></span>
 
-<span data-ttu-id="49ff4-210">__構文:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-210">__Syntax:__</span></span>
+<span data-ttu-id="980e1-210">__文__</span><span class="sxs-lookup"><span data-stu-id="980e1-210">__Syntax:__</span></span>
 
 ```xml
 <param name="name">description</param>
 ```
 
-<span data-ttu-id="49ff4-211">where</span><span class="sxs-lookup"><span data-stu-id="49ff4-211">where</span></span>
+<span data-ttu-id="980e1-211">where</span><span class="sxs-lookup"><span data-stu-id="980e1-211">where</span></span>
 
-* <span data-ttu-id="49ff4-212">`name` パラメーターの名前です。</span><span class="sxs-lookup"><span data-stu-id="49ff4-212">`name` is the name of the parameter.</span></span>
-* <span data-ttu-id="49ff4-213">`description` パラメーターの説明。</span><span class="sxs-lookup"><span data-stu-id="49ff4-213">`description` is a description of the parameter.</span></span>
+* <span data-ttu-id="980e1-212">`name`パラメーターの名前を指定します。</span><span class="sxs-lookup"><span data-stu-id="980e1-212">`name` is the name of the parameter.</span></span>
+* <span data-ttu-id="980e1-213">`description`パラメーターの説明を指定します。</span><span class="sxs-lookup"><span data-stu-id="980e1-213">`description` is a description of the parameter.</span></span>
 
-<span data-ttu-id="49ff4-214">__例:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-214">__Example:__</span></span>
+<span data-ttu-id="980e1-214">__例:__</span><span class="sxs-lookup"><span data-stu-id="980e1-214">__Example:__</span></span>
 
 ```csharp
 /// <summary>This method changes the point's location to
@@ -337,17 +337,17 @@ public void Move(int xor, int yor) {
 
 ### `<paramref>`
 
-<span data-ttu-id="49ff4-215">このタグを使用して、単語がパラメーターであることを示します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-215">This tag is used to indicate that a word is a parameter.</span></span> <span data-ttu-id="49ff4-216">ドキュメント ファイルを処理することで、何らかの方法でこのパラメーターの書式を設定します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-216">The documentation file can be processed to format this parameter in some distinct way.</span></span>
+<span data-ttu-id="980e1-215">このタグは、単語がパラメーターであることを示すために使用されます。</span><span class="sxs-lookup"><span data-stu-id="980e1-215">This tag is used to indicate that a word is a parameter.</span></span> <span data-ttu-id="980e1-216">ドキュメントファイルを処理して、このパラメーターを別の方法で書式設定することができます。</span><span class="sxs-lookup"><span data-stu-id="980e1-216">The documentation file can be processed to format this parameter in some distinct way.</span></span>
 
-<span data-ttu-id="49ff4-217">__構文:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-217">__Syntax:__</span></span>
+<span data-ttu-id="980e1-217">__文__</span><span class="sxs-lookup"><span data-stu-id="980e1-217">__Syntax:__</span></span>
 
 ```xml
 <paramref name="name"/>
 ```
 
-<span data-ttu-id="49ff4-218">場所`name`パラメーターの名前を指定します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-218">where `name` is the name of the parameter.</span></span>
+<span data-ttu-id="980e1-218">ここ`name`で、はパラメーターの名前です。</span><span class="sxs-lookup"><span data-stu-id="980e1-218">where `name` is the name of the parameter.</span></span>
 
-<span data-ttu-id="49ff4-219">__例:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-219">__Example:__</span></span>
+<span data-ttu-id="980e1-219">__例:__</span><span class="sxs-lookup"><span data-stu-id="980e1-219">__Example:__</span></span>
 
 ```csharp
 /// <summary>This constructor initializes the new Point to
@@ -363,20 +363,20 @@ public Point(int xor, int yor) {
 
 ### `<permission>`
 
-<span data-ttu-id="49ff4-220">このタグは、文書化するメンバーのセキュリティのユーザー補助機能を使用します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-220">This tag allows the security accessibility of a member to be documented.</span></span>
+<span data-ttu-id="980e1-220">このタグにより、メンバーのセキュリティアクセシビリティを文書化することができます。</span><span class="sxs-lookup"><span data-stu-id="980e1-220">This tag allows the security accessibility of a member to be documented.</span></span>
 
-<span data-ttu-id="49ff4-221">__構文:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-221">__Syntax:__</span></span>
+<span data-ttu-id="980e1-221">__文__</span><span class="sxs-lookup"><span data-stu-id="980e1-221">__Syntax:__</span></span>
 
 ```xml
 <permission cref="member">description</permission>
 ```
 
-<span data-ttu-id="49ff4-222">where</span><span class="sxs-lookup"><span data-stu-id="49ff4-222">where</span></span>
+<span data-ttu-id="980e1-222">where</span><span class="sxs-lookup"><span data-stu-id="980e1-222">where</span></span>
 
-* <span data-ttu-id="49ff4-223">`member` メンバーの名前です。</span><span class="sxs-lookup"><span data-stu-id="49ff4-223">`member` is the name of a member.</span></span> <span data-ttu-id="49ff4-224">ドキュメントの生成は、指定されたコード要素が存在し、変換を確認します。*メンバー*ドキュメント ファイルで正規要素名にします。</span><span class="sxs-lookup"><span data-stu-id="49ff4-224">The documentation generator checks that the given code element exists and translates *member* to the canonical element name in the documentation file.</span></span>
-* <span data-ttu-id="49ff4-225">`description` メンバーへのアクセスの説明を示します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-225">`description` is a description of the access to the member.</span></span>
+* <span data-ttu-id="980e1-223">`member`メンバーの名前を指定します。</span><span class="sxs-lookup"><span data-stu-id="980e1-223">`member` is the name of a member.</span></span> <span data-ttu-id="980e1-224">ドキュメントジェネレーターは、指定されたコード要素が存在することを確認し、*メンバー*をドキュメントファイル内の正規要素名に変換します。</span><span class="sxs-lookup"><span data-stu-id="980e1-224">The documentation generator checks that the given code element exists and translates *member* to the canonical element name in the documentation file.</span></span>
+* <span data-ttu-id="980e1-225">`description`メンバーへのアクセスの説明を示します。</span><span class="sxs-lookup"><span data-stu-id="980e1-225">`description` is a description of the access to the member.</span></span>
 
-<span data-ttu-id="49ff4-226">__例:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-226">__Example:__</span></span>
+<span data-ttu-id="980e1-226">__例:__</span><span class="sxs-lookup"><span data-stu-id="980e1-226">__Example:__</span></span>
 
 ```csharp
 /// <permission cref="System.Security.PermissionSet">Everyone can
@@ -387,24 +387,24 @@ public static void Test() {
 }
 ```
 
-### `<remark>`
+### `<remarks>`
 
-<span data-ttu-id="49ff4-227">このタグを使用して、型に関する追加情報を指定します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-227">This tag is used to specify extra information about a type.</span></span> <span data-ttu-id="49ff4-228">(使用`<summary>`([`<summary>`](documentation-comments.md#summary))、型自体と、型のメンバーを記述します)。</span><span class="sxs-lookup"><span data-stu-id="49ff4-228">(Use `<summary>` ([`<summary>`](documentation-comments.md#summary)) to describe the type itself and the members of a type.)</span></span>
+<span data-ttu-id="980e1-227">このタグは、型に関する追加情報を指定するために使用されます。</span><span class="sxs-lookup"><span data-stu-id="980e1-227">This tag is used to specify extra information about a type.</span></span> <span data-ttu-id="980e1-228">(( `<summary>` [`<summary>`](documentation-comments.md#summary)) を使用して、型自体と型のメンバーを記述します)。</span><span class="sxs-lookup"><span data-stu-id="980e1-228">(Use `<summary>` ([`<summary>`](documentation-comments.md#summary)) to describe the type itself and the members of a type.)</span></span>
 
-<span data-ttu-id="49ff4-229">__構文:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-229">__Syntax:__</span></span>
+<span data-ttu-id="980e1-229">__文__</span><span class="sxs-lookup"><span data-stu-id="980e1-229">__Syntax:__</span></span>
 
 ```xml
-<remark>description</remark>
+<remarks>description</remarks>
 ```
 
-<span data-ttu-id="49ff4-230">場所`description`注釈のテキストです。</span><span class="sxs-lookup"><span data-stu-id="49ff4-230">where `description` is the text of the remark.</span></span>
+<span data-ttu-id="980e1-230">ここ`description`で、はコメントのテキストです。</span><span class="sxs-lookup"><span data-stu-id="980e1-230">where `description` is the text of the remark.</span></span>
 
-<span data-ttu-id="49ff4-231">__例:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-231">__Example:__</span></span>
+<span data-ttu-id="980e1-231">__例:__</span><span class="sxs-lookup"><span data-stu-id="980e1-231">__Example:__</span></span>
 
 ```csharp
 /// <summary>Class <c>Point</c> models a point in a 
 /// two-dimensional plane.</summary>
-/// <remark>Uses polar coordinates</remark>
+/// <remarks>Uses polar coordinates</remarks>
 public class Point 
 {
     // ...
@@ -413,17 +413,17 @@ public class Point
 
 ### `<returns>`
 
-<span data-ttu-id="49ff4-232">このタグを使用して、メソッドの戻り値を説明します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-232">This tag is used to describe the return value of a method.</span></span>
+<span data-ttu-id="980e1-232">このタグは、メソッドの戻り値を記述するために使用されます。</span><span class="sxs-lookup"><span data-stu-id="980e1-232">This tag is used to describe the return value of a method.</span></span>
 
-<span data-ttu-id="49ff4-233">__構文:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-233">__Syntax:__</span></span>
+<span data-ttu-id="980e1-233">__文__</span><span class="sxs-lookup"><span data-stu-id="980e1-233">__Syntax:__</span></span>
 
 ```xml
 <returns>description</returns>
 ```
 
-<span data-ttu-id="49ff4-234">場所`description`は戻り値の説明です。</span><span class="sxs-lookup"><span data-stu-id="49ff4-234">where `description` is a description of the return value.</span></span>
+<span data-ttu-id="980e1-234">ここ`description`で、は戻り値の説明です。</span><span class="sxs-lookup"><span data-stu-id="980e1-234">where `description` is a description of the return value.</span></span>
 
-<span data-ttu-id="49ff4-235">__例:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-235">__Example:__</span></span>
+<span data-ttu-id="980e1-235">__例:__</span><span class="sxs-lookup"><span data-stu-id="980e1-235">__Example:__</span></span>
 
 ```csharp
 /// <summary>Report a point's location as a string.</summary>
@@ -436,17 +436,17 @@ public override string ToString() {
 
 ### `<see>`
 
-<span data-ttu-id="49ff4-236">このタグは、テキスト内で指定するためのリンクを使用します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-236">This tag allows a link to be specified within text.</span></span> <span data-ttu-id="49ff4-237">使用`<seealso>`([`<seealso>`](documentation-comments.md#seealso)) では、「参照」セクションに表示されるテキストを示します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-237">Use `<seealso>` ([`<seealso>`](documentation-comments.md#seealso)) to indicate text that is to appear in a See Also section.</span></span>
+<span data-ttu-id="980e1-236">このタグを使用すると、テキスト内でリンクを指定できます。</span><span class="sxs-lookup"><span data-stu-id="980e1-236">This tag allows a link to be specified within text.</span></span> <span data-ttu-id="980e1-237">`<seealso>` [(`<seealso>`](documentation-comments.md#seealso)) を使用して、[参照] セクションに表示されるテキストを指定します。</span><span class="sxs-lookup"><span data-stu-id="980e1-237">Use `<seealso>` ([`<seealso>`](documentation-comments.md#seealso)) to indicate text that is to appear in a See Also section.</span></span>
 
-<span data-ttu-id="49ff4-238">__構文:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-238">__Syntax:__</span></span>
+<span data-ttu-id="980e1-238">__文__</span><span class="sxs-lookup"><span data-stu-id="980e1-238">__Syntax:__</span></span>
 
 ```xml
 <see cref="member"/>
 ```
 
-<span data-ttu-id="49ff4-239">場所`member`メンバーの名前を指定します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-239">where `member` is the name of a member.</span></span> <span data-ttu-id="49ff4-240">ドキュメントの生成は、指定されたコード要素が存在し、変更を確認します。*メンバー* 、生成されたドキュメント ファイル内の要素名にします。</span><span class="sxs-lookup"><span data-stu-id="49ff4-240">The documentation generator checks that the given code element exists and changes *member* to the element name in the generated documentation file.</span></span>
+<span data-ttu-id="980e1-239">ここ`member`で、はメンバーの名前です。</span><span class="sxs-lookup"><span data-stu-id="980e1-239">where `member` is the name of a member.</span></span> <span data-ttu-id="980e1-240">ドキュメントジェネレーターは、指定されたコード要素が存在することを確認し、生成されたドキュメントファイル内の要素名に*メンバー*を変更します。</span><span class="sxs-lookup"><span data-stu-id="980e1-240">The documentation generator checks that the given code element exists and changes *member* to the element name in the generated documentation file.</span></span>
 
-<span data-ttu-id="49ff4-241">__例:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-241">__Example:__</span></span>
+<span data-ttu-id="980e1-241">__例:__</span><span class="sxs-lookup"><span data-stu-id="980e1-241">__Example:__</span></span>
 
 ```csharp
 /// <summary>This method changes the point's location to
@@ -469,17 +469,17 @@ public void Translate(int xor, int yor) {
 
 ### `<seealso>`
 
-<span data-ttu-id="49ff4-242">このタグは、「参照」セクションを生成するエントリをを使用します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-242">This tag allows an entry to be generated for the See Also section.</span></span> <span data-ttu-id="49ff4-243">使用`<see>`([`<see>`](documentation-comments.md#see)) からテキスト内のリンクを指定します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-243">Use `<see>` ([`<see>`](documentation-comments.md#see)) to specify a link from within text.</span></span>
+<span data-ttu-id="980e1-242">このタグを使用すると、[参照] セクションのエントリも生成されます。</span><span class="sxs-lookup"><span data-stu-id="980e1-242">This tag allows an entry to be generated for the See Also section.</span></span> <span data-ttu-id="980e1-243">`<see>` [(`<see>`](documentation-comments.md#see)) を使用して、テキスト内からリンクを指定します。</span><span class="sxs-lookup"><span data-stu-id="980e1-243">Use `<see>` ([`<see>`](documentation-comments.md#see)) to specify a link from within text.</span></span>
 
-<span data-ttu-id="49ff4-244">__構文:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-244">__Syntax:__</span></span>
+<span data-ttu-id="980e1-244">__文__</span><span class="sxs-lookup"><span data-stu-id="980e1-244">__Syntax:__</span></span>
 
 ```xml
 <seealso cref="member"/>
 ```
 
-<span data-ttu-id="49ff4-245">場所`member`メンバーの名前を指定します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-245">where `member` is the name of a member.</span></span> <span data-ttu-id="49ff4-246">ドキュメントの生成は、指定されたコード要素が存在し、変更を確認します。*メンバー* 、生成されたドキュメント ファイル内の要素名にします。</span><span class="sxs-lookup"><span data-stu-id="49ff4-246">The documentation generator checks that the given code element exists and changes *member* to the element name in the generated documentation file.</span></span>
+<span data-ttu-id="980e1-245">ここ`member`で、はメンバーの名前です。</span><span class="sxs-lookup"><span data-stu-id="980e1-245">where `member` is the name of a member.</span></span> <span data-ttu-id="980e1-246">ドキュメントジェネレーターは、指定されたコード要素が存在することを確認し、生成されたドキュメントファイル内の要素名に*メンバー*を変更します。</span><span class="sxs-lookup"><span data-stu-id="980e1-246">The documentation generator checks that the given code element exists and changes *member* to the element name in the generated documentation file.</span></span>
 
-<span data-ttu-id="49ff4-247">__例:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-247">__Example:__</span></span>
+<span data-ttu-id="980e1-247">__例:__</span><span class="sxs-lookup"><span data-stu-id="980e1-247">__Example:__</span></span>
 
 ```csharp
 /// <summary>This method determines whether two Points have the same
@@ -493,17 +493,17 @@ public override bool Equals(object o) {
 
 ### `<summary>`
 
-このタグは、型または型のメンバーの説明に使用できます。 <span data-ttu-id="49ff4-249">使用`<remark>`([`<remark>`](documentation-comments.md#remark))、型自体を記述します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-249">Use `<remark>` ([`<remark>`](documentation-comments.md#remark)) to describe the type itself.</span></span>
+このタグは、型または型のメンバーを記述するために使用できます。 <span data-ttu-id="980e1-249">型`<remarks>`自体[`<remarks>`](documentation-comments.md#remarks)を記述するには、() を使用します。</span><span class="sxs-lookup"><span data-stu-id="980e1-249">Use `<remarks>` ([`<remarks>`](documentation-comments.md#remarks)) to describe the type itself.</span></span>
 
-<span data-ttu-id="49ff4-250">__構文:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-250">__Syntax:__</span></span>
+<span data-ttu-id="980e1-250">__文__</span><span class="sxs-lookup"><span data-stu-id="980e1-250">__Syntax:__</span></span>
 
 ```xml
 <summary>description</summary>
 ```
 
-<span data-ttu-id="49ff4-251">場所`description`型またはメンバーの概要を示します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-251">where `description` is a summary of the type or member.</span></span>
+<span data-ttu-id="980e1-251">ここ`description`で、は型またはメンバーの概要です。</span><span class="sxs-lookup"><span data-stu-id="980e1-251">where `description` is a summary of the type or member.</span></span>
 
-<span data-ttu-id="49ff4-252">__例:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-252">__Example:__</span></span>
+<span data-ttu-id="980e1-252">__例:__</span><span class="sxs-lookup"><span data-stu-id="980e1-252">__Example:__</span></span>
 
 ```csharp
 /// <summary>This constructor initializes the new Point to (0,0).</summary>
@@ -513,17 +513,17 @@ public Point() : this(0,0) {
 
 ### `<value>`
 
-<span data-ttu-id="49ff4-253">このタグは、説明を取得するプロパティを使用します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-253">This tag allows a property to be described.</span></span>
+<span data-ttu-id="980e1-253">このタグを使用すると、プロパティを記述できます。</span><span class="sxs-lookup"><span data-stu-id="980e1-253">This tag allows a property to be described.</span></span>
 
-<span data-ttu-id="49ff4-254">__構文:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-254">__Syntax:__</span></span>
+<span data-ttu-id="980e1-254">__文__</span><span class="sxs-lookup"><span data-stu-id="980e1-254">__Syntax:__</span></span>
 
 ```xml
 <value>property description</value>
 ```
 
-<span data-ttu-id="49ff4-255">場所`property description`プロパティの説明を示します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-255">where `property description` is a description for the property.</span></span>
+<span data-ttu-id="980e1-255">ここ`property description`で、はプロパティの説明です。</span><span class="sxs-lookup"><span data-stu-id="980e1-255">where `property description` is a description for the property.</span></span>
 
-<span data-ttu-id="49ff4-256">__例:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-256">__Example:__</span></span>
+<span data-ttu-id="980e1-256">__例:__</span><span class="sxs-lookup"><span data-stu-id="980e1-256">__Example:__</span></span>
 
 ```csharp
 /// <value>Property <c>X</c> represents the point's x-coordinate.</value>
@@ -536,17 +536,17 @@ public int X
 
 ### `<typeparam>`
 
-<span data-ttu-id="49ff4-257">このタグを使用して、クラス、構造体、インターフェイス、デリゲート、またはメソッドのジェネリック型パラメーターを説明します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-257">This tag is used to describe a generic type parameter for a class, struct, interface, delegate, or method.</span></span>
+<span data-ttu-id="980e1-257">このタグは、クラス、構造体、インターフェイス、デリゲート、またはメソッドのジェネリック型パラメーターを記述するために使用されます。</span><span class="sxs-lookup"><span data-stu-id="980e1-257">This tag is used to describe a generic type parameter for a class, struct, interface, delegate, or method.</span></span>
 
-<span data-ttu-id="49ff4-258">__構文:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-258">__Syntax:__</span></span>
+<span data-ttu-id="980e1-258">__文__</span><span class="sxs-lookup"><span data-stu-id="980e1-258">__Syntax:__</span></span>
 
 ```xml
 <typeparam name="name">description</typeparam>
 ```
 
-<span data-ttu-id="49ff4-259">場所`name`、型パラメーターの名前を指定し、`description`はその説明です。</span><span class="sxs-lookup"><span data-stu-id="49ff4-259">where `name` is the name of the type parameter, and `description` is its description.</span></span>
+<span data-ttu-id="980e1-259">ここ`name`で、は型パラメーター `description`の名前、は説明です。</span><span class="sxs-lookup"><span data-stu-id="980e1-259">where `name` is the name of the type parameter, and `description` is its description.</span></span>
 
-<span data-ttu-id="49ff4-260">__例:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-260">__Example:__</span></span>
+<span data-ttu-id="980e1-260">__例:__</span><span class="sxs-lookup"><span data-stu-id="980e1-260">__Example:__</span></span>
 
 ```csharp
 /// <summary>A generic list class.</summary>
@@ -558,17 +558,17 @@ public class MyList<T> {
 
 ### `<typeparamref>`
 
-<span data-ttu-id="49ff4-261">このタグを使用して、単語が型パラメーターであることを示します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-261">This tag is used to indicate that a word is a type parameter.</span></span> <span data-ttu-id="49ff4-262">ドキュメント ファイルを処理することで、何らかの方法でこの型パラメーターの書式を設定します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-262">The documentation file can be processed to format this type parameter in some distinct way.</span></span>
+<span data-ttu-id="980e1-261">このタグは、単語が型パラメーターであることを示すために使用されます。</span><span class="sxs-lookup"><span data-stu-id="980e1-261">This tag is used to indicate that a word is a type parameter.</span></span> <span data-ttu-id="980e1-262">ドキュメントファイルを処理して、この型パラメーターを別の方法で書式設定することができます。</span><span class="sxs-lookup"><span data-stu-id="980e1-262">The documentation file can be processed to format this type parameter in some distinct way.</span></span>
 
-<span data-ttu-id="49ff4-263">__構文:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-263">__Syntax:__</span></span>
+<span data-ttu-id="980e1-263">__文__</span><span class="sxs-lookup"><span data-stu-id="980e1-263">__Syntax:__</span></span>
 
 ```xml
 <typeparamref name="name"/>
 ```
 
-<span data-ttu-id="49ff4-264">場所`name`型パラメーターの名前を指定します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-264">where `name` is the name of the type parameter.</span></span>
+<span data-ttu-id="980e1-264">ここ`name`で、は型パラメーターの名前です。</span><span class="sxs-lookup"><span data-stu-id="980e1-264">where `name` is the name of the type parameter.</span></span>
 
-<span data-ttu-id="49ff4-265">__例:__</span><span class="sxs-lookup"><span data-stu-id="49ff4-265">__Example:__</span></span>
+<span data-ttu-id="980e1-265">__例:__</span><span class="sxs-lookup"><span data-stu-id="980e1-265">__Example:__</span></span>
 
 ```csharp
 /// <summary>This method fetches data and returns a list of <typeparamref name="T"/>.</summary>
@@ -578,46 +578,46 @@ public List<T> FetchData<T>(string query) {
 }
 ```
 
-## <a name="processing-the-documentation-file"></a><span data-ttu-id="49ff4-266">ドキュメント ファイルの処理</span><span class="sxs-lookup"><span data-stu-id="49ff4-266">Processing the documentation file</span></span>
+## <a name="processing-the-documentation-file"></a><span data-ttu-id="980e1-266">ドキュメントファイルを処理しています</span><span class="sxs-lookup"><span data-stu-id="980e1-266">Processing the documentation file</span></span>
 
-<span data-ttu-id="49ff4-267">ドキュメント ジェネレーターは、ドキュメントのコメントとタグ付けされているソース コード内の各要素の ID 文字列を生成します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-267">The documentation generator generates an ID string for each element in the source code that is tagged with a documentation comment.</span></span> <span data-ttu-id="49ff4-268">この ID 文字列は、ソース要素を一意に識別します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-268">This ID string uniquely identifies a source element.</span></span> <span data-ttu-id="49ff4-269">ドキュメント ビューアーでは、ドキュメントを適用するのに、対応するメタデータ/リフレクション項目を識別するために、ID 文字列を使用できます。</span><span class="sxs-lookup"><span data-stu-id="49ff4-269">A documentation viewer can use an ID string to identify the corresponding metadata/reflection item to which the documentation applies.</span></span>
+<span data-ttu-id="980e1-267">ドキュメントジェネレーターは、ドキュメントコメントでタグ付けされたソースコード内の各要素に対して ID 文字列を生成します。</span><span class="sxs-lookup"><span data-stu-id="980e1-267">The documentation generator generates an ID string for each element in the source code that is tagged with a documentation comment.</span></span> <span data-ttu-id="980e1-268">この ID 文字列は、ソース要素を一意に識別します。</span><span class="sxs-lookup"><span data-stu-id="980e1-268">This ID string uniquely identifies a source element.</span></span> <span data-ttu-id="980e1-269">ドキュメントビューアーでは、ID 文字列を使用して、ドキュメントが適用される、対応するメタデータ/リフレクション項目を識別できます。</span><span class="sxs-lookup"><span data-stu-id="980e1-269">A documentation viewer can use an ID string to identify the corresponding metadata/reflection item to which the documentation applies.</span></span>
 
-<span data-ttu-id="49ff4-270">ドキュメント ファイルは、ソース コードの階層表現ではありません。代わりに、各要素に対して生成される ID 文字列をフラットな一覧を示します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-270">The documentation file is not a hierarchical representation of the source code; rather, it is a flat list with a generated ID string for each element.</span></span>
+<span data-ttu-id="980e1-270">ドキュメントファイルは、ソースコードの階層的な表現ではありません。代わりに、要素ごとに生成された ID 文字列を含む単純なリストになります。</span><span class="sxs-lookup"><span data-stu-id="980e1-270">The documentation file is not a hierarchical representation of the source code; rather, it is a flat list with a generated ID string for each element.</span></span>
 
-### <a name="id-string-format"></a><span data-ttu-id="49ff4-271">ID 文字列の形式</span><span class="sxs-lookup"><span data-stu-id="49ff4-271">ID string format</span></span>
+### <a name="id-string-format"></a><span data-ttu-id="980e1-271">ID 文字列の形式</span><span class="sxs-lookup"><span data-stu-id="980e1-271">ID string format</span></span>
 
-<span data-ttu-id="49ff4-272">ドキュメント ジェネレーターは、ID 文字列を生成するときに、次の規則を監視します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-272">The documentation generator observes the following rules when it generates the ID strings:</span></span>
+<span data-ttu-id="980e1-272">ドキュメントジェネレーターは、ID 文字列を生成するときに、次の規則を監視します。</span><span class="sxs-lookup"><span data-stu-id="980e1-272">The documentation generator observes the following rules when it generates the ID strings:</span></span>
 
-*  <span data-ttu-id="49ff4-273">文字列に空白は配置されません。</span><span class="sxs-lookup"><span data-stu-id="49ff4-273">No white space is placed in the string.</span></span>
+*  <span data-ttu-id="980e1-273">文字列に空白は配置されません。</span><span class="sxs-lookup"><span data-stu-id="980e1-273">No white space is placed in the string.</span></span>
 
-*  <span data-ttu-id="49ff4-274">文字列の最初の部分では、単一の文字の後にコロンを使用して、記述されているメンバーの種類を識別します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-274">The first part of the string identifies the kind of member being documented, via a single character followed by a colon.</span></span> <span data-ttu-id="49ff4-275">次の種類のメンバーが定義されています。</span><span class="sxs-lookup"><span data-stu-id="49ff4-275">The following kinds of members are defined:</span></span>
+*  <span data-ttu-id="980e1-274">文字列の最初の部分では、ドキュメント化されているメンバーの種類を、1つの文字の後にコロンを使用して識別します。</span><span class="sxs-lookup"><span data-stu-id="980e1-274">The first part of the string identifies the kind of member being documented, via a single character followed by a colon.</span></span> <span data-ttu-id="980e1-275">次の種類のメンバーが定義されています。</span><span class="sxs-lookup"><span data-stu-id="980e1-275">The following kinds of members are defined:</span></span>
 
-   | <span data-ttu-id="49ff4-276">__文字__</span><span class="sxs-lookup"><span data-stu-id="49ff4-276">__Character__</span></span> | <span data-ttu-id="49ff4-277">__説明__</span><span class="sxs-lookup"><span data-stu-id="49ff4-277">__Description__</span></span>                                             |
+   | <span data-ttu-id="980e1-276">__文字__</span><span class="sxs-lookup"><span data-stu-id="980e1-276">__Character__</span></span> | <span data-ttu-id="980e1-277">__説明__</span><span class="sxs-lookup"><span data-stu-id="980e1-277">__Description__</span></span>                                             |
    |---------------|-------------------------------------------------------------|
-   | <span data-ttu-id="49ff4-278">E</span><span class="sxs-lookup"><span data-stu-id="49ff4-278">E</span></span>             | <span data-ttu-id="49ff4-279">event</span><span class="sxs-lookup"><span data-stu-id="49ff4-279">Event</span></span>                                                       |
-   | <span data-ttu-id="49ff4-280">F</span><span class="sxs-lookup"><span data-stu-id="49ff4-280">F</span></span>             | <span data-ttu-id="49ff4-281">フィールド</span><span class="sxs-lookup"><span data-stu-id="49ff4-281">Field</span></span>                                                       |
-   | <span data-ttu-id="49ff4-282">M</span><span class="sxs-lookup"><span data-stu-id="49ff4-282">M</span></span>             | <span data-ttu-id="49ff4-283">メソッド (コンス トラクター、デストラクター、および演算子を含む)</span><span class="sxs-lookup"><span data-stu-id="49ff4-283">Method (including constructors, destructors, and operators)</span></span> |
-   | <span data-ttu-id="49ff4-284">N</span><span class="sxs-lookup"><span data-stu-id="49ff4-284">N</span></span>             | <span data-ttu-id="49ff4-285">名前空間</span><span class="sxs-lookup"><span data-stu-id="49ff4-285">Namespace</span></span>                                                   |
-   | <span data-ttu-id="49ff4-286">P</span><span class="sxs-lookup"><span data-stu-id="49ff4-286">P</span></span>             | <span data-ttu-id="49ff4-287">プロパティ (インデクサーを含む)</span><span class="sxs-lookup"><span data-stu-id="49ff4-287">Property (including indexers)</span></span>                               |
-   | <span data-ttu-id="49ff4-288">T</span><span class="sxs-lookup"><span data-stu-id="49ff4-288">T</span></span>             | <span data-ttu-id="49ff4-289">(クラス、デリゲート、列挙型、インターフェイス、構造体など) を入力します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-289">Type (such as class, delegate, enum, interface, and struct)</span></span> |
-   | <span data-ttu-id="49ff4-290">!</span><span class="sxs-lookup"><span data-stu-id="49ff4-290">!</span></span>             | <span data-ttu-id="49ff4-291">エラーの文字列。文字列の残りの部分は、エラーに関する情報を提供します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-291">Error string; the rest of the string provides information about the error.</span></span> <span data-ttu-id="49ff4-292">たとえば、ドキュメントの生成には、解決できないリンクのエラー情報が生成されます。</span><span class="sxs-lookup"><span data-stu-id="49ff4-292">For example, the documentation generator generates error information for links that cannot be resolved.</span></span> |
+   | <span data-ttu-id="980e1-278">E</span><span class="sxs-lookup"><span data-stu-id="980e1-278">E</span></span>             | <span data-ttu-id="980e1-279">event</span><span class="sxs-lookup"><span data-stu-id="980e1-279">Event</span></span>                                                       |
+   | <span data-ttu-id="980e1-280">F</span><span class="sxs-lookup"><span data-stu-id="980e1-280">F</span></span>             | <span data-ttu-id="980e1-281">フィールド</span><span class="sxs-lookup"><span data-stu-id="980e1-281">Field</span></span>                                                       |
+   | <span data-ttu-id="980e1-282">M</span><span class="sxs-lookup"><span data-stu-id="980e1-282">M</span></span>             | <span data-ttu-id="980e1-283">メソッド (コンストラクター、デストラクター、および演算子を含む)</span><span class="sxs-lookup"><span data-stu-id="980e1-283">Method (including constructors, destructors, and operators)</span></span> |
+   | <span data-ttu-id="980e1-284">N</span><span class="sxs-lookup"><span data-stu-id="980e1-284">N</span></span>             | <span data-ttu-id="980e1-285">名前空間</span><span class="sxs-lookup"><span data-stu-id="980e1-285">Namespace</span></span>                                                   |
+   | <span data-ttu-id="980e1-286">P</span><span class="sxs-lookup"><span data-stu-id="980e1-286">P</span></span>             | <span data-ttu-id="980e1-287">プロパティ (インデクサーを含む)</span><span class="sxs-lookup"><span data-stu-id="980e1-287">Property (including indexers)</span></span>                               |
+   | <span data-ttu-id="980e1-288">T</span><span class="sxs-lookup"><span data-stu-id="980e1-288">T</span></span>             | <span data-ttu-id="980e1-289">型 (クラス、デリゲート、列挙型、インターフェイス、構造体など)</span><span class="sxs-lookup"><span data-stu-id="980e1-289">Type (such as class, delegate, enum, interface, and struct)</span></span> |
+   | <span data-ttu-id="980e1-290">!</span><span class="sxs-lookup"><span data-stu-id="980e1-290">!</span></span>             | <span data-ttu-id="980e1-291">エラー文字列;文字列の残りの部分は、エラーに関する情報を提供します。</span><span class="sxs-lookup"><span data-stu-id="980e1-291">Error string; the rest of the string provides information about the error.</span></span> <span data-ttu-id="980e1-292">たとえば、ドキュメントジェネレーターは、解決できないリンクのエラー情報を生成します。</span><span class="sxs-lookup"><span data-stu-id="980e1-292">For example, the documentation generator generates error information for links that cannot be resolved.</span></span> |
 
-*  <span data-ttu-id="49ff4-293">文字列の 2 番目の部分は、名前空間のルートから始まり、要素の完全修飾名です。</span><span class="sxs-lookup"><span data-stu-id="49ff4-293">The second part of the string is the fully qualified name of the element, starting at the root of the namespace.</span></span> <span data-ttu-id="49ff4-294">要素、それを囲む型、および名前空間の名前は、ピリオドで区切られます。</span><span class="sxs-lookup"><span data-stu-id="49ff4-294">The name of the element, its enclosing type(s), and namespace are separated by periods.</span></span> <span data-ttu-id="49ff4-295">項目自体の名前にピリオドがある場合は、置き換えられる`#(U+0023)`文字。</span><span class="sxs-lookup"><span data-stu-id="49ff4-295">If the name of the item itself has periods, they are replaced by `#(U+0023)` characters.</span></span> <span data-ttu-id="49ff4-296">(これと見なされます要素の名前にはこの文字がありません。)</span><span class="sxs-lookup"><span data-stu-id="49ff4-296">(It is assumed that no element has this character in its name.)</span></span>
-*  <span data-ttu-id="49ff4-297">メソッドとプロパティの引数は、引数には、次のように、かっこで囲まれているが一覧表示します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-297">For methods and properties with arguments, the argument list follows, enclosed in parentheses.</span></span> <span data-ttu-id="49ff4-298">引数を指定せずに、かっこを省略します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-298">For those without arguments, the parentheses are omitted.</span></span> <span data-ttu-id="49ff4-299">引数はコンマで区切られます。</span><span class="sxs-lookup"><span data-stu-id="49ff4-299">The arguments are separated by commas.</span></span> <span data-ttu-id="49ff4-300">各引数のエンコーディング CLI シグネチャと同じとおりです。</span><span class="sxs-lookup"><span data-stu-id="49ff4-300">The encoding of each argument is the same as a CLI signature, as follows:</span></span>
-   *  <span data-ttu-id="49ff4-301">引数は、次のように変更された、完全修飾名に基づくドキュメント名で表されます。</span><span class="sxs-lookup"><span data-stu-id="49ff4-301">Arguments are represented by their documentation name, which is based on their fully qualified name, modified as follows:</span></span>
-      * <span data-ttu-id="49ff4-302">ジェネリック型を表す引数が末尾にある`` ` ``(アクサン グラーブ) 文字が続く型パラメーターの数</span><span class="sxs-lookup"><span data-stu-id="49ff4-302">Arguments that represent generic types have an appended `` ` `` (backtick) character followed by the number of type parameters</span></span>
-      * <span data-ttu-id="49ff4-303">引数、`out`または`ref`修飾子が、`@`に従って、型名。</span><span class="sxs-lookup"><span data-stu-id="49ff4-303">Arguments having the `out` or `ref` modifier have an `@` following their type name.</span></span> <span data-ttu-id="49ff4-304">値渡しまたは経由で渡される引数`params`特殊な表記はあるありません。</span><span class="sxs-lookup"><span data-stu-id="49ff4-304">Arguments passed by value or via `params` have no special notation.</span></span>
-      * <span data-ttu-id="49ff4-305">引数には、配列として表されます`[lowerbound:size, ... , lowerbound:size]`コンマの数は、1 を引いたランクと下限と各次元のサイズがわかっている場合が 10 進数で表されます。</span><span class="sxs-lookup"><span data-stu-id="49ff4-305">Arguments that are arrays are represented as `[lowerbound:size, ... , lowerbound:size]` where the number of commas is the rank less one, and the lower bounds and size of each dimension, if known, are represented in decimal.</span></span> <span data-ttu-id="49ff4-306">下限またはサイズが指定されていない場合は省略されます。</span><span class="sxs-lookup"><span data-stu-id="49ff4-306">If a lower bound or size is not specified, it is omitted.</span></span> <span data-ttu-id="49ff4-307">下限の境界と、特定のディメンションのサイズを省略した場合、`:`も省略されます。</span><span class="sxs-lookup"><span data-stu-id="49ff4-307">If the lower bound and size for a particular dimension are omitted, the `:` is omitted as well.</span></span> <span data-ttu-id="49ff4-308">ジャグ配列は 1 つで表されます`[]`レベルごと。</span><span class="sxs-lookup"><span data-stu-id="49ff4-308">Jagged arrays are represented by one `[]` per level.</span></span>
-      * <span data-ttu-id="49ff4-309">使用してポインターの型 void 以外の引数が表される、`*`次の型名。</span><span class="sxs-lookup"><span data-stu-id="49ff4-309">Arguments that have pointer types other than void are represented using a `*` following the type name.</span></span> <span data-ttu-id="49ff4-310">Void ポインターは、の型名を使用して表される`System.Void`します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-310">A void pointer is represented using a type name of `System.Void`.</span></span>
-      * <span data-ttu-id="49ff4-311">型で定義されたジェネリック型パラメーターを参照する引数を使用してエンコード、 `` ` `` (アクサン グラーブ) 文字の後に、型パラメーターの 0 から始まるインデックス。</span><span class="sxs-lookup"><span data-stu-id="49ff4-311">Arguments that refer to generic type parameters defined on types are encoded using the `` ` `` (backtick) character followed by the zero-based index of the type parameter.</span></span>
-      * <span data-ttu-id="49ff4-312">メソッドで定義されているジェネリック型パラメーターを使用する引数を使用して、double バックティック``` `` ```の代わりに、`` ` ``の種類で使用します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-312">Arguments that use generic type parameters defined in methods use a double-backtick ``` `` ``` instead of the `` ` `` used for types.</span></span>
-      * <span data-ttu-id="49ff4-313">構築されたジェネリック型を参照する引数は、後に、ジェネリック型を使用してエンコードする`{`、型引数のコンマ区切りのリストが続く、続けて`}`します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-313">Arguments that refer to constructed generic types are encoded using the generic type, followed by `{`, followed by a comma-separated list of type arguments, followed by `}`.</span></span>
+*  <span data-ttu-id="980e1-293">文字列の2番目の部分は、要素の完全修飾名であり、名前空間のルートから始まります。</span><span class="sxs-lookup"><span data-stu-id="980e1-293">The second part of the string is the fully qualified name of the element, starting at the root of the namespace.</span></span> <span data-ttu-id="980e1-294">要素の名前、それを囲む型、および名前空間は、ピリオドで区切られます。</span><span class="sxs-lookup"><span data-stu-id="980e1-294">The name of the element, its enclosing type(s), and namespace are separated by periods.</span></span> <span data-ttu-id="980e1-295">項目の名前にピリオドが含まれている場合は、文字`#(U+0023)`で置き換えられます。</span><span class="sxs-lookup"><span data-stu-id="980e1-295">If the name of the item itself has periods, they are replaced by `#(U+0023)` characters.</span></span> <span data-ttu-id="980e1-296">(この文字が名前に含まれている要素がないことを前提としています)。</span><span class="sxs-lookup"><span data-stu-id="980e1-296">(It is assumed that no element has this character in its name.)</span></span>
+*  <span data-ttu-id="980e1-297">引数を持つメソッドとプロパティについては、かっこで囲まれた引数リストが続きます。</span><span class="sxs-lookup"><span data-stu-id="980e1-297">For methods and properties with arguments, the argument list follows, enclosed in parentheses.</span></span> <span data-ttu-id="980e1-298">引数を指定しない場合、かっこは省略されます。</span><span class="sxs-lookup"><span data-stu-id="980e1-298">For those without arguments, the parentheses are omitted.</span></span> <span data-ttu-id="980e1-299">引数はコンマで区切られます。</span><span class="sxs-lookup"><span data-stu-id="980e1-299">The arguments are separated by commas.</span></span> <span data-ttu-id="980e1-300">各引数のエンコーディングは、次のように CLI シグネチャと同じです。</span><span class="sxs-lookup"><span data-stu-id="980e1-300">The encoding of each argument is the same as a CLI signature, as follows:</span></span>
+   *  <span data-ttu-id="980e1-301">引数は、次のように変更された完全修飾名に基づいて、ドキュメント名によって表されます。</span><span class="sxs-lookup"><span data-stu-id="980e1-301">Arguments are represented by their documentation name, which is based on their fully qualified name, modified as follows:</span></span>
+      * <span data-ttu-id="980e1-302">ジェネリック型を表す引数には、 `` ` ``追加された (バックティック) 文字の後に型パラメーターの数が続きます。</span><span class="sxs-lookup"><span data-stu-id="980e1-302">Arguments that represent generic types have an appended `` ` `` (backtick) character followed by the number of type parameters</span></span>
+      * <span data-ttu-id="980e1-303">または`out` `ref`修飾子を持つ引数の`@`型名は、次のようになります。</span><span class="sxs-lookup"><span data-stu-id="980e1-303">Arguments having the `out` or `ref` modifier have an `@` following their type name.</span></span> <span data-ttu-id="980e1-304">値または via `params`によって渡される引数には、特別な表記はありません。</span><span class="sxs-lookup"><span data-stu-id="980e1-304">Arguments passed by value or via `params` have no special notation.</span></span>
+      * <span data-ttu-id="980e1-305">配列として`[lowerbound:size, ... , lowerbound:size]`指定される引数は、コンマの数が1未満の値で表され、各次元の下限とサイズ (既知の場合) が decimal で表されます。</span><span class="sxs-lookup"><span data-stu-id="980e1-305">Arguments that are arrays are represented as `[lowerbound:size, ... , lowerbound:size]` where the number of commas is the rank less one, and the lower bounds and size of each dimension, if known, are represented in decimal.</span></span> <span data-ttu-id="980e1-306">下限またはサイズが指定されていない場合は省略されます。</span><span class="sxs-lookup"><span data-stu-id="980e1-306">If a lower bound or size is not specified, it is omitted.</span></span> <span data-ttu-id="980e1-307">特定の次元の下限とサイズが省略されている場合`:`は、も省略されます。</span><span class="sxs-lookup"><span data-stu-id="980e1-307">If the lower bound and size for a particular dimension are omitted, the `:` is omitted as well.</span></span> <span data-ttu-id="980e1-308">ジャグ配列は、1レベル`[]`につき1つので表されます。</span><span class="sxs-lookup"><span data-stu-id="980e1-308">Jagged arrays are represented by one `[]` per level.</span></span>
+      * <span data-ttu-id="980e1-309">Void 以外のポインター型を持つ引数は、次の`*`型名を使用して表されます。</span><span class="sxs-lookup"><span data-stu-id="980e1-309">Arguments that have pointer types other than void are represented using a `*` following the type name.</span></span> <span data-ttu-id="980e1-310">Void ポインターは、型名`System.Void`を使用して表されます。</span><span class="sxs-lookup"><span data-stu-id="980e1-310">A void pointer is represented using a type name of `System.Void`.</span></span>
+      * <span data-ttu-id="980e1-311">型に対して定義されているジェネリック型パラメーターを参照`` ` ``する引数は、(バックティック) 文字の後に型パラメーターの0から始まるインデックスを使用してエンコードされます。</span><span class="sxs-lookup"><span data-stu-id="980e1-311">Arguments that refer to generic type parameters defined on types are encoded using the `` ` `` (backtick) character followed by the zero-based index of the type parameter.</span></span>
+      * <span data-ttu-id="980e1-312">メソッドで定義されているジェネリック型パラメーターを使用する引数``` `` ```は、型`` ` ``に使用されるではなく、二重バックティックを使用します。</span><span class="sxs-lookup"><span data-stu-id="980e1-312">Arguments that use generic type parameters defined in methods use a double-backtick ``` `` ``` instead of the `` ` `` used for types.</span></span>
+      * <span data-ttu-id="980e1-313">構築されたジェネリック型を参照する引数は、ジェネリック型を使用`{`してエンコードされ、それに続いて、の後に`}`型引数のコンマ区切りリストが続きます。</span><span class="sxs-lookup"><span data-stu-id="980e1-313">Arguments that refer to constructed generic types are encoded using the generic type, followed by `{`, followed by a comma-separated list of type arguments, followed by `}`.</span></span>
 
-### <a name="id-string-examples"></a><span data-ttu-id="49ff4-314">ID 文字列の例</span><span class="sxs-lookup"><span data-stu-id="49ff4-314">ID string examples</span></span>
+### <a name="id-string-examples"></a><span data-ttu-id="980e1-314">ID 文字列の例</span><span class="sxs-lookup"><span data-stu-id="980e1-314">ID string examples</span></span>
 
-<span data-ttu-id="49ff4-315">次の例については、c# コード、ドキュメントのコメントを持つことのできる各ソース要素から生成される ID 文字列とのフラグメントを示します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-315">The following examples each show a fragment of C# code, along with the ID string produced from each source element capable of having a documentation comment:</span></span>
+<span data-ttu-id="980e1-315">次の例では、各ソースC#要素から生成された、ドキュメントコメントを持つことができる ID 文字列と共に、コードのフラグメントを示しています。</span><span class="sxs-lookup"><span data-stu-id="980e1-315">The following examples each show a fragment of C# code, along with the ID string produced from each source element capable of having a documentation comment:</span></span>
 
-*  <span data-ttu-id="49ff4-316">型では、汎用的な情報で補完された、完全修飾名を使用して表されます。</span><span class="sxs-lookup"><span data-stu-id="49ff4-316">Types are represented using their fully qualified name, augmented with generic information:</span></span>
+*  <span data-ttu-id="980e1-316">型は、完全修飾名を使用して表され、汎用情報で補完されます。</span><span class="sxs-lookup"><span data-stu-id="980e1-316">Types are represented using their fully qualified name, augmented with generic information:</span></span>
 
    ```csharp
    enum Color { Red, Blue, Green }
@@ -654,7 +654,7 @@ public List<T> FetchData<T>(string query) {
    "T:Acme.MyList`1.Helper`2"
    ```
 
-*  <span data-ttu-id="49ff4-317">フィールドは、完全修飾名で表されます。</span><span class="sxs-lookup"><span data-stu-id="49ff4-317">Fields are represented by their fully qualified name:</span></span>
+*  <span data-ttu-id="980e1-317">フィールドは、完全修飾名で表されます。</span><span class="sxs-lookup"><span data-stu-id="980e1-317">Fields are represented by their fully qualified name:</span></span>
 
    ```csharp
    namespace Acme
@@ -694,7 +694,7 @@ public List<T> FetchData<T>(string query) {
    "F:Acme.Widget.ppValues"
    ```
 
-*  <span data-ttu-id="49ff4-318">コンストラクター。</span><span class="sxs-lookup"><span data-stu-id="49ff4-318">Constructors.</span></span>
+*  <span data-ttu-id="980e1-318">コンストラクター。</span><span class="sxs-lookup"><span data-stu-id="980e1-318">Constructors.</span></span>
 
    ```csharp
    namespace Acme
@@ -712,7 +712,7 @@ public List<T> FetchData<T>(string query) {
    "M:Acme.Widget.#ctor(System.String)"
    ```
 
-*  <span data-ttu-id="49ff4-319">デストラクターです。</span><span class="sxs-lookup"><span data-stu-id="49ff4-319">Destructors.</span></span>
+*  <span data-ttu-id="980e1-319">デストラクタ.</span><span class="sxs-lookup"><span data-stu-id="980e1-319">Destructors.</span></span>
 
    ```csharp
    namespace Acme
@@ -726,7 +726,7 @@ public List<T> FetchData<T>(string query) {
    "M:Acme.Widget.Finalize"
    ```
 
-*  <span data-ttu-id="49ff4-320">メソッド。</span><span class="sxs-lookup"><span data-stu-id="49ff4-320">Methods.</span></span>
+*  <span data-ttu-id="980e1-320">メソッド.</span><span class="sxs-lookup"><span data-stu-id="980e1-320">Methods.</span></span>
 
    ```csharp
    namespace Acme
@@ -778,7 +778,7 @@ public List<T> FetchData<T>(string query) {
    "M:Acme.UseList.GetValues``(``0)"
    ```
 
-*  <span data-ttu-id="49ff4-321">プロパティとインデクサーです。</span><span class="sxs-lookup"><span data-stu-id="49ff4-321">Properties and indexers.</span></span>
+*  <span data-ttu-id="980e1-321">プロパティとインデクサー。</span><span class="sxs-lookup"><span data-stu-id="980e1-321">Properties and indexers.</span></span>
 
    ```csharp
    namespace Acme
@@ -796,7 +796,7 @@ public List<T> FetchData<T>(string query) {
    "P:Acme.Widget.Item(System.String,System.Int32)"
    ```
 
-*  <span data-ttu-id="49ff4-322">イベント。</span><span class="sxs-lookup"><span data-stu-id="49ff4-322">Events.</span></span>
+*  <span data-ttu-id="980e1-322">記録.</span><span class="sxs-lookup"><span data-stu-id="980e1-322">Events.</span></span>
 
    ```csharp
    namespace Acme
@@ -810,7 +810,7 @@ public List<T> FetchData<T>(string query) {
    "E:Acme.Widget.AnEvent"
    ```
 
-*  <span data-ttu-id="49ff4-323">単項演算子。</span><span class="sxs-lookup"><span data-stu-id="49ff4-323">Unary operators.</span></span>
+*  <span data-ttu-id="980e1-323">単項演算子。</span><span class="sxs-lookup"><span data-stu-id="980e1-323">Unary operators.</span></span>
 
    ```csharp
    namespace Acme
@@ -824,9 +824,9 @@ public List<T> FetchData<T>(string query) {
    "M:Acme.Widget.op_UnaryPlus(Acme.Widget)"
    ```
 
-   <span data-ttu-id="49ff4-324">使用される単項演算子の関数名の完全なセットのとおりです: `op_UnaryPlus`、 `op_UnaryNegation`、 `op_LogicalNot`、 `op_OnesComplement`、 `op_Increment`、 `op_Decrement`、 `op_True`、および`op_False`します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-324">The complete set of unary operator function names used is as follows: `op_UnaryPlus`, `op_UnaryNegation`, `op_LogicalNot`, `op_OnesComplement`, `op_Increment`, `op_Decrement`, `op_True`, and `op_False`.</span></span>
+   <span data-ttu-id="980e1-324">使用される単項演算子関数名の完全なセットは`op_UnaryPlus` `op_Decrement` `op_UnaryNegation` `op_LogicalNot`、、、 `op_OnesComplement`、 `op_Increment` `op_True`、、、、 `op_False`およびです。</span><span class="sxs-lookup"><span data-stu-id="980e1-324">The complete set of unary operator function names used is as follows: `op_UnaryPlus`, `op_UnaryNegation`, `op_LogicalNot`, `op_OnesComplement`, `op_Increment`, `op_Decrement`, `op_True`, and `op_False`.</span></span>
 
-*  <span data-ttu-id="49ff4-325">二項演算子。</span><span class="sxs-lookup"><span data-stu-id="49ff4-325">Binary operators.</span></span>
+*  <span data-ttu-id="980e1-325">二項演算子。</span><span class="sxs-lookup"><span data-stu-id="980e1-325">Binary operators.</span></span>
 
    ```csharp
    namespace Acme
@@ -840,9 +840,9 @@ public List<T> FetchData<T>(string query) {
    "M:Acme.Widget.op_Addition(Acme.Widget,Acme.Widget)"
    ```
 
-   <span data-ttu-id="49ff4-326">使用される二項演算子関数名の完全なセットのとおりです: `op_Addition`、 `op_Subtraction`、 `op_Multiply`、 `op_Division`、 `op_Modulus`、 `op_BitwiseAnd`、 `op_BitwiseOr`、 `op_ExclusiveOr`、 `op_LeftShift`、 `op_RightShift`、`op_Equality`、 `op_Inequality`、 `op_LessThan`、 `op_LessThanOrEqual`、 `op_GreaterThan`、および`op_GreaterThanOrEqual`します。</span><span class="sxs-lookup"><span data-stu-id="49ff4-326">The complete set of binary operator function names used is as follows: `op_Addition`, `op_Subtraction`, `op_Multiply`, `op_Division`, `op_Modulus`, `op_BitwiseAnd`, `op_BitwiseOr`, `op_ExclusiveOr`, `op_LeftShift`, `op_RightShift`, `op_Equality`, `op_Inequality`, `op_LessThan`, `op_LessThanOrEqual`, `op_GreaterThan`, and `op_GreaterThanOrEqual`.</span></span>
+   <span data-ttu-id="980e1-326">使用される二項演算子関数名の完全なセットを次`op_Addition`に示します。 `op_Modulus` `op_Multiply`、 `op_BitwiseAnd` `op_Subtraction`、 `op_BitwiseOr`、 `op_ExclusiveOr` `op_Division` `op_LeftShift` `op_RightShift`、、、、、、、`op_Equality` 、`op_Inequality`、 、`op_GreaterThan`、、および。`op_GreaterThanOrEqual` `op_LessThan` `op_LessThanOrEqual`</span><span class="sxs-lookup"><span data-stu-id="980e1-326">The complete set of binary operator function names used is as follows: `op_Addition`, `op_Subtraction`, `op_Multiply`, `op_Division`, `op_Modulus`, `op_BitwiseAnd`, `op_BitwiseOr`, `op_ExclusiveOr`, `op_LeftShift`, `op_RightShift`, `op_Equality`, `op_Inequality`, `op_LessThan`, `op_LessThanOrEqual`, `op_GreaterThan`, and `op_GreaterThanOrEqual`.</span></span>
 
-*  <span data-ttu-id="49ff4-327">変換演算子は、末尾がある"`~`"後に、戻り値の型。</span><span class="sxs-lookup"><span data-stu-id="49ff4-327">Conversion operators have a trailing "`~`" followed by the return type.</span></span>
+*  <span data-ttu-id="980e1-327">変換演算子には、末尾`~`に "" の後に戻り値の型があります。</span><span class="sxs-lookup"><span data-stu-id="980e1-327">Conversion operators have a trailing "`~`" followed by the return type.</span></span>
 
    ```csharp
    namespace Acme
@@ -858,11 +858,11 @@ public List<T> FetchData<T>(string query) {
    "M:Acme.Widget.op_Implicit(Acme.Widget)~System.Int64"
    ```
 
-## <a name="an-example"></a><span data-ttu-id="49ff4-328">使用例</span><span class="sxs-lookup"><span data-stu-id="49ff4-328">An example</span></span>
+## <a name="an-example"></a><span data-ttu-id="980e1-328">使用例</span><span class="sxs-lookup"><span data-stu-id="980e1-328">An example</span></span>
 
-### <a name="c-source-code"></a><span data-ttu-id="49ff4-329">C# ソース コード</span><span class="sxs-lookup"><span data-stu-id="49ff4-329">C# source code</span></span>
+### <a name="c-source-code"></a><span data-ttu-id="980e1-329">C#ソースコード</span><span class="sxs-lookup"><span data-stu-id="980e1-329">C# source code</span></span>
 
-<span data-ttu-id="49ff4-330">次の例のソース コードを示しています、`Point`クラス。</span><span class="sxs-lookup"><span data-stu-id="49ff4-330">The following example shows the source code of a `Point` class:</span></span>
+<span data-ttu-id="980e1-330">次の例は、 `Point`クラスのソースコードを示しています。</span><span class="sxs-lookup"><span data-stu-id="980e1-330">The following example shows the source code of a `Point` class:</span></span>
 
 ```csharp
 namespace Graphics
@@ -1011,9 +1011,9 @@ public class Point
 }
 ```
 
-### <a name="resulting-xml"></a><span data-ttu-id="49ff4-331">結果の XML</span><span class="sxs-lookup"><span data-stu-id="49ff4-331">Resulting XML</span></span>
+### <a name="resulting-xml"></a><span data-ttu-id="980e1-331">結果の XML</span><span class="sxs-lookup"><span data-stu-id="980e1-331">Resulting XML</span></span>
 
-<span data-ttu-id="49ff4-332">クラスのソース コードが指定されると、1 つのドキュメント ジェネレーターによって生成される出力を次に示します`Point`、前述のようにします。</span><span class="sxs-lookup"><span data-stu-id="49ff4-332">Here is the output produced by one documentation generator when given the source code for class `Point`, shown above:</span></span>
+<span data-ttu-id="980e1-332">次に示すのは、上記のクラス`Point`のソースコードを指定した場合に、1つのドキュメントジェネレーターによって生成される出力です。</span><span class="sxs-lookup"><span data-stu-id="980e1-332">Here is the output produced by one documentation generator when given the source code for class `Point`, shown above:</span></span>
 
 ```xml
 <?xml version="1.0"?>
