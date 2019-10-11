@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 2c87cafb8591b9dff2aa517b65af80ab263c7faa
-ms.sourcegitcommit: 7f7fc6e9e195e51b7ff8229aeaa70aa9fbbb63cb
+ms.openlocfilehash: e0def754174ab8646f9b849abe86d2c375c958b6
+ms.sourcegitcommit: 892af9016b3317a8fae12d195014dc38ba51cf16
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70876890"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703983"
 ---
 # <a name="classes"></a>クラス
 
@@ -21,7 +21,7 @@ class_declaration
     ;
 ```
 
-*Class_declaration*は、省略可能な*属性*のセット ([属性](attributes.md))、オプションの一連の*class_modifier*s ([クラス修飾子](classes.md#class-modifiers))、オプションの修飾子、およびそれ`partial`に続く省略可能な修飾子で構成されます。クラス`class`に名前*を付け*、その後に省略可能な*type_parameter_list* ([型パラメーター](classes.md#type-parameters)) を指定するキーワードと、省略可能な*class_base*仕様 ([クラス基本仕様)](classes.md#class-base-specification)) の後に、省略可能な*type_parameter_constraints_clause*s ([型パラメーターの制約](classes.md#type-parameter-constraints)) のセットと、その後に*class_body* ([クラス本体](classes.md#class-body)) を指定します。その後にセミコロンを続けます。
+*Class_declaration*は、省略可能な*属性*のセット ([属性](attributes.md))、オプションの一連の*class_modifier*s ([クラス修飾子](classes.md#class-modifiers))、オプションの `partial` 修飾子、その後に続くキーワードで構成されます。`class` と、クラスに*名前を付け*、省略可能な*type_parameter_list* ([型パラメーター](classes.md#type-parameters))、省略可能な*class_base*仕様 (クラスの[基本仕様](classes.md#class-base-specification))、その後に続けて、省略可能な*type_parameter_constraints_clause*s ([型パラメーター制約](classes.md#type-parameter-constraints)) のセットで、その後に*class_body* ([クラス本体](classes.md#class-body)) が続き、その後にセミコロンが続いています。
 
 クラス宣言では、 *type_parameter_list*も指定しない限り、 *type_parameter_constraints_clause*を指定することはできません。
 
@@ -111,8 +111,8 @@ __静的クラス型の参照__
 
 *Namespace_or_type_name* ([名前空間と型名](basic-concepts.md#namespace-and-type-names)) は、静的クラスを参照することが許可されています。
 
-*  *Namespace_or_type_name*は、フォーム`T` `T.I`の*namespace_or_type_name*にあります。
-*  *Namespace_or_type_name* `T`は、フォーム の`typeof(T)`typeof_expression ([引数リスト](expressions.md#argument-lists)1) 内のです。
+*  *Namespace_or_type_name*は、`T.I` の形式の*namespace_or_type_name*の `T` です。
+*  *Namespace_or_type_name*は、`typeof(T)` の形式の*typeof_expression* ([引数リスト](expressions.md#argument-lists)1) の `T` です。
 
 *Primary_expression* ([関数メンバー](expressions.md#function-members)) は、静的クラスを参照することが許可されています。
 
@@ -122,7 +122,7 @@ __静的クラス型の参照__
 
 ### <a name="partial-modifier"></a>Partial 修飾子
 
-修飾子`partial`は、この*class_declaration*が部分型の宣言であることを示すために使用されます。 外側の名前空間または型宣言内で同じ名前を持つ複数の部分型宣言を組み合わせると、[部分](classes.md#partial-types)型で指定された規則に従って1つの型宣言が形成されます。
+@No__t-0 修飾子は、この*class_declaration*が部分的な型宣言であることを示すために使用されます。 外側の名前空間または型宣言内で同じ名前を持つ複数の部分型宣言を組み合わせると、[部分](classes.md#partial-types)型で指定された規則に従って1つの型宣言が形成されます。
 
 クラスの宣言をプログラムテキストの個別のセグメントに分散させると、これらのセグメントが異なるコンテキストで生成または管理される場合に便利です。 たとえば、クラス宣言の一部はコンピューターによって生成される場合がありますが、もう一方の部分は手動で作成されます。 2つのテキストを分離することで、1つの更新がもう一方の更新と競合するのを防ぐことができます。
 
@@ -171,7 +171,7 @@ class Extend<V>: V {}            // Error, type parameter used as base class
 
 #### <a name="base-classes"></a>基底クラス
 
-*Class_type*が*class_base*に含まれている場合は、宣言されているクラスの直接基底クラスを指定します。 クラス宣言に*class_base*がない場合、または*class_base*がインターフェイス型のみを一覧表示する場合、直接基底クラスは`object`と見なされます。 クラスは、「[継承](classes.md#inheritance)」で説明されているように、直接基底クラスからメンバーを継承します。
+*Class_type*が*class_base*に含まれている場合は、宣言されているクラスの直接基底クラスを指定します。 クラス宣言に*class_base*がない場合、または*class_base*がインターフェイス型のみを一覧表示する場合、直接の基底クラスは `object` と見なされます。 クラスは、「[継承](classes.md#inheritance)」で説明されているように、直接基底クラスからメンバーを継承します。
 
 この例では、
 ```csharp
@@ -201,7 +201,7 @@ class A<T> {
 
 class C : A<C.B> {}
 ```
-がエラーになっています。基底`A<C.B>`クラスの指定では`C` `object`、の直接基底クラスはと見なされます。したがって、([名前空間と型名](basic-concepts.md#namespace-and-type-names)の規則によって) メンバー `C` `B`を持つとは見なされません。
+がエラーになっています。基底`A<C.B>`クラスの指定では`C` `object`、の直接基底クラスはと見なされます。したがって、([名前空間と型名](basic-concepts.md#namespace-and-type-names)の規則によって) メンバー `C` `B`を持つとは見なされません.
 
 クラス型の基底クラスは、直接基底クラスとその基本クラスです。 つまり、基本クラスのセットは、直接基底クラスのリレーションシップの推移的なクロージャです。 上の例を参照してください。の`B`基本`A`クラス`object`はとです。 この例では、
 ```csharp
@@ -298,7 +298,7 @@ constructor_constraint
     ;
 ```
 
-各*type_parameter_constraints_clause*はトークン`where`で構成され、その後に型パラメーターの名前が続き、その後にコロンとその型パラメーターの制約のリストが続きます。 型パラメーターごとに1つ`where`の句を指定できます。 `where`また、句は任意の順序で一覧表示できます。 プロパティアクセサー `set`のおよびトークンと同様に、トークンはキーワードではありません。`where` `get`
+各*type_parameter_constraints_clause*は、トークン `where`、その後に型パラメーターの名前、コロンとその型パラメーターの制約のリストで構成されます。 型パラメーターごとに1つ`where`の句を指定できます。 `where`また、句は任意の順序で一覧表示できます。 プロパティアクセサー `set`のおよびトークンと同様に、トークンはキーワードではありません。`where` `get`
 
 `where`句で指定される制約の一覧には、次のいずれかのコンポーネントを含めることができます。この順序は、単一のプライマリ制約、1つ以上`new()`のセカンダリ制約、およびコンストラクター制約です。
 
@@ -344,9 +344,9 @@ constructor_constraint
 制約は、依存する型パラメーターの間で一貫している必要があります。 型パラメーター `S`が型パラメーター `T`に依存する場合は、次のようになります。
 
 *  `T`値型の制約を持つことはできません。 それ以外`T`の場合、は`S`実質的にシールされるため、と`T`同じ型である必要があり、2つの型パラメーターが不要になります。
-*  に`S`値型の`T`制約がある場合は、 *class_type*制約を持つことはできません。
-*  に`S` *class_type 制約* `A` があり`B` 、class_type 制約がある場合は、からへのid変換または暗黙の参照変換が必要です。`T` `A` `B`またはからへ`B` `A`の暗黙の参照変換。
-*  型`S` `A` `B` `T`パラメーター `U`にも依存し、class_type 制約を持ち、class_type 制約を持つ場合は、id 変換が必要です。 `U`またはからへの`A`暗黙`B`の参照変換またはから`B`へ`A`の暗黙の参照変換。
+*  @No__t-0 に値の型の制約がある場合は、`T` に*class_type*制約を指定することはできません。
+*  @No__t-0 に*class_type* @no__t 制約が指定されていて、`T` に*class_type* @no__t 制約がある場合は、`A` から @no__t への暗黙的な参照変換またはからの暗黙の参照変換を行う必要があります。`B` を `A` にします。
+*  @No__t-0 も型パラメーター `U` に依存し、`U` には*class_type* @no__t 制約があります。また、`T` には、 *class_type*制約があります。 @no__t には、id 変換または暗黙の参照変換が必要 `A``B` または 0 から 1 への暗黙の参照変換。
 
 は、値型`S`の`T`制約を持ち、参照型の制約を持つに有効です。 実質的に`T`は`System.Object` `System.ValueType` 、`System.Enum`、、、および任意のインターフェイス型に制限されています。
 
@@ -424,21 +424,21 @@ class StructWithClass<S,T,U>
 
 *  に`T` primary 制約または型パラメーター制約がない場合、その有効な`object`基本クラスはです。
 *  に`T`値型の制約がある場合、その有効な`System.ValueType`基本クラスはです。
-*  に`T` `C` *class_type* 制約`C`があり、 *type_parameter*制約がない場合、その有効な基本クラスはです。
-*  に`T` *class_type*制約がなく、1つ以上の*type_parameter*制約がある場合、その有効な基本クラスは、その種類の有効な基本クラスのセットに含まれる最も内側の型 (リフトされた[変換演算子](conversions.md#lifted-conversion-operators)) になります。 *パラメーター*制約。 一貫性規則により、このような最も包含型が存在することが保証されます。
-*  に`T` *class_type*制約と1つ以上の*type_parameter*制約の両方が含まれている場合、その有効な基本クラスは、 *class_type*で構成されているセット内の最も内側の型 (リフトされた[変換演算子](conversions.md#lifted-conversion-operators)) になります。とその`T` *type_parameter*制約の有効な基底クラスの制約。 一貫性規則により、このような最も包含型が存在することが保証されます。
-*  に`T`参照型の制約があり、 *class_type*の制約がない場合、その`object`有効な基本クラスはです。
+*  @No__t-0 の場合、 *class_type*制約 `C` ですが、 *type_parameter*制約はありません。その有効な基本クラスは `C` です。
+*  @No__t-0 に*class_type*制約がなく、1つ以上の*type_parameter*制約がある場合、その有効な基本クラスは、その種類の有効な基本クラスのセットに含まれる最も内側の型 (リフトされた[変換演算子](conversions.md#lifted-conversion-operators)) になります。 *パラメーター*制約。 一貫性規則により、このような最も包含型が存在することが保証されます。
+*  @No__t-0 に*class_type*制約と1つ以上の*type_parameter*制約の両方が含まれている場合、その有効な基本クラスは、 *class_type*で構成されているセット内の最も包含型 (リフトされた[変換演算子](conversions.md#lifted-conversion-operators)) になります。`T` の制約と、その*type_parameter*制約の有効な基本クラス。 一貫性規則により、このような最も包含型が存在することが保証されます。
+*  @No__t-0 に参照型の制約があり、 *class_type*の制約がない場合、その有効な基本クラスは `object` です。
 
-これらの規則の目的上、T に*value_type*という`V`制約がある場合は、代わりにを使用して、 *class_type*であるの`V`最も限定的な基本型を使用します。 これは明示的に指定された制約では発生しませんが、ジェネリックメソッドの制約が、オーバーライドするメソッドの宣言またはインターフェイスメソッドの明示的な実装によって暗黙的に継承される場合に発生する可能性があります。
+これらのルールでは、T に*value_type*である @no__t 0 という制約がある場合は、 *class_type*である @no__t の最も限定的な基本データ型であるを使用します。 これは明示的に指定された制約では発生しませんが、ジェネリックメソッドの制約が、オーバーライドするメソッドの宣言またはインターフェイスメソッドの明示的な実装によって暗黙的に継承される場合に発生する可能性があります。
 
 これらの規則は、有効な基本クラスが常に*class_type*であることを確認します。
 
 型パラメーター `T`の***有効なインターフェイスセット***は、次のように定義されます。
 
-*  に`T` *secondary_constraints*がない場合、その有効なインターフェイスセットは空になります。
-*  に`T` *interface_type*制約があり、 *type_parameter*制約がない場合、その有効なインターフェイスセットは*interface_type*制約のセットになります。
-*  に`T` *interface_type*制約がなく、 *type_parameter*制約がある場合、その有効なインターフェイスセットは、その*type_parameter*制約の有効なインターフェイスセットの和集合になります。
-*  に`T` *interface_type*制約と*type_parameter*制約の両方がある場合、その有効なインターフェイスセットは、そのセットの*interface_type*制約とその type_parameter の有効なインターフェイスセットの和集合になります。制約。
+*  @No__t-0 に*secondary_constraints*がない場合、その有効なインターフェイスセットは空になります。
+*  @No__t-0 の場合、 *interface_type*制約はありますが、 *type_parameter*制約はありません。その有効なインターフェイスセットは、一連の*interface_type*制約です。
+*  @No__t-0 に*interface_type*制約がなく、 *type_parameter*制約がある場合、その有効なインターフェイスセットは、その*type_parameter*制約の有効なインターフェイスセットの和集合になります。
+*  @No__t-0 に*interface_type*制約と*type_parameter*制約の両方が含まれている場合、その有効なインターフェイスセットは、 *interface_type*制約のセットとその*type_parameter*の有効なインターフェイスセットの和集合になります。constraints.
 
 参照型の制約がある場合、またはその有効な基本クラスがまたは`System.ValueType`でない`object`場合、型パラメーターは***参照型で***あると認識されます。
 
@@ -472,7 +472,7 @@ class_body
 
 型宣言は、複数の***部分型宣言***にまたがって分割できます。 型宣言は、このセクションの規則に従ってパートから構築されます。とは、プログラムのコンパイル時および実行時の処理中に、単一の宣言として扱われます。
 
-修飾子が含まれている場合、 *class_declaration*、 *struct_declaration* 、または*interface_declaration*は部分型宣言を表します。 `partial` `partial`はキーワードで`class`はなく、キーワード`struct`の1つの直前、また`interface`は型宣言内、またはメソッド宣言内の型`void`の前に出現する場合にのみ、修飾子として機能します。 その他のコンテキストでは、通常の識別子として使用できます。
+*Class_declaration*、 *struct_declaration* 、または*interface_declaration*は、`partial` 修飾子が含まれている場合、部分型宣言を表します。 `partial`はキーワードで`class`はなく、キーワード`struct`の1つの直前、また`interface`は型宣言内、またはメソッド宣言内の型`void`の前に出現する場合にのみ、修飾子として機能します。 その他のコンテキストでは、通常の識別子として使用できます。
 
 部分型の宣言の各部分には、 `partial`修飾子を含める必要があります。 同じ名前を持ち、他の部分と同じ名前空間または型宣言で宣言されている必要があります。 修飾子`partial`は、型宣言の追加部分が別の場所に存在する可能性があることを示しますが、そのような追加の部分の存在は要件ではありません`partial` 。修飾子を含む1つの宣言を持つ型に対して有効です。
 
@@ -544,7 +544,7 @@ partial class Dictionary<K,V>
 ```
 は、制約を含む部分 (最初の2つ) が、同じ型パラメーターのセットに対して同じ primary、secondary、およびコンストラクターの制約のセットを効果的に指定するため、正しいです。
 
-### <a name="base-class"></a>基底クラス
+### <a name="base-class"></a>基本クラス
 
 部分クラスの宣言に基底クラスの指定が含まれている場合、基底クラスの指定を含む他のすべての部分に同意する必要があります。 部分クラスの一部に基底クラスの指定が含まれていない場合、 `System.Object`基本クラスは ([基底クラス](classes.md#base-classes)) になります。
 
@@ -778,7 +778,7 @@ class_member_declaration
 
 *  インスタンスコンストラクター、デストラクター、および静的コンストラクターには、すぐ外側のクラスと同じ名前を付ける必要があります。 他のすべてのメンバーには、すぐに外側のクラスの名前とは異なる名前を付ける必要があります。
 *  定数、フィールド、プロパティ、イベント、または型の名前は、同じクラスで宣言されている他のすべてのメンバーの名前と異なる必要があります。
-*  メソッドの名前は、同じクラスで宣言されている他のすべての非メソッドの名前と異なる必要があります。 さらに、メソッドのシグネチャ ([シグネチャとオーバーロード](basic-concepts.md#signatures-and-overloading)) は、同じクラス内で宣言されている他のすべてのメソッドのシグネチャと異なる必要があります。また、同じクラスで宣言され`ref`た2つのメソッドは、とだけが異なるシグネチャを持つことができません`out`。
+*  メソッドの名前は、同じクラスで宣言されている他のすべての非メソッドの名前と異なる必要があります。 さらに、メソッドのシグネチャ ([シグネチャとオーバーロード](basic-concepts.md#signatures-and-overloading)) は、同じクラス内で宣言されている他のすべてのメソッドのシグネチャと異なる必要があります。また、同じクラスで宣言され`ref`た2つのメソッドは、とだけが異なるシグネチャを持つことができません。`out`.
 *  インスタンスコンストラクターのシグネチャは、同じクラスで宣言されている他のすべてのインスタンスコンストラクターのシグネチャと異なる必要があります。また、同じクラスで宣言された`ref` 2 `out`つのコンストラクターは、とだけが異なるシグネチャを持つことはできません。
 *  インデクサーのシグネチャは、同じクラスで宣言されている他のすべてのインデクサーのシグネチャと異なる必要があります。
 *  演算子のシグネチャは、同じクラスで宣言されている他のすべての演算子のシグネチャと異なる必要があります。
@@ -824,7 +824,7 @@ public int H(double d) {...}
 
 インスタンス関数のメンバー内では、 `this`の型は、包含する宣言のインスタンスの型 ([インスタンス型](classes.md#the-instance-type)) です。
 
-ジェネリッククラスのすべてのメンバーは、外側の任意のクラスの型パラメーターを直接または構築された型の一部として使用できます。 実行時に特定のクローズ構築型 ([オープン型およびクローズ型](types.md#open-and-closed-types)) を使用する場合は、型パラメーターを使用するたびに、構築された型に渡される実際の型引数に置き換えられます。 例:
+ジェネリッククラスのすべてのメンバーは、外側の任意のクラスの型パラメーターを直接または構築された型の一部として使用できます。 実行時に特定のクローズ構築型 ([オープン型およびクローズ型](types.md#open-and-closed-types)) を使用する場合は、型パラメーターを使用するたびに、構築された型に渡される実際の型引数に置き換えられます。 以下に例を示します。
 ```csharp
 class C<V>
 {
@@ -884,7 +884,7 @@ class D<T>: B<T[]>
 
 ### <a name="access-modifiers"></a>アクセス修飾子
 
-*Class_member_declaration*は`public`、 `private`宣言さ`internal`れ[たアクセシビリティと](basic-concepts.md#declared-accessibility)して、、、、、またはの5種類のうち、いずれか1つを使用できます。 `protected internal` `protected` `protected internal`この組み合わせを除き、複数のアクセス修飾子を指定するコンパイル時エラーになります。 *Class_member_declaration*にアクセス修飾子が含まれていない`private`場合、はと見なされます。
+*Class_member_declaration*は、宣言された[アクセシビリティ (@no__t](basic-concepts.md#declared-accessibility)-2、`protected internal`、`protected`、`internal`、または @no__t) の5種類のうちいずれか1つを持つことができます。 `protected internal`この組み合わせを除き、複数のアクセス修飾子を指定するコンパイル時エラーになります。 *Class_member_declaration*にアクセス修飾子が含まれていない場合、`private` が想定されます。
 
 ### <a name="constituent-types"></a>構成型
 
@@ -896,13 +896,13 @@ class D<T>: B<T[]>
 
 フィールド、メソッド、プロパティ、イベント、演算子、またはコンストラクターの宣言に`static`修飾子が含まれている場合は、静的メンバーを宣言します。 また、定数または型の宣言は、暗黙的に静的メンバーを宣言します。 静的メンバーには次の特性があります。
 
-*  静的メンバー `M`がフォーム`E` `M` `E.M`の member_access ([メンバーアクセス](expressions.md#member-access)) で参照されている場合、はを含む型を示す必要があります。 は、インスタンスを表すために、 `E`のコンパイル時エラーになります。
+*  静的メンバー `M` が、`E.M` の形式の*member_access* ([メンバーアクセス](expressions.md#member-access)) で参照されている場合、`E` は `M` を含む型を示す必要があります。 は、インスタンスを表すために、 `E`のコンパイル時エラーになります。
 *  静的フィールドは、指定された closed クラス型のすべてのインスタンスによって共有されるストレージの場所を1つだけ識別します。 指定されたクローズクラス型のインスタンスの数に関係なく、静的フィールドのコピーは1つしか存在しません。
 *  静的関数メンバー (メソッド、プロパティ、イベント、演算子、またはコンストラクター) は、特定のインスタンスでは動作せず、このような関数メンバー `this`で参照するコンパイル時エラーです。
 
 フィールド、メソッド、プロパティ、イベント、インデクサー、コンストラクター、またはデストラクターの宣言に`static`修飾子が含まれていない場合は、インスタンスメンバーが宣言されます。 (インスタンスメンバーは非静的メンバーと呼ばれることもあります)。インスタンスメンバーには次の特性があります。
 
-*  インスタンスメンバー `M`がフォーム`E` `M` `E.M`の member_access ([メンバーアクセス](expressions.md#member-access)) で参照されている場合、はを含む型のインスタンスを示す必要があります。 これは、が型を示すため`E`のバインド時エラーです。
+*  インスタンスメンバー `M` が、`E.M` の形式の*member_access* ([メンバーアクセス](expressions.md#member-access)) で参照されている場合、`E` は `M` を含む型のインスタンスを示す必要があります。 これは、が型を示すため`E`のバインド時エラーです。
 *  クラスのすべてのインスタンスには、クラスのすべてのインスタンスフィールドの個別のセットが含まれています。
 *  インスタンス関数メンバー (メソッド、プロパティ、インデクサー、インスタンスコンストラクター、またはデストラクター) は、クラスの特定のインスタンスで動作します。このインスタンスには`this` 、([このアクセス](expressions.md#this-access)) としてアクセスできます。
 
@@ -933,7 +933,7 @@ class Test
 }
 ```
 
-メソッド`F`は、インスタンス関数メンバーで*simple_name* ([簡易名](expressions.md#simple-names)) を使用して、インスタンスメンバーと静的メンバーの両方にアクセスできることを示しています。 メソッド`G`は、静的関数メンバーで、 *simple_name*を介してインスタンスメンバーにアクセスするためのコンパイル時エラーであることを示しています。 メソッド`Main`は、 *member_access* ([メンバーアクセス](expressions.md#member-access)) で、インスタンスメンバーにインスタンスからアクセスする必要があることを示します。また、静的メンバーには型を使用してアクセスする必要があります。
+@No__t 0 メソッドは、インスタンス関数メンバーで*simple_name* ([簡易名](expressions.md#simple-names)) を使用して、インスタンスメンバーと静的メンバーの両方にアクセスできることを示しています。 @No__t 0 メソッドは、静的関数メンバーで、 *simple_name*を介してインスタンスメンバーにアクセスするときにコンパイル時にエラーになることを示しています。 @No__t 0 メソッドは、 *member_access* ([メンバーアクセス](expressions.md#member-access)) で、インスタンスメンバーにインスタンスからアクセスする必要があり、静的メンバーには型を使用してアクセスする必要があることを示しています。
 
 ### <a name="nested-types"></a>入れ子にされた型
 
@@ -1220,7 +1220,7 @@ class Test
 }
 ```
 クラス`A`は、読み取り専用プロパティ`P`を定義します。これに`get_P`より`set_P` 、メソッドとメソッドの署名が予約されます。 クラス`B`はから`A`派生し、これらの予約済み署名の両方を非表示にします。 この例では、次の出力が生成されます。
-```
+```console
 123
 123
 456
@@ -1279,11 +1279,11 @@ constant_declarator
     ;
 ```
 
-*Constant_declaration*には、一連の*属性*( `new` [属性](attributes.md))、修飾子 ([新しい修飾子](classes.md#the-new-modifier))、および4つのアクセス修飾子 ([アクセス修飾子](classes.md#access-modifiers)) の有効な組み合わせを含めることができます。 属性と修飾子は、 *constant_declaration*によって宣言されたすべてのメンバーに適用されます。 定数は静的メンバーと見なされますが、 *constant_declaration*では、修飾子`static`を必要とすることも許可することもありません。 同じ修飾子が定数宣言で複数回出現する場合、エラーになります。
+*Constant_declaration*には、一連の*属性*([属性](attributes.md))、@no__t 3 修飾子 ([新しい修飾子](classes.md#the-new-modifier))、および4つのアクセス修飾子 ([アクセス修飾子](classes.md#access-modifiers)) の有効な組み合わせを含めることができます。 属性と修飾子は、 *constant_declaration*によって宣言されたすべてのメンバーに適用されます。 定数は静的メンバーと見なされますが、 *constant_declaration*修飾子を必要とすることも、許可 @no__t することもできません。 同じ修飾子が定数宣言で複数回出現する場合、エラーになります。
 
-*Constant_declaration*の*型*は、宣言によって導入されるメンバーの型を指定します。 型の後に*constant_declarator*のリストが続き、それぞれに新しいメンバーが導入されています。 *Constant_declarator*は、メンバーに名前を付け、その後に "`=`" トークンを続け、その後にメンバーの値を指定する*constant_expression* ([定数式](expressions.md#constant-expressions)) を指定する*識別子*で構成されます。
+*Constant_declaration*の*型*は、宣言によって導入されるメンバーの型を指定します。 型の後に*constant_declarator*のリストが続き、それぞれに新しいメンバーが導入されています。 *Constant_declarator*は、メンバーに名前を付け、その後に "`=`" トークンを続け、その後にメンバーの値を指定する*constant_expression* ([定数式](expressions.md#constant-expressions)) を付けた*識別子*で構成されます。
 
-定数宣言で指定された*型*は`sbyte` `ushort` `short` `byte` `int`、 、、`uint`、、、、、、、 、である必要があります。`float` `long` `ulong` `char` `double`、 、`decimal` 、`string`、enum_type、または*reference_type*。 `bool` 各*constant_expression*は、暗黙的な変換 ([暗黙的](conversions.md#implicit-conversions)な変換) によって対象の型に変換できる、ターゲット型または型の値を生成する必要があります。
+定数宣言で指定された*型*は、`sbyte`、`byte`、`short`、`ushort`、`int`、`uint`、`long`、1、`char`、0、4、 *enum_type*、または reference_ である必要があります。 *「* 」と入力します。 各*constant_expression*は、暗黙的な変換 ([暗黙的](conversions.md#implicit-conversions)な変換) によって対象の型に変換できる、ターゲット型または型の値を生成する必要があります。
 
 定数の*型*は、少なくとも定数自体と同じようにアクセス可能である必要があります ([アクセシビリティの制約](basic-concepts.md#accessibility-constraints))。
 
@@ -1291,9 +1291,9 @@ constant_declarator
 
 定数は、 *constant_expression*に参加することができます。 したがって、定数は、 *constant_expression*を必要とするすべてのコンストラクトで使用できます。 このような構成体`case`の例`goto case`とし`enum`ては、ラベル、ステートメント、メンバー宣言、属性、およびその他の定数宣言があります。
 
-「[定数式](expressions.md#constant-expressions)」で説明されているように、 *constant_expression*はコンパイル時に完全に評価できる式です。 以外の*reference_type* `string`の null 以外の値を作成する唯一の方法は、 `new`演算子`new`を適用することです。演算子は*constant_expression*で許可されていないため、有効な値は`null`以外`string`の reference_type s の定数は、です。
+「[定数式](expressions.md#constant-expressions)」で説明されているように、 *constant_expression*はコンパイル時に完全に評価できる式です。 @No__t-1 以外の*reference_type*の null 以外の値を作成する唯一の方法は、`new` 演算子を適用することであり、`new` 演算子は*constant_expression*では許可されていないため、の*定数に使用できる値は*`string` 以外の reference_type は `null` です。
 
-定数値のシンボリック名が必要であるが、その値の型が定数宣言で許可されていない場合、または*constant_expression*によってコンパイル時に値を計算できない場合`readonly` ([Readonly フィールド)](classes.md#readonly-fields)) を代わりに使用することもできます。
+定数値のシンボル名が必要なときに、その値の型が定数宣言で許可されていない場合、またはコンパイル時に*constant_expression*によって値を計算できない場合は、`readonly` フィールド ([Readonly フィールド](classes.md#readonly-fields)) を指定できます。代わりに、を使用してください。
 
 複数の定数を宣言する定数宣言は、同じ属性、修飾子、および型を持つ単一の定数の複数の宣言と同じです。 次に例を示します。
 ```csharp
@@ -1362,9 +1362,9 @@ variable_initializer
     ;
 ```
 
-*Field_declaration*には、一連の*属性*( `new` [属性](attributes.md))、修飾子 ([新しい修飾子](classes.md#the-new-modifier))、 `static` 4 つのアクセス修飾子 ([アクセス修飾子](classes.md#access-modifiers)) の有効な組み合わせ、修飾子 ([静的フィールドとインスタンスフィールド](classes.md#static-and-instance-fields))。 また、 *field_declaration*には、修飾子 ( `readonly` `volatile` [Readonly フィールド](classes.md#readonly-fields)) または修飾子 ([Volatile フィールド](classes.md#volatile-fields)) を含めることができますが、両方を含めることはできません。 属性と修飾子は、 *field_declaration*によって宣言されたすべてのメンバーに適用されます。 同じ修飾子がフィールド宣言に複数回出現する場合、エラーになります。
+*Field_declaration*には、一連の*属性*([属性](attributes.md))、@no__t 3 修飾子 ([新しい修飾子](classes.md#the-new-modifier))、4つのアクセス修飾子 ([アクセス修飾子](classes.md#access-modifiers)) の有効な組み合わせ、および `static` 修飾子 ([静的フィールドおよびインスタンスフィールド](classes.md#static-and-instance-fields))。 また、 *field_declaration*には、`readonly` 修飾子 ([Readonly フィールド](classes.md#readonly-fields)) または `volatile` 修飾子 ([Volatile フィールド](classes.md#volatile-fields)) を含めることができますが、両方を含めることはできません。 属性と修飾子は、 *field_declaration*によって宣言されたすべてのメンバーに適用されます。 同じ修飾子がフィールド宣言に複数回出現する場合、エラーになります。
 
-*Field_declaration*の*型*は、宣言によって導入されるメンバーの型を指定します。 型の後に*variable_declarator*のリストが続き、それぞれに新しいメンバーが導入されています。 *Variable_declarator*は、そのメンバーに名前を付けた*識別子*で構成され、`=`必要に応じて、そのメンバーの初期値を提供する "" トークンと*variable_initializer* ([変数初期化子](classes.md#variable-initializers)) を指定します。
+*Field_declaration*の*型*は、宣言によって導入されるメンバーの型を指定します。 型の後に*variable_declarator*のリストが続き、それぞれに新しいメンバーが導入されています。 *Variable_declarator*は、そのメンバーに名前を付けた*識別子*で構成され、必要に応じて、そのメンバーの初期値を指定する "`=`" トークンと*variable_initializer* ([変数初期化子](classes.md#variable-initializers)) を続けます。
 
 フィールドの*型*は、少なくともフィールド自体と同じようにアクセス可能である必要があります ([アクセシビリティの制約](basic-concepts.md#accessibility-constraints))。
 
@@ -1393,7 +1393,7 @@ class A
 
 静的フィールドは、特定のインスタンスの一部ではありません。代わりに、閉じられた型のすべてのインスタンス間で共有されます ([オープン型およびクローズ型](types.md#open-and-closed-types))。 クローズされたクラス型のインスタンスの数に関係なく、関連付けられているアプリケーションドメインの静的フィールドのコピーは1つしかありません。
 
-例:
+以下に例を示します。
 ```csharp
 class C<V>
 {
@@ -1425,13 +1425,13 @@ class Application
 
 インスタンスフィールドはインスタンスに属します。 具体的には、クラスのすべてのインスタンスには、そのクラスのすべてのインスタンスフィールドのセットが個別に含まれています。
 
-フィールドがフォーム`E.M`の*member_access* ([メンバーアクセス](expressions.md#member-access)) で参照されている場合、 `M`が静的なフィールド`E`である場合、は`M`を含む型`M`を示す必要があり、がインスタンスフィールドの場合は E を指定する必要があります。を格納`M`している型のインスタンスを表します。
+フィールドが `E.M` の形式の*member_access* ([メンバーアクセス](expressions.md#member-access)) で参照されている場合、`M` が静的フィールドである場合、`E` は `M` を含む型を示す必要があり、`M` がインスタンスフィールドの場合、E は、を含む型のインスタンスを示す必要があります。`M`。
 
 静的メンバーとインスタンスメンバーの違いについては、「[静的メンバーとインスタンス](classes.md#static-and-instance-members)メンバー」で詳しく説明します。
 
 ### <a name="readonly-fields"></a>読み取り専用フィールド
 
-*Field_declaration*に`readonly`修飾子が含まれている場合、宣言によって導入されるフィールドは***読み取り専用フィールド***です。 読み取り専用フィールドへの直接割り当ては、その宣言の一部として、または同じクラスのインスタンスコンストラクターまたは静的コンストラクターでのみ発生します。 (読み取り専用フィールドは、これらのコンテキストで複数回割り当てることができます)。具体的には、 `readonly`フィールドへの直接割り当ては、次のコンテキストでのみ許可されます。
+*Field_declaration*に `readonly` 修飾子が含まれている場合、宣言によって導入されるフィールドは***読み取り専用フィールド***です。 読み取り専用フィールドへの直接割り当ては、その宣言の一部として、または同じクラスのインスタンスコンストラクターまたは静的コンストラクターでのみ発生します。 (読み取り専用フィールドは、これらのコンテキストで複数回割り当てることができます)。具体的には、 `readonly`フィールドへの直接割り当ては、次のコンテキストでのみ許可されます。
 
 *  (宣言に*variable_initializer*を含めることにより) フィールドを導入する*variable_declarator* 。
 *  インスタンスフィールドの場合、フィールド宣言を含むクラスのインスタンスコンストラクター。静的フィールドの場合は、フィールド宣言を含むクラスの静的コンストラクター。 また、フィールドを`readonly`パラメーターまたは`ref`パラメーターとして渡すことができるのは、これらのコンテキストだけです。 `out`
@@ -1490,7 +1490,7 @@ namespace Program2
 
 ### <a name="volatile-fields"></a>Volatile フィールド
 
-*Field_declaration*に`volatile`修飾子が含まれている場合、その宣言によって導入されるフィールドは***volatile フィールド***です。
+*Field_declaration*に `volatile` 修飾子が含まれている場合、その宣言によって導入されるフィールドは***volatile フィールド***です。
 
 非 volatile フィールドの場合、命令を並べ替える最適化手法は、予期しない、予測できない結果になる可能性があります。マルチスレッドプログラムでは、 *lock_statement*によって提供される[もの (lock ステートメント](statements.md#the-lock-statement))。 これらの最適化は、コンパイラ、ランタイムシステム、またはハードウェアによって実行できます。 Volatile フィールドの場合、このような並べ替えの最適化は制限されます。
 
@@ -1501,7 +1501,7 @@ namespace Program2
 
 *  *Reference_type*。
 *  `byte`型、、`float`、、、、、、、、または。`System.UIntPtr` `sbyte` `short` `ushort` `int` `uint` `char` `bool` `System.IntPtr`
-*  `byte` 、`short`、、 、、`uint`またはの enum 基本型を持つ enum_type。 `ushort` `sbyte` `int`
+*  @No__t-1、`sbyte`、`short`、`ushort`、`int`、または `uint` の enum 基本型を持つ*enum_type* 。
 
 例
 ```csharp
@@ -1536,7 +1536,7 @@ class Test
 }
 ```
 この例では、次のように出力されます。
-```
+```console
 result = 143
 ```
 
@@ -1560,7 +1560,7 @@ class Test
 }
 ```
 この例では、次のように出力されます。
-```
+```console
 b = False, i = 0
 ```
 と`b`は`i`両方とも既定値に自動的に初期化されるためです。
@@ -1586,7 +1586,7 @@ class Test
 }
 ```
 この例では、次のように出力されます。
-```
+```console
 x = 1.4142135623731, i = 100, s = Hello
 ```
 静的フィールド初期化子`x`が実行されるときにが割り当てら`i`れ`s` 、インスタンスフィールド初期化子が実行されるときにが割り当てられます。
@@ -1608,7 +1608,7 @@ class Test
 }
 ```
 この動作を行います。 A と b の循環定義にかかわらず、プログラムは有効です。 結果が出力されます。
-```
+```console
 a = 1, b = 2
 ```
 静的フィールド`a`および`b`は、初期化子が`0`実行される前に`int`(の既定値) に初期化されるためです。 の`a`初期化子が実行`a`されると、 `b`の値が0になり、が`1`に初期化されます。 の`b`初期化子を実行すると、の`a`値は`1`既にに`b`なります。 `2`したがって、はに初期化されます。
@@ -1642,13 +1642,13 @@ class B
 }
 ```
 では、次の出力が生成される場合があります。
-```
+```console
 Init A
 Init B
 1 1
 ```
 または、次のように出力します。
-```
+```console
 Init B
 Init A
 1 1
@@ -1684,7 +1684,7 @@ class B
 }
 ```
 出力は次のようになります。
-```
+```console
 Init B
 Init A
 1 1
@@ -1695,7 +1695,7 @@ Init A
 
 クラスのインスタンスフィールド変数初期化子は、そのクラスのインスタンスコンストラクター ([コンストラクター初期化子](classes.md#constructor-initializers)) のいずれかにエントリしたときに直ちに実行される割り当てのシーケンスに対応します。 変数初期化子は、クラス宣言に含まれるテキスト順に実行されます。 クラスインスタンスの作成と初期化のプロセスについては、「[インスタンスコンストラクター](classes.md#instance-constructors)」を参照してください。
 
-インスタンスフィールドの変数初期化子では、作成されるインスタンスを参照できません。 このため、変数初期化子で参照`this`するコンパイル時エラーになります。これは、変数初期化子が*simple_name*を介して任意のインスタンスメンバーを参照するためのコンパイル時エラーであるためです。 この例では、
+インスタンスフィールドの変数初期化子では、作成されるインスタンスを参照できません。 このため、変数初期化子で `this` を参照すると、コンパイル時にエラーが発生します。これは、変数初期化子が*simple_name*を介して任意のインスタンスメンバーを参照するためのコンパイル時エラーであるためです。 この例では、
 ```csharp
 class A
 {
@@ -1752,7 +1752,7 @@ method_body
     ;
 ```
 
-*Method_declaration*には、*属性*のセット ([属性](attributes.md)) と、4つのアクセス修飾子 ([アクセス修飾子](classes.md#access-modifiers)) `new`の有効な組み合わせ、([新しい修飾子](classes.md#the-new-modifier))、 `static` (Static) を含めることができます。[およびインスタンスメソッド](classes.md#static-and-instance-methods)) `virtual` 、([仮想メソッド](classes.md#virtual-methods))、 `override` ([オーバーライドメソッド](classes.md#override-methods))、 `sealed` ([シールメソッド](classes.md#sealed-methods))、 `abstract` ([抽象メソッド](classes.md#abstract-methods))、および`extern`([外部メソッド](classes.md#external-methods)) 修飾子。
+*Method_declaration*には、*属性*のセット ([属性](attributes.md)) と、4つのアクセス修飾子 ([アクセス修飾子](classes.md#access-modifiers))、@no__t 4 ([新しい修飾子](classes.md#the-new-modifier))、`static` ([Static および instance) の有効な組み合わせを含めることができます。メソッド](classes.md#static-and-instance-methods))、@no__t 8 ([仮想メソッド](classes.md#virtual-methods))、0 ([オーバーライドメソッド](classes.md#override-methods))、2 ([シールメソッド](classes.md#sealed-methods))、4 ([抽象メソッド](classes.md#abstract-methods))、および 6 ([外部メソッド](classes.md#external-methods)) 修飾子。
 
 次のすべての条件を満たす場合、宣言には修飾子の有効な組み合わせがあります。
 
@@ -1767,23 +1767,23 @@ method_body
 
 `async`修飾子を持つメソッドは非同期関数で、「 [async functions](classes.md#async-functions)」で説明されている規則に従います。
 
-メソッド*宣言の種類によっ*て、計算され、メソッドによって返される値の型が指定されます。 メソッドが`void`値を返さない場合、週の値を指定します。 宣言に`partial`修飾子が含まれている場合、戻り値の`void`型はである必要があります。
+メソッド*宣言の種類によっ*て、計算され、メソッドによって返される値の型が指定されます。 メソッドが値を返さない場合、`void`*になります*。 宣言に`partial`修飾子が含まれている場合、戻り値の`void`型はである必要があります。
 
-*Member_name*は、メソッドの名前を指定します。 メソッドが明示的なインターフェイスメンバーの実装 ([明示的なインターフェイスメンバーの実装](interfaces.md#explicit-interface-member-implementations)) でない限り、 *member_name*は単なる*識別子*です。 明示的なインターフェイスメンバーの実装では、 *member_name*は、 *interface_type*の後に`.`"" および*識別子*を続けたもので構成されます。
+*Member_name*は、メソッドの名前を指定します。 メソッドが明示的なインターフェイスメンバーの実装 ([明示的なインターフェイスメンバーの実装](interfaces.md#explicit-interface-member-implementations)) でない限り、 *member_name*は単なる*識別子*です。 明示的なインターフェイスメンバーの実装では、 *member_name*は、 *interface_type*の後に "`.`" と*識別子*を続けたもので構成されます。
 
-省略可能な*type_parameter_list*は、メソッド ([型パラメーター](classes.md#type-parameters)) の型パラメーターを指定します。 *Type_parameter_list*が指定されている場合、メソッドは***ジェネリックメソッド***です。 メソッドに`extern`修飾子がある場合、 *type_parameter_list*を指定することはできません。
+省略可能な*type_parameter_list*は、メソッド ([型パラメーター](classes.md#type-parameters)) の型パラメーターを指定します。 *Type_parameter_list*が指定されている場合、メソッドは***ジェネリックメソッド***です。 メソッドに @no__t 0 修飾子がある場合、 *type_parameter_list*を指定することはできません。
 
 省略可能な*formal_parameter_list*は、メソッドのパラメーター ([メソッドパラメーター](classes.md#method-parameters)) を指定します。
 
-省略可能な*type_parameter_constraints_clause*s は、個々の型パラメーター ([型パラメーター制約](classes.md#type-parameter-constraints)) に対して制約を指定し、 *type_parameter_list*が指定されている場合にのみ指定できます。また、メソッドには、`override`修飾子。
+省略可能な*type_parameter_constraints_clause*s は、個々の型パラメーター ([型パラメーター制約](classes.md#type-parameter-constraints)) に対して制約を指定し、 *type_parameter_list*が指定されている場合にのみ指定できます。また、メソッドには、`override` 修飾子。
 
 メソッドの*formal_parameter_list*で参照される各型*は、少なく*ともメソッド自体と同じようにアクセス可能である必要があります ([アクセシビリティの制約](basic-concepts.md#accessibility-constraints))。
 
 *Method_body*は、セミコロン、***ステートメント本体***、または式の***本体***です。 ステートメントの本体は、メソッドが呼び出されたときに実行するステートメントを指定する*ブロック*で構成されます。 式の`=>`本体は、*式*とセミコロンで構成され、その後にメソッドが呼び出されたときに実行する1つの式を示します。 
 
-メソッド`abstract`と`extern`メソッドの場合、 *method_body*はセミコロンで構成されます。 メソッド`partial`の場合、 *method_body*は、セミコロン、ブロック本体、または式の本体で構成されます。 その他のすべてのメソッドでは、 *method_body*はブロック本体または式の本体です。
+@No__t-0 および `extern` メソッドの場合、 *method_body*はセミコロンで構成されます。 @No__t 0 のメソッドの場合、 *method_body*は、セミコロン、ブロック本体、または式の本体で構成されます。 その他のすべてのメソッドでは、 *method_body*はブロック本体または式の本体です。
 
-*Method_body*がセミコロンで構成されている場合、宣言に`async`修飾子が含まれていない可能性があります。
+*Method_body*がセミコロンで構成されている場合、宣言には `async` 修飾子を含めることができません。
 
 メソッドの名前、型パラメーターリスト、およびメソッドの仮パラメーターリストは、メソッドのシグネチャ (シグネチャ[とオーバーロード](basic-concepts.md#signatures-and-overloading)) を定義します。 具体的には、メソッドのシグネチャは、その名前、型パラメーターの数、およびその仮パラメーターの数、修飾子、および型で構成されます。 このため、仮パラメーターの型で発生するメソッドの型パラメーターは、その名前ではなく、メソッドの型引数リスト内の序数位置によって識別されます。戻り値の型は、メソッドのシグネチャの一部ではなく、型パラメーターまたは仮パラメーターの名前でもありません。
 
@@ -1829,11 +1829,11 @@ parameter_array
 
 仮パラメーターリストは、最後のパラメーターだけが*parameter_array*である、1つ以上のコンマ区切りのパラメーターで構成されます。
 
-*Fixed_parameter*は、省略可能な*属性*のセット ([属性](attributes.md))、省略可能`ref`な`out` 、 `this`または修飾子、*型*、*識別子*、および省略可能な default_ で構成されます。 *引数*。 各*fixed_parameter*は、指定された名前を使用して、指定された型のパラメーターを宣言します。 修飾子`this`は、メソッドを拡張メソッドとして指定し、静的メソッドの最初のパラメーターでのみ使用できます。 拡張メソッドの詳細については、「[拡張メソッド](classes.md#extension-methods)」を参照してください。
+*Fixed_parameter*は、省略可能な*属性*のセット ([属性](attributes.md))、オプションの `ref`、@no__t 4 または `this` 修飾子、*型*、*識別子*、および省略可能な*default_argument*で構成されます。 各*fixed_parameter*は、指定された名前を使用して、指定された型のパラメーターを宣言します。 修飾子`this`は、メソッドを拡張メソッドとして指定し、静的メソッドの最初のパラメーターでのみ使用できます。 拡張メソッドの詳細については、「[拡張メソッド](classes.md#extension-methods)」を参照してください。
 
 *Default_argument*を持つ*fixed_parameter*は***省略可能なパラメーター***として知られていますが、 *default_argument*のない*fixed_parameter*は***必須パラメーター***です。 必須パラメーターは、 *formal_parameter_list*の省略可能なパラメーターの後に指定することはできません。
 
-パラメーター `ref`また`out`はパラメーターに*default_argument*を指定することはできません。 *Default_argument*の*式*は、次のいずれかである必要があります。
+@No__t-0 または `out` のパラメーターに*default_argument*を指定することはできません。 *Default_argument*の*式*は、次のいずれかである必要があります。
 
 *  *constant_expression*
 *  `new S()` フォーム`S`の式 (は値型)
@@ -1861,7 +1861,7 @@ public void M(
 ) { }
 ```
 
-`d` `b` *Formal_parameter_list* `s` `t` `o`では、は必須のrefパラメーター、は必須の値パラメーター、、、および省略可能な値パラメーターです。`i` `M`と`a`はパラメーター配列です。
+@No__t- *1 の場合、@no__t*は必須の ref パラメーター、`d` は必須の値パラメーター、`b`、`s`、`o`、`t` は省略可能な値パラメーターで、`a` はパラメーター配列です。
 
 メソッド宣言は、パラメーター、型パラメーター、およびローカル変数に対して個別の宣言領域を作成します。 名前は、型パラメーターリストとメソッドの仮パラメーターリスト、およびメソッドの*ブロック*内のローカル変数宣言によって、この宣言領域に導入されます。 メソッド宣言空間の2つのメンバーが同じ名前を持つ場合、エラーになります。 メソッド宣言領域と入れ子になった宣言空間のローカル変数宣言領域が同じ名前の要素を含む場合、エラーになります。
 
@@ -1888,7 +1888,7 @@ public void M(
 
 修飾子を`ref`使用して宣言されたパラメーターは参照パラメーターです。 値パラメーターとは異なり、参照パラメーターは新しいストレージの場所を作成しません。 代わりに、参照パラメーターは、メソッド呼び出しで引数として指定された変数と同じ格納場所を表します。
 
-仮パラメーターが参照パラメーターである場合、メソッド呼び出しの対応する引数は、キーワード`ref`とそれに続く*variable_reference* (明確な[代入を決定するための正確な規則](variables.md#precise-rules-for-determining-definite-assignment)) で構成されている必要があります。仮パラメーターとしてを入力します。 参照パラメーターとして渡すには、変数を確実に代入する必要があります。
+仮パラメーターが参照パラメーターである場合、メソッド呼び出しの対応する引数は、キーワード `ref` の後に、 *variable_reference* (明確な[割り当てを決定するための正確な規則](variables.md#precise-rules-for-determining-definite-assignment)) で構成される必要があります。仮パラメーター。 参照パラメーターとして渡すには、変数を確実に代入する必要があります。
 
 メソッド内では、参照パラメーターは常に確実に割り当てられていると見なされます。
 
@@ -1914,7 +1914,7 @@ class Test
 }
 ```
 この例では、次のように出力されます。
-```
+```console
 i = 2, j = 1
 ```
 
@@ -1943,7 +1943,7 @@ class A
 
 `out`修飾子を使用して宣言されたパラメーターは、出力パラメーターです。 参照パラメーターと同様に、出力パラメーターは新しいストレージの場所を作成しません。 代わりに、出力パラメーターは、メソッド呼び出しで引数として指定された変数と同じ格納場所を表します。
 
-仮パラメーターが出力パラメーターの場合、メソッド呼び出しの対応する引数は、キーワード`out`とそれに続く*variable_reference* (明確な割り当てを決定するための正確な[規則](variables.md#precise-rules-for-determining-definite-assignment)) で構成されている必要があります。仮パラメーターとしてを入力します。 変数は出力パラメーターとして渡す前に明示的に割り当てられている必要はありませんが、変数が出力パラメーターとして渡された場合の呼び出しに従うと、変数は確実に代入されたと見なされます。
+仮パラメーターが出力パラメーターの場合、メソッド呼び出しの対応する引数は、variable_reference の @no__t キーワードで構成されている必要があります。その後、次のように同じ型の ([明確な割り当てを決定するための正確な規則](variables.md#precise-rules-for-determining-definite-assignment)) を指定します。仮パラメーター。 変数は出力パラメーターとして渡す前に明示的に割り当てられている必要はありませんが、変数が出力パラメーターとして渡された場合の呼び出しに従うと、変数は確実に代入されたと見なされます。
 
 ローカル変数と同じように、メソッド内では、出力パラメーターはまず未割り当てと見なされ、その値を使用する前に確実に代入する必要があります。
 
@@ -1951,7 +1951,7 @@ class A
 
 部分メソッド ([部分メソッド](classes.md#partial-methods)) または反復子 ([反復](classes.md#iterators)子) として宣言されたメソッドは、出力パラメーターを持つことができません。
 
-出力パラメーターは、通常、複数の戻り値を生成するメソッドで使用されます。 例:
+出力パラメーターは、通常、複数の戻り値を生成するメソッドで使用されます。 以下に例を示します。
 ```csharp
 using System;
 
@@ -1978,7 +1978,7 @@ class Test
 ```
 
 この例では、次の出力が生成されます。
-```
+```console
 c:\Windows\System\
 hello.txt
 ```
@@ -2018,7 +2018,7 @@ class Test
 }
 ```
 この例では、次のように出力されます。
-```
+```console
 Array contains 3 elements: 1 2 3
 Array contains 4 elements: 10 20 30 40
 Array contains 0 elements:
@@ -2060,7 +2060,7 @@ class Test
 }
 ```
 この例では、次のように出力されます。
-```
+```console
 F();
 F(object[]);
 F(object,object);
@@ -2097,7 +2097,7 @@ class Test
 }
 ```
 この例では、次のように出力されます。
-```
+```console
 System.Int32 System.String System.Double
 System.Object[]
 System.Object[]
@@ -2114,7 +2114,7 @@ System.Int32 System.String System.Double
 
 インスタンスメソッドは、クラスの特定のインスタンスに対して動作し、そのインスタンスには`this` ([このアクセス](expressions.md#this-access)) としてアクセスできます。
 
-メソッドがフォーム`E.M`の*member_access* ([メンバーアクセス](expressions.md#member-access)) で参照されている場合、 `M`が静的メソッドである`E`場合、はを含む`M`型を示す`M`必要があり、がインスタンスメソッドの場合は、は、を含む`M`型のインスタンスを示す必要があります。 `E`
+@No__t-2 の形式の*member_access* ([メンバーアクセス](expressions.md#member-access)) でメソッドが参照されている場合、`M` が静的メソッドである場合、`E` は `M` を含む型を表している必要があり、`M` がインスタンスメソッドの場合は、@no__t が型のインスタンスを示す必要があります。@no__t 8 を含む。
 
 静的メンバーとインスタンスメンバーの違いについては、「[静的メンバーとインスタンス](classes.md#static-and-instance-members)メンバー」で詳しく説明します。
 
@@ -2168,7 +2168,7 @@ class Test
 ```
 
 この例では`A` 、によって、非`F`仮想メソッドと仮想`G`メソッドが導入されています。 クラス`B`は、新しい非仮想メソッド`F`を導入し、継承`F`されたを非表示にし、 `G`継承されたメソッドもオーバーライドします。 この例では、次の出力が生成されます。
-```
+```console
 A.F
 B.F
 B.G
@@ -2216,7 +2216,7 @@ class Test
 }
 ```
 クラス`C` と`D`クラスには、同じシグネチャを持つ2つの仮想メソッドが含まれています。によっ`A`て導入されたものと`C`、によって導入されたもの。 によって導入`C`されたメソッドは`A`、から継承されたメソッドを非表示にします。 したがって、のオーバーライド宣言`D`はによって`C`導入されたメソッドをオーバーライド`D`するため、で導入`A`されたメソッドをでオーバーライドすることはできません。 この例では、次の出力が生成されます。
-```
+```console
 B.F
 B.F
 D.F
@@ -2522,7 +2522,7 @@ static class Program
 
 メソッドの`void`結果型とブロック本体がある場合、 `return`ブロック内のステートメント ([return ステートメント](statements.md#the-return-statement)) で式を指定することはできません。 Void メソッドのブロックの実行が正常に完了した場合 (つまり、制御フローがメソッド本体の末尾から離れた場合)、そのメソッドは単に現在の呼び出し元に戻ります。
     
-メソッドに`void`結果と式の本体が含まれている場合`E` 、式は*statement_expression*である必要があり、本文はフォーム`{ E; }`のブロック本体とまったく同じになります。
+メソッドに @no__t 0 の結果と式の本体が含まれている場合、式 `E` は*statement_expression*である必要があり、本文は `{ E; }` の形式のブロック本体とまったく同じになります。
     
 メソッドに void 以外の結果型とブロック本体がある場合、ブロック内`return`の各ステートメントでは、結果型に暗黙的に変換できる式を指定する必要があります。 値を返すメソッドのブロック本体のエンドポイントに到達できません。 つまり、ブロック本体を持つ値を返すメソッドでは、コントロールはメソッド本体の末尾から制御できません。
     
@@ -2556,7 +2556,7 @@ class A
 
 メソッドのオーバーロードの解決規則については、 [「型の推定](expressions.md#type-inference)」を参照してください。
 
-## <a name="properties"></a>プロパティ
+## <a name="properties"></a>Properties
 
 ***プロパティ***は、オブジェクトまたはクラスの特性へのアクセスを提供するメンバーです。 プロパティの例としては、文字列の長さ、フォントのサイズ、ウィンドウのキャプション、顧客名などがあります。 プロパティはフィールドの自然な拡張機能であり、どちらも、関連付けられた型を持つ名前付きのメンバーであり、フィールドとプロパティにアクセスするための構文は同じです。 ただし、フィールドとは異なり、プロパティは格納場所を表しません。 その代わりに、プロパティには、値の読み取りまたは書き込みの際に実行されるステートメントを指定する "***アクセサー***" があります。 そのため、プロパティは、アクションをオブジェクトの属性の読み取りと書き込みに関連付けるメカニズムを提供します。さらに、このような属性を計算することもできます。
 
@@ -2592,19 +2592,19 @@ property_initializer
     ;
 ```
 
-*Property_declaration*には、*属性*のセット ([属性](attributes.md)) と、4つのアクセス修飾子 ([アクセス修飾子](classes.md#access-modifiers)) `new`の有効な組み合わせ、([新しい修飾子](classes.md#the-new-modifier))、 `static` (Static) を含めることができます。[およびインスタンスメソッド](classes.md#static-and-instance-methods)) `virtual` 、([仮想メソッド](classes.md#virtual-methods))、 `override` ([オーバーライドメソッド](classes.md#override-methods))、 `sealed` ([シールメソッド](classes.md#sealed-methods))、 `abstract` ([抽象メソッド](classes.md#abstract-methods))、および`extern`([外部メソッド](classes.md#external-methods)) 修飾子。
+*Property_declaration*には、*属性*のセット ([属性](attributes.md)) と、4つのアクセス修飾子 ([アクセス修飾子](classes.md#access-modifiers))、@no__t 4 ([新しい修飾子](classes.md#the-new-modifier))、`static` ([Static および instance) の有効な組み合わせを含めることができます。メソッド](classes.md#static-and-instance-methods))、@no__t 8 ([仮想メソッド](classes.md#virtual-methods))、0 ([オーバーライドメソッド](classes.md#override-methods))、2 ([シールメソッド](classes.md#sealed-methods))、4 ([抽象メソッド](classes.md#abstract-methods))、および 6 ([外部メソッド](classes.md#external-methods)) 修飾子。
 
 プロパティ宣言は、修飾子の有効な組み合わせに関して、メソッド宣言 ([メソッド](classes.md#methods)) と同じ規則に従います。
 
-プロパティ宣言の*型*は、宣言によって導入されるプロパティの型を指定し、 *member_name*はプロパティの名前を指定します。 プロパティが明示的なインターフェイスメンバーの実装でない限り、 *member_name*は単なる*識別子*です。 明示的なインターフェイスメンバーの実装 ([明示的なインターフェイスメンバー](interfaces.md#explicit-interface-member-implementations)の実装) の場合、 *member_name*は、 *interface_type*の後に "`.`" および*識別子*を続けたもので構成されます。
+プロパティ宣言の*型*は、宣言によって導入されるプロパティの型を指定し、 *member_name*はプロパティの名前を指定します。 プロパティが明示的なインターフェイスメンバーの実装でない限り、 *member_name*は単なる*識別子*です。 明示的なインターフェイスメンバーの実装 ([明示的なインターフェイスメンバー](interfaces.md#explicit-interface-member-implementations)の実装) の場合、 *member_name*は、 *interface_type*の後に "`.`" と*識別子*を続けたもので構成されます。
 
 プロパティの*型*は、少なくともプロパティ自体と同じようにアクセス可能である必要があります ([アクセシビリティの制約](basic-concepts.md#accessibility-constraints))。
 
-*Property_body*は、***アクセサー本体***または***式の本体***で構成されている場合があります。 アクセサー本体で、 *accessor_declarations*を "`{`" および "`}`" トークンで囲む必要がある場合は、プロパティのアクセサー ([アクセサー](classes.md#accessors)) を宣言します。 アクセサーは、プロパティの読み取りと書き込みに関連付けられた実行可能なステートメントを指定します。
+*Property_body*は、***アクセサー本体***または***式の本体***で構成されている場合があります。 アクセサー本体では、 *accessor_declarations*を "`{`" および "@no__t" トークンで囲む必要があり、プロパティのアクセサー ([アクセサー](classes.md#accessors)) を宣言します。 アクセサーは、プロパティの読み取りと書き込みに関連付けられた実行可能なステートメントを指定します。
 
 で構成される式`=>`本体の後に*式* `E`とセミコロンが続く場合は、ステートメント本体`{ get { return E; } }`とまったく同じになります。したがって、次の結果が返される getter のみのプロパティを指定する場合にのみ使用できます。getter は、1つの式で指定されます。
 
-*Property_initializer*は、自動的に実装されたプロパティ ([自動的に実装](classes.md#automatically-implemented-properties)されるプロパティ) に対してのみ指定でき、式によって指定された値を使用して、このようなプロパティの基になるフィールドを初期化します。
+*Property_initializer*は、自動的に実装されたプロパティ ([自動的に実装](classes.md#automatically-implemented-properties)されるプロパティ) に対してのみ指定でき、式によって指定された値を使用して、このようなプロパティの基になるフィールドを初期化します。.
 
 プロパティにアクセスするための構文は、フィールドの場合と同じですが、プロパティは変数として分類されません。 したがって、プロパティを`ref`または`out`引数として渡すことはできません。
 
@@ -2618,11 +2618,11 @@ property_initializer
 
 インスタンスプロパティは、クラスの特定のインスタンスに関連付けられます。このインスタンスには`this` 、そのプロパティのアクセサーで ([このアクセス](expressions.md#this-access)) としてアクセスできます。
 
-プロパティがフォーム`E.M`の*member_access* ([メンバーアクセス](expressions.md#member-access)) で参照されている場合、 `M`が静的プロパティである`E`場合、はを含む`M`型を示す`M`必要があり、がインスタンスである場合はを表します。プロパティ E は、を含む`M`型のインスタンスを示す必要があります。
+@No__t-2 の形式の*member_access* ([メンバーアクセス](expressions.md#member-access)) でプロパティが参照されている場合、`M` が静的プロパティである場合、`E` は `M` を含む型を示す必要があり、`M` がインスタンスプロパティの場合、E は型のインスタンスを示す必要があります。`M` を含む。
 
 静的メンバーとインスタンスメンバーの違いについては、「[静的メンバーとインスタンス](classes.md#static-and-instance-members)メンバー」で詳しく説明します。
 
-### <a name="accessors"></a>アクセサー
+### <a name="accessors"></a>アクセス
 
 プロパティの*accessor_declarations*は、そのプロパティの読み取りと書き込みに関連付けられた実行可能なステートメントを指定します。
 
@@ -2654,20 +2654,20 @@ accessor_body
     ;
 ```
 
-アクセサー宣言は、 *get_accessor_declaration*、 *set_accessor_declaration*、またはその両方で構成されます。 各アクセサー宣言`get`は、トークンまたは`set`それに続くオプションの*accessor_modifier*と*accessor_body*で構成されます。
+アクセサー宣言は、 *get_accessor_declaration*、 *set_accessor_declaration*、またはその両方で構成されます。 各アクセサー宣言は、`get` または `set` の後に省略可能な*accessor_modifier*と*accessor_body*を指定したトークンで構成されます。
 
 *Accessor_modifier*s の使用には、次の制限が適用されます。
 
 *  インターフェイスまたは明示的なインターフェイスメンバーの実装で*accessor_modifier*を使用することはできません。
-*  修飾子のない`override`プロパティまたはインデクサーの場合、 *accessor_modifier*は、プロパティまたは`get`インデクサーに`set`アクセサーとアクセサーの両方がある場合にのみ許可されます。その後、これらのアクセサーのいずれかでのみ許可されます。
-*  `override`修飾子を含むプロパティまたはインデクサーの場合、アクセサーは、オーバーライドされるアクセサーの*accessor_modifier*(存在する場合) と一致する必要があります。
+*  @No__t-0 修飾子を持たないプロパティまたはインデクサーの場合、 *accessor_modifier*は、プロパティまたはインデクサーに @no__t と `set` の両方のアクセサーがある場合にのみ許可されます。その後、これらのアクセサーのいずれかでのみ許可されます。
+*  @No__t 0 修飾子を含むプロパティまたはインデクサーの場合、アクセサーは、オーバーライドされるアクセサーの*accessor_modifier*(存在する場合) と一致する必要があります。
 *  *Accessor_modifier*は、プロパティまたはインデクサー自体の宣言されたアクセシビリティより厳密に制限されたアクセシビリティを宣言する必要があります。 正確である必要があります。
-   * プロパティまたはインデクサーにのアクセシビリティが`public`宣言`protected`されている場合、accessor_modifier `protected internal`は`internal`、、、 `private`またはのいずれかになります。
-   * プロパティまたはインデクサーにの`protected internal`アクセシビリティが宣言されている場合、 *accessor_modifier*は、 `internal` `protected`、 `private`のいずれかになります。
-   * プロパティまたはインデクサーに`internal`または`protected`のアクセシビリティが宣言されている場合`private`、 *accessor_modifier*はである必要があります。
-   * プロパティまたはインデクサーにの`private`アクセシビリティが宣言されている場合、 *accessor_modifier*は使用できません。
+   * プロパティまたはインデクサーに `public` のアクセシビリティが宣言されている場合、 *accessor_modifier*は `protected internal`、`internal`、`protected`、または `private` のいずれかになります。
+   * プロパティまたはインデクサーに `protected internal` のアクセシビリティが宣言されている場合、 *accessor_modifier*は `internal`、`protected`、または `private` のいずれかになります。
+   * プロパティまたはインデクサーに `internal` または `protected` のアクセシビリティが宣言されている場合、 *accessor_modifier*は `private` である必要があります。
+   * プロパティまたはインデクサーに `private` のアクセシビリティが宣言されている場合、 *accessor_modifier*は使用できません。
 
-プロパティ`abstract`と`extern`プロパティの場合、指定された各アクセサーの*accessor_body*は、単純にセミコロンになります。 非抽象の非 extern プロパティは、各*accessor_body*をセミコロンにすることができます。この場合、自動的***に実装***されるプロパティ ([自動的に実装](classes.md#automatically-implemented-properties)されるプロパティ) です。 自動的に実装されるプロパティには、少なくとも get アクセサーが必要です。 他の非抽象、非 extern プロパティのアクセサーの場合、 *accessor_body*は、対応するアクセサーが呼び出されたときに実行されるステートメントを指定する*ブロック*です。
+@No__t-0 および `extern` プロパティの場合、指定された各アクセサーの*accessor_body*は、単純にセミコロンになります。 非抽象の非 extern プロパティは、各*accessor_body*をセミコロンにすることができます。この場合、自動的***に実装***されるプロパティ ([自動的に実装](classes.md#automatically-implemented-properties)されるプロパティ) です。 自動的に実装されるプロパティには、少なくとも get アクセサーが必要です。 他の非抽象、非 extern プロパティのアクセサーの場合、 *accessor_body*は、対応するアクセサーが呼び出されたときに実行されるステートメントを指定する*ブロック*です。
 
 アクセサー `get`は、プロパティの型の戻り値を持つパラメーターなしのメソッドに対応します。 代入の対象として、プロパティが式`get`で参照されている場合は、プロパティのアクセサーが呼び出され、プロパティ ([式の値](expressions.md#values-of-expressions)) の値が計算されます。 `get`アクセサーの本体は、「[メソッド本体](classes.md#method-body)」で説明されている値を返すメソッドの規則に準拠している必要があります。 特に、 `get`アクセサー `return`の本体内のすべてのステートメントでは、プロパティの型に暗黙的に変換できる式を指定する必要があります。 さらに、 `get`アクセサーのエンドポイントに到達できないようにする必要があります。
 
@@ -2834,7 +2834,7 @@ class Counter
 
 アクセサーに対する`get` "副作用なし" の規則は、フィールドに`get`格納されている値だけを返すようにアクセサーを常に記述することを意味するわけではありません。 実際、 `get`アクセサーは、複数のフィールドにアクセスしたりメソッドを呼び出したりすることによって、多くの場合、プロパティの値を計算します。 ただし、適切にデザイン`get`されたアクセサーでは、オブジェクトの状態に対して監視可能な変更を引き起こすアクションは実行されません。
 
-プロパティを使用して、リソースが最初に参照されるまで、リソースの初期化を遅延させることができます。 例:
+プロパティを使用して、リソースが最初に参照されるまで、リソースの初期化を遅延させることができます。 以下に例を示します。
 ```csharp
 using System.IO;
 
@@ -3062,7 +3062,7 @@ class B: A
 
 ここでは、、 `X` `Y`、および`Z`の宣言は、プロパティ宣言をオーバーライドしています。 各プロパティ宣言は、対応する継承されたプロパティのアクセシビリティ修飾子、型、および名前と完全に一致します。 `base`の`get` アクセサー`X` と`set`のアクセサーは、キーワードを使用して、継承されたアクセサーにアクセスします。`Y` の宣言は`Z` 、両方の抽象アクセサーをオーバーライドします。したがって、に`B`は未処理の`B`抽象関数メンバーはなく、非抽象クラスであることが許可されています。
 
-プロパティがとして宣言さ`override`れている場合、オーバーライドされたアクセサーには、オーバーライドする側のコードからアクセスできる必要があります。 さらに、プロパティまたはインデクサー自体とアクセサーの両方について宣言されたアクセシビリティは、オーバーライドされるメンバーとアクセサーのアクセシビリティと一致する必要があります。 例:
+プロパティがとして宣言さ`override`れている場合、オーバーライドされたアクセサーには、オーバーライドする側のコードからアクセスできる必要があります。 さらに、プロパティまたはインデクサー自体とアクセサーの両方について宣言されたアクセシビリティは、オーバーライドされるメンバーとアクセサーのアクセシビリティと一致する必要があります。 以下に例を示します。
 ```csharp
 public class B
 {
@@ -3122,7 +3122,7 @@ remove_accessor_declaration
     ;
 ```
 
-*Event_declaration*には、*属性*のセット ([属性](attributes.md)) と、4つのアクセス修飾子 ([アクセス修飾子](classes.md#access-modifiers)) `new`の有効な組み合わせ、([新しい修飾子](classes.md#the-new-modifier))、 `static` (Static) を含めることができます。[およびインスタンスメソッド](classes.md#static-and-instance-methods)) `virtual` 、([仮想メソッド](classes.md#virtual-methods))、 `override` ([オーバーライドメソッド](classes.md#override-methods))、 `sealed` ([シールメソッド](classes.md#sealed-methods))、 `abstract` ([抽象メソッド](classes.md#abstract-methods))、および`extern`([外部メソッド](classes.md#external-methods)) 修飾子。
+*Event_declaration*には、*属性*のセット ([属性](attributes.md)) と、4つのアクセス修飾子 ([アクセス修飾子](classes.md#access-modifiers))、@no__t 4 ([新しい修飾子](classes.md#the-new-modifier))、`static` ([Static および instance) の有効な組み合わせを含めることができます。メソッド](classes.md#static-and-instance-methods))、@no__t 8 ([仮想メソッド](classes.md#virtual-methods))、0 ([オーバーライドメソッド](classes.md#override-methods))、2 ([シールメソッド](classes.md#sealed-methods))、4 ([抽象メソッド](classes.md#abstract-methods))、および 6 ([外部メソッド](classes.md#external-methods)) 修飾子。
 
 イベント宣言には、修飾子の有効な組み合わせに関して、メソッド宣言 ([メソッド](classes.md#methods)) と同じ規則が適用されます。
 
@@ -3132,11 +3132,11 @@ remove_accessor_declaration
 
 *Event_accessor_declarations*を省略するイベント宣言では、1つ以上のイベント ( *variable_declarator*のそれぞれに1つ) を定義します。 属性と修飾子は、このような*event_declaration*によって宣言されたすべてのメンバーに適用されます。
 
-*Event_declaration*に修飾子と中かっこで区切られた`abstract` *event_accessor_declarations*の両方が含まれている場合、コンパイル時エラーになります。
+Event_declaration 修飾子と中かっこ区切りの*event_accessor_declarations*の @no__t 両方が含まれているのコンパイル時エラーです。
 
-イベント宣言に`extern`修飾子が含まれている場合、イベントは***外部イベント***と呼ばれます。 外部イベント宣言は実際の実装を提供しないため、修飾子と`extern` *event_accessor_declarations*の両方を含めるとエラーになります。
+イベント宣言に`extern`修飾子が含まれている場合、イベントは***外部イベント***と呼ばれます。 外部イベント宣言は実際の実装を提供しないため、@no__t 0 修飾子と*event_accessor_declarations*の両方を含めることはできません。
 
-`abstract`または`external`修飾子を持つイベント宣言の*variable_declarator*に*variable_initializer*を含めると、コンパイル時にエラーが発生します。
+@No__t-1 または @no__t 修飾子を持つイベント宣言の*variable_declarator*に*variable_initializer*を含めると、コンパイル時エラーになります。
 
 イベントは、 `+=`および`-=`演算子 ([イベント割り当て](expressions.md#event-assignment)) の左側のオペランドとして使用できます。 これらの演算子は、イベントからイベントハンドラーを削除するために、またはイベントからイベントハンドラーを削除するために、それぞれ使用されます。また、イベントのアクセス修飾子は、そのような操作が許可されているコンテキストを制御します。
 
@@ -3179,7 +3179,7 @@ public class LoginDialog: Form
 
 ### <a name="field-like-events"></a>フィールドに似たイベント
 
-イベントの宣言を含むクラスまたは構造体のプログラムテキスト内では、フィールドのように特定のイベントを使用できます。 このように使用するに`abstract`は、イベントがまたは`extern`ではなく、 *event_accessor_declarations*を明示的に含めることはできません。 このようなイベントは、フィールドを許可する任意のコンテキストで使用できます。 フィールドには、イベントに追加されたイベントハンドラーのリストを参照するデリゲート ([デリゲート](delegates.md)) が含まれています。 イベントハンドラーが追加されていない場合、 `null`フィールドにはが含まれます。
+イベントの宣言を含むクラスまたは構造体のプログラムテキスト内では、フィールドのように特定のイベントを使用できます。 この方法で使用するには、イベントを @no__t 0 または `extern` にすることはできません。また、 *event_accessor_declarations*を明示的に含めることはできません。 このようなイベントは、フィールドを許可する任意のコンテキストで使用できます。 フィールドには、イベントに追加されたイベントハンドラーのリストを参照するデリゲート ([デリゲート](delegates.md)) が含まれています。 イベントハンドラーが追加されていない場合、 `null`フィールドにはが含まれます。
 
 この例では、
 ```csharp
@@ -3240,13 +3240,13 @@ class X
 
 ### <a name="event-accessors"></a>イベント アクセサー
 
-イベント宣言は、通常、上記の`Button`例のように event_accessor_declarations を省略しています。 これを行う1つの状況として、イベントごとに1つのフィールドのストレージコストが許容されない場合が挙げられます。 このような場合は、クラスに*event_accessor_declarations*を含めて、イベントハンドラーのリストを格納するためのプライベートメカニズムを使用できます。
+イベント宣言は、通常、上の `Button` の例のように、 *event_accessor_declarations*を省略しています。 これを行う1つの状況として、イベントごとに1つのフィールドのストレージコストが許容されない場合が挙げられます。 このような場合は、クラスに*event_accessor_declarations*を含めて、イベントハンドラーのリストを格納するためのプライベートメカニズムを使用できます。
 
 イベントの*event_accessor_declarations*は、イベントハンドラーの追加と削除に関連付けられた実行可能なステートメントを指定します。
 
 アクセサー宣言は、 *add_accessor_declaration*と*remove_accessor_declaration*で構成されます。 各アクセサー宣言は、トークン`add`または`remove`それに続く*ブロック*で構成されます。 *Add_accessor_declaration*に関連付けられている*ブロック*は、イベントハンドラーが追加されたときに実行するステートメントを指定します。また、 *remove_accessor_declaration*に関連付けられている*ブロック*には、実行するステートメントを指定します。イベントハンドラーが削除されたとき。
 
-各*add_accessor_declaration*と*remove_accessor_declaration*は、イベントの`void`種類の単一の値パラメーターと戻り値の型を持つメソッドに対応しています。 イベントアクセサーの暗黙のパラメーターにはと`value`いう名前が付けられます。 イベントの割り当てでイベントが使用される場合は、適切なイベントアクセサーが使用されます。 具体的には`+=` 、代入演算子がの場合、add アクセサーが使用され、代入演算子が`-=`の場合は remove アクセサーが使用されます。 どちらの場合も、代入演算子の右側のオペランドは、イベントアクセサーの引数として使用されます。 *Add_accessor_declaration*または*remove_accessor_declaration*のブロックは、「[メソッド本体](classes.md#method-body)」で説明`void`されているメソッドの規則に準拠している必要があります。 特に、 `return`このようなブロック内のステートメントでは、式を指定することはできません。
+各*add_accessor_declaration*と*remove_accessor_declaration*は、イベントの種類の1つの値パラメーターと @no__t 2 つの戻り値の型を持つメソッドに対応しています。 イベントアクセサーの暗黙のパラメーターにはと`value`いう名前が付けられます。 イベントの割り当てでイベントが使用される場合は、適切なイベントアクセサーが使用されます。 具体的には`+=` 、代入演算子がの場合、add アクセサーが使用され、代入演算子が`-=`の場合は remove アクセサーが使用されます。 どちらの場合も、代入演算子の右側のオペランドは、イベントアクセサーの引数として使用されます。 *Add_accessor_declaration*または*remove_accessor_declaration*のブロックは、「[メソッド本体](classes.md#method-body)」で説明されている @no__t 2 つのメソッドの規則に従っている必要があります。 特に、 `return`このようなブロック内のステートメントでは、式を指定することはできません。
 
 イベントアクセサーはという名前`value`のパラメーターを暗黙的に持つため、イベントアクセサーで宣言されたローカル変数または定数がその名前を持つようにすると、コンパイル時エラーになります。
 
@@ -3298,7 +3298,7 @@ class Control: Component
 
 インスタンスイベントは、クラスの特定のインスタンスに関連付けられます。このインスタンスには`this` 、そのイベントのアクセサーで ([このアクセス](expressions.md#this-access)) としてアクセスできます。
 
-イベントがフォーム`E.M`の*member_access* ([メンバーアクセス](expressions.md#member-access)) で参照されている場合、 `M`が静的イベントである`E`場合、はを含む`M`型を示す`M`必要があります。また、がインスタンスイベントの場合は、E を指定する必要があります。を格納`M`している型のインスタンスを表します。
+@No__t-2 の形式の*member_access* ([メンバーアクセス](expressions.md#member-access)) でイベントが参照されている場合、`M` が静的イベントである場合、`E` は `M` を含む型を示す必要があり、`M` がインスタンスイベントの場合、E は、を含む型のインスタンスを示す必要があります。`M`。
 
 静的メンバーとインスタンスメンバーの違いについては、「[静的メンバーとインスタンス](classes.md#static-and-instance-members)メンバー」で詳しく説明します。
 
@@ -3356,19 +3356,19 @@ indexer_body
     ;
 ```
 
-*Indexer_declaration*には、*属性*のセット ([属性](attributes.md)) と、4つのアクセス修飾子 ([アクセス修飾子](classes.md#access-modifiers)) `new`の有効な組み合わせ ([新しい修飾子](classes.md#the-new-modifier) `virtual` [ ) を含めることができます。仮想メソッド](classes.md#virtual-methods) `override` ) `sealed` 、([オーバーライドメソッド](classes.md#override-methods))、([シール](classes.md#sealed-methods) `abstract` `extern`メソッド)、([抽象メソッド](classes.md#abstract-methods))、([外部メソッド](classes.md#external-methods)) 修飾子。
+*Indexer_declaration*には、*属性*のセット ([属性](attributes.md)) と、4つのアクセス修飾子 ([アクセス修飾子](classes.md#access-modifiers)) の有効な組み合わせ、@no__t 4 ([新しい修飾子](classes.md#the-new-modifier))、`virtual` ([仮想メソッド) が含まれる場合があります。](classes.md#virtual-methods))、`override` ([オーバーライドメソッド](classes.md#override-methods))、@no__t 10 ([シールメソッド](classes.md#sealed-methods))、2 ([抽象メソッド](classes.md#abstract-methods))、および 4 ([外部メソッド](classes.md#external-methods)) 修飾子。
 
 インデクサー宣言では、修飾子の有効な組み合わせに関して、メソッド宣言 ([メソッド](classes.md#methods)) と同じ規則が適用されます。一方、インデクサー宣言では static 修飾子は許可されないという例外があります。
 
 修飾子`virtual` `abstract` 、 `override`、およびは、1つの場合を除いて、相互に排他的です。 `abstract` および`override`修飾子を一緒に使用して、抽象インデクサーが仮想1をオーバーライドできるようにすることができます。
 
-インデクサー宣言の*型*は、宣言によって導入されるインデクサーの要素の種類を指定します。 インデクサーが明示的なインターフェイスメンバーの実装でない限り、*型*の後に`this`キーワードが続きます。 明示的なインターフェイスメンバーの実装では、*型*の後に*interface_type*、"`.`"、およびキーワード`this`が続きます。 他のメンバーとは異なり、インデクサーにはユーザー定義の名前がありません。
+インデクサー宣言の*型*は、宣言によって導入されるインデクサーの要素の種類を指定します。 インデクサーが明示的なインターフェイスメンバーの実装でない限り、*型*の後に`this`キーワードが続きます。 明示的なインターフェイスメンバーの実装では、*型*の後に*interface_type*、"`.`"、キーワード `this` が続きます。 他のメンバーとは異なり、インデクサーにはユーザー定義の名前がありません。
 
 *Formal_parameter_list*は、インデクサーのパラメーターを指定します。 インデクサーの仮パラメーターリストは、少なく`ref`とも1つのパラメーターを指定する必要があり、および`out`パラメーター修飾子が許可されていない点を除いて、メソッドのパラメーター ([メソッドパラメーター](classes.md#method-parameters)) に対応します。
 
 インデクサーの*型*と、 *formal_parameter_list*で参照される各型は、少なくともインデクサー自体と同じようにアクセス可能である必要があります ([アクセシビリティの制約](basic-concepts.md#accessibility-constraints))。
 
-*Indexer_body*は、***アクセサー本体***または***式の本体***で構成されている場合があります。 アクセサー本体で、 *accessor_declarations*を "`{`" および "`}`" トークンで囲む必要がある場合は、プロパティのアクセサー ([アクセサー](classes.md#accessors)) を宣言します。 アクセサーは、プロパティの読み取りと書き込みに関連付けられた実行可能なステートメントを指定します。
+*Indexer_body*は、***アクセサー本体***または***式の本体***で構成されている場合があります。 アクセサー本体では、 *accessor_declarations*を "`{`" および "@no__t" トークンで囲む必要があり、プロパティのアクセサー ([アクセサー](classes.md#accessors)) を宣言します。 アクセサーは、プロパティの読み取りと書き込みに関連付けられた実行可能なステートメントを指定します。
 
 "`=>`" の後に式`E`とセミコロンが続く式本体は、ステートメント本体`{ get { return E; } }`とまったく同じであり、そのため、getter の結果がである getter のみのインデクサーを指定するためにのみ使用できます。1つの式によって指定されます。
 
@@ -3559,7 +3559,7 @@ operator_body
 
 *Operator_body*は、セミコロン、***ステートメント本体***、または式の***本体***です。 ステートメントの本体は、*ブロック*で構成されます。これは、演算子が呼び出されたときに実行するステートメントを指定します。 *ブロック*は、「[メソッド本体](classes.md#method-body)」で説明されている値を返すメソッドの規則に準拠している必要があります。 式の`=>`本体は、式とセミコロンで構成され、その後に演算子が呼び出されたときに実行する1つの式を示します。
 
-演算子`extern`の場合、 *operator_body*はセミコロンで構成されます。 その他のすべての演算子では、 *operator_body*はブロック本体または式の本体です。
+@No__t 0 演算子の場合、 *operator_body*はセミコロンで構成されます。 その他のすべての演算子では、 *operator_body*はブロック本体または式の本体です。
 
 すべての演算子宣言には、次の規則が適用されます。
 
@@ -3650,7 +3650,7 @@ class Test
 
 *  `S0`と`T0`の型は異なります。
 *  `S0` また`T0`はは、演算子の宣言が行われるクラスまたは構造体の型です。
-*  とはどちらも`S0` interface_type ではありません。 `T0`
+*  @No__t-0 も `T0` も*interface_type*ではありません。
 *  ユーザー定義の変換を除外`S`する場合、から`T`への変換または`T`から`S`への変換は存在しません。
 
 これらの規則のために、または`S` `T`に関連付けられている型パラメーターは、他の型との継承関係がない一意の型と見なされます。これらの型パラメーターに対する制約は無視されます。
@@ -3682,7 +3682,7 @@ struct Convertible<T>
 ```
 型がの`T`型引数として指定されている場合、2番目の演算子は、既に存在する変換を宣言します (暗黙的な変換で`object`もあり、明示的には、任意の型から型への変換が存在します)。 `object`
 
-2つの型の間に事前定義された変換が存在する場合、これらの型間のユーザー定義の変換はすべて無視されます。 具体的には、次のように使用します。
+2つの型の間に事前定義された変換が存在する場合、これらの型間のユーザー定義の変換はすべて無視されます。 具体的な内容は次のとおりです。
 
 *  定義済みの暗黙的な変換 ([暗黙](conversions.md#implicit-conversions)の変換) が`S`型から型`T`に存在する場合、からへ`T`のすべての`S`ユーザー定義変換 (暗黙的または明示的な変換) は無視されます。
 *  定義済みの明示的な変換 ([明示的な変換](conversions.md#explicit-conversions)) が`S`型から`T`型に存在する場合、からへ`S` `T`のユーザー定義の明示的な変換はすべて無視されます。 さら
@@ -3691,7 +3691,7 @@ struct Convertible<T>
 
 それ以外の場合、からへ`S` `T`のユーザー定義の暗黙的な変換は引き続き考慮されます。
 
-すべての型`object`に対して、上記の`Convertible<T>`型によって宣言された演算子は、事前に定義された変換と競合しません。 例:
+すべての型`object`に対して、上記の`Convertible<T>`型によって宣言された演算子は、事前に定義された変換と競合しません。 以下に例を示します。
 ```csharp
 void F(int i, Convertible<int> n) {
     i = n;                          // Error
@@ -3775,7 +3775,7 @@ constructor_body
     ;
 ```
 
-*Constructor_declaration*には、*属性*のセット ([属性](attributes.md))、4つのアクセス修飾子`extern` ([アクセス修飾子](classes.md#access-modifiers)) の有効な組み合わせ、および ([外部メソッド](classes.md#external-methods)) 修飾子を含めることができます。 コンストラクター宣言では、同じ修飾子を複数回含めることはできません。
+*Constructor_declaration*には、*属性*のセット ([属性](attributes.md))、4つのアクセス修飾子 ([アクセス修飾子](classes.md#access-modifiers)) の有効な組み合わせ、および `extern` ([外部メソッド](classes.md#external-methods)) 修飾子を含めることができます。 コンストラクター宣言では、同じ修飾子を複数回含めることはできません。
 
 *Constructor_declarator*の*識別子*は、インスタンスコンストラクターが宣言されているクラスに名前を指定する必要があります。 他の名前が指定されている場合は、コンパイル時エラーが発生します。
 
@@ -3793,7 +3793,7 @@ constructor_body
 
 ### <a name="constructor-initializers"></a>Constructor Initializers (コンストラクター初期化子)
 
-すべてのインスタンスコンストラクター (クラス`object`のコンストラクターを除く) には、 *constructor_body*の直前に別のインスタンスコンストラクターを呼び出すことが暗黙的に含まれます。 暗黙的に呼び出すコンストラクターは、 *constructor_initializer*によって決定されます。
+すべてのインスタンスコンストラクター (クラス `object` の場合を除く) には、 *constructor_body*の直前に別のインスタンスコンストラクターを呼び出すことが暗黙的に含まれます。 暗黙的に呼び出すコンストラクターは、 *constructor_initializer*によって決定されます。
 
 *  または`base(argument_list)` `base()`の形式のインスタンスコンストラクター初期化子が呼び出されると、直接基底クラスのインスタンスコンストラクターが呼び出されます。 このコンストラクターは、 *argument_list*が存在する場合は、[オーバーロード解決](expressions.md#overload-resolution)のオーバーロード解決規則を使用して選択されます。 候補インスタンスコンストラクターのセットは、直接基底クラスに含まれるすべてのアクセス可能なインスタンスコンストラクター、または、直接基底クラスでインスタンスコンストラクターが宣言されていない場合は既定のコンストラクター ([既定のコンストラクター](classes.md#default-constructors)) で構成されます。 このセットが空の場合、または1つの最適なインスタンスコンストラクターを識別できない場合は、コンパイル時エラーが発生します。
 *  または`this(argument-list)` `this()`の形式のインスタンスコンストラクター初期化子が呼び出されると、クラス自体のインスタンスコンストラクターが呼び出されます。 コンストラクターは、 *argument_list*が存在する場合は、[オーバーロード解決](expressions.md#overload-resolution)のオーバーロード解決規則を使用して選択されます。 候補インスタンスコンストラクターのセットは、クラス自体で宣言されたすべてのアクセス可能なインスタンスコンストラクターで構成されます。 このセットが空の場合、または1つの最適なインスタンスコンストラクターを識別できない場合は、コンパイル時エラーが発生します。 インスタンスコンストラクターの宣言にコンストラクター自体を呼び出すコンストラクター初期化子が含まれている場合、コンパイル時エラーが発生します。
@@ -3807,7 +3807,7 @@ C(...) {...}
 C(...): base() {...}
 ```
 
-インスタンスコンストラクター宣言の*formal_parameter_list*によって指定されたパラメーターのスコープには、その宣言のコンストラクター初期化子が含まれます。 したがって、コンストラクターの初期化子は、コンストラクターのパラメーターにアクセスすることが許可されます。 例:
+インスタンスコンストラクター宣言の*formal_parameter_list*によって指定されたパラメーターのスコープには、その宣言のコンストラクター初期化子が含まれます。 したがって、コンストラクターの初期化子は、コンストラクターのパラメーターにアクセスすることが許可されます。 以下に例を示します。
 ```csharp
 class A
 {
@@ -3820,11 +3820,11 @@ class B: A
 }
 ```
 
-インスタンスコンストラクターの初期化子が、作成されているインスタンスにアクセスできません。 したがって、コンストラクター初期化子の引数式で`this`参照するコンパイル時エラーになります。これは、引数式が*simple_name*を介して任意のインスタンスメンバーを参照する場合のコンパイル時エラーであるということです。
+インスタンスコンストラクターの初期化子が、作成されているインスタンスにアクセスできません。 したがって、コンストラクター初期化子の引数式で `this` を参照すると、コンパイル時にエラーになります。これは、引数式が*simple_name*を介して任意のインスタンスメンバーを参照する場合のコンパイル時エラーであるということです。
 
 ### <a name="instance-variable-initializers"></a>インスタンス変数初期化子
 
-インスタンスコンストラクターにコンストラクター初期化子がない場合、またはフォーム`base(...)`のコンストラクター初期化子がある場合、そのコンストラクターは、インスタンスフィールドの*variable_initializer*s によって指定された初期化を暗黙的に実行します。クラス内で宣言されています。 これは、コンストラクターへのエントリと、直接基底クラスのコンストラクターの暗黙的な呼び出しの直前に実行される割り当てのシーケンスに対応します。 変数初期化子は、クラス宣言に含まれるテキスト順に実行されます。
+インスタンスコンストラクターにコンストラクター初期化子がない場合、または `base(...)` という形式のコンストラクター初期化子がある場合、そのコンストラクターは、で宣言されたインスタンスフィールドの*variable_initializer*s によって指定された初期化を暗黙的に実行します。クラス。 これは、コンストラクターへのエントリと、直接基底クラスのコンストラクターの暗黙的な呼び出しの直前に実行される割り当てのシーケンスに対応します。 変数初期化子は、クラス宣言に含まれるテキスト順に実行されます。
 
 ### <a name="constructor-execution"></a>コンストラクターの実行
 
@@ -3858,7 +3858,7 @@ class B: A
 }
 ```
 を`new B()`使用しての`B`インスタンスを作成すると、次の出力が生成されます。
-```
+```console
 x = 1, y = 0
 ```
 
@@ -3975,7 +3975,7 @@ class Message
 
 ### <a name="private-constructors"></a>プライベートコンストラクター
 
-クラス`T`がプライベートインスタンスコンストラクターのみを宣言する場合、の`T` `T`プログラムテキストの外部のクラスは、またはの`T`インスタンスを直接作成することはできません。 したがって、クラスに静的メンバーのみが含まれ、インスタンス化されない場合は、空のプライベートインスタンスコンストラクターを追加すると、インスタンス化ができなくなります。 例:
+クラス`T`がプライベートインスタンスコンストラクターのみを宣言する場合、の`T` `T`プログラムテキストの外部のクラスは、またはの`T`インスタンスを直接作成することはできません。 したがって、クラスに静的メンバーのみが含まれ、インスタンス化されない場合は、空のプライベートインスタンスコンストラクターを追加すると、インスタンス化ができなくなります。 以下に例を示します。
 ```csharp
 public class Trig
 {
@@ -4034,11 +4034,11 @@ static_constructor_body
     ;
 ```
 
-*Static_constructor_declaration*には、一連の*属性*( `extern` [属性](attributes.md)) と修飾子 ([外部メソッド](classes.md#external-methods)) を含めることができます。
+*Static_constructor_declaration*には、一連の*属性*([属性](attributes.md)) と `extern` 修飾子 ([外部メソッド](classes.md#external-methods)) を含めることができます。
 
 *Static_constructor_declaration*の*識別子*は、静的コンストラクターが宣言されているクラスに名前を指定する必要があります。 他の名前が指定されている場合は、コンパイル時エラーが発生します。
 
-静的コンストラクターの宣言に`extern`修飾子が含まれている場合、静的コンストラクターは外部の***静的コンストラクター***と呼ばれます。 外部の静的コンストラクター宣言は実際の実装を提供しないため、 *static_constructor_body*はセミコロンで構成されます。 その他のすべての静的コンストラクター宣言では、 *static_constructor_body*は、クラスを初期化するために実行するステートメントを指定する*ブロック*で構成されます。 これは、 `void`戻り値の型 ([メソッド本体](classes.md#method-body)) を持つ静的メソッドの*method_body*に正確に対応します。
+静的コンストラクターの宣言に`extern`修飾子が含まれている場合、静的コンストラクターは外部の***静的コンストラクター***と呼ばれます。 外部の静的コンストラクター宣言は実際の実装を提供しないため、 *static_constructor_body*はセミコロンで構成されます。 その他のすべての静的コンストラクター宣言では、 *static_constructor_body*は、クラスを初期化するために実行するステートメントを指定する*ブロック*で構成されます。 これは、@no__t 1 つの戻り値の型 ([メソッド本体](classes.md#method-body)) を持つ静的メソッドの*method_body*に相当します。
 
 静的コンストラクターは継承されず、直接呼び出すことはできません。
 
@@ -4084,7 +4084,7 @@ class B
 }
 ```
 出力を生成する必要があります。
-```
+```console
 Init A
 A.F
 Init B
@@ -4119,13 +4119,13 @@ class B
 }
 ```
 この例では、次のように出力されます。
-```
+```console
 X = 1, Y = 2
 ```
 
 `Main`メソッドを実行するために、システムはまず、クラス`B.Y` `B`の静的コンストラクターの前に、の初期化子を実行します。 `Y``A`の`A.X`値が参照されているため、の初期化子によって静的コンストラクターが実行されます。 さらに、の `A`静的コンストラクターは、の `X`値の計算を続行します。これにより、の `Y`既定値 (0) がフェッチされます。 `A.X`この場合、は1に初期化されます。 次に、の`A`静的フィールド初期化子と静的コンストラクターを実行するプロセスが完了し、の `Y`初期値の計算に戻ります。結果は2になります。
 
-静的コンストラクターは、終了した構築済みのクラス型ごとに1回だけ実行されるため、制約 ([型パラメーター制約](classes.md#type-parameter-constraints)) を使用してコンパイル時にチェックできない型パラメーターに対してランタイムチェックを強制するための便利な場所です。 たとえば、次の型では、静的コンストラクターを使用して、型引数が列挙型であることを強制しています。
+静的コンストラクターは、終了した構築済みのクラス型ごとに1回だけ実行されるため、制約 ([型パラメーター制約](classes.md#type-parameter-constraints)) を使用してコンパイル時にチェックできない型パラメーターに対してランタイムチェックを強制するための便利な場所です. たとえば、次の型では、静的コンストラクターを使用して、型引数が列挙型であることを強制しています。
 ```csharp
 class Gen<T> where T: struct
 {
@@ -4157,7 +4157,7 @@ destructor_body
 
 *Destructor_declaration*の*識別子*は、デストラクターが宣言されているクラスに名前を指定する必要があります。 他の名前が指定されている場合は、コンパイル時エラーが発生します。
 
-デストラクター宣言に`extern`修飾子が含まれている場合、デストラクターは***外部デストラクター***と呼ばれます。 外部デストラクター宣言は実際の実装を提供しないため、 *destructor_body*はセミコロンで構成されます。 その他のすべてのデストラクターでは、 *destructor_body*は、クラスのインスタンスを破棄するために実行するステートメントを指定する*ブロック*で構成されます。 *Destructor_body*は`void` 、戻り値の型 ([メソッド本体](classes.md#method-body)) を持つインスタンスメソッドの*method_body*に正確に対応します。
+デストラクター宣言に`extern`修飾子が含まれている場合、デストラクターは***外部デストラクター***と呼ばれます。 外部デストラクター宣言は実際の実装を提供しないため、 *destructor_body*はセミコロンで構成されます。 その他のすべてのデストラクターでは、 *destructor_body*は、クラスのインスタンスを破棄するために実行するステートメントを指定する*ブロック*で構成されます。 *Destructor_body*は、@no__t 2 つの戻り値の型 ([メソッド本体](classes.md#method-body)) を持つインスタンスメソッドの*method_body*に正確に対応します。
 
 デストラクターは継承されません。 したがって、クラスには、そのクラスで宣言されている可能性のあるデストラクターがありません。
 
@@ -4224,11 +4224,11 @@ class A
 
 デストラクターから例外がスローされた場合の動作の詳細については、「[例外の処理方法](exceptions.md#how-exceptions-are-handled)」を参照してください。
 
-## <a name="iterators"></a>反復子
+## <a name="iterators"></a>Iterators
 
 反復子ブロック ([ブロック](statements.md#blocks)) を使用して実装される関数メンバー ([関数メンバー](expressions.md#function-members)) は、***反復子***と呼ばれます。
 
-対応する関数メンバーの戻り値の型が列挙子インターフェイス ([列挙子](classes.md#enumerator-interfaces)インターフェイス) または列挙可能なインターフェイス (列挙可能な[インターフェイス](classes.md#enumerable-interfaces)) の1つである限り、反復子ブロックは関数メンバーの本体として使用できます。 これは、 *method_body*、 *operator_body* 、または*accessor_body*として発生する可能性があります。一方、イベント、インスタンスコンストラクター、静的コンストラクター、およびデストラクターを反復子として実装することはできません。
+対応する関数メンバーの戻り値の型が列挙子インターフェイス ([列挙子](classes.md#enumerator-interfaces)インターフェイス) または列挙可能なインターフェイス (列挙可能な[インターフェイス](classes.md#enumerable-interfaces)) の1つである限り、反復子ブロックは関数メンバーの本体として使用できます. これは、 *method_body*、 *operator_body* 、または*accessor_body*として発生する可能性があります。一方、イベント、インスタンスコンストラクター、静的コンストラクター、およびデストラクターを反復子として実装することはできません。
 
 関数メンバーが反復子ブロックを使用して実装されている場合、関数メンバーの仮パラメーターリストで`ref`または`out`パラメーターを指定すると、コンパイル時にエラーになります。
 
@@ -4723,7 +4723,7 @@ class Tree<T>: IEnumerable<T>
 
 `ref`または`out`パラメーターを指定する非同期関数の仮パラメーターリストでは、コンパイル時にエラーになります。
 
-非同期*メソッドの****種類***は、またはの`void`いずれかである必要があります。 タスクの種類は`System.Threading.Tasks.Task` 、から`System.Threading.Tasks.Task<T>`構築された型です。 簡潔にするために、この章では、これらの型`Task`は`Task<T>`それぞれおよびとして参照されています。 タスクの種類を返す非同期メソッドは、タスクを返すと言います。
+非同期*メソッドの種類は、@no__t* -1 または***タスクの種類***のいずれかである必要があります。 タスクの種類は`System.Threading.Tasks.Task` 、から`System.Threading.Tasks.Task<T>`構築された型です。 簡潔にするために、この章では、これらの型`Task`は`Task<T>`それぞれおよびとして参照されています。 タスクの種類を返す非同期メソッドは、タスクを返すと言います。
 
 タスクの種類の正確な定義は実装で定義されていますが、言語の観点から見ると、タスクの種類は [未完了]、[成功]、または [失敗] のいずれかの状態になります。 エラーが発生したタスクは、関連する例外を記録します。 Succeeded `Task<T>`は、型`T`の結果を記録します。 タスクの種類は待機可能であるため、await 式 ([await 式](expressions.md#await-expressions)) のオペランドにすることができます。
 
