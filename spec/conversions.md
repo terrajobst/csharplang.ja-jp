@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: d082393a00496b948ad4e3ff9e135d94e89d2448
-ms.sourcegitcommit: 1a46441156b13db6c845f4bbb886284387d73023
+ms.openlocfilehash: 4d6d28a3127bc701867afe157aa5496377a06f69
+ms.sourcegitcommit: 63d276488c9770a565fd787020783ffc1d2af9d6
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67047035"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74868005"
 ---
 # <a name="conversions"></a>変換
 
-A***変換***式を特定の型として扱うことができます。 変換を別の種類を持つものとして扱う特定の型の式が発生する可能性があります。 または型を取得する型のない式があります。 変換***暗黙的な***または***明示的な***、および明示的なキャストが必要かどうかを指定します。 型からの変換、`int`入力`long`が暗黙的な型の式をその`int`型として暗黙的に処理できる`long`。 型からの逆の変換`long`入力`int`は明示的なため、明示的なキャストが必要です。
+***変換***を使用すると、式を特定の型として扱うことができます。 変換によって、指定された型の式が別の型として処理されるか、型のない式が型を取得する可能性があります。 変換は***暗黙的***または***明示的***に行うことができます。これにより、明示的なキャストが必要かどうかが決まります。 たとえば、型 `int` から型 `long` への変換は暗黙的に行われるため、型 `int` の式は暗黙的に型 `long`として扱うことができます。 型 `long` から `int`型への逆の変換は明示的であるため、明示的なキャストが必要です。
 
 ```csharp
 int a = 123;
@@ -16,137 +16,138 @@ long b = a;         // implicit conversion from int to long
 int c = (int) b;    // explicit conversion from long to int
 ```
 
-一部の変換は言語によって定義されます。 プログラムは、独自の型変換を定義も可能性があります ([ユーザー定義の変換](conversions.md#user-defined-conversions))。
+一部の変換は、言語によって定義されます。 プログラムでは、独自の変換 ([ユーザー定義の変換](conversions.md#user-defined-conversions)) を定義することもできます。
 
 ## <a name="implicit-conversions"></a>暗黙の変換
 
 次の変換は、暗黙的な変換として分類されます。
 
-*  恒等変換
-*  暗黙的な数値変換
-*  列挙体の暗黙的な変換です。
-*  Null 許容型の暗黙的な変換
-*  Null リテラルの変換
-*  暗黙的な参照変換
+*  Id 変換
+*  暗黙の数値変換
+*  暗黙的な列挙変換
+*  暗黙的な挿入文字列の変換
+*  暗黙の null 許容型変換
+*  Null リテラル変換
+*  暗黙の参照変換
 *  ボックス化変換
-*  動的の暗黙的な変換
-*  定数式が暗黙的な変換
+*  暗黙の動的変換
+*  暗黙の定数式の変換
 *  ユーザー定義の暗黙的な変換
 *  匿名関数の変換
-*  メソッド グループ変換
+*  メソッドグループの変換
 
-暗黙的な変換は、さまざまな関数メンバーの呼び出しをなどの状況で発生することができます ([コンパイル時の動的なオーバー ロードの解決チェック](expressions.md#compile-time-checking-of-dynamic-overload-resolution))、キャスト式 ([キャスト式](expressions.md#cast-expressions))、割り当て ([代入演算子](expressions.md#assignment-operators))。
+暗黙の型変換は、関数メンバー呼び出し ([動的なオーバーロード解決のコンパイル時のチェック](expressions.md#compile-time-checking-of-dynamic-overload-resolution))、キャスト式 ([キャスト式](expressions.md#cast-expressions))、代入 ([代入演算子](expressions.md#assignment-operators)) など、さまざまな状況で発生する可能性があります。
 
-定義済みの暗黙的な変換では、常に成功しがスローされる例外は発生しません。 適切にデザインされたユーザー定義の暗黙的な変換では、これらの特性もを示す必要があります。
+定義済みの暗黙的な変換は常に成功し、例外がスローされることはありません。 適切に設計されたユーザー定義の暗黙的な変換でも、これらの特性が示されます。
 
-型の変換のための`object`と`dynamic`同等と見なされます。
+変換のために、型 `object` と `dynamic` は同等と見なされます。
 
-ただし、動的な変換 ([動的の暗黙的な変換](conversions.md#implicit-dynamic-conversions)と[動的の明示的な変換](conversions.md#explicit-dynamic-conversions)) 型の式にのみ適用されます`dynamic`([動的な型](types.md#the-dynamic-type)).
+ただし、動的変換 ([暗黙の動的](conversions.md#implicit-dynamic-conversions)変換と[明示的な動的](conversions.md#explicit-dynamic-conversions)変換) は `dynamic` 型の式 ([動的型](types.md#the-dynamic-type)) にのみ適用されます。
 
 ### <a name="identity-conversion"></a>Id 変換
 
-Id 変換は、任意の型から同じ型に変換します。 この変換には、その型に変換可能であるエンティティを既に必要な型を持つことが言えますようにが存在します。
+Id 変換は、任意の型から同じ型に変換します。 この変換は、既に必要な型を持つエンティティをその型に変換できるようにするために存在します。
 
-*  `object`と`dynamic`と同等の間の id 変換があると見なされます`object`と`dynamic`、間のすべての出現を置換するときに、同じ構築された型および`dynamic`で`object`.
+*  `object` と `dynamic` は同等と見なされるため、`object` と `dynamic`間の id 変換と、`dynamic` のすべての出現箇所を `object`に置き換える場合の構築された型の間の id 変換があります。
 
-### <a name="implicit-numeric-conversions"></a>暗黙的な数値変換
+### <a name="implicit-numeric-conversions"></a>暗黙の数値変換
 
 暗黙的な数値変換は次のとおりです。
 
-*  `sbyte`に`short`、 `int`、 `long`、 `float`、 `double`、または`decimal`します。
-*  `byte`に`short`、 `ushort`、 `int`、 `uint`、 `long`、 `ulong`、 `float`、 `double`、または`decimal`します。
-*  `short`に`int`、 `long`、 `float`、 `double`、または`decimal`します。
-*  `ushort`に`int`、 `uint`、 `long`、 `ulong`、 `float`、 `double`、または`decimal`します。
-*  `int`に`long`、 `float`、 `double`、または`decimal`します。
-*  `uint`に`long`、 `ulong`、 `float`、 `double`、または`decimal`します。
-*  `long`に`float`、 `double`、または`decimal`します。
-*  `ulong`に`float`、 `double`、または`decimal`します。
-*  `char`に`ushort`、 `int`、 `uint`、 `long`、 `ulong`、 `float`、 `double`、または`decimal`します。
-*  `float`に`double`します。
+*  `sbyte` から `short`、`int`、`long`、`float`、`double`、`decimal`になります。
+*  `byte` から `short`、`ushort`、`int`、`uint`、`long`、`ulong`、`float`、`double`、`decimal`になります。
+*  `short` から `int`、`long`、`float`、`double`、`decimal`になります。
+*  `ushort` から `int`、`uint`、`long`、`ulong`、`float`、`double`、`decimal`になります。
+*  `int` から `long`、`float`、`double`、または `decimal`になります。
+*  `uint` から `long`、`ulong`、`float`、`double`、`decimal`になります。
+*  `long` から `float`、`double`、または `decimal`。
+*  `ulong` から `float`、`double`、または `decimal`。
+*  `char` から `ushort`、`int`、`uint`、`long`、`ulong`、`float`、`double`、`decimal`になります。
+*  `float` から `double`。
 
-変換`int`、 `uint`、 `long`、または`ulong`に`float`との間`long`または`ulong`に`double`により、有効桁数が失われる可能性がありますが、1 桁の損失しない原因は。 その他の暗黙的な数値変換情報は失われません。
+`int`、`uint`、`long`、または `ulong` から `float` への変換または `long` への変換は、精度の低下を招く可能性がありますが、マグニチュードが失われることはありません。 その他の暗黙的な数値変換では、情報が失われることはありません。
 
-暗黙的な変換がない、`char`型であるために、その他の整数型の値は自動的に変換されない、`char`型。
+`char` 型への暗黙的な変換は行われないため、他の整数型の値は `char` 型に自動的に変換されません。
 
-### <a name="implicit-enumeration-conversions"></a>列挙体の暗黙的な変換
+### <a name="implicit-enumeration-conversions"></a>暗黙的な列挙変換
 
-列挙体の暗黙的な変換を許可、 *decimal_integer_literal* `0`いずれかに変換する*enum_type*しに*nullable_type*が基になる型は、 *enum_type*します。 後者の場合、変換は、基に変換することによって評価*enum_type*結果をラップし、([null 許容型](types.md#nullable-types))。
+暗黙的な列挙型変換では、 *decimal_integer_literal* `0` を任意の*enum_type*に変換し、基になる型が*enum_type*であるすべての*nullable_type*に変換できます。 後者の場合、変換は、基になる*enum_type*に変換し、結果をラップすることによって評価されます ([null 許容型](types.md#nullable-types))。
 
-### <a name="implicit-interpolated-string-conversions"></a>補間文字列の暗黙的な変換
+### <a name="implicit-interpolated-string-conversions"></a>暗黙的な挿入文字列の変換
 
-暗黙の補間文字列変換により、 *interpolated_string_expression* ([文字列補間](expressions.md#interpolated-strings)) に変換する`System.IFormattable`または`System.FormattableString`(を実装する`System.IFormattable`).
+暗黙的な補間文字列変換は、 *interpolated_string_expression* (挿入[文字列](expressions.md#interpolated-strings)) を `System.IFormattable` または `System.FormattableString` (`System.IFormattable`を実装) に変換することを許可します。
 
-この変換が適用されるときに文字列値はありません補間文字列から構成されます。 代わりに、インスタンスの`System.FormattableString`作成は、その詳細に説明[文字列補間](expressions.md#interpolated-strings)します。
+この変換が適用された場合、文字列値は挿入文字列からは構成されません。 代わりに、「挿入[文字列](expressions.md#interpolated-strings)」で詳しく説明されているように、`System.FormattableString` のインスタンスが作成されます。
 
-### <a name="implicit-nullable-conversions"></a>Null 許容型の暗黙的な変換
+### <a name="implicit-nullable-conversions"></a>暗黙の null 許容型変換
 
-Null 非許容値型を操作する定義済みの暗黙的な変換は、これらの型の null 許容の形式でも使用できます。 定義済みの暗黙的な id と null 非許容値型から変換する数値変換の各`S`null 非許容値型に`T`、次の暗黙的な null 許容型の変換が存在します。
+Null 非許容の値型に対して動作する定義済みの暗黙的な変換は、これらの型の null 許容形式でも使用できます。 Null 非許容の値型から null 非許容の値 `T`型に変換する、定義済みの暗黙的な id および数値変換については、次の暗黙的な null 許容の変換が存在します。 `S`
 
-*  暗黙的な変換`S?`に`T?`します。
-*  暗黙的な変換`S`に`T?`します。
+*  `S?` から `T?`への暗黙的な変換です。
+*  `S` から `T?`への暗黙的な変換です。
 
-Null 許容型の暗黙的な変換の評価がから基になる変換に基づく`S`に`T`次のように進みます。
+`S` から `T` への基になる変換に基づく null 許容型の暗黙的な変換の評価は次のように行われます。
 
-*  場合は、null 許容型の変換から`S?`に`T?`:
-    * 元の値が null の場合 (`HasValue`プロパティが false)、結果は、型の null 値`T?`します。
-    * ラップ解除とそれ以外の場合、変換の評価は`S?`に`S`からの変換を基になると、その後`S`に`T`、その後に、ラップ ([null 許容型](types.md#nullable-types))から`T`に`T?`します。
+*  Null 許容型変換が `S?` から `T?`の場合は、次のようになります。
+    * ソース値が null (`HasValue` プロパティが false) の場合、結果は `T?`型の null 値になります。
+    * それ以外の場合、変換は `S?` から `S`へのラップ解除として評価された後、`S` から `T`への基になる変換と、`T` から `T?`へのラップ ([Null 許容型](types.md#nullable-types)) が行われます。
 
-*  場合は、null 許容型の変換から`S`に`T?`から基になる変換と変換の評価は`S`に`T`からの折り返しを続けて`T`に`T?`します。
+*  Null 許容型変換が `S` から `T?`に対して行われる場合、変換は `S` から `T` の基になる変換として評価され、その後、`T` から `T?`へのラップが行われます。
 
-### <a name="null-literal-conversions"></a>Null リテラルの変換
+### <a name="null-literal-conversions"></a>Null リテラル変換
 
-暗黙的な変換が存在する、`null`リテラルを任意の null 許容型。 この変換には、null 値が生成されます ([null 許容型](types.md#nullable-types)) の指定された null 許容型。
+`null` リテラルから null 許容型への暗黙的な変換が存在します。 この変換では、null 許容型の null 値 (null[許容型](types.md#nullable-types)) が生成されます。
 
-### <a name="implicit-reference-conversions"></a>暗黙的な参照変換
+### <a name="implicit-reference-conversions"></a>暗黙の参照変換
 
 暗黙の参照変換は次のとおりです。
 
-*  いずれかから*reference_type*に`object`と`dynamic`します。
-*  いずれかから*class_type* `S`いずれかに*class_type* `T`に用意されている`S`から派生`T`します。
-*  いずれかから*class_type* `S`いずれかに*interface_type* `T`に用意されている`S`実装`T`します。
-*  いずれかから*interface_type* `S`いずれかに*interface_type* `T`に用意されている`S`から派生`T`します。
-*  *Array_type* `S`要素型が`SE`を*array_type* `T`要素型が`TE`true は、次のすべての提供。
-    * `S` `T`要素の型のみが異なります。 つまり、`S`と`T`同じ次元数を持ちます。
-    * 両方`SE`と`TE`は*reference_type*秒。
-    * 暗黙の参照変換が存在する`SE`に`TE`します。
-*  いずれかから*array_type*に`System.Array`とインターフェイスを実装します。
-*  1 次元配列型から`S[]`に`System.Collections.Generic.IList<T>`とからの暗黙的な id または参照変換が提供される、基本インターフェイス`S`に`T`します。
-*  いずれかから*delegate_type*に`System.Delegate`とインターフェイスを実装します。
-*  いずれかに null リテラルから*reference_type*します。
-*  いずれかから*reference_type*を*reference_type* `T`への暗黙的な id または参照変換がある場合、 *reference_type* `T0`と`T0`が恒等変換を`T`します。
-*  いずれかから*reference_type* 、インターフェイスまたはデリゲート型に`T`インターフェイスまたはデリゲート型への暗黙的な id または参照変換がある場合`T0`と`T0`(の差異に変換できるは[分散変換](interfaces.md#variance-conversion)) に`T`します。
-*  使用する暗黙的な変換では、参照型にすることがわかっているパラメーターを入力します。 参照してください[型パラメーターを使用する暗黙的な変換](conversions.md#implicit-conversions-involving-type-parameters)型パラメーターを使用する暗黙的な変換の詳細についてはします。
+*  任意の*reference_type*から `object` して `dynamic`します。
+*  任意の*class_type* `S` から任意の*class_type* `T`への `S` は、`T`から派生しています。
+*  任意の*class_type* `S` から、`S` が `T`を実装している*interface_type* `T`。
+*  任意の*interface_type* `S` から任意の*interface_type* `T`への `S` は、`T`から派生しています。
+*  要素型が `T` の*array_type* `S` から、次のすべてが満たされていれば、要素型が `TE`の*array_type*に `SE` ます。
+    * `S` と `T` は要素の型のみが異なります。 言い換えると、`S` と `T` の次元数が同じになります。
+    * `SE` と `TE` は両方とも*reference_type*です。
+    * `SE` から `TE`への暗黙的な参照変換が存在します。
+*  任意の*array_type*から `System.Array` とそれが実装するインターフェイス。
+*  `S` から `T`への暗黙的な id または参照の変換がある場合は、1次元配列型から `System.Collections.Generic.IList<T>` とその基本インターフェイスを `S[]` します。
+*  任意の*delegate_type*から `System.Delegate` とそれが実装するインターフェイス。
+*  Null リテラルから任意の*reference_type*にします。
+*  *Reference_type* `T0` への暗黙的な id または参照の変換がある場合は、任意の*reference_type*から*reference_type* `T`、`T0` には `T`への id 変換が含まれています。
+*  インターフェイスまたはデリゲート型への暗黙的な id または参照の変換がある場合は、任意の*reference_type*からインターフェイスまたはデリゲート型に `T`、`T0` および `T0` が `T`への分散変換可能 ([変位変換](interfaces.md#variance-conversion)) になります。
+*  参照型として認識されている型パラメーターを使用する暗黙的な変換。 型パラメーターを使用する暗黙的な変換の詳細については、「[型パラメーターに関連する暗黙的な変換](conversions.md#implicit-conversions-involving-type-parameters)」を参照してください。
 
-暗黙の参照変換が変換の間で*reference_type*を常に成功することが保証され、そのため、実行時のチェックは必要ありません。
+暗黙の参照変換とは*reference_type*の間の変換であり、常に成功することが証明されるため、実行時のチェックは必要ありません。
 
-参照変換、暗黙的または明示的には、変換されるオブジェクトの参照 id を変更することはありません。 つまり、参照変換は、参照の種類を変更することが、変更しません、型または参照されるオブジェクトの値。
+暗黙的または明示的な参照変換では、変換するオブジェクトの参照 id は変更されません。 つまり、参照変換によって参照の型が変更されても、参照先のオブジェクトの型または値が変更されることはありません。
 
 ### <a name="boxing-conversions"></a>ボックス化変換
 
-ボックス化変換では、 *value_type*参照型に暗黙的に変換します。 いずれかからボックス化変換が存在する*non_nullable_value_type*に`object`と`dynamic`を`System.ValueType`しに*interface_type*によって実装される、 *non_nullable_value_type*します。 さらに、 *enum_type*型に変換できる`System.Enum`します。
+ボックス化変換は、 *value_type*を参照型に暗黙的に変換することを許可します。 ボックス化変換は、すべての*non_nullable_value_type*から `object` と `dynamic`に、 *interface_type*によって実装されている任意の*non_nullable_value_type*に対して `System.ValueType` およびに対して行われます。 さらに、 *enum_type*は `System.Enum`型に変換できます。
 
-ボックス化変換が存在する、 *nullable_type* 、参照型をボックス化変換場合にのみが存在する、基礎となる*non_nullable_value_type*参照型にします。
+基になる*non_nullable_value_type*から参照型へのボックス変換が存在する場合にのみ、 *nullable_type*から参照型へのボックス変換が存在します。
 
-値の型がインターフェイス型にボックス化変換`I`かどうかは、インターフェイス型にボックス化変換`I0`と`I0`が恒等変換を`I`します。
+値型には、インターフェイス型へのボックス変換が `I0` ある場合は `I` インターフェイス型へのボックス変換があり、`I0` には `I`への id 変換が含まれています。
 
-値の型がインターフェイス型にボックス化変換`I`、インターフェイスまたはデリゲート型にボックス化変換がある場合`I0`と`I0`差異に変換できるは ([分散変換](interfaces.md#variance-conversion))に`I`.
+値型には、インターフェイス型またはデリゲート `I0` 型へのボックス変換がある場合は `I` インターフェイス型へのボックス変換があり、`I0` は `I`への変位変換 ([変位変換](interfaces.md#variance-conversion)) があります。
 
-値をボックス化、 *non_nullable_value_type*オブジェクト インスタンスの割り当てとコピーから成る、 *value_type*値をそのインスタンスにします。 構造体は、型にボックス化される`System.ValueType`すべての構造体の基本クラスでは、([継承](structs.md#inheritance))。
+*Non_nullable_value_type*の値のボックス化では、オブジェクトインスタンスを割り当て、そのインスタンスに*value_type*値をコピーします。 構造体は、すべての構造体 ([継承](structs.md#inheritance)) の基本クラスであるため `System.ValueType`型にボックス化できます。
 
-値をボックス化、 *nullable_type*次のように進みます。
+*Nullable_type*の値をボックス化すると、次のように処理されるようになります。
 
-*  元の値が null の場合 (`HasValue`プロパティが false)、対象の型の参照を null になります。
-*  それ以外の場合、結果は、ボックス化されたへの参照を`T`ラップの解除と、元の値をボックス化によって生成されました。
+*  ソース値が null (`HasValue` プロパティが false) の場合、結果はターゲット型の null 参照になります。
+*  それ以外の場合、結果は、ソース値のラップ解除とボックス化によって生成されるボックス化された `T` への参照になります。
 
-ボックス化変換の詳細については[ボックス化変換](types.md#boxing-conversions)します。
+ボックス化変換の詳細については、「[ボックス化変換](types.md#boxing-conversions)」を参照してください。
 
-### <a name="implicit-dynamic-conversions"></a>動的の暗黙的な変換
+### <a name="implicit-dynamic-conversions"></a>暗黙の動的変換
 
-型の式から動的の暗黙的な変換が存在する`dynamic`任意の型を`T`します。 変換が動的にバインドされている ([動的バインド](expressions.md#dynamic-binding))、実行時に式の実行時の型からの暗黙的な変換が求められますことを意味する`T`します。 変換が見つからない場合は、実行時に例外がスローされます。
+`dynamic` 型の式から `T`任意の型への暗黙の動的変換が存在します。 変換は動的にバインドされます ([動的バインド](expressions.md#dynamic-binding))。つまり、`T`する式の実行時の型から、実行時に暗黙的な変換がシークされます。 変換が見つからない場合は、実行時例外がスローされます。
 
-この暗黙の変換は、の先頭でアドバイスを一見違反に注意してください。[暗黙的な変換](conversions.md#implicit-conversions)暗黙的な変換では、例外は発生しません。 ただしない自体には、変換が、*検索*の変換、例外が発生しました。 実行時の例外のリスクは、動的バインドの使用に伴うです。 変換の動的バインドが望ましくない場合、式最初に変換できる`object`とし、目的の型。
+この暗黙的な変換は、暗黙的な変換では例外が発生しないと[いう暗黙の変換の開始](conversions.md#implicit-conversions)時のアドバイスには違反していることに注意してください。 ただし、これは変換自体ではなく、例外を発生させる変換の*検索*です。 実行時例外のリスクは、動的バインドの使用に固有のものです。 変換の動的バインドが望ましくない場合は、式を最初に `object`に変換し、次に目的の型に変換できます。
 
-次の例は、動的の暗黙的な変換を示しています。
+暗黙の動的変換の例を次に示します。
 
 ```csharp
 object o  = "object"
@@ -157,177 +158,177 @@ string s2 = d; // Compiles and succeeds at run-time
 int i     = d; // Compiles but fails at run-time -- no conversion exists
 ```
 
-割り当て`s2`と`i`両方で操作のバインディングが実行時まで中断されている、動的な暗黙的な変換を使用します。 実行時の型から実行時に、暗黙的な変換のシーク`d`  --  `string` --ターゲットの型にします。 変換が検出された`string`には`int`します。
+`s2` と `i` の割り当てには、暗黙的な動的変換が使用されます。この場合、操作のバインドは実行時まで中断されます。 実行時には、暗黙的な変換は、`d` -- `string` の実行時の型から対象の型にシークされます。 `string` への変換は見つかりましたが、`int`はありません。
 
-### <a name="implicit-constant-expression-conversions"></a>定数式が暗黙的な変換
+### <a name="implicit-constant-expression-conversions"></a>暗黙の定数式の変換
 
-定数式が暗黙的な変換を次の変換を許可します。
+暗黙の定数式の変換では、次の変換が許可されます。
 
-*  A *constant_expression* ([定数式](expressions.md#constant-expressions)) 型の`int`型に変換できます`sbyte`、 `byte`、 `short`、 `ushort`、 `uint`、または`ulong`の値を提供、 *constant_expression*が変換先の型の範囲内です。
-*  A *constant_expression*型の`long`型に変換できます`ulong`の値を提供、 *constant_expression*が負でないです。
+*  `int` 型の*constant_expression* ([定数式](expressions.md#constant-expressions)) は、 *`short`* の値が変換先の型の範囲内にある場合に、型 `sbyte`、`byte`、`ushort`、`uint`、`ulong`、または constant_expression に変換できます。
+*  *Constant_expression*の値が負でない場合は、型 `long` の*constant_expression*を `ulong`型に変換できます。
 
-### <a name="implicit-conversions-involving-type-parameters"></a>型パラメーターを伴う暗黙の変換
+### <a name="implicit-conversions-involving-type-parameters"></a>型パラメーターを含む暗黙の型変換
 
-次の暗黙的な変換が特定の型パラメーターの存在`T`:
+指定された型パラメーター `T`には、次の暗黙的な変換が存在します。
 
-*  `T`効果的な基底クラスに`C`から`T`の任意の基本クラスを`C`との間`T`によって実装されるインターフェイスを任意に`C`します。 At 実行時に、if`T`値の型は、ボックス化変換と変換を実行します。 それ以外の場合、変換は暗黙的な参照変換または id 変換として実行されます。
-*  `T`インターフェイス型に`I`で`T`の有効なインターフェイスのセットとの間`T`の任意の基本インターフェイスを`I`します。 At 実行時に、if`T`値の型は、ボックス化変換と変換を実行します。 それ以外の場合、変換は暗黙的な参照変換または id 変換として実行されます。
-*  `T`型パラメーターに`U`に用意されている`T`異なります`U`([パラメーターの制約入力](classes.md#type-parameter-constraints))。 実行時に、if`U`値の型には`T`と`U`必ずしも同じ型では、変換は行われません。 の場合`T`値の型がボックス化変換と変換を実行します。 それ以外の場合、変換は暗黙的な参照変換または id 変換として実行されます。
-*  Null リテラルをから`T`に用意されている`T`参照型があることがわかっています。
-*  `T`参照型に`I`参照型への暗黙的な変換があるかどうかは`S0`と`S0`が恒等変換を`S`します。 実行時に、変換はへの変換と同様な実行`S0`します。
-*  `T`インターフェイス型に`I`インターフェイスまたはデリゲート型への暗黙的な変換がある場合`I0`と`I0`差異に変換できるに`I`([分散変換](interfaces.md#variance-conversion)). At 実行時に、if`T`値の型は、ボックス化変換と変換を実行します。 それ以外の場合、変換は暗黙的な参照変換または id 変換として実行されます。
+*  `T` から、有効な基本クラス `C`、`T` から `C`の任意の基底クラス、`T` によって実装されている任意のインターフェイスに `C`ます。 実行時に `T` が値型の場合、変換はボックス化変換として実行されます。 それ以外の場合、暗黙的な参照変換または id 変換として変換が実行されます。
+*  `T` から、`T`の有効なインターフェイスセット内の `I` インターフェイス型と、`T` から `I`の任意の基本インターフェイスになります。 実行時に `T` が値型の場合、変換はボックス化変換として実行されます。 それ以外の場合、暗黙的な参照変換または id 変換として変換が実行されます。
+*  `T` から型パラメーター `U`には、`T` が `U` ([型パラメーターの制約](classes.md#type-parameter-constraints)) に依存しています。 実行時に `U` が値型の場合、`T` と `U` は必ず同じ型であり、変換は実行されません。 それ以外の場合、`T` が値型の場合、変換はボックス化変換として実行されます。 それ以外の場合、暗黙的な参照変換または id 変換として変換が実行されます。
+*  Null リテラルから `T`に、指定された `T` は参照型であることがわかっています。
+*  参照型への暗黙的な変換が含まれている場合、`T` から参照型への変換が `I` 場合 `S0` および `S0` には `S`への id 変換が含まれます。 実行時には、`S0`への変換と同じ方法で変換が実行されます。
+*  インターフェイス型またはデリゲート `I0` 型への暗黙的な変換が含まれている場合は、`T` からインターフェイス型に `I` します。また、`I0` は `I` ([変位変換](interfaces.md#variance-conversion)) に変換可能です。 実行時に `T` が値型の場合、変換はボックス化変換として実行されます。 それ以外の場合、暗黙的な参照変換または id 変換として変換が実行されます。
 
-場合`T`参照型がわかっている ([パラメーターの制約入力](classes.md#type-parameter-constraints))、上記の変換はすべて暗黙的な参照変換として分類 ([暗黙の参照変換](conversions.md#implicit-reference-conversions))。 場合`T`は上記の変換は参照型であるとわかっていない、ボックス化変換に分類されます ([ボックス化変換](conversions.md#boxing-conversions))。
+`T` が参照型 ([型パラメーターの制約](classes.md#type-parameter-constraints)) であることがわかっている場合、上記の変換はすべて暗黙の参照変換 ([暗黙の参照変換](conversions.md#implicit-reference-conversions)) として分類されます。 `T` が参照型でないことがわかっている場合、上記の変換はボックス化変換 ([ボックス化変換](conversions.md#boxing-conversions)) として分類されます。
 
 ### <a name="user-defined-implicit-conversions"></a>ユーザー定義の暗黙的な変換
 
-省略可能な標準的な暗黙的な変換、省略可能な別の標準的な暗黙的な変換の後に、暗黙的な変換のユーザー定義演算子の実行後に、ユーザー定義の暗黙的な変換で構成されます。 ユーザー定義の暗黙的な変換を評価するための正確な規則については、「[暗黙的な変換のユーザー定義の処理](conversions.md#processing-of-user-defined-implicit-conversions)します。
+ユーザー定義の暗黙の変換は、省略可能な標準の暗黙的な変換で構成され、その後にユーザー定義の暗黙的な変換演算子の実行が続き、その後に省略可能な標準の暗黙的な変換が続きます。 ユーザー定義の暗黙の変換を評価するための正確な規則については、「[ユーザー定義の暗黙的な変換の処理](conversions.md#processing-of-user-defined-implicit-conversions)」を参照してください。
 
-### <a name="anonymous-function-conversions-and-method-group-conversions"></a>匿名関数の変換とメソッド グループ変換
+### <a name="anonymous-function-conversions-and-method-group-conversions"></a>匿名関数の変換とメソッドグループの変換
 
-匿名関数とメソッドのグループ自体の型がありませんが、デリゲート型または式ツリー型に暗黙的に変換可能性があります。 匿名関数の変換がで詳しく説明されている[匿名関数の変換](conversions.md#anonymous-function-conversions)とで、メソッド グループ変換[メソッド グループ変換](conversions.md#method-group-conversions)します。
+匿名関数とメソッドグループには、それ自体の型はありませんが、デリゲート型または式ツリー型に暗黙的に変換される場合があります。 匿名関数の変換の詳細については、「[匿名関数の変換](conversions.md#anonymous-function-conversions)」および「メソッドグループの変換」の「メソッドグループの変換」を参照し[てください。](conversions.md#method-group-conversions)
 
 ## <a name="explicit-conversions"></a>明示的な変換
 
 次の変換は、明示的な変換として分類されます。
 
-*  すべての暗黙的な変換です。
-*  明示的な数値変換します。
-*  明示的な列挙値の変換。
-*  明示的な null 許容変換します。
-*  明示的な参照変換します。
-*  変換の明示的なインターフェイスです。
-*  ボックス化解除変換します。
-*  明示的な動的な変換
-*  ユーザー定義の明示的な変換です。
+*  すべての暗黙的な変換。
+*  明示的な数値変換。
+*  明示的な列挙変換。
+*  明示的な null 許容型変換。
+*  明示的な参照変換。
+*  明示的なインターフェイス変換。
+*  変換のボックス化を解除します。
+*  明示的な動的変換
+*  ユーザー定義の明示的な変換。
 
-明示的な変換はキャスト式で実行できます ([キャスト式](expressions.md#cast-expressions))。
+明示的な変換は、キャスト式 ([キャスト式](expressions.md#cast-expressions)) で行うことができます。
 
-明示的な変換のセットには、すべての暗黙的な変換が含まれています。 これは、冗長なキャスト式が許可されることを意味します。
+明示的な変換のセットには、すべての暗黙的な変換が含まれます。 これは、冗長なキャスト式が許可されることを意味します。
 
-暗黙的な変換ではない明示的な変換は、明示的なメリットを十分にさまざまな種類のドメイン間で変換を常に成功を証明することはできません、情報が失われる可能性があることがわかっている変換および変換表記法。
+暗黙的な変換ではない明示的な変換とは、常に成功することがわかっていることがわかっている変換、情報を失う可能性がある変換、および明示的に異なる型のドメイン間での変換です。表し.
 
 ### <a name="explicit-numeric-conversions"></a>明示的な数値変換
 
-明示的な数値変換は、変換を*numeric_type*間*numeric_type*を暗黙的な数値変換 ([暗黙的な数値変換](conversions.md#implicit-numeric-conversions))既に存在しません。
+明示的な数値変換は、 *numeric_type*から別の*numeric_type*への変換であり、暗黙的な数値変換 ([暗黙的な数値](conversions.md#implicit-numeric-conversions)変換) はまだ存在しません。
 
-*  `sbyte`に`byte`、 `ushort`、 `uint`、 `ulong`、または`char`します。
-*  `byte`に`sbyte`と`char`します。
-*  `short`に`sbyte`、 `byte`、 `ushort`、 `uint`、 `ulong`、または`char`します。
-*  `ushort`に`sbyte`、 `byte`、 `short`、または`char`します。
-*  `int`に`sbyte`、 `byte`、 `short`、 `ushort`、 `uint`、 `ulong`、または`char`します。
-*  `uint`に`sbyte`、 `byte`、 `short`、 `ushort`、 `int`、または`char`します。
-*  `long`に`sbyte`、 `byte`、 `short`、 `ushort`、 `int`、 `uint`、 `ulong`、または`char`します。
-*  `ulong`に`sbyte`、 `byte`、 `short`、 `ushort`、 `int`、 `uint`、 `long`、または`char`します。
-*  `char`に`sbyte`、 `byte`、または`short`します。
-*  `float`に`sbyte`、 `byte`、 `short`、 `ushort`、 `int`、 `uint`、 `long`、 `ulong`、 `char`、または`decimal`します。
-*  `double`に`sbyte`、 `byte`、 `short`、 `ushort`、 `int`、 `uint`、 `long`、 `ulong`、 `char`、 `float`、または`decimal`します。
-*  `decimal`に`sbyte`、 `byte`、 `short`、 `ushort`、 `int`、 `uint`、 `long`、 `ulong`、 `char`、 `float`、または`double`します。
+*  `sbyte` から `byte`、`ushort`、`uint`、`ulong`、`char`になります。
+*  `byte` から `sbyte` と `char`になります。
+*  `short` から `sbyte`、`byte`、`ushort`、`uint`、`ulong`、`char`になります。
+*  `ushort` から `sbyte`、`byte`、`short`、または `char`になります。
+*  `int` から `sbyte`、`byte`、`short`、`ushort`、`uint`、`ulong`、`char`になります。
+*  `uint` から `sbyte`、`byte`、`short`、`ushort`、`int`、`char`になります。
+*  `long` から `sbyte`、`byte`、`short`、`ushort`、`int`、`uint`、`ulong`、`char`になります。
+*  `ulong` から `sbyte`、`byte`、`short`、`ushort`、`int`、`uint`、`long`、`char`になります。
+*  `char` から `sbyte`、`byte`、または `short`。
+*  `float` から `sbyte`、`byte`、`short`、`ushort`、`int`、`uint`、`long`、`ulong`、`char`、`decimal`になります。
+*  `double` から `sbyte`、`byte`、`short`、`ushort`、`int`、`uint`、`long`、`ulong`、`char`、`float`、`decimal`になります。
+*  `decimal` から `sbyte`、`byte`、`short`、`ushort`、`int`、`uint`、`long`、`ulong`、`char`、`float`、`double`になります。
 
-いずれかから変換することは常に明示的な変換では、すべての明示的および暗黙的な数値変換が含まれる、ため*numeric_type*他*numeric_type*キャスト式 (を使用します。[キャスト式](expressions.md#cast-expressions))。
+明示的な変換には暗黙的な数値変換と明示的な数値変換がすべて含まれているため、キャスト式 ([cast 式](expressions.md#cast-expressions)) を使用して任意の*numeric_type*から他の任意の*numeric_type*に変換することは常に可能です。
 
-明示的な数値変換では、情報が失われる可能性がありますかがスローされる例外が発生する可能性があります。 明示的な数値変換は、次のように処理されます。
+明示的な数値変換によって情報が失われるか、例外がスローされる可能性があります。 明示的な数値変換は、次のように処理されます。
 
-*  整数型から別の整数型への変換では、処理は、オーバーフロー チェック コンテキストに依存 ([checked と unchecked 演算子](expressions.md#the-checked-and-unchecked-operators)) 移動変換では、配置します。
-    * `checked`コンテキスト、ソース オペランドの値が変換先の型の範囲内にもスローする場合、変換に成功した、`System.OverflowException`ソース オペランドの値が変換先の型の範囲外にある場合。
-    * `unchecked`コンテキスト変換常に成功し、次のように進みます。
+*  整数型から別の整数型への変換では、変換が行われるオーバーフローチェックコンテキスト ([checked および unchecked 演算子](expressions.md#the-checked-and-unchecked-operators)) によって処理が異なります。
+    * `checked` のコンテキストでは、ソースオペランドの値が変換先の型の範囲内にある場合、変換は成功しますが、ソースオペランドの値が変換先の型の範囲外である場合は、`System.OverflowException` をスローします。
+    * `unchecked` のコンテキストでは、変換は常に成功し、次のように進行します。
         * 変換元の型が変換先の型より大きい場合、変換元の値はその "余分な" 最上位ビットを破棄することで切り詰められます。 結果は変換先の型の値として扱われます。
         * 変換元の型が変換先の型より小さい場合、変換元の値は変換先の型と同じサイズになるように符号かゼロが拡張されます。 変換元の型に符号が付いている場合は符号拡張が利用され、符号が付いていない場合はゼロ拡張が利用されます。 結果は変換先の型の値として扱われます。
         * 変換元の型が変換先の型と同じサイズの場合、変換元の値は変換先の型の値として扱われます。
-*  変換の`decimal`、整数型にソース値が最も近い整数値を 0 方向に丸められ、この整数値の変換の結果になります。 結果の整数値が変換先の型の範囲外の場合、`System.OverflowException`がスローされます。
-*  変換の`float`または`double`を整数型、処理は、オーバーフロー チェック コンテキストに依存 ([checked と unchecked 演算子](expressions.md#the-checked-and-unchecked-operators)) 変換が、配置。
-    * `checked`コンテキスト、変換処理次のようにします。
-        * オペランドの値が NaN、無限、またはの場合、`System.OverflowException`がスローされます。
-        * それ以外の場合、ソース オペランドは最も近い整数値を 0 方向に丸められます。 場合、この整数値を変換先の型の範囲内でこの値は変換の結果です。
+*  `decimal` から整数型への変換では、変換元の値が、最も近い整数値に0方向に丸められます。この整数値は変換の結果になります。 結果の整数値が変換先の型の範囲外になると、`System.OverflowException` がスローされます。
+*  `float` または `double` から整数型への変換の場合、処理は、変換が行われるオーバーフローチェックコンテキスト ([checked および unchecked 演算子](expressions.md#the-checked-and-unchecked-operators)) に依存します。
+    * `checked` のコンテキストでは、変換は次のように行われます。
+        * オペランドの値が NaN または無限の場合は、`System.OverflowException` がスローされます。
+        * それ以外の場合、ソースオペランドは0方向に最も近い整数値に丸められます。 この整数値が変換先の型の範囲内にある場合、この値は変換の結果になります。
         * それ以外の場合は、`System.OverflowException` がスローされます。
-    * `unchecked`コンテキスト変換常に成功し、次のように進みます。
-        * オペランドの値が NaN、無限の変換の結果は、変換先の型の値が指定されていない場合。
-        * それ以外の場合、ソース オペランドは最も近い整数値を 0 方向に丸められます。 場合、この整数値を変換先の型の範囲内でこの値は変換の結果です。
-        * それ以外の場合、変換の結果は、先の型の値は指定されません。
-*  変換の`double`に`float`、`double`値に丸められます、最も近い`float`値。 場合、`double`として表す値が小さすぎる、`float`結果が正のゼロまたは負のゼロ。 場合、`double`として表す値が大きすぎて、`float`結果は正の無限大または負の無限大になります。 場合、`double`値が NaN の結果は、NaN ではも場合、します。
-*  変換の`float`または`double`に`decimal`、ソース値に変換されます`decimal`表現し、必要な場合、28 小数点後近似値に丸められます ([10 進数型](types.md#the-decimal-type)). ソース値が小さすぎてとして表すかどうか、`decimal`結果はゼロになります。 場合、元の値が NaN の場合、無限大、または大きすぎてとして表す、 `decimal`、`System.OverflowException`がスローされます。
-*  変換の`decimal`に`float`または`double`、`decimal`値に丸められます、最も近い`double`または`float`値。 この変換は、有効桁数を失う可能性があります、中には、ことはありませんがスローされる例外が発生します。
+    * `unchecked` のコンテキストでは、変換は常に成功し、次のように進行します。
+        * オペランドの値が NaN または無限の場合、変換の結果は、変換先の型の指定されていない値になります。
+        * それ以外の場合、ソースオペランドは0方向に最も近い整数値に丸められます。 この整数値が変換先の型の範囲内にある場合、この値は変換の結果になります。
+        * それ以外の場合、変換の結果は、変換先の型の指定されていない値になります。
+*  `double` から `float`への変換では、`double` 値は最も近い `float` 値に丸められます。 `double` 値が小さすぎて `float`として表現できない場合、結果は正のゼロまたは負のゼロになります。 `double` 値が大きすぎて `float`として表現できない場合、結果は正の無限大または負の無限大になります。 `double` 値が NaN の場合、結果も NaN になります。
+*  `float` または `double` から `decimal`への変換では、変換元の値が `decimal` 表現に変換され、必要に応じて28進数の小数点以下の最も近い数値に丸められます ([10 進数型](types.md#the-decimal-type))。 ソース値が小さすぎて `decimal`として表現できない場合、結果は0になります。 ソース値が NaN、無限大、または大きすぎて `decimal`として表すことができない場合は、`System.OverflowException` がスローされます。
+*  `decimal` から `float` または `double`への変換では、`decimal` 値は最も近い `double` または `float` 値に丸められます。 この変換によって精度が失われる場合がありますが、例外がスローされることはありません。
 
-### <a name="explicit-enumeration-conversions"></a>明示的な列挙値の変換
+### <a name="explicit-enumeration-conversions"></a>明示的な列挙変換
 
-明示的な列挙値の変換は次のとおりです。
+明示的な列挙変換は次のとおりです。
 
-*  `sbyte`、 `byte`、 `short`、 `ushort`、 `int`、 `uint`、 `long`、 `ulong`、 `char`、 `float`、 `double`、または`decimal`任意に*enum_type*します。
-*  いずれかから*enum_type*に`sbyte`、 `byte`、 `short`、 `ushort`、 `int`、 `uint`、 `long`、 `ulong`、 `char`、 `float`、 `double`、または`decimal`します。
-*  いずれかから*enum_type*他*enum_type*します。
+*  `sbyte`、`byte`、`short`、`ushort`、`int`、`uint`、`long`、`ulong`、`char`、`float`、`double`、`decimal` を任意の*enum_type*にします。
+*  任意の*enum_type*から `sbyte`、`byte`、`short`、`ushort`、`int`、`uint`、`long`、`ulong`、`char`、`float`、`double`、`decimal`になります。
+*  任意の*enum_type*から他の*enum_type*に。
 
-2 つの型の間の明示的な列挙型変換が任意参加を扱うことにより処理される*enum_type*を基になる型として*enum_type*、してから、暗黙的または明示的なを実行します。結果として得られる型間の数値変換します。 たとえば、 *enum_type* `E`での種類を基になると`int`からの変換`E`に`byte`明示的な数値変換として処理されます ([明示的な数値変換](conversions.md#explicit-numeric-conversions)) から`int`に`byte`からの変換と`byte`に`E`暗黙的な数値変換として処理されます ([暗黙的な数値変換](conversions.md#implicit-numeric-conversions))`byte`に`int`します。
+2つの型の間の明示的な列挙型変換は、参加している*enum_type*を*enum_type*の基になる型として扱い、結果の型間で暗黙的または明示的な数値変換を実行することによって処理されます。 たとえば、および基になる型が `int`の*enum_type* `E` 場合、`E` から `byte` への変換は、`int` から `byte`への明示的な数値変換 ([明示的](conversions.md#explicit-numeric-conversions)な数値変換) として処理され、`byte` から `E` への変換は暗黙的な数値変換 ([暗黙的](conversions.md#implicit-numeric-conversions)な数値変換) として処理されます。
 
-### <a name="explicit-nullable-conversions"></a>明示的な null 許容型の変換
+### <a name="explicit-nullable-conversions"></a>明示的な null 許容変換
 
-***明示的な null 許容変換***定義済みの型の null 許容の形式でも使用する null 非許容値型を操作する明示的な変換を許可します。 Null 非許容値型から変換する定義済みの明示的な変換の各`S`null 非許容値型に`T`([恒等変換](conversions.md#identity-conversion)、 [暗黙的な数値変換](conversions.md#implicit-numeric-conversions)、[列挙体の暗黙的な変換](conversions.md#implicit-enumeration-conversions)、[明示的な数値変換](conversions.md#explicit-numeric-conversions)、および[列挙値の明示的な変換](conversions.md#explicit-enumeration-conversions))、以下null 許容型の変換が存在します。
+***明示的な null 許容***型変換では、null 非許容の値型に対して動作する定義済みの明示的な変換が許可され、これらの型の null 許容形式でも使用できます。 Null 非許容値 `S` 型から `T` null 非許容の値型への変換を行う定義済みの明示的な変換 ([id 変換](conversions.md#identity-conversion)、[暗黙的な数値変換](conversions.md#implicit-numeric-conversions)、[暗黙的な列挙変換](conversions.md#implicit-enumeration-conversions)、[明示的な数値変換](conversions.md#explicit-numeric-conversions)、明示的な[列挙](conversions.md#explicit-enumeration-conversions)変換) には、次の null 許容変換が存在します。
 
-*  明示的な変換を`S?`に`T?`します。
-*  明示的な変換を`S`に`T?`します。
-*  明示的な変換を`S?`に`T`します。
+*  `S?` から `T?`への明示的な変換。
+*  `S` から `T?`への明示的な変換。
+*  `S?` から `T`への明示的な変換。
 
-Null 許容型の変換の評価がから基になる変換に基づく`S`に`T`次のように進みます。
+`S` から `T` への基になる変換に基づく null 許容型変換の評価は次のように行われます。
 
-*  場合は、null 許容型の変換から`S?`に`T?`:
-    * 元の値が null の場合 (`HasValue`プロパティが false)、結果は、型の null 値`T?`します。
-    * ラップ解除とそれ以外の場合、変換の評価は`S?`に`S`からの変換を基になると、その後`S`に`T`、その後に、ラップをから`T`に`T?`します。
-*  場合は、null 許容型の変換から`S`に`T?`から基になる変換と変換の評価は`S`に`T`からの折り返しを続けて`T`に`T?`します。
-*  場合は、null 許容型の変換から`S?`に`T`からラップ解除すると、変換の評価は`S?`に`S`から基になる変換`S`に`T`。
+*  Null 許容型変換が `S?` から `T?`の場合は、次のようになります。
+    * ソース値が null (`HasValue` プロパティが false) の場合、結果は `T?`型の null 値になります。
+    * それ以外の場合、変換は `S?` から `S`へのラップ解除として評価された後、`S` から `T`への基になる変換と、その後に `T` から `T?`へのラップが行われます。
+*  Null 許容型変換が `S` から `T?`に対して行われる場合、変換は `S` から `T` の基になる変換として評価され、その後、`T` から `T?`へのラップが行われます。
+*  Null 許容型変換が `S?` から `T`に対して行われる場合、変換は `S?` から `S` のラップ解除として評価され、その後に `S` から `T`への基になる変換が行われます。
 
-値の場合、null 許容値のラップを解除しようとするは例外をスローことに注意してください。`null`します。
+Null 許容値のラップを解除しようとすると、値が `null`場合に例外がスローされることに注意してください。
 
 ### <a name="explicit-reference-conversions"></a>明示的な参照変換
 
 明示的な参照変換は次のとおりです。
 
-*  `object`と`dynamic`他*reference_type*します。
-*  いずれかから*class_type* `S`いずれかに*class_type* `T`に用意されている`S`の基本クラスである`T`します。
-*  いずれかから*class_type* `S`いずれかに*interface_type* `T`に用意されている`S`シールおよび提供されない`S`実装しない`T`します。
-*  いずれかから*interface_type* `S`いずれかに*class_type* `T`に用意されている`T`シールまたは指定されていない`T`実装`S`します。
-*  いずれかから*interface_type* `S`いずれかに*interface_type* `T`に用意されている`S`から派生していない`T`します。
-*  *Array_type* `S`要素型が`SE`を*array_type* `T`要素型が`TE`true は、次のすべての提供。
-    * `S` `T`要素の型のみが異なります。 つまり、`S`と`T`同じ次元数を持ちます。
-    * 両方`SE`と`TE`は*reference_type*秒。
-    * 明示的な参照変換が存在する`SE`に`TE`します。
-*  `System.Array`いずれかに、インターフェイスを実装および*array_type*します。
-*  1 次元配列型から`S[]`に`System.Collections.Generic.IList<T>`とからの明示的な参照変換が提供される、基本インターフェイス`S`に`T`します。
-*  `System.Collections.Generic.IList<S>` 1 次元の配列型をその基本インターフェイスと`T[]`からの明示的な id または参照変換はその`S`に`T`します。
-*  `System.Delegate`いずれかに、インターフェイスを実装および*delegate_type*します。
-*  参照型への参照型から`T`参照型への明示的な参照変換があるかどうかは`T0`と`T0`が恒等変換`T`します。
-*  インターフェイスまたはデリゲートの型への参照型から`T`インターフェイスまたはデリゲート型への明示的な参照変換がある場合`T0`、`T0`差異に変換できるに`T`または`T`は変換できる分散`T0`([分散変換](interfaces.md#variance-conversion))。
-*  `D<S1...Sn>`に`D<T1...Tn>`場所`D<X1...Xn>`が汎用デリゲート型では、`D<S1...Sn>`と互換性があるかと同じでない`D<T1...Tn>`、およびそれぞれの型パラメーター`Xi`の`D`次の保留。
-    * 場合`Xi`しバリアントでは`Si`ヲェヒェケェ ・`Ti`します。
-    * 場合`Xi`共変性を持つ、暗黙的または明示的な id または参照からの変換は`Si`に`Ti`。
-    * 場合`Xi`は反変、`Si`と`Ti`は同一と両方の参照型。
-*  使用する明示的な変換では、参照型にすることがわかっているパラメーターを入力します。 型パラメーターを使用する明示的な変換の詳細については、次を参照してください。[型パラメーターを使用する明示的な変換](conversions.md#explicit-conversions-involving-type-parameters)します。
+*  `object` から、他の*reference_type*に `dynamic` します。
+*  任意の*class_type* `S` から任意の*class_type* `T`への `S` は、`T`の基本クラスです。
+*  任意の*class_type* `S` から任意の*interface_type* `T`への `S` はシールされていませんが、`S` は実装されていません。
+*  任意の*interface_type* `T`*class_type* `S` から、`T` を実装 `T` がシールされていない、または指定されている場合は、`S`を実装します。
+*  任意の*interface_type* `S` から、`S` は `T`から派生したものではなく、任意の*interface_type* `T`になります。
+*  要素型が `T` の*array_type* `S` から、次のすべてが満たされていれば、要素型が `TE`の*array_type*に `SE` ます。
+    * `S` と `T` は要素の型のみが異なります。 言い換えると、`S` と `T` の次元数が同じになります。
+    * `SE` と `TE` は両方とも*reference_type*です。
+    * `SE` から `TE`への明示的な参照変換が存在します。
+*  `System.Array` と、それが実装するインターフェイスから、任意の*array_type*にします。
+*  `S` から `T`への明示的な参照変換がある場合は、1次元配列型から `System.Collections.Generic.IList<T>` とその基本インターフェイスを `S[]` します。
+*  `S` から `T`への明示的な id または参照の変換がある場合は、`System.Collections.Generic.IList<S>` とその基本インターフェイスから、`T[]`にします。
+*  `System.Delegate` と、それが実装するインターフェイスから、任意の*delegate_type*にします。
+*  参照型から参照型への明示的な参照変換がある場合は `T` 参照型から参照型への明示的な参照変換があり、`T0` には `T`の id 変換がある場合は `T0`。
+*  参照型からインターフェイスまたはデリゲート型への明示的な参照変換が含まれている場合 `T`、その型がインターフェイスまたはデリゲート `T0` 型への明示的な参照変換を持っている場合、または `T0` が `T` に変換可能であるか `T` に変換可能かどうかを示します ([分散変換](interfaces.md#variance-conversion))。
+*  `D<S1...Sn>` から `D<T1...Tn>` `D<X1...Xn>` が汎用デリゲート型である場合、`D<S1...Sn>` は `D<T1...Tn>`との互換性がないか、`Xi` の型パラメーター `D` ごとに次のようになります。
+    * `Xi` が不変の場合、`Si` は `Ti`と同じになります。
+    * `Xi` が共変の場合は、`Si` から `Ti`への暗黙的または明示的な id または参照の変換が存在します。
+    * `Xi` が反変の場合、`Si` と `Ti` は両方とも同じか、または両方の参照型になります。
+*  参照型として認識されている型パラメーターを使用する明示的な変換。 型パラメーターを使用する明示的な変換の詳細については、「型パラメーターを使用した[明示的な変換](conversions.md#explicit-conversions-involving-type-parameters)」を参照してください。
 
-明示的な参照変換は、実行時のチェックが正しいことを確認を必要とする参照型の間で変換のことです。
+明示的な参照変換とは、それらが正しいことを確認するためにランタイムチェックを必要とする参照型間の変換です。
 
-明示的な参照変換を実行時に正常にするには、ソース オペランドの値がある必要があります`null`、またはソース オペランドによって参照されるオブジェクトの実際の型の暗黙的な参照によって変換先の型に変換できる型でなければなりません変換 ([暗黙の参照変換](conversions.md#implicit-reference-conversions)) またはボックス化変換 ([ボックス化変換](conversions.md#boxing-conversions))。 明示的な参照変換に失敗した場合、`System.InvalidCastException`がスローされます。
+実行時に明示的な参照変換を成功させるには、ソースオペランドの値が `null`であるか、またはソースオペランドによって参照されるオブジェクトの実際の型が、暗黙的な参照変換 ([暗黙の参照](conversions.md#implicit-reference-conversions)変換) またはボックス化変換 ([ボックス](conversions.md#boxing-conversions)化変換) によって対象の型に変換できる型である必要があります。 明示的な参照変換が失敗すると、`System.InvalidCastException` がスローされます。
 
-参照変換、暗黙的または明示的には、変換されるオブジェクトの参照 id を変更することはありません。 つまり、参照変換は、参照の種類を変更することが、変更しません、型または参照されるオブジェクトの値。
+暗黙的または明示的な参照変換では、変換するオブジェクトの参照 id は変更されません。 つまり、参照変換によって参照の型が変更されても、参照先のオブジェクトの型または値が変更されることはありません。
 
-### <a name="unboxing-conversions"></a>ボックス化解除変換
+### <a name="unboxing-conversions"></a>ボックス化解除
 
-ボックス化解除の変換では参照型に明示的に変換する、 *value_type*します。 型からボックス化解除の変換が存在する`object`、`dynamic`と`System.ValueType`いずれかに*non_nullable_value_type*、いずれかから*interface_type*いずれかに*non_nullable_value_type*を実装する、 *interface_type*します。 さらに入力`System.Enum`いずれかにボックス化解除できます*enum_type*します。
+ボックス化解除変換は、参照型を明示的に*value_type*に変換することを許可します。 ボックス化解除変換は、型 `object`、`dynamic` および `System.ValueType` から任意の*non_nullable_value_type*に、任意の*interface_type*から*non_nullable_value_type*を実装する任意の*interface_type*に変換されます。 さらに、型 `System.Enum` を任意の*enum_type*にボックス化解除できます。
 
-参照型をボックス化解除の変換が存在する、 *nullable_type* 、基になる参照型のアンボックス変換が存在する場合は*non_nullable_value_type*の*nullable_type*します。
+参照型から*nullable_type*の基になる*non_nullable_value_type*にアンボックス変換が存在する場合、参照型から*nullable_type*へのアンボックス変換が存在します。
 
-値型`S`がインターフェイス型型からをボックス化解除変換`I`インターフェイス型型からのボックス化解除の変換があるかどうかは`I0`と`I0`が恒等変換を`I`します。
+インターフェイス `I0` 型からのアンボックス変換があり、`I0` が `I`への id 変換を持っている場合、`S` 値型には、インターフェイス型から `I` のボックス化変換があります。
 
-値型`S`がインターフェイス型型からをボックス化解除変換`I`インターフェイスまたはデリゲートの型からボックス化解除の変換がある場合`I0`、`I0`差異に変換できるに`I`または`I`差異に変換できるに`I0`([分散変換](interfaces.md#variance-conversion))。
+インターフェイス型またはデリゲート `I0` 型からのアンボックス変換がある場合、または `I0` が `I` に対して分散変換可能であるか、`I` に変換可能かどうか `I0` ([変位変換](interfaces.md#variance-conversion)) である場合、値型 `S` は、インターフェイス型からのボックス化変換を `I` ます。
 
-ボックス化解除の操作は、オブジェクトのインスタンスのボックス化された値は、最初に確認の指定された*value_type*、し、そのインスタンスから値をコピーします。 Null 参照がボックス化解除、 *nullable_type*の null 値を生成、 *nullable_type*します。 構造体の型からボックス化が解除できます`System.ValueType`すべての構造体の基本クラスでは、([継承](structs.md#inheritance))。
+ボックス化解除操作は、最初にオブジェクトインスタンスが、指定された*value_type*のボックス化された値であることを確認し、次にインスタンスから値をコピーすることで構成されます。 *Nullable_type*への null 参照のボックス化を解除すると、 *nullable_type*の null 値が生成されます。 構造体は、すべての構造体 ([継承](structs.md#inheritance)) の基本クラスであるため、`System.ValueType`型からのボックス化を解除できます。
 
-ボックス化解除変換の詳細については[ボックス化解除変換](types.md#unboxing-conversions)します。
+ボックス化解除変換の詳細については、「[ボックス化変換](types.md#unboxing-conversions)」を参照してください。
 
-### <a name="explicit-dynamic-conversions"></a>明示的な動的な変換
+### <a name="explicit-dynamic-conversions"></a>明示的な動的変換
 
-型の式から動的の明示的な変換が存在する`dynamic`任意の型を`T`します。 変換が動的にバインドされている ([動的バインド](expressions.md#dynamic-binding))、つまり、実行時に式の実行時の型からの明示的な変換が求められますこと`T`します。 変換が見つからない場合は、実行時に例外がスローされます。
+明示的な動的変換は、`dynamic` 型の式から `T`任意の型に存在します。 変換は動的にバインドされます ([動的バインド](expressions.md#dynamic-binding))。これは、`T`する式の実行時の型から、実行時に明示的な変換が行われることを意味します。 変換が見つからない場合は、実行時例外がスローされます。
 
-変換の動的バインドが望ましくない場合、式最初に変換できる`object`とし、目的の型。
+変換の動的バインドが望ましくない場合は、式を最初に `object`に変換し、次に目的の型に変換できます。
 
-次のクラスが定義されていると仮定します。
+次のクラスが定義されているとします。
 ```csharp
 class C
 {
@@ -342,7 +343,7 @@ class C
 }
 ```
 
-次の例は、明示的な動的な変換を示しています。
+明示的な動的変換の例を次に示します。
 ```csharp
 object o  = "1";
 dynamic d = "2";
@@ -351,20 +352,20 @@ var c1 = (C)o; // Compiles, but explicit reference conversion fails
 var c2 = (C)d; // Compiles and user defined conversion succeeds
 ```
 
-最適な変換`o`に`C`が記載された明示的な参照変換をコンパイルします。 に、実行時に、これが失敗した`"1"`ファクトでは、`C`します。 変換`d`に`C`実行時、ユーザーがの実行時の型からの変換を定義するが、明示的な動的変換としてがただし、中断されて`d`  --  `string` --に`C`が見つかると、成功したとします。
+`o` から `C` への最適な変換は、明示的な参照変換としてコンパイル時に検出されます。 これは、実際には `"1"` が `C`ではないため、実行時に失敗します。 ただし、`d` から `C` への変換は、明示的な動的変換として実行時に中断されます。実行時には、`d` -- の実行時の型から `string` へのユーザー定義の変換が検出され、成功します。
 
-### <a name="explicit-conversions-involving-type-parameters"></a>型パラメーターを使用する明示的な変換
+### <a name="explicit-conversions-involving-type-parameters"></a>型パラメーターを含む明示的な変換
 
-次の明示的な変換が指定された型パラメーターの存在`T`:
+指定された型パラメーター `T`には、次の明示的な変換が存在します。
 
-*  有効な基本クラスから`C`の`T`に`T`との任意の基本クラスから`C`に`T`します。 実行時に、if`T`値型である、変換、アンボックス変換として実行します。 それ以外の場合、変換は、明示的な参照変換または id 変換として実行されます。
-*  任意のインターフェイス型から`T`します。 実行時に、if`T`値型である、変換、アンボックス変換として実行します。 それ以外の場合、変換は、明示的な参照変換または id 変換として実行されます。
-*  `T`いずれかに*interface_type* `I`既にからの暗黙的な変換がない`T`に`I`します。 実行時に、if`T`値型である明示的な参照変換の後にボックス化変換と変換を実行します。 それ以外の場合、変換は、明示的な参照変換または id 変換として実行されます。
-*  型パラメーターから`U`に`T`に用意されている`T`異なります`U`([パラメーターの制約入力](classes.md#type-parameter-constraints))。 実行時に、if`U`値の型には`T`と`U`必ずしも同じ型では、変換は行われません。 の場合`T`値型である、変換、アンボックス変換として実行します。 それ以外の場合、変換は、明示的な参照変換または id 変換として実行されます。
+*  `T` の有効な基本クラス `C` から、`C` の任意の基底クラスから `T`に `T` します。 実行時に `T` が値型の場合、変換はボックス化解除変換として実行されます。 それ以外の場合は、明示的な参照変換または id 変換として変換が実行されます。
+*  任意のインターフェイス型から `T`します。 実行時に `T` が値型の場合、変換はボックス化解除変換として実行されます。 それ以外の場合は、明示的な参照変換または id 変換として変換が実行されます。
+*  `T` から `I`への暗黙的な変換は行われていませんが、指定されたすべての*interface_type* `I` に `T` ます。 実行時に `T` が値型の場合、変換はボックス化変換として実行され、その後に明示的な参照変換が行われます。 それ以外の場合は、明示的な参照変換または id 変換として変換が実行されます。
+*  型パラメーターから `T`への `U` は、`T` が `U` ([型パラメーターの制約](classes.md#type-parameter-constraints)) に依存しています。 実行時に `U` が値型の場合、`T` と `U` は必ず同じ型であり、変換は実行されません。 それ以外の場合、`T` が値型の場合、変換はボックス化解除変換として実行されます。 それ以外の場合は、明示的な参照変換または id 変換として変換が実行されます。
 
-場合`T`はわかっていますが、参照型である、上記の変換はすべてとして分類明示的な参照変換 ([明示的な参照変換](conversions.md#explicit-reference-conversions))。 場合`T`は上記の変換は参照型であるとわかっていない、ボックス化解除変換に分類されます ([ボックス化解除変換](conversions.md#unboxing-conversions))。
+`T` が参照型であることがわかっている場合、上記の変換はすべて、明示的な参照変換 ([明示的な参照変換](conversions.md#explicit-reference-conversions)) として分類されます。 `T` が参照型でないことがわかっている場合、上記の変換は、ボックス化解除変換 ([ボックス化解除](conversions.md#unboxing-conversions)) として分類されます。
 
-上記の規則は、制約のない型パラメーターから、インターフェイスではない型への直接明示的な変換許可されていません驚くべきことが必要があります。 このルールの理由は、このような変換をオフのセマンティクスを混乱を避けるためです。 たとえば、次のような宣言があるとします。
+上記のルールでは、制約のない型パラメーターから非インターフェイス型への直接明示的な変換は許可されていません。 このルールの理由は、混乱を防ぎ、そのような変換のセマンティクスを明確にするためです。 たとえば、次のような宣言があるとします。
 ```csharp
 class X<T>
 {
@@ -374,7 +375,7 @@ class X<T>
 }
 ```
 
-場合の直接の明示的な変換`t`に`int`が許可されているいずれかが簡単に期待する`X<int>.F(7)`を返します `7L`。 ただし、設定されませんでしたが、標準の数値の変換は、バインド時に数値型がわかっている場合にのみと見なされるためです。 セマンティクスを作成するには明確で上記の例では、代わりに記述する必要があります。
+`t` から `int` への直接的な明示的な変換が許可されている場合は、`X<int>.F(7)` が `7L`を返すことが簡単であると考えられます。 ただし、標準の数値変換は、バインド時に型が数値であることがわかっている場合にのみ考慮されるため、そうではありません。 このようなセマンティクスを明確にするために、上記の例を記述する必要があります。
 ```csharp
 class X<T>
 {
@@ -384,150 +385,150 @@ class X<T>
 }
 ```
 
-このコードはコンパイルされますが、実行時`X<int>.F(7)`ボックス化された後の実行時に、例外をスローしは`int`に直接変換することはできません、`long`します。
+このコードはコンパイルされるようになりましたが、実行時に `X<int>.F(7)` を実行すると、ボックス化された `int` を `long`に直接変換できないため、例外がスローされます。
 
 ### <a name="user-defined-explicit-conversions"></a>ユーザー定義の明示的な変換
 
-ユーザー定義の明示的な変換は、省略可能な標準的な明示的な変換後に省略可能な別の標準的な明示的な変換の後に、ユーザー定義の暗黙的または明示的な変換演算子の実行で構成されます。 ユーザー定義の明示的な変換を評価するための正確な規則については、「[明示的な変換のユーザー定義の処理](conversions.md#processing-of-user-defined-explicit-conversions)します。
+ユーザー定義の明示的な変換は、省略可能な標準の明示的な変換で構成され、その後にユーザー定義の暗黙的または明示的な変換演算子を実行した後に、別のオプションで標準の明示的な変換を実行します。 ユーザー定義の明示的な変換を評価するための正確な規則については、「[ユーザー定義の明示的な変換の処理](conversions.md#processing-of-user-defined-explicit-conversions)」を参照してください。
 
 ## <a name="standard-conversions"></a>標準変換
 
-標準の変換は、ユーザー定義の変換の一部として発生する変換の定義済みです。
+標準変換は、ユーザー定義の変換の一部として発生する可能性のある定義済みの変換です。
 
 ### <a name="standard-implicit-conversions"></a>標準の暗黙的な変換
 
-次の暗黙的な変換は、標準の暗黙的な変換として分類されます。
+次の暗黙の変換は、標準の暗黙的な変換として分類されます。
 
-*  恒等変換 ([恒等変換](conversions.md#identity-conversion))
-*  暗黙的な数値変換 ([暗黙的な数値変換](conversions.md#implicit-numeric-conversions))
-*  Null 許容型の暗黙的な変換 ([null 許容型の暗黙的な変換](conversions.md#implicit-nullable-conversions))
-*  暗黙的な参照変換 ([暗黙の参照変換](conversions.md#implicit-reference-conversions))
+*  Id 変換 ([id 変換](conversions.md#identity-conversion))
+*  暗黙の数値変換 ([暗黙的な数値変換](conversions.md#implicit-numeric-conversions))
+*  暗黙の null 許容変換 (暗黙の null[許容](conversions.md#implicit-nullable-conversions)変換)
+*  暗黙の参照変換 ([暗黙的な参照変換](conversions.md#implicit-reference-conversions))
 *  ボックス化変換 ([ボックス化変換](conversions.md#boxing-conversions))
-*  定数式が暗黙的な変換 ([動的の暗黙的な変換](conversions.md#implicit-dynamic-conversions))
-*  型パラメーターを伴う暗黙の変換 ([型パラメーターを使用する暗黙的な変換](conversions.md#implicit-conversions-involving-type-parameters))
+*  暗黙の定数式の変換 ([暗黙の動的変換](conversions.md#implicit-dynamic-conversions))
+*  型パラメーターを含む暗黙の型変換 ([型パラメーターを含む暗黙](conversions.md#implicit-conversions-involving-type-parameters)の型変換)
 
-具体的には、標準の暗黙的な変換は、ユーザー定義の暗黙的な変換を除外します。
+標準の暗黙の変換は、明示的にユーザー定義の暗黙的な変換を除外します。
 
 ### <a name="standard-explicit-conversions"></a>標準の明示的な変換
 
-標準の明示的な変換は、すべての標準的な暗黙的な変換と反対の標準的な暗黙的な変換が存在する明示的な変換のサブセットです。 つまり、標準の暗黙的な変換が存在する場合、型から`A`型に`B`、型から標準の明示的な変換が存在し、`A`入力`B`型との間`B`入力`A`。
+標準の明示的な変換は、すべての標準の暗黙的な変換に加え、逆の標準の暗黙的な変換が存在する明示的な変換のサブセットを加えたものです。 言い換えると、標準の暗黙的な変換が型 `A` から `B`型に存在する場合は、型 `A` から型 `B` および型の `B` への標準の明示的な変換が存在します。
 
 ## <a name="user-defined-conversions"></a>ユーザー定義の変換
 
-C# では、事前に定義された明示的および暗黙的な変換を拡張して***ユーザー定義の変換***します。 ユーザー定義の変換が変換演算子を宣言することで導入されました ([変換演算子](classes.md#conversion-operators)) クラスと構造体の型。
+C#定義済みの暗黙的な変換と明示的な変換を、***ユーザー定義の変換***によって拡張できるようにします。 ユーザー定義の変換は、クラスおよび構造体型の変換演算子 ([変換演算子](classes.md#conversion-operators)) を宣言することによって導入されます。
 
-### <a name="permitted-user-defined-conversions"></a>ユーザー定義の変換を許可
+### <a name="permitted-user-defined-conversions"></a>許可されたユーザー定義変換
 
-C# でのみ特定のユーザー定義変換を宣言します。 具体的には、既存の暗黙的または明示的な変換を再定義することはできません。
+C#特定のユーザー定義変換のみを宣言できます。 特に、既存の暗黙的または明示的な変換を再定義することはできません。
 
-指定したソースの種類`S`ターゲットの種類と`T`場合は、`S`または`T`は null 許容型は、ように`S0`と`T0`それ以外の場合、基になる型を参照してください`S0`と`T0`は等しい`S`と`T`それぞれします。 ソースの種類からの変換を宣言するクラスまたは構造体が許可されている`S`をターゲットの型`T`次のすべてに当てはまる場合にのみ。
+指定されたソース型 `S` とターゲット型 `T`の場合、`S` または `T` が null 許容型である場合は、`S0` と `T0` がその基になる型を参照するようにします。それ以外の場合、`S0` と `T0` はそれぞれ `S` と `T` になります。 クラスまたは構造体は、次のすべての条件を満たす場合にのみ、ソース `S` 型からターゲット `T` 型への変換を宣言することができます。
 
-*  `S0` `T0`はさまざまな種類。
-*  いずれか`S0`または`T0`演算子宣言が行われるクラスまたは構造体の型です。
-*  どちらも`S0`も`T0`は、 *interface_type*します。
-*  ユーザー定義の変換を除く、変換が存在しないから`S`に`T`またはから`T`に`S`します。
+*  `S0` と `T0` の種類は異なります。
+*  `S0` または `T0` は、演算子の宣言が行われるクラスまたは構造体の型です。
+*  `S0` も `T0` も*interface_type*ではありません。
+*  ユーザー定義の変換を除外すると、`S` から `T` または `T` から `S`への変換は存在しません。
 
-ユーザー定義の変換に適用される制限については、説明でさらに[変換演算子](classes.md#conversion-operators)します。
+ユーザー定義の変換に適用される制限については、「[変換演算子](classes.md#conversion-operators)」で詳しく説明します。
 
 ### <a name="lifted-conversion-operators"></a>リフト変換演算子
 
-Null 非許容値型に変換するユーザー定義の変換演算子を指定された`S`null 非許容値型に`T`、***変換演算子のリフト***から変換が存在する`S?`に`T?`. ラップ解除、このリフト変換演算子を実行します`S?`に`S`からユーザー定義の変換後に`S`に`T`からの折り返しを続けて`T`に`T?`点を除き、null値を持つ`S?`値は null に直接変換`T?`します。
+Null 非許容の値 `S` 型から null 非許容の値 `T`型に変換するユーザー定義の変換演算子を指定した場合、`S?` から `T?`に変換するリフトされた***変換演算子***が存在します。 このリフトされた変換演算子は、`S?` から `S` へのラップ解除を実行します。その後、`S` から `T` へのユーザー定義変換と、`T` から `T?`へのラップが実行されます。ただし、null 値 `S?` は null 値 `T?`に直接変換されます。
 
-リフト変換演算子が、その基になるユーザー定義の変換演算子として同じ暗黙的または明示的な分類します。 「ユーザー定義の変換」は、両方の使用に適用期間は、ユーザー定義し、リフト変換演算子。
+リフトされた変換演算子には、基になるユーザー定義変換演算子と同じ暗黙的または明示的な分類があります。 "ユーザー定義変換" という用語は、ユーザー定義変換演算子とリフト変換演算子の両方を使用する場合に適用されます。
 
-### <a name="evaluation-of-user-defined-conversions"></a>ユーザー定義の変換の評価
+### <a name="evaluation-of-user-defined-conversions"></a>ユーザー定義変換の評価
 
-ユーザー定義の変換と呼ばれる、その型からの値の変換、***ソースの種類***、という名前の別の型に、***ターゲットの種類***します。 ユーザー定義の変換の評価を確認する方法に中央揃え、***最も具体的***特定のソースとターゲットの種類のユーザー定義変換演算子。 この決定は、いくつかの手順に分かれています。
+ユーザー定義の変換は、***ソース型***と呼ばれる型の値を、***ターゲット型***と呼ばれる別の型に変換します。 ユーザー定義の変換の評価では、特定のソースとターゲットの種類に対して***最も限定的***なユーザー定義変換演算子が検索されます。 この決定は、次のいくつかの手順に分かれています。
 
-*  クラスと元のユーザー定義の変換演算子を考慮する構造体のセットを検索します。 このセットは、ソースの種類とその基本クラスとターゲットの種類 (クラスと構造体のみがユーザー定義の演算子を宣言でき、クラス以外の型が基底クラスを含むなしの暗黙の想定) をその基本クラスで構成されます。 ソースまたはターゲットのいずれかの型がある場合、この手順の目的で、 *nullable_type*、その基になる型は代わりに使用されます。
-*  型が設定されるユーザー定義して、リフト変換演算子の決定に適用されます。 変換演算子を適用する場合にの標準変換を実行する場合があります ([標準変換](conversions.md#standard-conversions)) オペランドのソースの種類からは、演算子の種類で標準変換を実行できる必要があります対象の型に演算子の結果の型。
-*  該当するユーザー定義演算子のセットからには、演算子が明確に最も固有を決定します。 一般的な用語では、最も固有の演算子はオペランドの型がソースの種類に「最も近い」で、結果の型は、ターゲット型に「最も近い」演算子が。 ユーザー定義変換演算子は、リフト変換演算子より優先されます。 最も固有のユーザー定義変換演算子を確立するための正確な規則は、次のセクションで定義されます。
+*  ユーザー定義の変換演算子が考慮されるクラスと構造体のセットを検索します。 このセットは、ソースの型とその基本クラス、およびターゲットの型とその基本クラスで構成されます (クラスと構造体のみがユーザー定義の演算子を宣言できること、および非クラス型には基底クラスがないという暗黙の想定があります)。 この手順では、ソースまたはターゲットのどちらかの型が*nullable_type*の場合、基になる型が代わりに使用されます。
+*  この一連の型から、適用可能なユーザー定義およびリフト変換演算子を決定します。 変換演算子を適用できるようにするには、ソース型から演算子のオペランド型への標準変換 ([標準](conversions.md#standard-conversions)変換) を実行できる必要があります。また、演算子の結果型からターゲット型への標準変換を実行できる必要があります。
+*  適用可能なユーザー定義演算子のセットから、明確に特定できる演算子を決定します。 一般的に、最も具体的な演算子は、変換元の型に対してオペランドの型が "最も近い" 演算子で、結果の型が対象の型に "最も近い" になります。 ユーザー定義の変換演算子は、リフト変換演算子よりも優先されます。 特定のユーザー定義変換演算子を設定するための正確な規則は、次のセクションで定義されています。
 
-特定のユーザー定義の変換演算子が識別されると、ユーザー定義の変換の実際の実行に最大 3 つの手順が含まれます。
+最も限定的なユーザー定義変換演算子が特定されたら、ユーザー定義変換の実際の実行では、次の3つの手順が必要になります。
 
-*  最初に、必要な場合は、ソースの種類から、またはユーザー定義の変換の変換演算子のオペランドの型への標準変換を実行します。
-*  次に、変換を実行するユーザー定義またはリフトの変換演算子を呼び出しています。
-*  最後に、必要な場合、またはユーザー定義の変換の変換演算子の結果の型から対象の型への標準変換を実行します。
+*  最初に、必要に応じて、変換元の型からユーザー定義またはリフトされた変換演算子のオペランドの型への標準変換を実行します。
+*  次に、ユーザー定義変換演算子またはリフト変換演算子を呼び出して変換を実行します。
+*  最後に、必要に応じて、ユーザー定義またはリフトされた変換演算子の結果型から対象の型への標準変換を実行します。
 
-ユーザー定義変換しないの評価には、1 つ以上のユーザー定義またはリフトの変換演算子が含まれます。 つまり、型から変換`S`を入力する`T`からユーザー定義の変換は実行しない最初`S`に`X`からユーザー定義の変換を実行し、`X`に`T`します。
+ユーザー定義の変換の評価では、複数のユーザー定義変換演算子またはリフト変換演算子は必要ありません。 言い換えると、型 `S` から型 `T` への変換では、最初に `S` から `X` へのユーザー定義変換が実行され、次に `X` から `T`へのユーザー定義変換が実行されることはありません。
 
-ユーザー定義の暗黙的または明示的な変換の評価の正確な定義は、次のセクションで提供されます。 定義の次の用語を使用します。
+ユーザー定義の暗黙的または明示的な変換の評価の正確な定義については、次のセクションで説明します。 定義では、次の用語が使用されます。
 
-*  場合、標準の暗黙的な変換 ([標準の暗黙的な変換](conversions.md#standard-implicit-conversions)) 型からが存在する`A`型`B`、どちらの場合と`A`も`B`は*interface_type*s し`A`と呼ばれます***に包含***`B`と`B`といいます***encompass*** `A`します。
-*  ***最も外側の型***一連の型では、セット内の他のすべての型を包含している 1 つの型。 その他のすべての型を包含する 1 つの型の場合セットに最も外側の型がありません。 最も外側の型は、セットの「最大」の型をより直感的な用語で、先の他の種類ごとに暗黙的に変換できる 1 つの型。
-*  ***最も内側の型***一連の型では、セット内の他のすべての種類に包含されている 1 つの型。 他のすべての型によって 1 つの型が含まれていない場合、セットが最も内側の型。 直感的な用語は、最も内側の型は、セット内の「最小」の型などの他の種類ごとに暗黙的に変換できる 1 つの型。
+*  標準の暗黙的な変換 ([標準の暗黙的な変換](conversions.md#standard-implicit-conversions)) が型 `A` から `B`型に存在する場合、`A` も `B` も*interface_type****に含ま***れていないと、`A` が `B`***を包含し***ていると言います。
+*  型のセットの中で***最も外側***にある型は、セット内の他のすべての型を含む1つの型です。 1つの型に他のすべての型が含まれていない場合、そのセットには最も外側の型がありません。 より直観的な用語では、最も外側の型は、セット内の "最大" 型です。これは、他の型を暗黙的に変換できる1つの型です。
+*  型のセットの中で***最も内側***にある型は、セット内の他のすべての型に包含されている型です。 他のすべての型に包含されている型がない場合は、そのセットに最も包含されていない型はありません。 より直観的な用語では、最も包含されている型は、セット内の "最小" 型です。これは、他の型に暗黙的に変換できる1つの型です。
 
-### <a name="processing-of-user-defined-implicit-conversions"></a>暗黙的な変換のユーザー定義の処理
+### <a name="processing-of-user-defined-implicit-conversions"></a>ユーザー定義の暗黙的な変換の処理
 
-ユーザー定義型から暗黙的な変換`S`を入力する`T`ように処理されます。
+型 `S` から型 `T` へのユーザー定義の暗黙的な変換は、次のように処理されます。
 
-*  種類を特定する`S0`と`T0`します。 場合`S`または`T`は null 許容型は、`S0`と`T0`の基になる型をそれ以外の場合は`S0`と`T0`と等しい`S`と`T`それぞれします。
-*  型のセットを見つける`D`、どのユーザー定義の変換演算子を考慮します。 このセットから成る`S0`(場合`S0`がクラスまたは構造体) の基本クラス`S0`(場合`S0`クラスは、)、および`T0`(場合`T0`がクラスまたは構造体)。
-*  該当するユーザー定義およびリフト変換演算子のセットを見つける`U`します。 このセットは、クラスまたは構造体で宣言されているユーザー定義およびリフトの暗黙的な変換演算子で構成されます`D`包括的な型から変換する`S`型によって包含`T`します。 場合`U`は空の場合、変換が定義されていると、コンパイル時エラーが発生します。
-*  特定のソースの種類を検索`SX`、演算子の`U`:
-    * いずれかの演算子の`U`から変換`S`、し`SX`は`S`します。
-    * それ以外の場合、`SX`の演算子のソースの種類の結合されたセット内の最も内側の型は、`U`します。 型が見つからない最も内側の 1 つだけの場合に、変換があいまいなをコンパイル時エラーが発生します。
-*  最も固有のターゲット型を見つける`TX`、演算子の`U`:
-    * いずれかの演算子の場合`U`変換`T`、し`TX`は`T`。
-    * それ以外の場合、`TX`で一連の演算子のターゲット タイプの最も外側の型は、`U`します。 正確に 1 つの最も外側の型が見つからない場合、変換はあいまいですしとコンパイル時エラーが発生します。
-*  最も固有の変換演算子を検索します。
-    * 場合`U`から変換する 1 つだけのユーザー定義変換演算子が含まれています`SX`に`TX`、これは、最も固有の変換演算子。
-    * の場合`U`から変換する 1 つだけのリフト変換演算子が含まれています`SX`に`TX`、これは、最も固有の変換演算子。
-    * それ以外の場合、変換はあいまいですし、コンパイル時エラーが発生します。
-*  最後に、変換が適用されます。
-    * 場合`S`ない`SX`から、標準、暗黙的な変換し、`S`に`SX`が実行されます。
-    * 変換する最も固有の変換演算子が呼び出される`SX`に`TX`します。
-    * 場合`TX`ない`T`から、標準、暗黙的な変換し、`TX`に`T`が実行されます。
+*  `S0` と `T0`の種類を決定します。 `S` または `T` が null 許容型である場合、`S0` と `T0` はその基になる型です。それ以外の場合は、`S0` と `T0` がそれぞれ `S` と `T` になります。
+*  ユーザー定義の変換演算子が考慮される型のセット (`D`) を検索します。 このセットは、`S0` (`S0` がクラスまたは構造体である場合)、`S0` の基本クラス (`S0` がクラスの場合)、`T0` (`T0` がクラスまたは構造体の場合) で構成されます。
+*  適用可能なユーザー定義およびリフト変換演算子のセットを検索し、`U`します。 このセットは、`S` を含む型から `T`に含まれる型への変換を行う `D` のクラスまたは構造体によって宣言された、ユーザー定義の、リフトされた暗黙の変換演算子で構成されます。 `U` が空の場合、変換は定義されていないため、コンパイル時エラーが発生します。
+*  `U`内の演算子の最も具体的なソースの種類である `SX`を検索します。
+    * `U` 内のいずれかの演算子が `S`から変換される場合、`SX` は `S`ます。
+    * それ以外の場合、`SX` は `U`内の演算子のソースの種類の組み合わせにおいて最も包含されている型です。 最も包含されている型が1つだけ見つからない場合、変換はあいまいで、コンパイル時エラーが発生します。
+*  `U`内の演算子の最も具体的な対象の型である `TX`を検索します。
+    * `U` のいずれかの演算子が `T`に変換される場合、`TX` は `T`ます。
+    * それ以外の場合、`TX` は、`U`内の演算子の対象の型を組み合わせたセット内で最も外側にある型になります。 最も外側の型が1つだけ見つからない場合、変換はあいまいで、コンパイル時エラーが発生します。
+*  最も具体的な変換演算子を見つけます。
+    * `SX` から `TX`に変換するユーザー定義の変換演算子を1つだけ含む `U` 場合は、これが最も具体的な変換演算子です。
+    * それ以外の `U` 場合、`SX` から `TX`に変換するリフト変換演算子が1つだけ含まれている場合は、これが最も具体的な変換演算子になります。
+    * それ以外の場合、変換はあいまいで、コンパイル時エラーが発生します。
+*  最後に、変換を適用します。
+    * `S` が `SX`ない場合は、`S` から `SX` への標準の暗黙的な変換が実行されます。
+    * `SX` から `TX`に変換するために、最も具体的な変換演算子が呼び出されます。
+    * `TX` が `T`ない場合は、`TX` から `T` への標準の暗黙的な変換が実行されます。
 
-### <a name="processing-of-user-defined-explicit-conversions"></a>明示的な変換のユーザー定義の処理
+### <a name="processing-of-user-defined-explicit-conversions"></a>ユーザー定義の明示的な変換の処理
 
-型からユーザー定義の明示的な変換`S`入力`T`ように処理されます。
+`S` 型から `T` 型へのユーザー定義の明示的な変換は、次のように処理されます。
 
-*  種類を特定する`S0`と`T0`します。 場合`S`または`T`は null 許容型は、`S0`と`T0`の基になる型をそれ以外の場合は`S0`と`T0`と等しい`S`と`T`それぞれします。
-*  型のセットを見つける`D`、どのユーザー定義の変換演算子を考慮します。 このセットから成る`S0`(場合`S0`がクラスまたは構造体) の基本クラス`S0`(場合`S0`クラスは、)、 `T0` (場合`T0`がクラスまたは構造体)、およびの基本クラス`T0`(場合`T0`クラスです)。
-*  該当するユーザー定義およびリフト変換演算子のセットを見つける`U`します。 このセットは、ユーザー定義およびリフト暗黙的または明示的な変換演算子は、クラスまたは構造体で宣言されている`D`を包括的な型から変換またはによって包含`S`を包括的なまたはに包含型`T`. 場合`U`は空の場合、変換が定義されていると、コンパイル時エラーが発生します。
-*  特定のソースの種類を検索`SX`、演算子の`U`:
-    * いずれかの演算子の`U`から変換`S`、し`SX`は`S`します。
-    * それ以外の場合、いずれかの演算子の`U`包含する型から変換`S`、し`SX`これらの演算子のソースの種類の結合されたセット内の最も内側にある型です。 型が見つからない、最も内側の場合に、変換があいまいなをコンパイル時エラーが発生します。
-    * それ以外の場合、`SX`の演算子のソースの種類の結合されたセット内の最も外側の型は、`U`します。 正確に 1 つの最も外側の型が見つからない場合、変換はあいまいですしとコンパイル時エラーが発生します。
-*  最も固有のターゲット型を見つける`TX`、演算子の`U`:
-    * いずれかの演算子の場合`U`変換`T`、し`TX`は`T`。
-    * それ以外の場合、いずれかの演算子の`U`によって包含する型に変換`T`、し`TX`はこれらの演算子のターゲット型の結合されたセット内の最も外側の型。 正確に 1 つの最も外側の型が見つからない場合、変換はあいまいですしとコンパイル時エラーが発生します。
-    * それ以外の場合、`TX`で一連の演算子のターゲット タイプの最も内側の型は、`U`します。 型が見つからない、最も内側の場合に、変換があいまいなをコンパイル時エラーが発生します。
-*  最も固有の変換演算子を検索します。
-    * 場合`U`から変換する 1 つだけのユーザー定義変換演算子が含まれています`SX`に`TX`、これは、最も固有の変換演算子。
-    * の場合`U`から変換する 1 つだけのリフト変換演算子が含まれています`SX`に`TX`、これは、最も固有の変換演算子。
-    * それ以外の場合、変換はあいまいですし、コンパイル時エラーが発生します。
-*  最後に、変換が適用されます。
-    * 場合`S`ない`SX`から標準の明示的な変換、`S`に`SX`が実行されます。
-    * 変換する最も固有のユーザー定義変換演算子が呼び出される`SX`に`TX`します。
-    * 場合`TX`ない`T`から標準の明示的な変換、`TX`に`T`が実行されます。
+*  `S0` と `T0`の種類を決定します。 `S` または `T` が null 許容型である場合、`S0` と `T0` はその基になる型です。それ以外の場合は、`S0` と `T0` がそれぞれ `S` と `T` になります。
+*  ユーザー定義の変換演算子が考慮される型のセット (`D`) を検索します。 このセットは、`S0` (`S0` がクラスまたは構造体である場合)、`S0` の基本クラス (`S0` がクラスの場合)、`T0` (`T0` がクラスまたは構造体の場合)、`T0` の基本クラス (`T0` がクラスの場合) で構成されます。
+*  適用可能なユーザー定義およびリフト変換演算子のセットを検索し、`U`します。 このセットは、`S` によって包含または包含されている型を `T`によって包含または包含されている型に変換する、`D` のクラスまたは構造体によって宣言された、ユーザー定義の、リフトされた暗黙的または明示的な変換演算子で構成されます。 `U` が空の場合、変換は定義されていないため、コンパイル時エラーが発生します。
+*  `U`内の演算子の最も具体的なソースの種類である `SX`を検索します。
+    * `U` 内のいずれかの演算子が `S`から変換される場合、`SX` は `S`ます。
+    * それ以外の場合、`U` 内のいずれかの演算子が `S`を含む型から変換される場合、`SX` は、それらの演算子のソース型の組み合わせで最も包含されている型になります。 最も包含されていない型が見つからない場合は、変換があいまいになり、コンパイル時エラーが発生します。
+    * それ以外の場合、`SX` は `U`内の演算子のソースの種類の組み合わせにおいて最も外側の型になります。 最も外側の型が1つだけ見つからない場合、変換はあいまいで、コンパイル時エラーが発生します。
+*  `U`内の演算子の最も具体的な対象の型である `TX`を検索します。
+    * `U` のいずれかの演算子が `T`に変換される場合、`TX` は `T`ます。
+    * それ以外の場合、`U` 内のいずれかの演算子が `T`によって包含されている型に変換される場合、`TX` は、それらの演算子の対象となる型の組み合わせのセット内で最も外側の型になります。 最も外側の型が1つだけ見つからない場合、変換はあいまいで、コンパイル時エラーが発生します。
+    * それ以外の場合、`TX` は、`U`内の演算子の対象となる型の組み合わせで最も包含される型です。 最も包含されていない型が見つからない場合は、変換があいまいになり、コンパイル時エラーが発生します。
+*  最も具体的な変換演算子を見つけます。
+    * `SX` から `TX`に変換するユーザー定義の変換演算子を1つだけ含む `U` 場合は、これが最も具体的な変換演算子です。
+    * それ以外の `U` 場合、`SX` から `TX`に変換するリフト変換演算子が1つだけ含まれている場合は、これが最も具体的な変換演算子になります。
+    * それ以外の場合、変換はあいまいで、コンパイル時エラーが発生します。
+*  最後に、変換を適用します。
+    * `S` が `SX`ない場合は、`S` から `SX` への標準の明示的な変換が実行されます。
+    * `SX` から `TX`に変換するために、ユーザー定義の最も限定的な変換演算子が呼び出されます。
+    * `TX` が `T`ない場合は、`TX` から `T` への標準の明示的な変換が実行されます。
 
 ## <a name="anonymous-function-conversions"></a>匿名関数の変換
 
-*Anonymous_method_expression*または*lambda_expression*匿名関数として分類されます ([匿名関数式](expressions.md#anonymous-function-expressions))。 式は、型がありませんが、互換性のあるデリゲート型または式ツリー型に暗黙的に変換できます。 具体的には、匿名関数`F`デリゲート型と互換性が`D`提供します。
+*Anonymous_method_expression*または*lambda_expression*は、匿名関数 ([匿名関数式](expressions.md#anonymous-function-expressions)) として分類されます。 式に型がありませんが、互換性のあるデリゲート型または式ツリー型に暗黙的に変換できます。 具体的には、匿名関数 `F` は、指定された `D` デリゲート型と互換性があります。
 
-*  場合`F`が含まれています、 *anonymous_function_signature*、し`D`と`F`同じ数のパラメーターがあります。
-*  場合`F`が含まれていない、 *anonymous_function_signature*、し`D`のパラメーターなしに限り、あらゆる種類の 0 個以上のパラメーターがあります。`D`が、`out`パラメーター修飾子。
-*  場合`F`、明示的に型指定されたパラメーターのリスト内の各パラメーターを持つ`D`の対応するパラメーターとして、同じ型および修飾子を持つ`F`します。
-*  場合`F`、暗黙的に型指定されたパラメーター リストを持つ`D`にない`ref`または`out`パラメーター。
-*  場合の本文`F`が、式で、かつ`D`が、`void`型を返すまたは`F`は async と`D`戻り値の型を持つ`Task`、その後の各パラメーター`F`の型を指定、対応するパラメーターの`D`の本文`F`有効な式です (wrt[式](expressions.md)) として許可されている場合、 *statement_expression* ([式ステートメント](statements.md#expression-statements))。
-*  場合の本文`F`がステートメント ブロックで、かつ`D`が、`void`型を返すまたは`F`は async と`D`戻り値の型を持つ`Task`、その後の各パラメーター`F`の型を指定対応するパラメーター`D`の本文`F`は有効なステートメント ブロックです (wrt[ブロック](statements.md#blocks)) いない`return`ステートメント式を指定します。
-*  場合の本文`F`式であると*か*`F`は非同期ではないと`D`非 void の戻り値の型を持つ`T`、*または*`F`は async と`D`戻り値の型を持つ`Task<T>`、その後の各パラメーター`F`の対応するパラメーターの型が指定`D`の本文`F`有効な式です (wrt [式](expressions.md)) に暗黙的に変換可能`T`します。
-*  場合の本文`F`ステートメント ブロックと*か*`F`は非同期ではないと`D`非 void の戻り値の型を持つ`T`、*または*`F`は async と`D`戻り値の型を持つ`Task<T>`、その後の各パラメーター`F`の対応するパラメーターの型が指定`D`の本文`F`は有効なステートメント ブロックです (wrt[ブロック](statements.md#blocks)) 各が到達可能な終了点で`return`ステートメントは、暗黙的に変換できる式を指定します。`T`します。
+*  `F` に*anonymous_function_signature*が含まれている場合は、`D` と `F` のパラメーターの数が同じになります。
+*  `F` に*anonymous_function_signature*が含まれていない場合、`D` のパラメーターに `out` parameter 修飾子が指定されていない限り、`D` には任意の型の0個以上のパラメーターを含めることができます。
+*  `F` に明示的に型指定されたパラメーターリストがある場合、`D` 内の各パラメーターの型と修飾子は `F`内の対応するパラメーターと同じになります。
+*  `F` に暗黙的に型指定されたパラメーターリストがある場合、`D` には `ref` または `out` パラメーターがありません。
+*  `F` の本体が式であり、`D` が `void` の戻り値の型であるか、または `F` が非同期であり、`D` の戻り値の型が `Task`である場合、`F` の本体*は、`D`(* [式ステートメント](statements.md#expression-statements)) として許可される有効な式 (wrt[式](expressions.md)) になります。
+*  `F` の本体がステートメントブロックであり、`D` が `void` の戻り値の型を持っている場合、または `F` が非同期で、`D` の戻り値の型が `Task`の場合、`F` の本体は有効なステートメントブロック (wrt [block](statements.md#blocks)) で、`D`ステートメントで式が指定されていません。
+*  `F` の本体が式であり *、`F` が*非同期ではなく、`D` の戻り値の `T`型が void でない場合、*または*`F` が async で、`D` が戻り値の型 `Task<T>`の場合、`F` の本体は、暗黙的に `D`に変換できる有効な式 (wrt[式](expressions.md)) になります。
+*  `F` の本体がステートメントブロックで、`F` が非同期*ではなく*、`D` が void 以外の戻り値の型 `T`の場合、*または*`F` が async で `D` が戻り値の型 `Task<T>`である場合、`F` の各パラメーターに `D`の対応するパラメーターの型が指定されている場合、`F` の本体は到達できないエンドポイントを持つ有効なステートメントブロック (wrt [block](statements.md#blocks)) です。この場合、各 `return` ステートメントは、暗黙的に変換可能な式を指定します。
 
-このセクションで、簡潔さを優先するためにタスクの種類の短い形式を使用して`Task`と`Task<T>`([非同期関数](classes.md#async-functions))。
+簡潔にするために、このセクションでは、タスクの種類 `Task` および `Task<T>` ([非同期関数](classes.md#async-functions)) に短い形式を使用します。
 
-ラムダ式`F`式ツリー型と互換性が`Expression<D>`場合`F`デリゲート型と互換性が`D`します。 匿名メソッド、ラムダ式のみをこの適用されないことに注意してください。
+ラムダ式 `F` は、`F` がデリゲート型 `D`と互換性がある場合に `Expression<D>` 式ツリー型と互換性があります。 これは匿名メソッドには適用されず、ラムダ式にのみ適用されることに注意してください。
 
-特定のラムダ式は、式ツリー型に変換できません。場合でも、変換*が存在する*コンパイル時に失敗します。 これは、場合は、ラムダ式。
+特定のラムダ式は、式のツリー型に変換できません。変換が*存在*する場合でも、コンパイル時に失敗します。 ラムダ式の場合は、次のようになります。
 
-*  *ブロック*本文
-*  単純型または複合代入演算子が含まれています
-*  動的にバインドされている式が含まれています
-*  非同期には
+*  *ブロック*本体がある
+*  単純型または複合型の代入演算子を含んでいます
+*  動的にバインドされた式を含む
+*  非同期
 
-次の例は、汎用デリゲート型を使用して、`Func<A,R>`型の引数を受け取る関数を表す`A`型の値を返す`R`:
+次の例では、汎用デリゲート `Func<A,R>` 型を使用します。これは、型 `A` の引数を受け取り、`R`型の値を返す関数を表します。
 ```csharp
 delegate R Func<A,R>(A arg);
 ```
@@ -542,25 +543,25 @@ Func<double,int> f3 = x => x + 1;              // Error
 
 Func<int, Task<int>> f4 = async x => x + 1;    // Ok
 ```
-各匿名関数のパラメーターと戻り値の型は、匿名関数が割り当てられている変数の型から決まります。
+各匿名関数のパラメーターと戻り値の型は、匿名関数が割り当てられている変数の型によって決まります。
 
-最初の割り当てが正常に匿名関数をデリゲート型に変換`Func<int,int>`ため、`x`型が指定`int`、`x+1`型に暗黙的に変換できる有効な式です`int`します。
+最初の代入は、匿名関数をデリゲート `Func<int,int>` 型に正常に変換します。これは、`x` に型 `int`が指定されている場合、`x+1` は型 `int`に暗黙的に変換できる有効な式であるためです。
 
-同様に、2 つ目の割り当てを正常に変換関数を匿名デリゲートの型に`Func<int,double>`ため、結果の`x+1`(型の`int`) 型に暗黙的に変換できる`double`します。
+同様に、2番目の代入は、匿名関数をデリゲート `Func<int,double>` 型に正常に変換します。これは、`x+1` (型 `int`) の結果が暗黙的に型 `double`に変換可能であるためです。
 
-しかし、3 番目の割り当てが、コンパイル時エラー、`x`型が指定`double`の結果`x+1`(型の`double`) 型に暗黙的に変換可能でない`int`します。
+ただし、3番目の代入はコンパイル時エラーになります。これは、`x` に型 `double`が指定されている場合、`x+1` (型 `double`) の結果が型 `int`に暗黙的に変換可能ではないためです。
 
-4 番目の割り当てが正常に匿名の非同期関数をデリゲート型に変換`Func<int, Task<int>>`ため、結果の`x+1`(型の`int`) 結果の型に暗黙的に変換できる`int`タスクの種類の`Task<int>`.
+4番目の代入は、匿名の非同期関数をデリゲート型 `Func<int, Task<int>>` に正常に変換します。これは、`x+1` (型 `int`) の結果が、タスクの種類 `Task<int>`の `int` 結果の型に暗黙的に変換できるためです。
 
-匿名関数はオーバー ロードの解決に影響を与える可能性があり、型の推定に参加します。 参照してください[関数メンバー](expressions.md#function-members)の詳細。
+匿名関数は、オーバーロードの解決に影響を与える可能性があり、型の推定に関与します。 詳細については、「[関数メンバー](expressions.md#function-members) 」を参照してください。
 
-### <a name="evaluation-of-anonymous-function-conversions-to-delegate-types"></a>デリゲート型への匿名関数の変換の評価
+### <a name="evaluation-of-anonymous-function-conversions-to-delegate-types"></a>デリゲート型への匿名関数変換の評価
 
-匿名関数のデリゲート型への変換では、匿名関数とキャプチャされた外部変数の評価時にアクティブになっている一連の (場合によっては空) を参照するデリゲート インスタンスを生成します。 デリゲートが呼び出されたときに、匿名関数の本体が実行されます。 デリゲートによって参照される外部変数をキャプチャのセットを使用して、本体内のコードが実行されます。
+匿名関数をデリゲート型に変換すると、匿名関数を参照するデリゲートインスタンスと、評価時にアクティブであるキャプチャされた外部変数の (空の場合もありますが) セットが生成されます。 デリゲートが呼び出されると、匿名関数の本体が実行されます。 本文内のコードは、デリゲートによって参照されるキャプチャされた外部変数のセットを使用して実行されます。
 
-匿名関数によって生成されたデリゲートの呼び出しリストには、1 つのエントリが含まれています。 正確なターゲット オブジェクトと、デリゲートのターゲット メソッドが指定されていません。 具体的には、指定されていないかどうか、デリゲートのターゲット オブジェクトは、 `null`、`this`外側の関数メンバー、またはその他のオブジェクトの値。
+匿名関数から生成されたデリゲートの呼び出しリストには、1つのエントリが含まれます。 デリゲートの正確なターゲットオブジェクトとターゲットメソッドは指定されていません。 特に、デリゲートのターゲットオブジェクトが `null`、外側の関数メンバーの `this` 値、またはその他のオブジェクトであるかどうかは指定されていません。
 
-同じデリゲート型への外部変数のキャプチャされたインスタンスの同じ (場合によっては空) のセットの意味的に同一の匿名関数の変換は許可されている (ただし必要ありません) を同じデリゲート インスタンスを返します。 匿名関数の実行、すべてのケースで、表示されるのと同じ引数を指定したのと同じ効果を意味する意味的に同一の用語がここで使用されます。 このルールは、最適化するのには、次のようなコードを許可します。
+同じ (場合によっては空の) キャプチャされた外部変数インスタンスを同じデリゲート型に対して同じ匿名関数から変換すると、同じデリゲートインスタンスを返すことができます (ただし、必須ではありません)。 ここでは、意味的に同じ用語が使用されています。これは、匿名関数の実行によって、同じ引数を指定した場合と同じ効果が生成されることを意味します。 この規則は、次のようなコードを最適化することを許可します。
 
 ```csharp
 delegate double Function(double x);
@@ -581,22 +582,22 @@ class Test
 }
 ```
 
-2 つの関数を匿名デリゲートを同じ (空) と匿名関数は意味が同じであるため、キャプチャされた外部変数の設定があるため、コンパイラがデリゲートに同じターゲット メソッドを参照してください。 許可されています。 実際には、コンパイラは、両方の匿名関数式から、まったく同じデリゲート インスタンスを返すに許可されます。
+2つの匿名関数デリゲートは、キャプチャされた外部変数と同じ (空の) セットを持つため、匿名関数は意味が同じであるため、コンパイラはデリゲートが同じターゲットメソッドを参照することを許可します。 実際には、コンパイラは、両方の匿名関数式からまったく同じデリゲートインスタンスを返すことができます。
 
-### <a name="evaluation-of-anonymous-function-conversions-to-expression-tree-types"></a>式ツリー型への匿名関数の変換の評価
+### <a name="evaluation-of-anonymous-function-conversions-to-expression-tree-types"></a>式ツリー型への匿名関数変換の評価
 
-匿名関数の式ツリー型への変換、式ツリーを生成します ([式ツリー型](types.md#expression-tree-types))。 正確には、匿名関数の変換の評価は、匿名関数自体の構造を表すオブジェクトの構造の構築につながります。 それを作成するための正確なプロセスと同様に、式ツリーの厳密な構造は、実装定義です。
+匿名関数から式ツリー型への変換では、式ツリー ([式ツリー型](types.md#expression-tree-types)) が生成されます。 より正確には、匿名関数の変換を評価すると、匿名関数自体の構造を表すオブジェクト構造の構築につながります。 式ツリーの正確な構造と、それを作成するための正確なプロセスは、実装が定義されています。
 
 ### <a name="implementation-example"></a>実装例
 
-このセクションでは、その他の c# コンストラクトの観点から匿名関数の変換の実装について説明します。 ここで説明されている実装 Microsoft c# コンパイラで使用される同じ原則に基づいていますが、1 つだけのことも、必須の実装ではではありません。 ごく簡単に、この仕様の範囲外の正確なセマンティクスは、式ツリーへの変換を紹介します。
+このセクションでは、他C#の構造体の観点から、匿名関数の変換を実装する方法について説明します。 ここで説明する実装は、Microsoft C#コンパイラで使用されているのと同じ原則に基づいていますが、必須の実装ではなく、可能な唯一の方法でもあります。 ここでは、式ツリーへの変換について簡単に説明します。正確なセマンティクスは、この仕様の範囲外です。
 
-このセクションの残りの部分では、異なる特性を持つ匿名関数を含むコードのいくつかの例を示します。 それぞれの例については、のみ c# の他のコンストラクトを使用するコードに対応する翻訳が提供されます。 識別子の例についてで`D`次のデリゲート型で表すと見なされます。
+このセクションの残りの部分では、さまざまな特性を持つ匿名関数を含むコードの例をいくつか示します。 各例では、他のC#コンストラクトのみを使用するコードへの対応する変換が提供されています。 この例では、識別子 `D` は、次のデリゲート型を表すことによって想定されています。
 ```csharp
 public delegate void D();
 ```
 
-匿名関数の最も単純な形式は、外部変数をキャプチャしません。
+匿名関数の最も単純な形式は、外部変数をキャプチャする関数です。
 ```csharp
 class Test
 {
@@ -606,7 +607,7 @@ class Test
 }
 ```
 
-これは、匿名関数のコードが置かれているコンパイラによって生成された静的メソッドを参照するデリゲートのインスタンス化に書き換えることができます。
+これは、匿名関数のコードが配置される、コンパイラによって生成された静的メソッドを参照するデリゲートのインスタンス化に変換できます。
 ```csharp
 class Test
 {
@@ -620,7 +621,7 @@ class Test
 }
 ```
 
-匿名関数がのインスタンス メンバーを参照する次の例では、 `this`:
+次の例では、匿名関数は `this`のインスタンスメンバーを参照します。
 ```csharp
 class Test
 {
@@ -632,7 +633,7 @@ class Test
 }
 ```
 
-これは、匿名関数のコードを含むコンパイラによって生成されたインスタンス メソッドに書き換えることができます。
+これは、匿名関数のコードを含む、コンパイラによって生成されるインスタンスメソッドに変換できます。
 ```csharp
 class Test
 {
@@ -648,7 +649,7 @@ class Test
 }
 ```
 
-この例では、匿名関数は、ローカル変数をキャプチャします。
+この例では、匿名関数はローカル変数をキャプチャします。
 ```csharp
 class Test
 {
@@ -659,7 +660,7 @@ class Test
 }
 ```
 
-ローカル変数の有効期間を少なくとも、関数を匿名デリゲートの有効期間まで延長する必要があります。 これは、コンパイラによって生成されたクラスのフィールドに、ローカル変数を「ホイスト」で実現できます。 ローカル変数のインスタンス化 ([ローカル変数のインスタンス化](expressions.md#instantiation-of-local-variables))、コンパイラによって生成されたクラスのインスタンス内のフィールドへのアクセスに対応するローカル変数にアクセスするのインスタンスを作成するのには対応し、コンパイラによって生成されたクラスです。 さらに、匿名関数には、コンパイラによって生成されたクラスのインスタンス メソッドがようになります。
+ローカル変数の有効期間は、少なくとも匿名関数デリゲートの有効期間に拡張する必要があります。 これは、コンパイラによって生成されるクラスのフィールドにローカル変数を "hoisting" することによって実現できます。 ローカル変数 ([ローカル変数のインスタンス化](expressions.md#instantiation-of-local-variables)) のインスタンス化は、コンパイラによって生成されたクラスのインスタンスの作成に対応し、ローカル変数へのアクセスは、コンパイラによって生成されるクラスのインスタンス内のフィールドへのアクセスに対応します。 さらに、匿名関数は、コンパイラによって生成されるクラスのインスタンスメソッドになります。
 ```csharp
 class Test
 {
@@ -680,7 +681,7 @@ class Test
 }
 ```
 
-最後に、キャプチャの関数は次の匿名`this`と有効期間の異なる 2 つのローカル変数。
+最後に、次の匿名関数は、`this`、および有効期間が異なる2つのローカル変数をキャプチャします。
 ```csharp
 class Test
 {
@@ -696,7 +697,7 @@ class Test
 }
 ```
 
-ここでは、コンパイラによって生成されたクラスを作成する for each ステートメントで、さまざまな要素でローカル変数は、独立した有効期間を持つことができますをどのローカル変数がキャプチャをブロックします。 インスタンス`__Locals2`、inner ステートメント ブロックのコンパイラによって生成されたクラスには、ローカル変数が含まれています。`z`のインスタンスを参照するフィールドと`__Locals1`します。  インスタンス`__Locals1`、外側のステートメント ブロックのコンパイラによって生成されたクラスには、ローカル変数が含まれています。`y`を参照するフィールドと`this`外側の関数メンバーの。 アクセスには、これらのデータ構造ですべてのキャプチャされた外部変数のインスタンスを通じて`__Local2`、および匿名関数のコードはそのクラスのインスタンス メソッドとして実装できます。
+ここでは、別のブロックのローカル変数が独立した有効期間を持つことができるように、ローカルがキャプチャされた各ステートメントブロックに対して、コンパイラによって生成されるクラスが作成されます。 `__Locals2`のインスタンス (内部ステートメントブロックに対してコンパイラによって生成されるクラス) には、ローカル変数 `z` と `__Locals1`のインスタンスを参照するフィールドが含まれています。  `__Locals1`のインスタンス (外側のステートメントブロックに対してコンパイラによって生成されるクラス) には、ローカル変数 `y` と、外側の関数メンバーの `this` を参照するフィールドが含まれています。 これらのデータ構造を使用すると、`__Local2`のインスタンスを介してキャプチャされたすべての外部変数にアクセスできます。そのため、匿名関数のコードは、そのクラスのインスタンスメソッドとして実装できます。
 
 ```csharp
 class Test
@@ -731,25 +732,25 @@ class Test
 }
 ```
 
-ここで適用されるローカル変数をキャプチャする同じ手法は、匿名関数を式ツリーに変換する場合にも使用できます。コンパイラによって生成されたオブジェクトへの参照は、式ツリーに格納できるし、これらのオブジェクトのフィールドにアクセスすると、ローカル変数へのアクセスを表すことができます。 このアプローチの利点は、デリゲート、式ツリーの間で共有する「リフト」ローカル変数でできることです。
+ここでは、ローカル変数をキャプチャするために使用するのと同じ手法を、匿名関数を式ツリーに変換するときにも使用できます。コンパイラによって生成されたオブジェクトへの参照は式ツリーに格納でき、ローカル変数へのアクセスは次のようになります。これらのオブジェクトに対するフィールドアクセスとして表されます。 この方法の利点は、"リフトされた" ローカル変数をデリゲートと式ツリーの間で共有できることです。
 
-## <a name="method-group-conversions"></a>メソッド グループ変換
+## <a name="method-group-conversions"></a>メソッドグループの変換
 
-暗黙的な変換 ([暗黙的な変換](conversions.md#implicit-conversions))、メソッド グループからが存在する ([式の分類](expressions.md#expression-classifications)) 互換性のあるデリゲート型にします。 デリゲート型を指定して`D`と式`E`メソッド グループに分類されるからの暗黙的な変換が存在する`E`に`D`場合`E`はその通常の形式 (該当する少なくとも 1 つのメソッドが含まれています[適用可能な関数メンバー](expressions.md#applicable-function-member))、引数リストへの修飾子をパラメーターの型の使用して構築された`D`以下で説明するようにします。
+メソッドグループ ([式の分類](expressions.md#expression-classifications)) から互換性のあるデリゲート型への暗黙の変換 ([暗黙](conversions.md#implicit-conversions)の変換) が存在します。 デリゲート型 `D` と、メソッドグループとして分類される式 `E` が指定されている場合、次に示すように、`E` のパラメーターの型と修飾子を使用して構築された引数リストに、`D`が通常の形式 ([適用可能な関数メンバー](expressions.md#applicable-function-member)) に適用可能なメソッドが少なくとも1つ含まれている場合は、`D` `E` から
 
-メソッド グループからの変換のコンパイル時のアプリケーション`E`をデリゲート型に`D`については、次で説明します。 なおからの暗黙的な変換が存在する`E`に`D`変換のコンパイル時のアプリケーションがエラーなしに成功するには保証されません。
+メソッドグループからデリゲート `D` 型への変換のコンパイル時アプリケーション `E` については、次の説明を参照してください。 `E` から `D` への暗黙的な変換が存在しても、変換のコンパイル時のアプリケーションがエラーなしで成功するとは限りません。
 
-*  1 つのメソッド`M`が選択されているメソッドの呼び出しに対応する ([メソッドの呼び出し](expressions.md#method-invocations)) フォームの`E(A)`、次の変更。
-    * 引数リスト`A`式、変数として、型および修飾子を使用して、各分類済みの一覧を示します (`ref`または`out`) に対応するパラメーターの*formal_parameter_list* の`D`.
-    * 候補となるメソッドと見なされますが、標準形式で適用されるメソッドのみ ([適用可能な関数メンバー](expressions.md#applicable-function-member))、拡張形式でのみ適用されません。
-*  場合、アルゴリズムの[メソッドの呼び出し](expressions.md#method-invocations)コンパイル時エラーが発生し、エラーが発生します。 それ以外の場合、アルゴリズムが最適な 1 つのメソッドが生成されます`M`同じ同数のパラメーターを持つ`D`と変換が存在すると見なされます。
-*  選択したメソッド`M`互換である必要があります ([デリゲートの互換性](delegates.md#delegate-compatibility)) デリゲート型と`D`、またはそれ以外の場合、コンパイル時エラーが発生しました。
-*  場合、選択したメソッド`M`、インスタンス メソッドに関連付けられたインスタンス式である`E`デリゲートのターゲット オブジェクトを決定します。
-*  インスタンス式でメンバー アクセスによって表される拡張メソッドを選択したメソッド M には、そのインスタンス式は、デリゲートの対象オブジェクトを決定します。
-*  変換の結果は、型の値 `D`、新しく作成されたデリゲート メソッドとターゲットの選択したオブジェクトを指す namely します。
-*  このプロセスが拡張メソッド、デリゲートの作成を簡単になることができる場合のアルゴリズム[メソッドの呼び出し](expressions.md#method-invocations)インスタンス メソッドの検索に失敗したが、処理の呼び出しに成功すると、`E(A)`拡張機能としてメソッドの呼び出し ([拡張メソッド呼び出し](expressions.md#extension-method-invocations))。 こうして作成したデリゲートでは、拡張メソッドと、最初の引数をキャプチャします。
+*  フォーム `E(A)`のメソッド呼び出し ([メソッド](expressions.md#method-invocations)の呼び出し) に対応する1つのメソッド `M` が選択されていますが、次のように変更されています。
+    * 引数リスト `A` は式のリストであり、それぞれが変数として分類され、`D`の*formal_parameter_list*内の対応するパラメーターの型と修飾子 (`ref` または `out`) を使用します。
+    * 考慮される候補メソッドは、通常の形式 ([適用可能な関数メンバー](expressions.md#applicable-function-member)) で適用可能なメソッドのみであり、拡張フォームにのみ適用されるものではありません。
+*  [メソッド呼び出し](expressions.md#method-invocations)のアルゴリズムによってエラーが発生した場合、コンパイル時エラーが発生します。 それ以外の場合、`D` と同じ数のパラメーターを持ち、変換が存在していると見なされる `M`、1つの最適なメソッドが生成されます。
+*  選択されたメソッド `M` は、デリゲート型 `D`と互換性がある ([デリゲート互換性](delegates.md#delegate-compatibility)) 必要があります。そうでない場合は、コンパイル時エラーが発生します。
+*  選択したメソッド `M` がインスタンスメソッドの場合、`E` に関連付けられたインスタンス式によって、デリゲートのターゲットオブジェクトが決定されます。
+*  選択したメソッド M が、インスタンス式でのメンバーアクセスによって示される拡張メソッドである場合、そのインスタンス式によって、デリゲートのターゲットオブジェクトが決定されます。
+*  変換の結果は `D`型の値になります。つまり、選択したメソッドとターゲットオブジェクトを参照する新しく作成されたデリゲートです。
+*  [メソッド呼び出し](expressions.md#method-invocations)のアルゴリズムがインスタンスメソッドを検出できず、拡張メソッドの呼び出し ([拡張メソッド](expressions.md#extension-method-invocations)の呼び出し) として `E(A)` の呼び出しの処理に成功する場合は、このプロセスによって、拡張メソッドへのデリゲートの作成につながる可能性があることに注意してください。 このように作成されたデリゲートは、拡張メソッドとその最初の引数をキャプチャします。
 
-次の例では、メソッド グループ変換を示しています。
+次の例は、メソッドグループの変換を示しています。
 ```csharp
 delegate string D1(object o);
 
@@ -776,33 +777,33 @@ class Test
 }
 ```
 
-代入`d1`メソッド グループを暗黙的に変換します`F`型の値に`D1`します。
+`d1` への代入は、メソッドグループ `F` を `D1`型の値に暗黙的に変換します。
 
-代入`d2`を弱い派生 (反変) パラメーターの型を持つメソッドにデリゲートを作成することはしより (共変性) の戻り値の型を派生する方法を示します。
+`d2` への代入は、弱い派生型 (反変) のパラメーター型と、より派生した (共変の) 戻り値の型を持つメソッドへのデリゲートを作成する方法を示しています。
 
-代入`d3`表示変換が存在しないかどうか、メソッドは使用できません。
+`d3` への代入は、メソッドが適用されない場合に変換が存在しないことを示します。
 
-代入`d4`メソッドが、標準形式で適用する必要がありますの方法を示します。
+`d4` への割り当ては、メソッドを通常の形式で適用する方法を示しています。
 
-代入`d5`参照型に対してのみ異なるデリゲートとメソッドのパラメーターと戻り値の型を許可する方法を示しています。
+`d5` への代入は、デリゲートとメソッドのパラメーターと戻り値の型が参照型に対してのみ異なることを許可する方法を示しています。
 
-すべて、他の明示的および暗黙的な変換と明示的にメソッド グループ変換を実行するキャスト演算子を使用できます。 例では、そのため、
+他の暗黙的な変換および明示的な変換と同様に、cast 演算子を使用してメソッドグループの変換を明示的に実行できます。 この例では、
 ```csharp
 object obj = new EventHandler(myDialog.OkClick);
 ```
-代わりに書き込まれる可能性があります。
+書き込みが可能
 ```csharp
 object obj = (EventHandler)myDialog.OkClick;
 ```
 
-メソッド グループは、オーバー ロードの解決に影響を与えるし、型の推定に参加可能性があります。 参照してください[関数メンバー](expressions.md#function-members)の詳細。
+メソッドグループは、オーバーロードの解決に影響を与える可能性があり、型の推定に関与します。 詳細については、「[関数メンバー](expressions.md#function-members) 」を参照してください。
 
-メソッド グループ変換の実行時の評価は、次のように処理されます。
+メソッドグループの変換の実行時の評価は、次のように行われます。
 
-*  関連付けられたインスタンス式からデリゲートのターゲット オブジェクトを確認するコンパイル時に選択されているメソッドがインスタンス メソッド、またはインスタンス メソッドとしてアクセスされる拡張メソッドは、 `E`:
-    * インスタンス式が評価されます。 この評価は、例外を発生させ、その後の手順は実行されません。
-    * インスタンス式がある場合、 *reference_type*、ターゲット オブジェクトをインスタンス式で計算された値になります。 選択したメソッドがインスタンス メソッドと、ターゲット オブジェクトがかどうか`null`、`System.NullReferenceException`がスローされます、以降の手順は実行されません。
-    * インスタンス式がある場合、 *value_type*、ボックス化操作 ([ボックス化変換](types.md#boxing-conversions)) は、オブジェクトに値を変換する実行し、このオブジェクトがターゲット オブジェクトになります。
-*  それ以外の場合、選択したメソッドは静的メソッドの呼び出しの一部ですが、デリゲートのターゲット オブジェクトと`null`します。
-*  デリゲート型の新しいインスタンス`D`が割り当てられます。 新しいインスタンスを割り当てることができる十分なメモリがない場合、`System.OutOfMemoryException`がスローされます、以降の手順は実行されません。
-*  新しいデリゲート インスタンスがコンパイル時に決定されたメソッドへの参照で初期化され、上、ターゲット オブジェクトへの参照が計算されます。
+*  コンパイル時に選択されたメソッドがインスタンスメソッドである場合、またはインスタンスメソッドとしてアクセスされる拡張メソッドである場合は、デリゲートのターゲットオブジェクトは `E`に関連付けられたインスタンス式から決定されます。
+    * インスタンス式が評価されます。 この評価によって例外が発生した場合、それ以上の手順は実行されません。
+    * インスタンス式が*reference_type*の場合、インスタンス式によって計算された値が対象オブジェクトになります。 選択したメソッドがインスタンスメソッドで、ターゲットオブジェクトが `null`場合、`System.NullReferenceException` がスローされ、それ以上の手順は実行されません。
+    * インスタンス式が*value_type*の場合は、値をオブジェクトに変換するボックス化操作 ([ボックス化変換](types.md#boxing-conversions)) が実行され、このオブジェクトが対象オブジェクトになります。
+*  それ以外の場合は、選択したメソッドが静的メソッド呼び出しの一部になり、デリゲートのターゲットオブジェクトが `null`されます。
+*  `D` デリゲート型の新しいインスタンスが割り当てられます。 新しいインスタンスの割り当てに使用できるメモリが不足している場合は、`System.OutOfMemoryException` がスローされ、それ以上の手順は実行されません。
+*  新しいデリゲートインスタンスは、コンパイル時に決定されたメソッドへの参照と、上記で計算されたターゲットオブジェクトへの参照を使用して初期化されます。
