@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: f61039abd6bd557ac0ea625e6aac1c8bafa57b02
-ms.sourcegitcommit: 892af9016b3317a8fae12d195014dc38ba51cf16
+ms.sourcegitcommit: e134bb7058e9848120b93b345f96d6ac0cb8c815
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2019
+ms.lasthandoff: 01/17/2020
 ms.locfileid: "71704087"
 ---
 # <a name="expressions"></a>式
@@ -14,7 +14,7 @@ ms.locfileid: "71704087"
 
 式は、次のいずれかに分類されます。
 
-*  値。 すべての値には、型が関連付けられています。
+*  値です。 すべての値には、型が関連付けられています。
 *  変数。 すべての変数には、関連付けられた型、つまり変数の宣言型があります。
 *  名前空間。 この分類の式は、 *member_access* ([メンバーアクセス](expressions.md#member-access)) の左側としてのみ使用できます。 その他のコンテキストでは、名前空間として分類された式によってコンパイル時エラーが発生します。
 *  型。 この分類の式は、 *member_access* ([メンバーアクセス](expressions.md#member-access)) の左側として、または `as` 演算子 ([as 演算子](expressions.md#the-as-operator))、`is` 演算子 ([is 演算子](expressions.md#the-is-operator))、または `typeof` 演算子 ([typeof 演算子](expressions.md#the-typeof-operator)) のオペランドとしてのみ使用できます。 その他のコンテキストでは、型として分類された式によってコンパイル時エラーが発生します。
@@ -56,7 +56,7 @@ ms.locfileid: "71704087"
 *  要素アクセス: `e[e1, ..., eN]`
 *  オブジェクトの作成: `new C(e1, ..., eN)`
 *  オーバーロードされた単項演算子: `+`、`-`、`!`、`~`、`++`、`--`、`true`、`false`
-*  オーバーロードされた二項演算子: `+`、`-`、`*`、`/`、`%`、`&`、`&&`、`|`、`||`、`??`、`^`、`<<`、`>>`、`==`、`!=``>``<``>=``<=`
+*  オーバーロードされた二項演算子: `+`、`-`、`*`、`/`、`%`、`&`、`&&`、`|`、`||`、`??`、`^`、`<<`、`>>`、`==`、`!=`
 *  代入演算子: `=`、`+=`、`-=`、`*=`、`/=`、`%=`、`&=`、`|=`、`^=`、`<<=`、`>>=`
 *  暗黙的な変換と明示的な変換
 
@@ -124,7 +124,7 @@ Console.WriteLine(d);  // dynamic binding to Console.WriteLine(int)
 
 | __Section__                                                                                   | __カテゴリ__                | __演算子__ | 
 |-----------------------------------------------------------------------------------------------|-----------------------------|---------------|
-| [一次式](expressions.md#primary-expressions)                                     | 1 次式                     | `x.y`  `f(x)`  `a[x]`  `x++`  `x--`  `new`  `typeof`  `default`  `checked`  `unchecked`  `delegate` | 
+| [一次式](expressions.md#primary-expressions)                                     | Primary                     | `x.y`  `f(x)`  `a[x]`  `x++`  `x--`  `new`  `typeof`  `default`  `checked`  `unchecked`  `delegate` | 
 | [単項演算子](expressions.md#unary-operators)                                             | 単項                       | `+`  `-`  `!`  `~`  `++x`  `--x`  `(T)x` | 
 | [算術演算子](expressions.md#arithmetic-operators)                                   | 乗法              | `*`  `/`  `%` | 
 | [算術演算子](expressions.md#arithmetic-operators)                                   | 加法                    | `+`  `-`      | 
@@ -142,8 +142,8 @@ Console.WriteLine(d);  // dynamic binding to Console.WriteLine(int)
 
 同じ優先順位を持つ2つの演算子の間にオペランドがある場合、演算子の結合規則によって、操作の実行順序が制御されます。
 
-*  代入演算子および null 合体演算子を除き、すべての二項演算子は左から右へと***結合***されます。つまり、操作は左から右に実行されます。 たとえば、 `x + y + z` は `(x + y) + z`と評価されます。
-*  代入演算子、null 合体演算子、および条件演算子 (`?:`***) は、右から***左に操作が実行されることを意味します。 たとえば、 `x = y = z` は `x = (y = z)`と評価されます。
+*  代入演算子および null 合体演算子を除き、すべての二項演算子は左から右へと***結合***されます。つまり、操作は左から右に実行されます。 たとえば、`x + y + z` は `(x + y) + z` と評価されます。
+*  代入演算子、null 合体演算子、および条件演算子 (`?:`***) は、右から***左に操作が実行されることを意味します。 たとえば、`x = y = z` は `x = (y = z)` と評価されます。
 
 優先順位と結合性は、かっこを使用して制御することができます。 たとえば、`x + y * z` は最初に `y` と `z` を掛け、そして結果を `x` に足しますが、`(x + y) * z` では最初に `x` と `y` を足してから `z` を掛けます。
 
@@ -350,8 +350,8 @@ decimal AddPercent(decimal x, double percent) {
 関数メンバーは、実行可能なステートメントを含むメンバーです。 関数メンバーは常に型のメンバーであり、名前空間のメンバーになることはできません。 C#では、次のカテゴリの関数メンバーが定義されています。
 
 *  メソッド
-*  プロパティ
-*  イベント
+*  [プロパティ]
+*  Events
 *  インデクサー
 *  ユーザー定義の演算子
 *  インスタンスコンストラクター
@@ -598,7 +598,7 @@ Tr M<X1,...,Xn>(T1 x1, ..., Tm xm)
 
 #### <a name="dependence"></a>依存
 
-固定されていない型変数 `Xi` は、固定されてい*ない型変数* *に直接依存*しています。 `Xj` 型の引数 `Tk` `Ek` では、型 `Xj` の `Ek` の*入力型*`Tk` に発生し、`Xi` 型の `Ek` の*出力型*で発生する場合があります。`Tk`
+固定されていない型変数 `Xi` は、固定されてい*ない型変数* *に直接依存*しています。 `Xj` 型の引数 `Tk` `Ek` では、型 `Xj` の `Ek` の*入力型*`Tk` に発生し、`Xi` 型の `Ek` の*出力型*で発生する場合があります。
 
 `Xj` が `Xi`*に直接依存*している場合、または `Xi` が `Xk`*に直接*依存しており、`Xk` が `Xj`*に*依存している場合、`Xj` は `Xi`*に依存*します。 したがって、"依存関係" は推移的ですが、"直接に依存している" の再帰クロージャではありません。
 
@@ -607,7 +607,7 @@ Tr M<X1,...,Xn>(T1 x1, ..., Tm xm)
 *出力型の推論*は、次のように `T` 型*に*`E` 式*から*実行されます。
 
 *  `E` が、推論された戻り値の型 `U` ([推定戻り値の型](expressions.md#inferred-return-type)) の匿名関数で、`T` が戻り値の型が `Tb`であるデリゲート型または式ツリー型である場合は、*下限の推論*([下限](expressions.md#lower-bound-inferences)の推論) が `U`*から*`Tb`*に*作成されます。
-*  それ以外の場合、`E` がメソッドグループで、`T` がパラメーター型 `T1...Tk` および戻り値の型 `Tb`を持つデリゲート型または式ツリー型であり、型 `E` のオーバーロード解決では、戻り値の型が *`T1...Tk` の 1*つのメソッドが生成 *され*ます。`U``U``Tb`
+*  それ以外の場合、`E` がメソッドグループで、`T` がパラメーター型 `T1...Tk` および戻り値の型 `Tb`を持つデリゲート型または式ツリー型であり、型 `E` のオーバーロード解決では、戻り値の型が *`T1...Tk` の 1*つのメソッドが生成 *され*ます。
 *  それ以外の場合、`E` が `U`型の式である場合、`U`*から*`T`*に* *下限の推論*が行われます。
 *  それ以外の場合、推論は行われません。
 
@@ -762,42 +762,42 @@ M<S1...Sn>
 ```
 は、`D`と互換性のある ([デリゲート宣言](delegates.md#delegate-declarations)) になります。
 
-ジェネリックメソッド呼び出しの型推論アルゴリズムとは異なり、この例では引数の*型*のみが存在し、引数の*式*はありません。 特に、匿名関数は存在しないため、推論の複数のフェーズを行う必要はありません。
+Unlike the type inference algorithm for generic method calls, in this case there are only argument *types*, no argument *expressions*. In particular, there are no anonymous functions and hence no need for multiple phases of inference.
 
-代わりに、すべての `Xi` が未修正*と見なされ、`D`* の各引数の型 `Uj`*から*`M`の対応するパラメーターの型 `Tj`*に* *下限の推論*が行われます。 いずれかの `Xi` 境界が見つからなかった場合、型の推定は失敗します。 それ以外の場合は、すべての `Xi` が対応する `Si`に*固定*されます。これは、型の推定の結果です。
+Instead, all `Xi` are considered *unfixed*, and a *lower-bound inference* is made *from* each argument type `Uj` of `D` *to* the corresponding parameter type `Tj` of `M`. If for any of the `Xi` no bounds were found, type inference fails. Otherwise, all `Xi` are *fixed* to corresponding `Si`, which are the result of type inference.
 
-#### <a name="finding-the-best-common-type-of-a-set-of-expressions"></a>一連の式の中で最もよく使われる型の検索
+#### <a name="finding-the-best-common-type-of-a-set-of-expressions"></a>Finding the best common type of a set of expressions
 
-場合によっては、一連の式に対して共通の型を推論する必要があります。 特に、暗黙的に型指定された配列の要素型と*ブロック*本体を持つ匿名関数の戻り値の型は、この方法で見つかります。
+In some cases, a common type needs to be inferred for a set of expressions. In particular, the element types of implicitly typed arrays and the return types of anonymous functions with *block* bodies are found in this way.
 
-直感的に言えば、一連の式を指定すると `E1...Em` この推論は、メソッドを呼び出すことと同じになります。
+Intuitively, given a set of expressions `E1...Em` this inference should be equivalent to calling a method
 ```csharp
 Tr M<X>(X x1 ... X xm)
 ```
-`Ei` を引数として使用します。
+with the `Ei` as arguments.
 
-より正確には、推定は、固定されてい*ない型変数*`X`で開始されます。 その後、各 `Ei`*から*`X`*に*対して、出力の*型の推論*が行われます。 最後に、`X` が*修正*され、成功した場合、結果として得られる型 `S` が、式に対して生成される最適な共通型になります。 このような `S` が存在しない場合、式には最適な共通型がありません。
+More precisely, the inference starts out with an *unfixed* type variable `X`. *Output type inferences* are then made *from* each `Ei` *to* `X`. Finally, `X` is *fixed* and, if successful, the resulting type `S` is the resulting best common type for the expressions. If no such `S` exists, the expressions have no best common type.
 
 ### <a name="overload-resolution"></a>オーバーロードの解決
 
-オーバーロードの解決は、引数リストと候補となる関数メンバーのセットを呼び出すための最適な関数メンバーを選択するためのバインディング時の機構です。 オーバーロードの解決では、内C#の次の異なるコンテキストで呼び出す関数メンバーを選択します。
+Overload resolution is a binding-time mechanism for selecting the best function member to invoke given an argument list and a set of candidate function members. Overload resolution selects the function member to invoke in the following distinct contexts within C#:
 
-*  *Invocation_expression* ([メソッド呼び出し](expressions.md#method-invocations)) で指定されたメソッドの呼び出し。
-*  *Object_creation_expression*で指定されたインスタンスコンストラクターの呼び出し ([オブジェクト作成式](expressions.md#object-creation-expressions))。
-*  *Element_access* ([要素アクセス](expressions.md#element-access)) を使用したインデクサーアクセサーの呼び出し。
-*  式で参照されている定義済みまたはユーザー定義の演算子の呼び出し ([単項演算子のオーバーロードの解決](expressions.md#unary-operator-overload-resolution)と[二項演算子のオーバーロードの解決](expressions.md#binary-operator-overload-resolution))。
+*  Invocation of a method named in an *invocation_expression* ([Method invocations](expressions.md#method-invocations)).
+*  Invocation of an instance constructor named in an *object_creation_expression* ([Object creation expressions](expressions.md#object-creation-expressions)).
+*  Invocation of an indexer accessor through an *element_access* ([Element access](expressions.md#element-access)).
+*  Invocation of a predefined or user-defined operator referenced in an expression ([Unary operator overload resolution](expressions.md#unary-operator-overload-resolution) and [Binary operator overload resolution](expressions.md#binary-operator-overload-resolution)).
 
-これらの各コンテキストでは、上記のセクションで詳しく説明したように、候補となる関数メンバーのセットと引数のリストが独自の一意の方法で定義されています。 たとえば、メソッド呼び出しの候補のセットに `override` ([メンバー検索](expressions.md#member-lookup)) とマークされたメソッドは含まれません。派生クラスのメソッドが適用可能な場合 ([メソッド呼び出し](expressions.md#method-invocations))、基底クラスのメソッドは候補になりません。
+Each of these contexts defines the set of candidate function members and the list of arguments in its own unique way, as described in detail in the sections listed above. For example, the set of candidates for a method invocation does not include methods marked `override` ([Member lookup](expressions.md#member-lookup)), and methods in a base class are not candidates if any method in a derived class is applicable ([Method invocations](expressions.md#method-invocations)).
 
-候補の関数メンバーと引数リストが識別されると、最適な関数メンバーの選択は常に同じになります。
+Once the candidate function members and the argument list have been identified, the selection of the best function member is the same in all cases:
 
-*  適用候補の関数メンバーのセットが見つかった場合、そのセット内の最適な関数メンバーが配置されます。 セットに含まれる関数メンバーが1つだけの場合は、その関数メンバーが最適な関数メンバーになります。 それ以外の場合、最適な関数メンバーは、指定された引数リストに対する他のすべての関数メンバーと比較して適切な1つの関数メンバーになります。つまり、各関数メンバーは、[より優れた関数](expressions.md#better-function-member)メンバーの規則を使用して他のすべての関数メンバーと比較されます。 他のすべての関数メンバーよりも適切な関数メンバーが1つしかない場合は、関数メンバー呼び出しがあいまいになり、バインディング時エラーが発生します。
+*  Given the set of applicable candidate function members, the best function member in that set is located. If the set contains only one function member, then that function member is the best function member. Otherwise, the best function member is the one function member that is better than all other function members with respect to the given argument list, provided that each function member is compared to all other function members using the rules in [Better function member](expressions.md#better-function-member). If there is not exactly one function member that is better than all other function members, then the function member invocation is ambiguous and a binding-time error occurs.
 
-以下のセクションでは、***適用可能な関数メンバー***と、***より優れた関数メンバー***という用語の正確な意味を定義します。
+The following sections define the exact meanings of the terms ***applicable function member*** and ***better function member***.
 
-#### <a name="applicable-function-member"></a>適用可能な関数メンバー
+#### <a name="applicable-function-member"></a>Applicable function member
 
-関数メンバーは、次のすべてに該当する場合に、引数リストに対して***適用可能な関数メンバー***と呼ばれます `A`。
+A function member is said to be an ***applicable function member*** with respect to an argument list `A` when all of the following are true:
 
 *  `A` の各引数は、[対応するパラメーター](expressions.md#corresponding-parameters)で説明されているように、関数メンバー宣言内のパラメーターに対応します。引数が対応していないパラメーターは、省略可能なパラメーターです。
 *  `A`の引数ごとに、引数のパラメーター渡しモード (つまり、value、`ref`、または `out`) は、対応するパラメーターのパラメーター渡しモードと同じになります。
@@ -843,7 +843,7 @@ Tr M<X>(X x1 ... X xm)
 
 #### <a name="better-conversion-from-expression"></a>式からの変換の向上
 
-式の `E` から型 `T1`に変換する暗黙的な `C1` 変換と、式の `E` を型 `T2`に変換する暗黙的な変換 `C2` を指定した場合、`C1` が `C2` と完全に一致せず、次の少なくとも1つのが保持されていると、`E` よりも***変換が適切***になります。`T2`
+式の `E` から型 `T1`に変換する暗黙的な `C1` 変換と、式の `E` を型 `T2`に変換する暗黙的な変換 `C2` を指定した場合、`C1` が `C2` と完全に一致せず、次の少なくとも1つのが保持されていると、`E` よりも***変換が適切***になります。
 
 * `E` `T1` (正確に[一致する式](expressions.md#exactly-matching-expression)) と完全に一致します。
 * `T1` は `T2` よりも適切な変換ターゲットです ([変換ターゲットの方が適し](expressions.md#better-conversion-target)ています)。
@@ -868,7 +868,7 @@ Tr M<X>(X x1 ... X xm)
    * `D2` は void を返します。
    * `D2` に `S2`戻り値の型があり、`S1` がより適切な変換ターゲットです `S2`
 *  `T1` は `Task<S1>`、`T2` は `Task<S2>`、`S1` はより優れた変換ターゲットです `S2`
-*  `T1` は、`S1` が符号付き整数型であり、`T2` が符号なし整数型である `S2` または `S2?` である場合に `S1` または `S1?` ます。`S2` 具体的な内容は次のとおりです。
+*  `T1` は、`S1` が符号付き整数型であり、`T2` が符号なし整数型である `S2` または `S2?` である場合に `S1` または `S1?` ます。 具体的には、次のように使用します。
    * `S1` は `sbyte` で、`S2` は `byte`、`ushort`、`uint`、または `ulong`
    * `S1` は `short` で、`S2` は `ushort`、`uint`、または `ulong`
    * `S1` は `int` で `S2` は `uint`、または `ulong`
@@ -1165,7 +1165,7 @@ predefined_type
    *  最初に、`E` がプロパティまたはインデクサーアクセスである場合は、プロパティまたはインデクサーアクセスの値 ([式の値](expressions.md#values-of-expressions)) を取得し、`E` を値として再分類します。
    *  `I` が1つ以上のメソッドを識別する場合、結果は `E`のインスタンス式が関連付けられたメソッドグループになります。 型引数リストが指定されている場合は、ジェネリックメソッド ([メソッド呼び出し](expressions.md#method-invocations)) の呼び出しで使用されます。
    *  `I` インスタンスのプロパティを識別する場合は、
-      * `E` が `this`場合、`I` は自動的に実装されるプロパティ ([自動的に実装](classes.md#automatically-implemented-properties)されるプロパティ) を setter を指定せずに識別します。参照は、クラスまたは構造体の `T`型のインスタンスコンストラクター内で行われます。その後、結果は変数になります。つまり、`I` によって指定された `T` によって指定された自動`this`
+      * `E` が `this`場合、`I` は自動的に実装されるプロパティ ([自動的に実装](classes.md#automatically-implemented-properties)されるプロパティ) を setter を指定せずに識別します。参照は、クラスまたは構造体の `T`型のインスタンスコンストラクター内で行われます。その後、結果は変数になります。つまり、`I` によって指定された `T` によって指定された自動
       * それ以外の場合、結果は、 `E`のインスタンス式が関連付けられたプロパティアクセスになります。
    *  `T` が*class_type*で、`I` *class_type*のインスタンスフィールドを識別する場合は、次のようになります。
       * `E` の値が `null`場合は、`System.NullReferenceException` がスローされます。
@@ -1181,7 +1181,7 @@ predefined_type
 
 #### <a name="identical-simple-names-and-type-names"></a>同じ簡易名と型名
 
-`E.I`フォームのメンバーアクセスでは、`E` が単一の識別子であり、 *simple_name* ([簡易名](expressions.md#simple-names)) としての `E` の意味が、`E` ([名前空間と型名](basic-concepts.md#namespace-and-type-names)) とし*て type_name の*意味と同じ型を持つ定数、フィールド、プロパティ、ローカル変数、またはパラメーターである場合、`E` の両方の意味を持つことができます。 `I` は常に `E` 型のメンバーである必要があるため、`E.I` の2つの意味があいまいになることはありません。 つまり、この規則は、コンパイル時エラーが発生した `E` の静的メンバーおよび入れ子にされた型へのアクセスを許可するだけです。 例 :
+`E.I`フォームのメンバーアクセスでは、`E` が単一の識別子であり、 *simple_name* ([簡易名](expressions.md#simple-names)) としての `E` の意味が、`E` ([名前空間と型名](basic-concepts.md#namespace-and-type-names)) とし*て type_name の*意味と同じ型を持つ定数、フィールド、プロパティ、ローカル変数、またはパラメーターである場合、`E` の両方の意味を持つことができます。 `I` は常に `E` 型のメンバーである必要があるため、`E.I` の2つの意味があいまいになることはありません。 つまり、この規則は、コンパイル時エラーが発生した `E` の静的メンバーおよび入れ子にされた型へのアクセスを許可するだけです。 例:
 ```csharp
 struct Color
 {
@@ -1333,7 +1333,7 @@ C . identifier < typeargs > ( expr , args )
 
 `C` をターゲットとして使用すると、メソッドの呼び出しは静的メソッドの呼び出しとして処理されます ([動的なオーバーロードの解決のコンパイル時のチェック](expressions.md#compile-time-checking-of-dynamic-overload-resolution))。
 
-上記の規則は、インスタンスメソッドが拡張メソッドよりも優先されることを意味します。内部名前空間宣言で使用できる拡張メソッドは、外側の名前空間宣言で使用できる拡張メソッドよりも優先されます。名前空間で直接宣言されたメソッドは、using namespace ディレクティブを使用して同じ名前空間にインポートされた拡張メソッドよりも優先されます。 例 :
+上記の規則は、インスタンスメソッドが拡張メソッドよりも優先されることを意味します。内部名前空間宣言で使用できる拡張メソッドは、外側の名前空間宣言で使用できる拡張メソッドよりも優先されます。名前空間で直接宣言されたメソッドは、using namespace ディレクティブを使用して同じ名前空間にインポートされた拡張メソッドよりも優先されます。 例:
 ```csharp
 public static class E
 {
@@ -1886,7 +1886,7 @@ new int[3, 2] {{0, 1}, {2, 3}, {4, 5}}
 *  新しい配列インスタンスのすべての要素は、既定値 ([既定値](variables.md#default-values)) に初期化されます。
 *  配列作成式に配列初期化子が含まれている場合は、配列初期化子内の各式が評価され、対応する配列要素に代入されます。 評価と割り当ては、配列初期化子で式が記述されている順序で実行されます。つまり、要素は、一番右にあるディメンションが優先され、インデックスの昇順で初期化されます。 指定された式の評価、または対応する配列要素への後続の代入によって例外が発生した場合、それ以上要素は初期化されません (残りの要素には既定値が設定されます)。
 
-配列作成式では、配列型の要素を含む配列のインスタンス化が許可されますが、このような配列の要素は手動で初期化する必要があります。 ステートメントの例を次に示します。
+配列作成式では、配列型の要素を含む配列のインスタンス化が許可されますが、このような配列の要素は手動で初期化する必要があります。 たとえば、次のステートメントは
 ```csharp
 int[][] a = new int[100][];
 ```
@@ -1919,7 +1919,7 @@ var d = new[] { 1, "one", 2, "two" };                     // Error
 
 最後の式では、`int` も `string` も暗黙的に他方に変換できないため、コンパイル時エラーが発生します。したがって、最適な共通型はありません。 この場合は、`object[]`する型を指定するなど、明示的に型指定された配列作成式を使用する必要があります。 または、要素の1つを共通の基本型にキャストして、その要素の型が推論されるようにすることもできます。
 
-暗黙的に型指定された配列作成式を匿名オブジェクト初期化子 ([匿名オブジェクト作成式](expressions.md#anonymous-object-creation-expressions)) と組み合わせて、匿名型のデータ構造を作成することができます。 例 :
+暗黙的に型指定された配列作成式を匿名オブジェクト初期化子 ([匿名オブジェクト作成式](expressions.md#anonymous-object-creation-expressions)) と組み合わせて、匿名型のデータ構造を作成することができます。 例:
 ```csharp
 var contacts = new[] {
     new {
@@ -2254,7 +2254,7 @@ class Test
 ```
 `F` での `checked` の使用は `Multiply`の `x * y` の評価には影響しないため、既定のオーバーフローチェックコンテキストで `x * y` が評価されます。
 
-`unchecked` 演算子は、符号付き整数型の定数を16進表記で記述する場合に便利です。 例 :
+`unchecked` 演算子は、符号付き整数型の定数を16進表記で記述する場合に便利です。 例:
 ```csharp
 class Test
 {
@@ -2368,7 +2368,7 @@ null_conditional_operations
 
 操作の一覧には、メンバーアクセスと要素アクセス操作 (それ自体が null 条件の場合もあります)、および呼び出しを含めることができます。
 
-たとえば、`a.b?[0]?.c()` 式は、 *primary_expression* `a.b` *、null_conditional_operations (* null 条件要素アクセス)、`?[0]` (null 条件メンバーアクセス)、`?.c` (呼び出し) を持つ*null_conditional_expression*です。`()`
+たとえば、`a.b?[0]?.c()` 式は、 *primary_expression* `a.b` *、null_conditional_operations (* null 条件要素アクセス)、`?[0]` (null 条件メンバーアクセス)、`?.c` (呼び出し) を持つ*null_conditional_expression*です。
 
 *Primary_expression* `P`の*null_conditional_expression* `E` については、`E0` を持つ `?` の各*null_conditional_operations*から先頭の `E` を削除することによって得られる式にすることができます。 概念的には、`E0` は、`?`によって表される null チェックに `null`が見つからない場合に評価される式です。
 
@@ -2598,7 +2598,7 @@ cast_expression
 
 上記の "正しい文法" という用語は、トークンのシーケンスが、特定の文章の作成に準拠している必要があることを意味します。 具体的には、構成要素の実際の意味は考慮されません。 たとえば、`x` と `y` が識別子の場合、`x.y` が実際に型を表していない場合でも、`x.y` は型の正しい文法です。
 
-これは、`x` と `y` が識別子である場合、`(x)y`、`(x)(y)`、および `(x)(-y)` が*cast_expression*であるにもかかわらず、`(x)-y` が型を識別する場合でも、この規則に従っています。`x` ただし、`x` が定義済みの型 (`int`など) を識別するキーワードである場合、4つのすべての形式が*cast_expression*ます (このようなキーワードは、式自体ではない可能性があります)。
+これは、`x` と `y` が識別子である場合、`(x)y`、`(x)(y)`、および `(x)(-y)` が*cast_expression*であるにもかかわらず、`(x)-y` が型を識別する場合でも、この規則に従っています。 ただし、`x` が定義済みの型 (`int`など) を識別するキーワードである場合、4つのすべての形式が*cast_expression*ます (このようなキーワードは、式自体ではない可能性があります)。
 
 ### <a name="await-expressions"></a>Await 式
 
@@ -2708,7 +2708,7 @@ additive_expression
 
    |      |      |      |     |     |      |      |     |
    |:----:|-----:|:----:|:---:|:---:|:----:|:----:|:----|
-   |      | \+ y   | -y   | +0  | 横-0  | +inf | -inf | NaN | 
+   |      | +y   | -y   | +0  | 横-0  | +inf | -inf | NaN | 
    | +x   | \+ z   | -z   | +0  | 横-0  | +inf | -inf | NaN | 
    | -x   | -z   | \+ z   | 横-0  | +0  | -inf | +inf | NaN | 
    | +0   | +0   | 横-0   | +0  | 横-0  | NaN  | NaN  | NaN | 
@@ -2760,7 +2760,7 @@ additive_expression
 
    |      |      |      |      |      |      |      |      |
    |:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-   |      | \+ y   | -y   | +0   | 横-0   | +inf | -inf | NaN  | 
+   |      | +y   | -y   | +0   | 横-0   | +inf | -inf | NaN  | 
    | +x   | \+ z   | -z   | +inf | -inf | +0   | 横-0   | NaN  | 
    | -x   | -z   | \+ z   | -inf | +inf | 横-0   | +0   | NaN  | 
    | +0   | +0   | 横-0   | NaN  | NaN  | +0   | 横-0   | NaN  | 
@@ -2810,8 +2810,8 @@ additive_expression
 
    |      |      |      |      |      |      |      |      |
    |:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-   |      | \+ y   | -y   | +0   | 横-0   | +inf | -inf | NaN  | 
-   | +x   | \+ z   | \+ z   | NaN  | NaN  | x    | x    | NaN  | 
+   |      | +y   | -y   | +0   | 横-0   | +inf | -inf | NaN  | 
+   | +x   | \+ z   | \+ z   | NaN  | NaN  | X    | X    | NaN  | 
    | -x   | -z   | -z   | NaN  | NaN  | -x   | -x   | NaN  | 
    | +0   | +0   | +0   | NaN  | NaN  | +0   | +0   | NaN  | 
    | 横-0   | 横-0   | 横-0   | NaN  | NaN  | 横-0   | 横-0   | NaN  | 
@@ -2858,10 +2858,10 @@ additive_expression
 
    |      |      |      |      |      |      |      |
    |:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-   |      | y    | +0   | 横-0   | +inf | -inf | NaN  | 
-   | x    | z    | x    | x    | +inf | -inf | NaN  | 
-   | +0   | y    | +0   | +0   | +inf | -inf | NaN  | 
-   | 横-0   | y    | +0   | 横-0   | +inf | -inf | NaN  | 
+   |      | Y    | +0   | 横-0   | +inf | -inf | NaN  | 
+   | X    | z    | X    | X    | +inf | -inf | NaN  | 
+   | +0   | Y    | +0   | +0   | +inf | -inf | NaN  | 
+   | 横-0   | Y    | +0   | 横-0   | +inf | -inf | NaN  | 
    | +inf | +inf | +inf | +inf | +inf | NaN  | NaN  | 
    | -inf | -inf | -inf | -inf | NaN  | -inf | NaN  | 
    | NaN  | NaN  | NaN  | NaN  | NaN  | NaN  | NaN  | 
@@ -2951,8 +2951,8 @@ additive_expression
 
    |      |      |      |      |      |      |     |
    |:----:|:----:|:----:|:----:|:----:|:----:|:---:|
-   |      | y    | +0   | 横-0   | +inf | -inf | NaN | 
-   | x    | z    | x    | x    | -inf | +inf | NaN | 
+   |      | Y    | +0   | 横-0   | +inf | -inf | NaN | 
+   | X    | z    | X    | X    | -inf | +inf | NaN | 
    | +0   | -y   | +0   | +0   | -inf | +inf | NaN | 
    | 横-0   | -y   | 横-0   | +0   | -inf | +inf | NaN | 
    | +inf | +inf | +inf | +inf | NaN  | +inf | NaN | 
@@ -2989,7 +2989,7 @@ additive_expression
    D operator -(D x, D y);
    ```
 
-   二項 `-` 演算子は、両方のオペランドがデリゲート型 `D`である場合に、デリゲートの削除を実行します。 オペランドのデリゲート型が異なる場合、バインド時エラーが発生します。 最初のオペランドが `null` の場合は、演算結果は `null` になります。 それ以外の場合、2番目のオペランドが `null`場合、演算の結果は最初のオペランドの値になります。 それ以外の場合、どちらのオペランドも1つ以上のエントリを持つ呼び出しリスト ([デリゲート宣言](delegates.md#delegate-declarations)) を表します。結果は、2番目のオペランドのリストが最初ののサブリストである場合に、2番目のオペランドのエントリが削除された最初のオペランドリストで構成される新しい呼び出しリストになります。     (サブリストが等しいかどうかを判断するために、対応するエントリは、デリゲート等値演算子 ([デリゲート等値演算子](expressions.md#delegate-equality-operators)) と比較されます。それ以外の場合、結果は左オペランドの値になります。 このプロセスでは、オペランドのリストはいずれも変更されません。 2番目のオペランドのリストが、最初のオペランドのリスト内の連続するエントリの複数のサブリストと一致する場合、連続するエントリの右側に一致するサブリストが削除されます。 削除によりリストが空になる場合、結果は `null` になります。 例 :
+   二項 `-` 演算子は、両方のオペランドがデリゲート型 `D`である場合に、デリゲートの削除を実行します。 オペランドのデリゲート型が異なる場合、バインド時エラーが発生します。 最初のオペランドが `null` の場合は、演算結果は `null` になります。 それ以外の場合、2番目のオペランドが `null`場合、演算の結果は最初のオペランドの値になります。 それ以外の場合、どちらのオペランドも1つ以上のエントリを持つ呼び出しリスト ([デリゲート宣言](delegates.md#delegate-declarations)) を表します。結果は、2番目のオペランドのリストが最初ののサブリストである場合に、2番目のオペランドのエントリが削除された最初のオペランドリストで構成される新しい呼び出しリストになります。     (サブリストが等しいかどうかを判断するために、対応するエントリは、デリゲート等値演算子 ([デリゲート等値演算子](expressions.md#delegate-equality-operators)) と比較されます。それ以外の場合、結果は左オペランドの値になります。 このプロセスでは、オペランドのリストはいずれも変更されません。 2番目のオペランドのリストが、最初のオペランドのリスト内の連続するエントリの複数のサブリストと一致する場合、連続するエントリの右側に一致するサブリストが削除されます。 削除によりリストが空になる場合、結果は `null` になります。 例:
 
    ```csharp
    delegate void D(int x);
@@ -3067,7 +3067,7 @@ shift_expression
 
    `>>` 演算子は、次に示すように、計算されたビット数だけ右に `x` をシフトします。
 
-   `x` が `int` または `long`型の場合、`x` の下位ビットは破棄され、残りのビットは右にシフトされます。また、`x` が負ではない場合、上位の空のビット位置は0に設定されます。`x`
+   `x` が `int` または `long`型の場合、`x` の下位ビットは破棄され、残りのビットは右にシフトされます。また、`x` が負ではない場合、上位の空のビット位置は0に設定されます。
 
    `x` が `uint` または `ulong`型の場合、`x` の下位ビットは破棄され、残りのビットは右にシフトされ、上位の空のビット位置は0に設定されます。
 
@@ -3374,7 +3374,7 @@ null != x
    * `E` の型が null 許容型である場合、`D` はその null 許容型の基になる型です。
    * `E` の型が null 非許容の値型の場合、`D` は `E`の型になります。
 *  操作の結果は `D` と `T` によって次のように異なります。
-   * `T` が参照型の場合、結果は true になります。これは、`D` と `T` が同じ型である場合、`D` が参照型である場合、および `D` から `T` 存在する暗黙的な参照変換である場合、または `D` から `D` へのボックス変換が存在する場合に発生します。`T`
+   * `T` が参照型の場合、結果は true になります。これは、`D` と `T` が同じ型である場合、`D` が参照型である場合、および `D` から `T` 存在する暗黙的な参照変換である場合、または `D` から `D` へのボックス変換が存在する場合に発生します。
    * `T` が null 許容型である場合、`D` が `T`の基になる型である場合、結果は true になります。
    * `T` が null 非許容の値型である場合、`D` と `T` が同じ型である場合、結果は true になります。
    * それ以外の場合、結果は false になります。
@@ -3471,7 +3471,7 @@ long operator ^(long x, long y);
 ulong operator ^(ulong x, ulong y);
 ```
 
-`&` 演算子は、2つのオペランドのビットごとの論理 `AND` を計算します。 `|` `OR` 演算子は、2つのオペランドのビットごとの論理和を計算し、`^` 演算子は2つのオペランドのビットごとの論理和を計算します。`OR` これらの操作によってオーバーフローが発生することはありません。
+`&` 演算子は、2つのオペランドのビットごとの論理 `AND` を計算します。 `|` `OR` 演算子は、2つのオペランドのビットごとの論理和を計算し、`^` 演算子は2つのオペランドのビットごとの論理和を計算します。 これらの操作によってオーバーフローが発生することはありません。
 
 ### <a name="enumeration-logical-operators"></a>列挙論理演算子
 
@@ -3494,7 +3494,7 @@ bool operator |(bool x, bool y);
 bool operator ^(bool x, bool y);
 ```
 
-`x & y` と `true` の両方が `x` であれば、`y` の結果は `true` です。 それ以外の場合、結果は `false` です。
+`x` と `y` の両方が `true` であれば、`x & y` の結果は `true` です。 それ以外の場合、結果は `false` です。
 
 `x` または `y` が `true`の場合、`x | y` の結果は `true` です。 それ以外の場合、結果は `false` です。
 
@@ -3546,7 +3546,7 @@ conditional_or_expression
 
 条件付き論理演算子のオペランドに `dynamic`コンパイル時の型がある場合、式は動的にバインドされます ([動的バインド](expressions.md#dynamic-binding))。 この場合、式のコンパイル時の型は `dynamic`であり、以下に示す解決方法は、コンパイル時の型 `dynamic`を持つオペランドの実行時の型を使用して実行時に実行されます。
 
-`x && y` または `x || y` の形式の操作は、操作が `x & y` または `x | y`に記述されているかのように、オーバーロードの解決 ([二項演算子のオーバーロードの解決](expressions.md#binary-operator-overload-resolution)) を適用することによって処理されます。 そうしたら
+`x && y` または `x || y` の形式の操作は、操作が `x & y` または `x | y`に記述されているかのように、オーバーロードの解決 ([二項演算子のオーバーロードの解決](expressions.md#binary-operator-overload-resolution)) を適用することによって処理されます。 このとき、次のようになります。
 
 *  オーバーロードの解決が1つの最適な演算子を見つけることができない場合、またはオーバーロードの解決で定義済みの整数の論理演算子が1つ選択された場合、バインド時エラーが発生します。
 *  それ以外の場合、選択した演算子が、定義済みのブール型論理演算子 ([ブール](expressions.md#boolean-logical-operators)型論理演算子) または null 許容ブール値論理演算子 ([null 許容のブール値論理](expressions.md#nullable-boolean-logical-operators)演算子) のいずれかである場合、この操作は、「[ブール条件論理演算子](expressions.md#boolean-conditional-logical-operators)」の説明に従って処理されます。
@@ -3592,7 +3592,7 @@ null_coalescing_expression
 
 Null 合体演算子は、右から左の操作がグループ化されていることを意味します。 たとえば、`a ?? b ?? c` フォームの式は `a ?? (b ?? c)`として評価されます。 一般的に、`E1 ?? E2 ?? ... ?? En` 形式の式では、null 以外のオペランドの最初の値が返されます。すべてのオペランドが null の場合は null になります。
 
-`a ?? b` 式の型は、オペランドで使用できる暗黙の変換によって異なります。 優先順位では、`a ?? b` の型は `A0`、`A`、または `B`です。ここで `A` は `a` の型 (`a` に型がある場合)、`B` が null 許容型である場合は `b` の基になる型であり、それ以外の場合は `b` になります。`A0``A``A``A` 具体的には、`a ?? b` は次のように処理されます。
+`a ?? b` 式の型は、オペランドで使用できる暗黙の変換によって異なります。 優先順位では、`a ?? b` の型は `A0`、`A`、または `B`です。ここで `A` は `a` の型 (`a` に型がある場合)、`B` が null 許容型である場合は `b` の基になる型であり、それ以外の場合は `b` になります。 具体的には、`a ?? b` は次のように処理されます。
 
 *  `A` が存在し、null 許容型または参照型でない場合は、コンパイル時エラーが発生します。
 *  `b` が動的な式の場合、結果の型は `dynamic`になります。 実行時には、`a` が最初に評価されます。 `a` が null でない場合、`a` は動的に変換され、これが結果になります。 それ以外の場合は `b` が評価され、これが結果になります。
@@ -3913,7 +3913,7 @@ static D[] F() {
     return result;
 }
 ```
-出力は次のとおりです。
+この場合、出力は次のようになります。
 ```console
 5
 5
@@ -4747,7 +4747,7 @@ r.B.Y = 100;
 
 複合代入の左オペランドが `E.P` または `E[Ei]` の形式で、`E` がコンパイル時の型 `dynamic`を持つ場合、割り当ては動的にバインドされます ([動的バインド](expressions.md#dynamic-binding))。 この場合、代入式のコンパイル時の型は `dynamic`であり、以下に説明する解決方法は、`E`の実行時の型に基づいて実行時に行われます。
 
-`x op= y` フォームの操作は、演算が `x op y`書き込まれたかのように、二項演算子のオーバーロードの解決 ([二項演算子のオーバーロードの解決](expressions.md#binary-operator-overload-resolution)) を適用することによって処理されます。 そうしたら
+`x op= y` フォームの操作は、演算が `x op y`書き込まれたかのように、二項演算子のオーバーロードの解決 ([二項演算子のオーバーロードの解決](expressions.md#binary-operator-overload-resolution)) を適用することによって処理されます。 このとき、次のようになります。
 
 *  選択した演算子の戻り値の型が `x`の型に暗黙的に変換可能な場合、`x` が1回だけ評価される点を除いて、操作は `x = x op y`として評価されます。
 *  また、選択した演算子が定義済みの演算子である場合、選択した演算子の戻り値の型が `x`の型に明示的に変換可能で、`y` が `x` の型に暗黙的に変換可能であるか、または演算子がシフト演算子の場合は、`T` が1回だけ評価される点を除い `x = (T)(x op y)`て、`x`は `x` の型です
@@ -4792,7 +4792,7 @@ i += 1;             // Ok
 
 イベントの割り当て式では、値は生成されません。 したがって、イベントの割り当て式は、 *statement_expression* ([式ステートメント](statements.md#expression-statements)) のコンテキストでのみ有効です。
 
-## <a name="expression"></a>式
+## <a name="expression"></a>[式]
 
 *式*は、 *non_assignment_expression*または*代入*のいずれかです。
 
@@ -4819,7 +4819,7 @@ constant_expression
     ;
 ```
 
-定数式は、`null` リテラル、または次のいずれかの型の値である必要があります: `sbyte`、`byte`、`short`、`ushort`、`int`、`uint`、`long`、`ulong`、`char`、`float`、`double`、または任意の列挙型。`decimal``bool``object``string` 定数式では、次のコンストラクトのみを使用できます。
+定数式は、`null` リテラル、または次のいずれかの型の値である必要があります: `sbyte`、`byte`、`short`、`ushort`、`int`、`uint`、`long`、`ulong`、`char`、`float`、`double`、または任意の列挙型。 定数式では、次のコンストラクトのみを使用できます。
 
 *  リテラル (`null` リテラルを含む)。
 *  クラス型および構造体型の `const` メンバーへの参照。
@@ -4842,7 +4842,7 @@ constant_expression
 *  定数式の変換
 *  変換元が null 値に評価される定数式である場合、暗黙的および明示的な参照変換。
 
-非 null 値のボックス化、ボックス化解除、および暗黙的な参照変換を含むその他の変換は、定数式では許可されません。 例 :
+非 null 値のボックス化、ボックス化解除、および暗黙的な参照変換を含むその他の変換は、定数式では許可されません。 例:
 ```csharp
 class C {
     const object i = 5;         // error: boxing conversion not permitted
