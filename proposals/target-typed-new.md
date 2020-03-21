@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 4e2a536bab00859b003e8d967cb1927a99a9fa21
-ms.sourcegitcommit: 94a3d151c438d34ede1d99de9eb4ebdc07ba4699
+ms.openlocfilehash: 38740069a2e105f920fa275c443f4560055e2901
+ms.sourcegitcommit: 9aa177443b83116fe1be2ab28e2c7291947fe32d
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "79483530"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80108371"
 ---
 
 # <a name="target-typed-new-expressions"></a>ターゲット型の `new` 式
@@ -14,7 +14,7 @@ ms.locfileid: "79483530"
 * [] の実装
 * [] 仕様
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 [summary]: #summary
 
 型がわかっている場合は、コンストラクターの型指定を必要としません。 
@@ -28,14 +28,17 @@ Dictionary<string, List<int>> field = new() {
     { "item1", new() { 1, 2, 3 } }
 };
 ```
+
 使用法から推論できる場合は、型の省略を許可します。
 ```cs
 XmlReader.Create(reader, new() { IgnoreWhitespace = true });
 ```
+
 型のスペルを修正せずにオブジェクトをインスタンス化します。
 ```cs
 private readonly static object s_syncObj = new();
 ```
+
 ## <a name="detailed-design"></a>詳細なデザイン
 [design]: #detailed-design
 
@@ -46,14 +49,15 @@ object_creation_expression
     | 'new' type object_or_collection_initializer
     ;
 ```
+
 ターゲット型の `new` は、任意の型に変換できます。 そのため、オーバーロードの解決には関与しません。 これは主に、予期しない重大な変更を回避するためのものです。
 
 引数リストと初期化子式は、型が決定された後にバインドされます。
 
 式の型は、次のいずれかである必要があるターゲット型から推論されます。
 
-- **任意の構造体型**
-- **任意の参照型**
+- **任意の構造体型**(タプル型を含む)
+- **任意の参照型**(デリゲート型を含む)
 - コンストラクターまたは `struct` 制約を持つ**任意の型パラメーター**
 
 次の例外があります。
@@ -61,9 +65,11 @@ object_creation_expression
 - **列挙型:** すべての列挙型に定数ゼロが含まれていないため、明示的な enum メンバーを使用することをお勧めします。
 - **インターフェイス型:** これはニッチ機能であり、型を明示的に言及することをお勧めします。
 - **配列型:** 配列の長さを指定するには、特別な構文が必要です。
-- **構造体の既定のコンストラクター**: この規則により、すべてのプリミティブ型とほとんどの値の型が除外されます。 このような型の既定値を使用する場合は、代わりに `default` を記述できます。
+- **動的:** `new dynamic()`は許可されていないため、`dynamic` を対象の型として `new()` することはできません。
 
 *Object_creation_expression*で許可されていないその他のすべての型も、ポインター型など、除外されます。
+
+対象の型が null 許容の値型である場合、対象の型指定された `new` は、null 許容型ではなく、基になる型に変換されます。
 
 > **懸案事項を開く:** デリゲートとタプルをターゲットタイプとして許可する必要がありますか。
 
@@ -75,35 +81,37 @@ Action a = new(() => {}); // "new" is redundant
 (int a, int b) t = new(); // ruled out by "use of struct default constructor"
 Action a = new(); // no constructor found
 
-var x = new() == (1, 2); // ruled out by "use of struct default constructor"
-var x = new(1, 2) == (1, 2) // "new" is redundant
-```
+### Miscellaneous
 
+`throw new()` is disallowed.
 
-> **懸案事項を開く:** `Exception` をターゲットの種類として `throw new()` できるようにする必要がありますか。
+Target-typed `new` is not allowed with binary operators.
 
-現在 `throw null` していますが、`throw default` はありません (ただし、同じ効果があります)。 一方、`throw new()` は、`throw new Exception(...)`の短縮形として実際に役立つ可能性があります。 現在の仕様によって既に許可されていることに注意してください。 `Exception` は参照型であり、throw ステートメントの仕様では、式が `Exception`に変換されることを示します。
+It is disallowed when there is no type to target: unary operators, collection of a `foreach`, in a `using`, in a deconstruction, in an `await` expression, as an anonymous type property (`new { Prop = new() }`), in a `lock` statement, in a `sizeof`, in a `fixed` statement, in a member access (`new().field`), in a dynamically dispatched operation (`someDynamic.Method(new())`), in a LINQ query, as the operand of the `is` operator, as the left operand of the `??` operator,  ...
 
-> **懸案事項を開く:** ユーザー定義の比較演算子と算術演算子を使用して、ターゲット型の `new` の使用を許可する必要がありますか。
+It is also disallowed as a `ref`.
 
-比較のために、`default` でサポートされるのは、等値 (ユーザー定義および組み込み) 演算子だけです。 `new()` のために他の演算子をサポートすることは理にかなっていますか。
-
-## <a name="drawbacks"></a>短所
+## Drawbacks
 [drawbacks]: #drawbacks
 
-[なし] :
+There were some concerns with target-typed `new` creating new categories of breaking changes, but we already have that with `null` and `default`, and that has not been a significant problem.
 
-## <a name="alternatives"></a>代替
+## Alternatives
 [alternatives]: #alternatives
 
-フィールドの初期化時に型引数が長すぎることに関する苦情のほとんどは、型自体で*はない型*引数に関するものであり、`new Dictionary(...)` (または同様) のような型引数だけを推論し、引数またはコレクション初期化子からローカルに型引数を推論することもできます。
+Most of complaints about types being too long to duplicate in field initialization is about *type arguments* not the type itself, we could infer only type arguments like `new Dictionary(...)` (or similar) and infer type arguments locally from arguments or the collection initializer.
 
-## <a name="questions"></a>疑問がある場合
+## Questions
 [questions]: #questions
 
-- 式ツリーで使用できないようにする必要がありますか。 番号
-- 機能が `dynamic` の引数とどのように連動するか。 (特別な処理はありません)
-- IntelliSense での `new()`の使用方法 (1 つのターゲット型がある場合のみ)
-## <a name="design-meetings"></a>会議のデザイン
+- Should we forbid usages in expression trees? (no)
+- How the feature interacts with `dynamic` arguments? (no special treatment)
+- How IntelliSense should work with `new()`? (only when there is a single target-type)
+
+## Design meetings
 
 - [LDM-2017-10-18](https://github.com/dotnet/csharplang/blob/master/meetings/2017/LDM-2017-10-18.md#100)
+- [LDM-2018-05-21](https://github.com/dotnet/csharplang/blob/master/meetings/2018/LDM-2018-05-21.md)
+- [LDM-2018-06-25](https://github.com/dotnet/csharplang/blob/master/meetings/2018/LDM-2018-06-25.md)
+- [LDM-2018-08-22](https://github.com/dotnet/csharplang/blob/master/meetings/2018/LDM-2018-08-22.md#target-typed-new)
+- [LDM-2018-10-17](https://github.com/dotnet/csharplang/blob/master/meetings/2018/LDM-2018-10-17.md)
