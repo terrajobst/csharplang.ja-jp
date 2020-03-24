@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: d6519ff57b4a98c4eec8ccbf310303432ac3255e
-ms.sourcegitcommit: 65ea1e6dc02853e37e7f2088e2b6cc08d01d1044
+ms.openlocfilehash: 50f2bd2d0a84064cfe35fe65b9e5c59c052d19ac
+ms.sourcegitcommit: 1dbb8e82bed5012a58a3a035bf2c3737ed570d07
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "79483950"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80122949"
 ---
 # <a name="ranges"></a>範囲
 
-## <a name="summary"></a>まとめ
+## <a name="summary"></a>要約
 
 この機能は、`System.Index` と `System.Range` オブジェクトの構築を可能にし、実行時にそれらを使用してコレクションのインデックス作成とスライスを行うことができる2つの新しい演算子を提供することです。
 
@@ -100,7 +100,7 @@ C#には、コレクションの "範囲" または "スライス" にアクセ�
 
 この言語では、新しい範囲演算子 `x..y`が導入されます。 2つの式を受け取るバイナリ挿入演算子です。 どちらのオペランドも省略できます (以下の例を参照)。 `System.Index`に変換可能である必要があります。 このメソッドは、適切な `System.Range` ファクトリメソッド呼び出しに下げられます。
 
-\- C# *Multiplicative_expression*の文法規則を次のように置き換えます (新しい優先順位を導入するため)。
+C# *Multiplicative_expression*の文法規則を次のように置き換えます (新しい優先順位を導入するため)。
 
 ```antlr
 range_expression
@@ -149,14 +149,14 @@ var multiDimensional = list[1..2, ..]   // list[Range.Create(1, 2), Range.All]
 
 型は、`Length` という名前のプロパティがある場合、またはアクセス可能な getter と戻り値の型が `int`の `Count` である場合に、***不可能***になります。 この言語では、このプロパティを使用して `Index` 型の式を式の位置で `int` に変換することができます。 `Index` 型を使用する必要はありません。 `Length` と `Count` の両方が存在する場合は、`Length` が優先されます。 わかりやすくするために、提案では、`Count` または `Length`を表すために `Length` という名前を使用します。
 
-このような型の場合、言語は `T this[Index index]` フォームのインデックスメンバーがあるかのように動作します。 `T` は、`ref` スタイルの注釈を含む `int` ベースのインデクサーの戻り値の型です。 新しいメンバーには、`int` インデクサーと一致するアクセシビリティを持つメンバーと同じ `get` と `set` が設定されます。 
+このような型の場合、言語は `T this[Index index]` フォームのインデクサーメンバーがあるかのように動作します。 `T` は、`ref` スタイルの注釈を含む `int` ベースのインデクサーの戻り値の型です。 新しいメンバーには、`int` インデクサーと一致するアクセシビリティを持つメンバーと同じ `get` と `set` が設定されます。 
 
-`Index` 型の引数を `int` に変換し、`int` ベースのインデクサーへの呼び出しを出力することによって、新しいインデクサーが実装されます。 説明のために、`receiver[expr]`の例を使用します。 `expr` から `int` への変換は次のように行われます。
+`Index` 型の引数を `int` に変換し、`int` ベースのインデクサーへの呼び出しを出力することによって、新しいインデクサーが実装されます。 説明のために、`receiver[expr]`の例を使用してみましょう。 `expr` から `int` への変換は次のように行われます。
 
 - 引数が `^expr2` の形式で、`expr2` の型が `int`場合、その引数は `receiver.Length - expr2`に変換されます。
 - それ以外の場合は、`expr.GetOffset(receiver.Length)`として変換されます。
 
-これにより、開発者は、既存の型で `Index` 機能を使用して、変更を加える必要がなくなります。 次に例を示します。
+これにより、開発者は、既存の型で `Index` 機能を使用して、変更を加える必要がなくなります。 例 :
 
 ``` csharp
 List<char> list = ...;
@@ -166,7 +166,7 @@ var value = list[^1];
 var value = list[list.Count - 1]; 
 ```
 
-`receiver` と `Length` の式は、副作用が1回だけ実行されるように、必要に応じて書き込まれます。 次に例を示します。
+`receiver` と `Length` の式は、副作用が1回だけ実行されるように、必要に応じて書き込まれます。 例 :
 
 ``` csharp
 class Collection {
@@ -205,11 +205,11 @@ class SideEffect {
 - 型には、`int`型の2つのパラメーターを持つ `Slice` という名前のアクセス可能なメンバーがあります。
 - この型には、最初のパラメーターとして1つの `Range` を受け取るインスタンスインデクサーがありません。 `Range` は唯一のパラメーターであるか、またはその他のパラメーターは省略可能である必要があります。
 
-このような型の場合、言語は `T this[Range range]` フォームのインデックスメンバーがあるかのようにバインドされます。 `T` は `Slice` メソッドの戻り値の型であり、`ref` スタイルの注釈が含まれます。 また、新しいメンバーのアクセシビリティは、`Slice`と一致します。 
+このような型の場合、言語は `T this[Range range]` フォームのインデクサーメンバーがあるかのようにバインドされます。 `T` は `Slice` メソッドの戻り値の型であり、`ref` スタイルの注釈が含まれます。 また、新しいメンバーのアクセシビリティは、`Slice`と一致します。 
 
-`Range` ベースのインデクサーが `receiver`という名前の式でバインドされている場合、`Range` 式を2つの値に変換し、その後 `Slice` メソッドに渡されることで、このインデクサーは減少します。 説明のために、`receiver[expr]`の例を使用します。
+`Range` ベースのインデクサーが `receiver`という名前の式でバインドされている場合、`Range` 式を2つの値に変換し、その後 `Slice` メソッドに渡されることで、このインデクサーは減少します。 説明のために、`receiver[expr]`の例を使用してみましょう。
 
-`Slice` の最初の引数は、次のように型指定された式を変換することによって取得されます。
+`Slice` の最初の引数は、次のように、型指定された式を次のように変換することによって取得します。
 
 - `expr` の形式が `expr1..expr2` (`expr2` は省略可能) で、`expr1` の型が `int`の場合、`expr1`として出力されます。
 - `expr` が `^expr1..expr2` 形式 (`expr2` を省略できる) の場合、`receiver.Length - expr1`として出力されます。
@@ -223,7 +223,7 @@ class SideEffect {
 - `expr` が `expr1..` 形式 (`expr1` を省略できる) の場合、`receiver.Length - start`として出力されます。
 - それ以外の場合は、`expr.End.GetOffset(receiver.Length) - start`として出力されます。
 
-`receiver`、`Length`、および `expr` の式は、副作用が1回だけ実行されるようにするために必要に応じて書き込まれます。 次に例を示します。
+`receiver`、`Length`、および `expr` 式は、副作用が1回だけ実行されるようにするために必要に応じて書き込まれます。 例 :
 
 ``` csharp
 class Collection {
@@ -319,7 +319,7 @@ class SideEffect {
 - `expr` が `^expr2` フォームで、`expr2` の種類が `int`場合、`receiver.Length - expr2`に変換されます。
 - それ以外の場合は、`expr.GetOffset(receiver.Length)`として変換されます。
 
-`receiver` と `Length` の式は、副作用が1回だけ実行されるように、必要に応じて書き込まれます。 次に例を示します。
+`receiver` と `Length` の式は、副作用が1回だけ実行されるように、必要に応じて書き込まれます。 例 :
 
 ``` csharp
 class Collection {
