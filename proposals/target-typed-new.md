@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 07b4afe4a3fcbf10c978f05e642dfd8a47d53ea5
-ms.sourcegitcommit: 194a043db72b9244f8db45db326cc82de6cec965
+ms.openlocfilehash: f000dda7eeb1c4f17c26f94c326a12a9d0014288
+ms.sourcegitcommit: 1e1c7c72b156e2fbc54d6d6ac8d21bca9934d8d2
 ms.translationtype: MT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80217204"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80281971"
 ---
 
 # <a name="target-typed-new-expressions"></a>ターゲット型の `new` 式
@@ -39,37 +39,27 @@ XmlReader.Create(reader, new() { IgnoreWhitespace = true });
 private readonly static object s_syncObj = new();
 ```
 
-## <a name="detailed-design"></a>詳細なデザイン
+## <a name="specification"></a>仕様
 [design]: #detailed-design
 
-*Object_creation_expression*構文は、かっこが存在する場合に*型*を省略可能にするように変更されます。 これは、 *anonymous_object_creation_expression*のあいまいさを解決するために必要です。
+*Object_creation_expression*の*target_typed_new*新しい構文形式が受け入れられます。この*型*は省略可能です。
+
 ```antlr
 object_creation_expression
-    : 'new' type? '(' argument_list? ')' object_or_collection_initializer?
+    : 'new' type '(' argument_list? ')' object_or_collection_initializer?
     | 'new' type object_or_collection_initializer
+    | target_typed_new
+    ;
+target_typed_new
+    : 'new' '(' argument_list? ')' object_or_collection_initializer?
     ;
 ```
 
-ターゲット型の `new` は、任意の型に変換できます。 そのため、オーバーロードの解決には関与しません。 これは主に、予期しない重大な変更を回避するためのものです。
+*Target_typed_new*式に型がありません。 ただし、新しい*オブジェクト作成変換*は、 *target_typed_new*からすべての型に存在する式からの暗黙的な変換です。
 
-引数リストと初期化子式は、型が決定された後にバインドされます。
+`T`対象の型を指定すると、`T` が `System.Nullable`のインスタンスである場合、型 `T0` は `T`基になる型になります。 それ以外の場合は `T0` が `T`ます。 型 `T` に変換される*target_typed_new*式の意味は、型として `T0` を指定する、対応する*object_creation_expression*の意味と同じです。
 
-式の型は、次のいずれかである必要があるターゲット型から推論されます。
-
-- **任意の構造体型**(タプル型を含む)
-- **任意の参照型**(デリゲート型を含む)
-- コンストラクターまたは `struct` 制約を持つ**任意の型パラメーター**
-
-次の例外があります。
-
-- **列挙型:** すべての列挙型に定数ゼロが含まれていないため、明示的な enum メンバーを使用することをお勧めします。
-- **インターフェイス型:** これはニッチ機能であり、型を明示的に言及することをお勧めします。
-- **配列型:** 配列の長さを指定するには、特別な構文が必要です。
-- **動的:** `new dynamic()`は許可されていないため、`dynamic` を対象の型として `new()` することはできません。
-
-*Object_creation_expression*で許可されていないその他のすべての型も、ポインター型など、除外されます。
-
-対象の型が null 許容の値型である場合、対象の型指定された `new` は、null 許容型ではなく、基になる型に変換されます。
+単項演算子または二項演算子のオペランドとして*target_typed_new*が使用されている場合、または*オブジェクトの作成変換*の対象とならない場所で使用されている場合は、コンパイル時エラーになります。
 
 > **懸案事項を開く:** デリゲートとタプルをターゲットタイプとして許可する必要がありますか。
 
@@ -78,19 +68,25 @@ object_creation_expression
 (int a, int b) t = new(1, 2); // "new" is redundant
 Action a = new(() => {}); // "new" is redundant
 
-(int a, int b) t = new(); // ruled out by "use of struct default constructor"
+(int a, int b) t = new(); // OK; same as (0, 0)
 Action a = new(); // no constructor found
 ```
 
 ### <a name="miscellaneous"></a>その他
 
-`throw new()` は許可されていません。
+仕様の結果は次のようになります。
 
-ターゲット型の `new` は、バイナリ演算子では使用できません。
-
-対象となる型がない場合は、単項演算子、`foreach`のコレクションです。 `using`の場合、`await` 式では、匿名型のプロパティ (`new { Prop = new() }`)、`lock` ステートメント、`sizeof`演算子のオペランドとして、LINQ クエリ内では、`fixed` 演算子の左オペランドとして、動的にディスパッチされる操作 (`new().field`) において、ステートメントを使用して、ステートメントに含まれます。,  ...`someDynamic.Method(new())``is``??`
-
-また、`ref`として許可されていません。
+- `throw new()` が許可されています (ターゲットの種類は `System.Exception`)
+- ターゲット型の `new` は、バイナリ演算子では使用できません。
+- 対象となる型がない場合は、単項演算子、`foreach`のコレクションです。 `using`の場合、`await` 式では、匿名型のプロパティ (`new { Prop = new() }`)、`lock` ステートメント、`sizeof`演算子のオペランドとして、LINQ クエリ内では、`fixed` 演算子の左オペランドとして、動的にディスパッチされる操作 (`new().field`) において、ステートメントを使用して、ステートメントに含まれます。,  ...`someDynamic.Method(new())``is``??`
+- また、`ref`として許可されていません。
+- 次の種類の型は、変換のターゲットとして許可されていません。
+  - **列挙型:** `new()` は動作します (`new Enum()` が既定値を提供するために動作します) が、列挙型にコンストラクターがないため `new(1)` は機能しません。
+  - **インターフェイスの種類:** これは、COM 型の対応する作成式と同じように動作します。
+  - **配列型:** 配列の長さを指定するには、特別な構文が必要です。    
+  - **動的:** `new dynamic()`は許可されていないため、`dynamic` を対象の型として `new()` することはできません。
+  - **タプル:** これらは、基になる型を使用したオブジェクトの作成と同じ意味を持ちます。
+  - *Object_creation_expression*で許可されていないその他のすべての型も、ポインター型など、除外されます。   
 
 ## <a name="drawbacks"></a>短所
 [drawbacks]: #drawbacks
@@ -116,3 +112,4 @@ Action a = new(); // no constructor found
 - [LDM-2018-06-25](https://github.com/dotnet/csharplang/blob/master/meetings/2018/LDM-2018-06-25.md)
 - [LDM-2018-08-22](https://github.com/dotnet/csharplang/blob/master/meetings/2018/LDM-2018-08-22.md#target-typed-new)
 - [LDM-2018-10-17](https://github.com/dotnet/csharplang/blob/master/meetings/2018/LDM-2018-10-17.md)
+- [LDM-2020-03-25](https://github.com/dotnet/csharplang/blob/master/meetings/2020/LDM-2020-03-25.md)
